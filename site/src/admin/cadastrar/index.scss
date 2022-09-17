@@ -1,0 +1,240 @@
+.page-cadastrar{
+
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f2f2;
+    
+     height: 180vh;
+    
+
+
+     margin: 0;
+     padding: 0;
+
+     .containermar{
+        
+         display: flex;
+         flex-direction: row;
+     }
+    
+     .container1{
+
+         display: flex;
+         justify-content: center;
+         border: 1px solid red;
+         height: 40em;
+         width: 150px;
+         
+     }
+
+     .containerx{
+        margin-top: 1em;
+         background-color: white;
+         width: 800px;
+         height: 102%;
+         margin-left: 12em;
+       
+          border-radius: 10px;
+         display: flex;
+         align-items: center;
+         flex-direction: column;
+
+     }
+     .containercar{
+       
+         display: flex;
+         justify-content: center;
+         
+     }
+    
+     .containercar2{
+        
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;   
+         margin-left: 10em;
+
+     }
+     .containercar3{
+       margin-top: 4em;
+         display: flex;
+         text-align: center;
+         justify-content: space-evenly;
+         flex-direction: row;
+     }
+     .containercar4{
+       
+          width: 100%;
+          margin-top: 3em;
+          display: flex;
+          justify-content: space-evenly;
+          
+          
+          flex-direction: row;
+      }
+
+      .containercar5{
+        width: 100%;
+        margin-top: 3em;
+        display: flex;
+        justify-content: space-evenly;
+        
+        
+        flex-direction: row;
+
+      }
+      .containercar4 input{
+          border-radius: 5px;
+        border: 1px solid #168CBF;
+        height: 20px;
+        width: 70px;
+        outline: none;
+      }
+
+      .containercar5{
+        margin-top: 3em;
+
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          text-align: center;
+      }
+      .containercar5 button{
+          
+        margin-left: 3px;
+        text-align: center;
+        margin-top: 3px;
+          
+        padding: 5px 5px;
+      }
+     img:hover{
+         cursor: pointer;
+     }
+      .containercar5 button:hover{
+          
+          cursor: pointer;
+          color: white;
+          
+          background-color: #08374B;
+      }
+
+      .containercar6{
+          width: 100%;
+          margin-top: 3em;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+      }
+      .inputx{
+          outline: none;
+          width: 150px;
+      }
+
+     .containercar3 input{
+        border-radius: 5px;
+         border: 1px solid #168CBF;
+         height: 20px;
+         width: 70px;
+         outline: none;
+     }
+     .containercar3 div{
+         margin-left: 1em;
+     }
+     
+
+     .sub1{
+         display: flex;
+       
+         text-align: center;
+         align-items: center;
+         flex-direction: column;
+     }
+     .ss1{
+        background-color: #0B4E6B;
+        padding: 10px;
+        border-radius: 5px;
+        width: 100px;
+        width: 100px;
+
+     }
+     .sub1 img{
+      
+         width: 70px;
+         height: 70px;
+     }
+
+     .sub2{
+         display: flex;
+         
+         flex-direction: row;
+     }
+
+     .sub2 img{
+         margin-left: 5px;
+         border-radius: 5px;
+        background-color: #0B4E6B;
+        width: 40px;
+        height: 40px;
+    }
+
+    .sub3{
+        
+        display: flex;
+        justify-content: space-around;
+  
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .sub3 div{
+        
+        margin-top: 8px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .sub4{
+      
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .sub4 div{
+        text-align: center;
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .SX{
+        margin-top: 3em;
+
+    }
+    .SX button{
+        font-family: 'BebasNeue-Regular';
+        font-size: 20px;
+        border: none;
+        color: white;
+        padding: 15px 15px;
+        border-radius: 10px;
+        background-color:#1077A4 ;
+        
+    }
+
+    .SX button:hover{
+        cursor: pointer;
+        background-color:#1689bb ;
+        transition: 1s;
+        
+    }
+
+    form{
+        width: 100px;
+    }
+    
+
+
+}

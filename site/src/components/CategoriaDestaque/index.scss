@@ -1,0 +1,18 @@
+.Card{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    width: 200px;
+    height: 300px;
+    background-color: #007fa6a9;
+    border-radius: 20px;
+    color: black;
+    font-size: 30px;
+    text-align: center;
+
+    .direcao{
+        display: flex;
+        flex-direction: column;
+    }
+
+}

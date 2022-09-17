@@ -1,0 +1,24 @@
+.page-home{
+    border: 0;
+    box-sizing: border-box 0;
+    margin: 0;
+    padding: 0;
+    .titulo-landing{
+        text-align: center;
+        color: #0447c4;
+    }
+    .categoria-destaques{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .categoriadestaques{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    
+
+
+  
+}

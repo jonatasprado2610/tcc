@@ -1,0 +1,27 @@
+.pgae-marc{
+    
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    .c1{
+       
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+    }
+
+    img{
+        width: 13em;
+        height: 7em;
+      } 
+
+      h1{
+       
+        color: #0061BA;
+        font-size: 30px;
+        font-family: "BebasNeue-Regular";
+      }
+}
