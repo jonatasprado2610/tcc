@@ -6,6 +6,7 @@ import Carrossel from '../../components/carrssel';
 import 'react-multi-carousel/lib/styles.css';
 import CategoriaDestaque from '../../components/CategoriaDestaque';
 import CarrosselMarca from '../../components/carrosselMarca'; 
+import Rodape from '../../components/Rodape';
 
 export default function Home(){
     
@@ -42,8 +43,8 @@ export default function Home(){
             <div>
                 <CarrosselMarca/>
             </div>
-                
-            Rodapé
+
+            <Rodape className="roda"/>
         </main>
     )
 }

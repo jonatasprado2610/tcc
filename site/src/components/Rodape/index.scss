@@ -1,0 +1,42 @@
+.page-rodape{
+    margin-top: 100px;
+
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(189, 189, 189, 0.212);
+    .direcao-rodape{
+       
+        display: flex;
+        flex-direction: row;
+        padding: 60px;
+        justify-content: space-between;
+
+    }
+    .coluna-rodape{
+        display: flex;
+        flex-direction: column;
+    }
+    .titulo-rodape{
+        font-family: "Sen-Regular";
+        color:#005fb8;
+        font-size: 16px;
+    }
+    .texto-rodape{
+        color:#474747;
+        font-size: 14px;
+        margin-top: 10px;
+        font-family: "Sen-Regular";
+    }
+    .baixo{ 
+        text-align: center;
+        background-color: #0B4E6B;
+        color:white;
+        height: 150px;
+    }
+    .text{
+
+        margin: 56px;
+        font-size: 14px;
+        text-align: center;
+    }
+}
