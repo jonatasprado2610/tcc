@@ -1,6 +1,7 @@
 import './index.scss';
 import Cabecario from '../../components/cabeçario';
 import Carousel from 'react-multi-carousel';
+import OfertasDiarias from '../../components/ofertas diarias';
 import Carrossel from '../../components/carrssel';
 import 'react-multi-carousel/lib/styles.css';
 import CategoriaDestaque from '../../components/CategoriaDestaque';
@@ -15,9 +16,9 @@ export default function Home(){
         <Cabecario/>
             <Carrossel />
             <h1 className='titulo-landing'> Ofertas Diárias</h1>
+            <OfertasDiarias/>
 
-            Carrossel de produtos
-
+            
 
             <div className='categoriadestaques'>
                                 <h1 className='titulo-landing'> Categorias Em destaque</h1>
@@ -31,13 +32,13 @@ export default function Home(){
 
 
        
-            <h1 className='titulo-landing'> Item mais procurado</h1>
+            <h1 className='titulo-landing'> Itens mais procurados</h1>
   
-            Carrossel de produtos
+            <OfertasDiarias/>
 
             <h1 className='titulo-landing'> Melhores Marcas</h1>
 
-            Carrossel de Marcas
+        
             <div>
                 <CarrosselMarca/>
             </div>

@@ -1,0 +1,56 @@
+.page-oferta{
+
+     width: 100%;
+
+    
+   
+   
+
+
+    padding: 0;
+    margin: 0;
+
+
+    .card{
+     
+         margin-left: 2em;
+
+       width: 200px;
+       height: 300px;
+   
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cardmar{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    img{
+      
+        width: 190px;
+        height: 190px;
+    }
+
+    .c1{
+  
+        width: 170px;
+    }
+
+    p{
+        font-family:"IstokWeb-Bold.";
+    }
+
+    .c2{
+       
+      margin-top: 1px;
+        width: 105px;
+        text-align: center;
+    
+    }
+ 
+}
