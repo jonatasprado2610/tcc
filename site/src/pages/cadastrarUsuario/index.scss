@@ -1,0 +1,30 @@
+
+.page-cadrastause{
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+
+    .container1{
+        width: 500px;
+        border: 1px  solid red;
+        display: flex;
+        
+        flex-direction: column;
+    }
+    img{
+    border: 1px  solid red;
+    }
+    h1{
+        text-align: center;
+    }
+
+    .c1{
+        margin-top: 3em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
