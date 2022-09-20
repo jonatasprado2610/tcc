@@ -1,8 +1,8 @@
-import './index.scss';
 
 
 
-export default function LoginUsuario(){
+
+export default function LoginUsuarios(){
 
 
     return(

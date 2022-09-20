@@ -12,3 +12,14 @@ insert into tb_admin_login(DS_LOGIN, DS_SENHA)
       and DS_SENHA ='admin123';
   
   select * from tb_admin_login; 
+
+   insert into tb_usuario(NM_USUARIO,DT_NASCIMENTO , DS_RG, DS_CPF, ds_email, ds_senha )		
+    value('marco', '2012-02-11', '52.693.127-30', '464.136.198-30','teste@gmail.com','vasco123');
+    
+
+     select ID_USUARIO	 id,
+            ds_email    email,
+            ds_senha    senha
+	from tb_usuario 
+    where ds_email  =  'jonatasprado445@gmail.com'
+      and  ds_senha =  'vasco';

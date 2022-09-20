@@ -6,7 +6,7 @@ import Cadastrar from './admin/cadastrar';
 import PerfilADMIN from './admin/perfil';
 import Endereco  from './pages/cadastrarEndereco';
 import CadastarUsuario from './pages/cadastrarUsuario';
-import LoginUsuario from './pages/login';
+import LoginUsuarios from './pages/login';
 
 
 
@@ -16,7 +16,7 @@ export default function Rotas(){
             <Routes>
                 <Route path='/' element={<Home/>} />
                 <Route path='/loginadm' element={<Login/>} />
-                <Route path='/loginusu' element={<LoginUsuario/>} />
+                <Route path='/loginusu' element={<LoginUsuarios/>} />
                 <Route path='/cadastrar' element={<Cadastrar />} />
                 <Route path='/perfilADMIN' element={<PerfilADMIN/>} />
                 <Route path='/endereco' element={<Endereco/>} />
