@@ -1,0 +1,82 @@
+.page-loginusu{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-image: url('../../../public/assets/images/image b.png');
+   
+
+    .container1{
+        margin-top: 5em;
+        border-radius: 15px;
+        background-color: white;
+        padding: 15px;
+        display: flex;
+        height: 30em;
+         width: 20em;
+        flex-direction:column;
+    }
+    h1{
+        text-align: center;
+        font-family: 'BebasNeue-Regular';
+    }
+
+    h3{
+        margin-top: 2em;
+        font-family: 'BebasNeue-Regular';
+    }
+    .cx{
+        margin-top: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input{
+       
+        width: 300px;
+        border: none;
+        outline: 0;
+        border-bottom: 2px solid #0B4E6B;
+    }
+
+    button{
+        background-color: #0B4E6B;
+        color: white;
+      
+        padding: 11px 40px;
+        border: none;
+        font-family: 'BebasNeue-Regular';
+        font-size: 20px;
+        border-radius: 5px;
+    }
+
+    button:hover{
+        cursor: pointer;
+     background-color: #0e6286;
+     transform: scale(1.04);
+    
+ 
+ 
+    }
+
+    p{
+        margin-top: 1em;
+        text-align: center;
+        font-family: 'BebasNeue-Regular';
+    }
+
+
+    a{
+        font-family: 'BebasNeue-Regular';
+        color: #006FF2;
+    }
+
+    a:hover{
+        cursor: pointer;
+    }
+}
+
+

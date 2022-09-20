@@ -51,6 +51,15 @@ export default function CadastarUsuario(){
                      </div>
                  </div>
 
+                    <div className="c2">
+                        <button>
+                         Criar conta
+                        </button>
+                       
+                    </div>
+
+                    <p className="cx">Já tem uma conta? <a>Clique aqui </a>e faça login</p>
+
 
              </div>
 
