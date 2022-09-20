@@ -1,0 +1,24 @@
+
+
+.page-endereco {
+    display: flex;
+    flex-direction: column;
+
+    .div-dados{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .titulo-endereco{
+        font-family: "BebasNeue-Regular";
+        margin-bottom: 2em;
+        margin-top: 2em;
+        text-align: center;
+        color: #0447c4;
+    }
+    .div-botao{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
