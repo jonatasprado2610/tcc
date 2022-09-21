@@ -126,6 +126,7 @@
           flex-direction: row;
           justify-content: space-around;
       }
+      
       .inputx{
           outline: none;
           width: 150px;
@@ -169,6 +170,20 @@
          
          flex-direction: row;
      }
+
+      h1{
+        font-family:"BebasNeue-Regular";
+      }
+
+      h2{
+        font-family:"BebasNeue-Regular";
+        margin-bottom: 2em;
+      }
+
+      h3{
+        font-family:"BebasNeue-Regular";
+        margin-bottom: 1em;
+      }
 
      .sub2 img{
          margin-left: 5px;

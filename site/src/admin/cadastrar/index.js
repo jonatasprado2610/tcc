@@ -99,6 +99,23 @@ export default function Cadastrar(){
                  </div>
 
                  <div className="containercar5">
+
+                    <div>
+                    <label>Tamanhos pra roupa</label>
+                        <select>
+                        <option selected disabled hidden>Selecione</option>
+                        <option>PP</option>
+                        <option>P</option>
+                        <option>M</option>
+                        <option>G</option>
+                        <option>GG</option>
+
+
+
+
+                        </select>
+                        <button>+</button>
+                    </div>
                     
 
                      <div className="sub3">
@@ -117,6 +134,23 @@ export default function Cadastrar(){
                      
                     
                      </div>
+
+                     <div>
+                    <label>Tamanhos</label>
+                        <select>
+                        <option selected disabled hidden>Selecione</option>
+                        <option>30</option>
+                        <option>32</option>
+                        <option>34</option>
+                        <option>36</option>
+                        <option>40</option>
+                        <option>42</option>
+                        <option>44</option>
+
+
+                        </select>
+                        <button>+</button>
+                    </div>
                      
                     
 
@@ -130,11 +164,14 @@ export default function Cadastrar(){
                              <h3>Cadastrar uma nova cor </h3>
                              <input className="inputx" type="text" placeholder="nome" />
                              <input type="color" />
+
+                             <button>+</button>
                          </div>
 
                          <div>
                            <h3>-cores- Cadastradas</h3>
                            <div>
+
                                  <select name="selecionar uma cor">
                                         <option > SlateBlue	#6A5ACD</option>
                                         <option > SlateBlue	#6A5ACDc</option>
@@ -143,8 +180,8 @@ export default function Cadastrar(){
                                         <option > SlateBlue	#6A5ACDa</option>
                                         <option > SlateBlue	#6A5ACD</option>
                                         <option > SlateBlue	#6A5ACD</option>
-                           </select>
-                           <button>add</button>
+                              </select>
+                           <button>+</button>
                                       
                            </div>
                          
