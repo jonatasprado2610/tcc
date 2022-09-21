@@ -14,10 +14,10 @@ export default function Cadastrar(){
         <div className="containermar">
 
             <div className="container1">
-                <p>aaa</p>
-                <p>aaa</p>
-                <p>aaa</p>
-                <p>aaa</p>
+                    <p>aaa</p>
+                    <p>aaa</p>
+                    <p>aaa</p>
+                    <p>aaa</p>
 
 
             </div>
@@ -99,19 +99,7 @@ export default function Cadastrar(){
                  </div>
 
                  <div className="containercar5">
-                     <div>
-                         <h3>Tamanho Pra Roupa</h3>
-                         <div className="sub4">
-                             <div>
-                                 <button>P</button>
-                                 <button>M</button>
-                             </div>
-                             <div>
-                                 <button>G</button>
-                                 <button>GG</button>
-                             </div>
-                         </div>
-                     </div>
+                    
 
                      <div className="sub3">
                          <div>
@@ -130,21 +118,7 @@ export default function Cadastrar(){
                     
                      </div>
                      
-                     <div>
-                         <h3>Tamanho para tenis</h3>
-                         <div>
-                             <button>20</button> <button>22</button>  <button>24</button> <button>26</button> <button>28</button>
-                            
-                         </div>
-                         <div>
-                            <button>30</button> <button>32</button>  <button>34</button> <button>36</button> <button>38</button>
-                         </div>
-
-                         <div>
-                            <button>40</button> <button>42</button>  <button>44</button> <button>46</button> <button>48</button>
-                         </div>
-                       
-                     </div>
+                    
 
                      
 

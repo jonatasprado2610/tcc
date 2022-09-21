@@ -1,5 +1,5 @@
 create database tccDB;
-
+drop database  tccDB;
 
 USE tccDB;
 
@@ -116,8 +116,10 @@ create table tb_usuario(
 ID_USUARIO						int primary key auto_increment,
 NM_USUARIO						varchar(150),
 DT_NASCIMENTO					date,
-DS_RG							int(15),
-DS_CPF							int(15)
+DS_RG							varchar(100),
+DS_CPF							varchar(100),
+ds_email varchar(100),
+ds_senha varchar(100)
 );
 
 create table tb_usuario_endereco(

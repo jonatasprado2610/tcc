@@ -4,7 +4,7 @@ import adminController from './controller/adminController.js';
 import usuarioController from './controller/usuarioController.js';
 import marcaController from './controller/marcacontroller.js'
 import categoriaController from './controller/categoriaController.js'
-import produtoController from './controller/produtoController'
+import produtoController from './controller/produtoController.js'
 
 import express from 'express'
 import cors from 'cors'

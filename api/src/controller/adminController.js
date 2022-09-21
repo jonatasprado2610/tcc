@@ -2,7 +2,7 @@
 import { Router } from "express";
 const server = Router();
 
-import { loginAdm } from "../repository/Adminreposutory.js";
+import { loginAdm } from "../repository/Adminrepository.js";
 
 server.post('/admin/login', async (req, resp) =>{
     try{
