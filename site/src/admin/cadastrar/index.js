@@ -1,4 +1,7 @@
 import './index.scss'
+import { Link } from 'react-router-dom'
+import storage from 'local-storage'
+import { useNavigate } from 'react-router-dom'
 import CabecarioAdmin from '../../components/cabeçarioAdmin'
 
 
@@ -6,9 +9,20 @@ import CabecarioAdmin from '../../components/cabeçarioAdmin'
 
 export default function Cadastrar(){
 
+    const navigate = useNavigate();
+
+    function sairClick(){
+        storage.remove('usuario-logado')
+            navigate('/loginadm');
+    }
+
 
     return(
         <main className='page-cadastrar'> 
+        <div onClick={sairClick}>
+              <Link to="/loginadm">Sair</Link> 
+        </div>
+     
         <CabecarioAdmin/>
 
         <div className="containermar">
@@ -195,6 +209,7 @@ export default function Cadastrar(){
 
 
             </div>
+            
             </div>
        
 

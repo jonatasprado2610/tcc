@@ -1,13 +1,20 @@
 
 import {  useNavigate } from 'react-router-dom';
 import { loginADM } from '../../api/adminApi';
+import storage from 'local-storage'
 
 import LoadingBar  from 'react-top-loading-bar'
-import { useState ,useRef} from 'react';
+import { useState ,useRef, useEffect} from 'react';
 
 
 import './index.scss'
 import '../../common/common.scss'
+
+   
+
+
+
+
 
 
 export default function Login(){
@@ -19,6 +26,13 @@ export default function Login(){
     const navigate= useNavigate();
 
     const ref = useRef();
+
+    useEffect(() =>{
+        if(!storage('usuario-logado')){
+                navigate('/loginadm')
+        }
+ 
+    }, [])
     
 
         async function entrarClick(){
@@ -28,6 +42,8 @@ export default function Login(){
          
         try{
             const r = await  loginADM(login,senha);
+           
+            storage('usuario-logado',r)
 
 
         setTimeout(() => {

@@ -8,7 +8,7 @@ import loginUsuario from './pages/login';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-        <Filtros />
+        <Rotas />
   </React.StrictMode>
 );
 
