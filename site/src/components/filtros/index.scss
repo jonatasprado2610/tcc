@@ -1,0 +1,30 @@
+.page-filtros{
+
+    display: flex;
+    flex-direction: column;
+
+    .c1{
+
+        border: 1px solid red;
+        height: 150px;
+        width: 160px;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        
+        margin-left: 2em;
+    }
+    .c2{
+        margin-top: 0.5em;
+        margin-left: 0.5em;
+        display: flex;
+        flex-direction: row;
+    }
+
+
+    h3{
+          
+        margin-left: 2em;
+    }
+
+}
