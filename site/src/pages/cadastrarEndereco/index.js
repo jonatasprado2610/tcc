@@ -1,8 +1,12 @@
 import Cabecario from "../../components/cabeçario";
 import Rodape from "../../components/Rodape";
 import './index.scss';
+import {useState} from 'react';
+
+
 
 export default function Endereco () {
+    const [casaap, setCasaap] = useState('');
     return (
         <section className="page-endereco">
             <Cabecario></Cabecario>
@@ -11,7 +15,9 @@ export default function Endereco () {
                 <div className="div-dados">
                     <div>
                         <h3>CASA OU APARTAMENTO:</h3>
+                        <input type='text' number={casaap} onChange={e => setCasaap(e.target.value)} />
                         <h3>RUA:</h3>
+                      
                         <h3>NÚMERO:</h3>
                     </div>
                     <div>

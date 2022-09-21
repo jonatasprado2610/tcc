@@ -9,7 +9,6 @@ import CadastarUsuario from './pages/cadastrarUsuario';
 import LoginUsuarios from './pages/login';
 
 
-
 export default function Rotas(){
     return(
         <BrowserRouter>
