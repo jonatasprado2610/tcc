@@ -20,11 +20,38 @@ export async function novoProduto(produto) {
     return resp.insertId;
 }
 
-export async function salvarProdutoCategoria(idProduto, idCategoria) {
+export async function salvarProdutoCategoria(idCategoria, idProduto) {
     const comando = `
-        insert into tb_produto_categoria (id_categoria, id_produto)
+        insert into tb_produto_categoria (ID_CATEGORIA, ID_PRODUTO)
                                   values (?, ?)
     `
 
     const [resp] = await con.query(comando, [idCategoria, idProduto])
+}
+
+export async function salvarProdutoCor(idCor, idProduto, DS_COR) {
+    const comando = `
+        insert into tb_produto_cor (ID_PRODUTO_COR, ID_PRODUTO, DS_COR)
+                                  values (?, ?,? )
+    `
+
+    const [resp] = await con.query(comando, [idCor, idProduto, DS_COR])
+}
+
+export async function salvarProdutoTamanho(idTamanho, idProduto, DS_TAMANHO) {
+    const comando = `
+        insert into tb_produto_tamanho (ID_PRODUTO_TAMANHO, ID_PRODUTO, DS_TAMANHO)
+                                  values (?, ?, ?)
+    `
+
+    const [resp] = await con.query(comando, [idTamanho, idProduto, DS_TAMANHO])
+}
+
+export async function salvarProdutoMarca( idMarca, idProduto, NM_MARCA) {
+    const comando = `
+        insert into tb_produto_cor (ID_PRODUTO_MARCA, ID_PRODUTO, NM_MARCA)
+                                  values (?, ?, ?)
+    `
+
+    const [resp] = await con.query(comando, [idMarca, idProduto, NM_MARCA])
 }

@@ -1,4 +1,4 @@
-import { listarTamanhos } from "../repository/tamanhoRepository";
+import { listarTamanhos } from "../repository/tamanhoRepository.js";
 
 
 import { Router } from "express";

@@ -3,19 +3,74 @@ import { Link } from 'react-router-dom'
 import storage from 'local-storage'
 import { useNavigate } from 'react-router-dom'
 import CabecarioAdmin from '../../components/cabeçarioAdmin'
-
-
-
+import { useState, useEffect } from 'react'
+import { listarMarcas } from '../../api/marca'
+import { listarCategorias } from '../../api/categoria'
+import { salvarProduto } from '../../api/produto'
 
 export default function Cadastrar(){
 
-    const navigate = useNavigate();
+        const navigate = useNavigate();
+        const [nome, setNome] = useState('');
+        const [precoDe, setPrecoDe] = useState();
+        const [precoPor, setPrecoPor] = useState();
+        const [maxParcelas, setMaxParcelas] = useState();
+        const [qtdItens, setQtdItens] = useState();
+        const [categoriaDiaria, setCategoriaDiaria] = useState(false);
+        const [descricao, setDescricao] = useState('');
+        const [idCategoria, setIdCategoria] = useState();
+        const [categorias, setCategorias] = useState('');
+        const [marcas, setMarcas] = useState('');
+        const [tamanho, setTamanho] = useState('');
+
+        const [catSelecionadas, setCatSelecionadas] = useState([]);
+
 
     function sairClick(){
         storage.remove('usuario-logado')
             navigate('/loginadm');
     }
 
+    async function salvar() {
+        try {
+            const prevoProduto = Number(precoDe.replace(',', '.'));
+
+            const r = await salvarProduto (nome, precoDe, precoPor, maxParcelas,qtdItens,categoriaDiaria,descricao, catSelecionadas);
+            alert('Produto cadastrado com sucesso');
+        }
+        catch (err) {
+            alert(err.response.data.erro);
+        }
+    }
+
+
+    function buscarNomeCategoria(id) {
+        const cat = categorias.find(item => item.id == id);
+        return cat.categoria;
+    }
+
+
+    async function carregarMarcas() {
+        const r = await listarMarcas();
+        setMarcas(r);
+    }
+
+    async function carregarCategorias() {
+        const r = await listarCategorias();
+        setCategorias(r);
+    }
+
+        function adicionarCategoria() {
+        if (!catSelecionadas.find(item => item == idCategoria)) {
+            const categorias = [...catSelecionadas, idCategoria];
+            setCatSelecionadas(categorias);
+        }
+    }
+
+    useEffect(() => {
+        carregarCategorias();
+        carregarMarcas();
+    }, [])
 
     return(
         <main className='page-cadastrar'> 
@@ -38,7 +93,10 @@ export default function Cadastrar(){
 
             <div className="containerx">
                 <div><h2>Cadastrar produto</h2></div>
-
+                <div className='containercar3'>
+                    <h3> Nome Produto: </h3> 
+                    <input type='text' placeholder='Produto x' value={nome} onChange={e => setNome(e.target.value) } />
+                </div>
                  <div className="containercar">
                      <div className="sub1">
                          <h3>Imagem Principal</h3>
@@ -76,19 +134,19 @@ export default function Cadastrar(){
                  <div  className="containercar3">
                      <div>
                          <h3>Valor Inicial</h3>
-                         <input type="text" placeholder='R$' />
+                         <input type="text" placeholder='R$' value={precoDe} onChange={e => setPrecoDe(e.target.value) } />
                      </div>
                      <div>
                          <h3>Valor Parcelado</h3>
-                         <input type="text" placeholder='R$' />
+                         <input type="text" placeholder='R$' value={precoPor} onChange={e => setPrecoPor(e.target.value) } />
                      </div>
                      <div>
                          <h3>max de parcelas</h3>
-                         <input type="text"  />
+                         <input type="text"  value={maxParcelas} onChange={e => setMaxParcelas(e.target.value) } />
                      </div>
                      <div>
                          <h3>Oferta diária</h3>
-                         <input type="checkbox" />
+                         <input type="checkbox" value={categoriaDiaria} onChange={e => setCategoriaDiaria(e.target.value) } />
                      </div>
 
                  </div>
@@ -96,7 +154,7 @@ export default function Cadastrar(){
                  <div className="containercar4">
                      <div>
                          <h3>Quantidade Disponivel</h3>
-                         <input type="text" />
+                         <input type="text" value={qtdItens} onChange={e => setQtdItens(e.target.value) }/>
                      </div>
                      <div>
                          <h3>Marca</h3>
@@ -204,7 +262,7 @@ export default function Cadastrar(){
                      </div>
                                        
                  <div className="SX">
-                     <button>Cadastrar Produto</button>
+                     <button onClick={salvar}>Cadastrar Produto</button>
                  </div>
 
 

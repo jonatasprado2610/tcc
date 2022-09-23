@@ -5,6 +5,8 @@ import usuarioController from './controller/usuarioController.js';
 import marcaController from './controller/marcacontroller.js'
 import categoriaController from './controller/categoriaController.js'
 import produtoController from './controller/produtoController.js'
+import tamanhoController from './controller/tamanhoController.js'
+import corController from './controller/corController.js'
 
 import express from 'express'
 import cors from 'cors'
@@ -21,6 +23,9 @@ server.use(usuarioController)
 server.use(marcaController)
 server.use(categoriaController)
 server.use(produtoController)
+server.use(tamanhoController)
+server.use(corController)
+
 
 
 

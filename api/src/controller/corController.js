@@ -1,4 +1,4 @@
-import { listarCores } from "../repository/corRepository";
+import { listarCores } from "../repository/corRepository.js";
 
 
 import { Router } from "express";
