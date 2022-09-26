@@ -72,16 +72,7 @@ export default function Rodape() {
                     </p>
                 </div>
 
-                <div>
-                    <h1 className='titulo-rodape'>
-                        CONHEÇA NOSSAS LOJAS
-                    </h1>
-                    <p className='texto-rodape'>
-                        Encontre uma Myriad
-                    </p>
-
-
-                </div>
+                
             </div>
             <div className='baixo'>
                 <p className='text'>

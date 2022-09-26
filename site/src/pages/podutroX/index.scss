@@ -1,6 +1,11 @@
 .page-px{
-margin: 0;
-border: 1px solid red;
+    width: 100%;
+    margin: 0;
+    border: 0;
+    
+    overflow-x: hidden;
+   
+
     .img1{
           
           justify-content: center;
@@ -10,7 +15,7 @@ border: 1px solid red;
 
     .sux{
         margin-top: 3em;
-        border: 1px solid rgb(38, 0, 255);
+       
         
         height: 20em;
         width: 15em;
@@ -24,26 +29,54 @@ border: 1px solid red;
     }
 
     .container1{
-        border: 1px solid rgb(38, 0, 255);
+        
+        width: 99%;
         margin-top: 3em;
         display: flex;
         flex-direction: row;
          justify-content: space-around;
         
     }
+    .p3{
+        font-family:"BebasNeue-Regular";
+        font-size: 40px;
+        text-align: center;
+        
+        
+    }
     h1{
+      
         width: 409px;
         font-family:"BebasNeue-Regular";
     }
+    
     .container2{
+        width: 99%;
+        border-radius: 20px;
         padding: 5px;
         width: 22em;
-        border: 1px solid aqua;
-        text-align: start;
+        border: 2px solid #4A4A4A;
+        
+    }
+    .container3{
+        width: 99%;
+        margin-top: 1em;
+        display: flex;
+      
+        height: 20em;
+        
+        flex-direction: column;
     }
 
     .sub2{
-        margin-left: 1.5em;
+        padding: 5px;
+        margin-left: 0.5em;
+    }
+
+    .sub2 p{
+        font-family:"IstokWeb-Regular";
+        line-height: 17px;
+        
     }
 
     .preço1{
@@ -58,16 +91,178 @@ border: 1px solid red;
     }
 
     .sub3{
+        margin-top: 0.5em;
         display: flex;
         flex-direction:row;
-        justify-content: space-around;
+        justify-content: space-between;
     }
+    .sub4{
+        margin-top: 0.5em;
+        display: flex;
+        flex-direction: row;
+    }
+    .sub5{
+        margin-top: 1.5em;
+        text-align: center;
+    align-items: center;
+    }
+    .sub6{
+        margin-top: 1em;
+        display: flex;
+        flex-direction: row;
+    }
+    .sub6 p {
+        font-family:"IstokWeb-Regular";
+        line-height: 17px;
+        margin-left: 0.5em;
+    }
+
+    .sub7{
+       
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .sub8{
+        border: 1px solid #747474;
+        margin-top: 3em;
+        margin-left: 3em;
+        border-radius: 3px;
+        padding: 5px;
+        
+    }
+    input{
+        width: 25em;
+        outline: none;
+        padding: 5px 5px;
+        border: 1px solid #747474;
+        border-radius: 1px;
+    }
+
+
+    .sub8 button{
+        cursor: pointer;
+        margin-left: 3em;
+        margin-top: 0.5em;
+        padding: 10px 10px;
+        
+        color: white;
+        background-color: #0B4E6B;
+        border-radius: 10px;
+    }
+    .sub8 button:hover{
+        background-color: #0b658b;
+    }
+
+    .sub8 h3{
+        margin-left: 0.5em;
+        font-family:"BebasNeue-Regular";
+    }
+    .sub9 h3{
+        margin-left: 0.5em;
+        font-family:"BebasNeue-Regular";
+    }
+    .sub8 p{
+      
+        width: 25em;
+    
+    }
+    .sub9{
+        border: 1px solid #747474;
+      border-radius: 5px;
+        margin-top: 3em;
+        margin-right: 3em;
+        padding: 5px;
+       
+    }
+    .sub9 p{
+      
+        width: 25em;
+    }
+    .p2{
+        color: #0151CA;
+    }
+    .bt1{
+        cursor: pointer;
+        margin-left: 0.5em;
+    }
+    .bt1:hover{
+        color: white;
+        background-color: #0B4E6B;
+    }
+
+    .bt2{
+        padding: 20px 50px;
+        font-size: 20px;
+        color: white;
+        background-color: #0B4E6B;
+        border-radius: 10px;
+
+    }
+
+    .bt2:hover{
+        cursor: pointer;
+        background-color: #1077A4
+    }
+
+    .bt3{
+        margin-top: 0.5em;
+        padding: 20px 22px;
+        font-size: 20px;
+        color: white;
+        background-color: #0B4E6B;
+        border-radius: 10px;
+
+    }
+    .subdes{
+        margin-top: 2em;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+          justify-content: center;
+    }
+    .subdes p {
+        font-family:"IstokWeb-Regular";
+        border: 1px solid #747474;
+        padding: 5px;
+        background-color: #F8F8F8;
+        border-radius: 5px;
+    }
+
+    .subx1{
+      
+        display: flex;
+        flex-direction: column;
+        margin-top: 6em;
+        
+        align-items: center;
+    }
+
+    .subx1 h1{
+       text-align: center;
+    }
+    .p1{
+      
+        width: 500px;
+       
+    }
+
+    .bt3:hover{
+        cursor: pointer;
+        background-color: #1077A4
+    }
+    
     h4{
         font-family:"IstokWeb-Regular";
     }
     select{
+        padding: 1px;
+        outline: none;
         border-radius: 5px;
-        
+        width: 10em;
         border: 1px solid #747474;
     }
     
