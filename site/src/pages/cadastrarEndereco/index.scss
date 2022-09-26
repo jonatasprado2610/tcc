@@ -4,10 +4,8 @@
     display: flex;
     flex-direction: column;
 
-    .div-dados{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
+    .div-subgeral {
+        padding-top: 2em;
     }
     .titulo-endereco{
         font-family: "BebasNeue-Regular";
@@ -16,9 +14,55 @@
         text-align: center;
         color: #0447c4;
     }
+
+    .div-dados{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        
+        height: 30em;
+        
+    }
+    .dds {
+        display: flex;
+        flex-direction: column;
+        height: 25em;
+        justify-content: space-evenly;
+
+    }
+    .infos {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 3.5em;
+    }
+    h3 {
+        font-size: 2em;
+       
+    }
+    input{
+        width: 300px;
+        border: none;
+        outline: 0;
+        border-bottom: 2px solid #0B4E6B;
+    
+    }
+    
     .div-botao{
         display: flex;
         flex-direction: row;
-        align-items: center;
+        justify-content: center;
+
+        .botao{
+            background-color: #0B4E6B;
+            height: 4em;
+            width: 15em;
+            border-radius: 1em;
+        }
+        .texto-botao{
+            font-size: 1.5em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+        }
     }
 }

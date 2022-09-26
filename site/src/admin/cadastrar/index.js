@@ -146,7 +146,7 @@ export default function Cadastrar(){
                      </div>
                      <div>
                          <h3>Oferta diária</h3>
-                         <input type="checkbox" value={categoriaDiaria} onChange={e => setCategoriaDiaria(e.target.value) } />
+                         <input type="checkbox" value={categoriaDiaria} onChange={e => setCategoriaDiaria(e.target.checked) } />
                      </div>
 
                  </div>
