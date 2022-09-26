@@ -1,0 +1,82 @@
+.page-px{
+margin: 0;
+border: 1px solid red;
+    .img1{
+          
+          justify-content: center;
+          height: 200px;
+          width: 400px;
+    }
+
+    .sux{
+        margin-top: 3em;
+        border: 1px solid rgb(38, 0, 255);
+        
+        height: 20em;
+        width: 15em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sub1{
+        display: flex;
+        justify-content: center;
+    }
+
+    .container1{
+        border: 1px solid rgb(38, 0, 255);
+        margin-top: 3em;
+        display: flex;
+        flex-direction: row;
+         justify-content: space-around;
+        
+    }
+    h1{
+        width: 409px;
+        font-family:"BebasNeue-Regular";
+    }
+    .container2{
+        padding: 5px;
+        width: 22em;
+        border: 1px solid aqua;
+        text-align: start;
+    }
+
+    .sub2{
+        margin-left: 1.5em;
+    }
+
+    .preço1{
+        margin-top: 0.5em;
+        font-size: 30px;
+        font-family:"BebasNeue-Regular";
+    }
+    .preço2{
+        margin-top: 3px;
+       
+        font-family:"BebasNeue-Regular";
+    }
+
+    .sub3{
+        display: flex;
+        flex-direction:row;
+        justify-content: space-around;
+    }
+    h4{
+        font-family:"IstokWeb-Regular";
+    }
+    select{
+        border-radius: 5px;
+        
+        border: 1px solid #747474;
+    }
+    
+
+    .img2{
+        margin-top: 2em;
+        padding: 5px;
+        border-radius: 3px;
+        margin-left: 1em;
+        border: 1px solid #747474;
+    }
+}
