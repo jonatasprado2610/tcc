@@ -7,6 +7,10 @@ import PerfilADMIN from './admin/perfil';
 import Endereco  from './pages/cadastrarEndereco';
 import CadastarUsuario from './pages/cadastrarUsuario';
 import LoginUsuarios from './pages/login';
+import Produtrox from './pages/podutroX';
+import Estoque from './pages/estoque';
+import ProdutoEstoque from './components/produtoEstoque';
+
 
 
 export default function Rotas(){
@@ -20,6 +24,9 @@ export default function Rotas(){
                 <Route path='/perfilADMIN' element={<PerfilADMIN/>} />
                 <Route path='/endereco' element={<Endereco/>} />
                 <Route path='/cadastrarUsuario' element={<CadastarUsuario/>} />
+                <Route path='/produtoIndividual' element={<Produtrox/>}/>
+                <Route path='/estoque' element={<Estoque/>}/>
+                <Route path='/produtoestoque' element={<ProdutoEstoque/>}/>
             </Routes>
         </BrowserRouter>
     )
