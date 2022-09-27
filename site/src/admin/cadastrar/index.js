@@ -235,7 +235,7 @@ export default function Cadastrar(){
                          <div>
                              <h3>Cadastrar uma nova cor </h3>
                              <input className="inputx" type="text" placeholder="nome" />
-                             <input type="color" />
+                             
 
                              <button>+</button>
                          </div>
@@ -245,13 +245,13 @@ export default function Cadastrar(){
                            <div>
 
                                  <select name="selecionar uma cor">
-                                        <option > SlateBlue	#6A5ACD</option>
-                                        <option > SlateBlue	#6A5ACDc</option>
-                                        <option > SlateBlue	#6A5ACDc</option>
-                                        <option > SlateBlue	#6A5ACDc</option>
-                                        <option > SlateBlue	#6A5ACDa</option>
-                                        <option > SlateBlue	#6A5ACD</option>
-                                        <option > SlateBlue	#6A5ACD</option>
+                                        <option > SlateBlue	</option>
+                                        <option > SlateBlue</option>
+                                        <option > SlateBlue	</option>
+                                        <option > SlateBlue	</option>
+                                        <option > SlateBlue	</option>
+                                        <option > SlateBlue	</option>
+                                        <option > SlateBlue	</option>
                               </select>
                            <button>+</button>
                                       
@@ -259,6 +259,13 @@ export default function Cadastrar(){
                          
                                         
                          </div>
+                     </div>
+
+                     <div>
+                         <label>categoria</label>
+                         <select>
+                             <option></option>
+                         </select>
                      </div>
                                        
                  <div className="SX">
