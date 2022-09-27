@@ -1,14 +1,16 @@
-
-
 .page-endereco {
     display: flex;
     flex-direction: column;
 
     .div-subgeral {
-        padding-top: 2em;
+        padding-bottom: 4em;
+        padding-top: 3em;
+
     }
+
     .titulo-endereco{
         font-family: "BebasNeue-Regular";
+        font-size: 2em;
         margin-bottom: 2em;
         margin-top: 2em;
         text-align: center;
@@ -21,8 +23,8 @@
         justify-content: space-evenly;
         
         height: 30em;
-        
     }
+
     .dds {
         display: flex;
         flex-direction: column;
@@ -30,11 +32,12 @@
         justify-content: space-evenly;
 
     }
+
     .infos {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 3.5em;
+        height: 4.5em;
     }
     h3 {
         font-size: 2em;
@@ -45,24 +48,25 @@
         border: none;
         outline: 0;
         border-bottom: 2px solid #0B4E6B;
-    
     }
     
     .div-botao{
         display: flex;
         flex-direction: row;
         justify-content: center;
-
-        .botao{
-            background-color: #0B4E6B;
-            height: 4em;
-            width: 15em;
-            border-radius: 1em;
-        }
-        .texto-botao{
-            font-size: 1.5em;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            color: white;
-        }
     }
+
+    .botao{
+        background-color: #0B4E6B;
+        height: 4em;
+        width: 15em;
+        border-radius: 1em;
+    }
+
+    .texto-botao{
+        font-size: 1.5em;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: white;
+    }
+    
 }

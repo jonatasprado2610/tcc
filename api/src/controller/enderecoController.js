@@ -1,0 +1,1 @@
+import { CadastrarEndereco } from "../repository/enderecoRepository.js"; 

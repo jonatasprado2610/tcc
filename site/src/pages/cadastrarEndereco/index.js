@@ -6,7 +6,14 @@ import {useState} from 'react';
 
 
 export default function Endereco () {
+    const [rua, setRua] = useState('');
+    const [numero, setNumero] = useState('');
     const [casaap, setCasaap] = useState('');
+    const [cep, setCep] = useState('');
+    const [bloco, setBloco] = useState('');
+    const [complemento, setComplemento] = useState('');
+
+   
     return (
         <section className="page-endereco">
             <Cabecario></Cabecario>
@@ -14,31 +21,32 @@ export default function Endereco () {
                 <h1 className="titulo-endereco">Cadastrar novo endereço</h1>
                 <div className="div-dados">
                     <div className="dds">
-                        <div className="infos"> 
-                            <h3>CASA OU APARTAMENTO:</h3>
-                            <input type='text' number={casaap} onChange={e => setCasaap(e.target.value)} />
-                        </div>
+                       
                         <div className="infos">
                             <h3>RUA:</h3>
-                            <input type='text' number={casaap} onChange={e => setCasaap(e.target.value)} />
+                            <input type='text' value={rua} onChange={e => setRua(e.target.value)} />
                         </div>
                         <div className="infos">
                             <h3>NÚMERO:</h3>
-                            <input type='text' number={casaap} onChange={e => setCasaap(e.target.value)} />
+                            <input type='text'value={numero} onChange={e => setNumero(e.target.value)} />
+                        </div> 
+                        <div className="infos"> 
+                            <h3>CASA OU APARTAMENTO:</h3>
+                            <input type='text' value={casaap} onChange={e => setCasaap(e.target.value)} />
                         </div>
                     </div>
                     <div className="dds">
                         <div className="infos">
                             <h3>CEP:</h3>
-                            <input type='text' number={casaap} onChange={e => setCasaap(e.target.value)} />
+                            <input type='text' value={cep} onChange={e => setCep(e.target.value)} />
                         </div>
                         <div className="infos">        
                             <h3>BLOCO:</h3>
-                            <input type='text' number={casaap} onChange={e => setCasaap(e.target.value)} />
+                            <input type='text' value={bloco} onChange={e => setBloco(e.target.value)} />
                             </div>
                         <div className="infos">
                             <h3>COMPLEMENTO:</h3>
-                            <input className="input" type='text' number={casaap} onChange={e => setCasaap(e.target.value)} />
+                            <input type='text' value={complemento} onChange={e => setComplemento(e.target.value)} />
                         </div>
                     </div>
                    
