@@ -4,17 +4,14 @@
     flex-direction: column;
     background-color: #f3f2f2;
     
-     height: 180vh;
-    
-
-
-     margin: 0;
-     padding: 0;
+     height: 110vh;
+     margin: 0px;
+     padding: 0px;
 
      .containermar{
-        
          display: flex;
          flex-direction: row;
+         justify-content: space-between;
      }
     
      .container1{

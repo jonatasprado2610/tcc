@@ -3,12 +3,15 @@ import { con } from "./connection.js";
 
 export async function novoProduto(produto) {
     const comando = `
-        insert into tb_produto (ID_CATEGORIA, NM_PRODUTO, VL_PRECO_DE,  VL_PRECO_POR, VL_MAX_PARCELAS ,QTD_ITENS ,BL_CATEGORIA_DIARIA , DS_DESCRICAO)
-                        values (?, ?, ?, ?, ?, ?, ?,? )
+        insert into tb_produto (ID_CATEGORIA, ID_MARCA, ID_TAMANHO, ID_COR, NM_PRODUTO, VL_PRECO_DE,  VL_PRECO_POR, VL_MAX_PARCELAS ,QTD_ITENS ,BL_CATEGORIA_DIARIA , DS_DESCRICAO)
+                        values (?, ?,?,?,?,?, ?, ?, ?, ?, ? )
     `
 
     const [resp] = await con.query(comando, [
                             produto.idCategoria,
+                            produto.idMarca,
+                            produto.idTamanho,
+                            produto.idCor,
                             produto.nome,
                             produto.precoDe,
                             produto.precoPor,

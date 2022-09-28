@@ -8,6 +8,7 @@ server.post('/admin/produto', async (req, resp) => {
         const produto = req.body;
 
         const idProduto = await novoProduto(produto);
+        const x = await salvarProdutoCategoria(produto);
         
         resp.status(204).send();
     }
