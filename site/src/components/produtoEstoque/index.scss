@@ -2,6 +2,11 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    
+    hr{
+        border: solid #000000 1px;
+        
+    }
 }
 
 .informacoesEstoque{
@@ -9,3 +14,4 @@
     flex-direction: row;
     justify-content:space-between ;
 }
+

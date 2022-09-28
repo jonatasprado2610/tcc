@@ -7,6 +7,7 @@ import categoriaController from './controller/categoriaController.js'
 import produtoController from './controller/produtoController.js'
 import tamanhoController from './controller/tamanhoController.js'
 import corController from './controller/corController.js'
+import enderecoController  from './controller/enderecoController.js'
 
 import express from 'express'
 import cors from 'cors'
@@ -25,6 +26,7 @@ server.use(categoriaController)
 server.use(produtoController)
 server.use(tamanhoController)
 server.use(corController)
+server.use(enderecoController)
 
 
 
