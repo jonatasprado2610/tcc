@@ -34,6 +34,7 @@
         width: 200px;
     }
     .sximg{
+        cursor: pointer;
          background-color: #0B4E6B;
          border-radius: 50px;
          padding: 2px;
@@ -54,8 +55,19 @@
     }
 
     .card{
+        
+        transition:  .3s;
          margin-top: 3em;
     }
+
+    .card:hover{
+        cursor: pointer;
+        width: 200px;
+        height: 200px;
+        transform: scale(1.05);
+        border: 0.0px solid rgb(230, 230, 230);
+        box-shadow: 10px 5px 5px rgb(179, 177, 177);
+   }
    
    
 }
