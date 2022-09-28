@@ -1,18 +1,20 @@
 .page-filtros{
-
+     margin-top: 2em;
     display: flex;
     flex-direction: column;
+    
 
     .c1{
-
-        border: 1px solid red;
+        border: 1px solid rgb(124, 121, 121);
+        border-radius: 5px;
+        
         height: 150px;
         width: 160px;
         overflow-y: scroll;
         display: flex;
         flex-direction: column;
         
-        margin-left: 2em;
+        margin-left: 1em;
     }
     .c2{
         margin-top: 0.5em;
@@ -22,14 +24,15 @@
     }
     .c3{
         
-        border: 1px solid red;
+        border: 1px solid rgb(124, 121, 121);
+        border-radius: 5px;
         height: 150px;
         width: 160px;
        
         display: flex;
         flex-direction: column;
         
-        margin-left: 2em;
+        margin-left: 1em;
 
     }
     input{
