@@ -20,13 +20,13 @@ server.use(express.json());
 
 // configuração dos endpoints
 server.use(adminController);
-server.use(usuarioController)
-server.use(marcaController)
-server.use(categoriaController)
-server.use(produtoController)
-server.use(tamanhoController)
-server.use(corController)
-server.use(enderecoController)
+server.use(usuarioController);
+server.use(marcaController);
+server.use(categoriaController);
+server.use(produtoController);
+server.use(tamanhoController);
+server.use(corController);
+server.use(enderecoController);
 
 
 

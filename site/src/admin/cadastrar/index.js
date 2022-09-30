@@ -7,6 +7,8 @@ import { useState, useEffect } from 'react'
 import { listarMarcas } from '../../api/marca'
 import { listarCategorias } from '../../api/categoria'
 import { salvarProduto } from '../../api/produto'
+import { listarTamanhos } from '../../api/tamanho'
+import { listarCores } from '../../api/cor'
 
 
 export default function Cadastrar() {
@@ -22,12 +24,16 @@ export default function Cadastrar() {
     const [idCategoria, setIdCategoria] = useState();
     const [categorias, setCategorias] = useState([]);
     const [idMarcas, setIdMarcas] = useState('');
-    const [marcas, setMarcas] = useState('');
+    const [marcas, setMarcas] = useState([]);
     const [idTamanho, setIdTamanho] = useState('');
-    const [tamanho, setTamanho] = useState('');
+    const [tamanho, setTamanho] = useState([]);
+    const [cor, setCor] = useState([]);
     const [idCor, setIdcor] = useState('');
 
     const [catSelecionadas, setCatSelecionadas] = useState([]);
+    const [marcasSelecionadas, setMarcasSelecionadas] = useState([]);
+    const [tamanhosSelecionados, setTamanhosSelecionados] = useState([]);
+    const [coresSelecionadas, setCoresSelecionadas] = useState([]);
 
 
     function sairClick() {
@@ -39,8 +45,11 @@ export default function Cadastrar() {
         try {
             const prevoProduto = Number(precoDe.replace(',', '.'));
 
-            const r = await salvarProduto(nome, precoDe, precoPor, maxParcelas, qtdItens, categoriaDiaria, descricao, catSelecionadas);
+            const r = await salvarProduto( nome, precoDe, precoPor, maxParcelas, qtdItens, categoriaDiaria, descricao,
+                 marcasSelecionadas, tamanhosSelecionados, coresSelecionadas, catSelecionadas );
             alert('Produto cadastrado com sucesso');
+
+
             console.log(r)
         }
         catch (err) {
@@ -55,16 +64,67 @@ export default function Cadastrar() {
         return cat.categoria;
     }
 
+    function buscarNomeTamanho(id) {
+        const tam = tamanho.find(item => item.id == id);
+        return tam.tamanho;
+    }
+
+    
+    function buscarNomeMarca(id) {
+        const marc = marcas.find(item => item.id == id);
+        return marc.marca;
+    }
+
+    
+    function buscarNomeCores(id) {
+        const co = cor.find(item => item.id == id);
+        return co.cor;
+    }
+
+
+    async function carregarCores() {
+        const respo = await listarCores();
+        setCor(respo);
+    }
+
+
+    async function carregarTamanhos() {
+        const resp = await listarTamanhos();
+        setTamanho(resp);
+    }
 
     async function carregarMarcas() {
-        const r = await listarMarcas();
-        setMarcas(r);
+        const re = await listarMarcas();
+        setMarcas(re);
     }
 
     async function carregarCategorias() {
         const r = await listarCategorias();
         setCategorias(r);
     }
+    
+    function adicionarMarcas() {
+        if (!marcasSelecionadas.find(item => item == idMarcas)) {
+            const marca = [...marcasSelecionadas, idMarcas];
+            setMarcasSelecionadas(marca);
+        }
+    }
+
+    function adicionarCores() {
+        if (!coresSelecionadas.find(item => item == idCor)) {
+            const cor = [...coresSelecionadas, idCor];
+            setCoresSelecionadas(cor);
+        }
+    }
+    
+    
+    function adicionarTamanhos() {
+        if (!tamanhosSelecionados.find(item => item == idTamanho)) {
+            const tamanhoss = [...tamanhosSelecionados, idTamanho];
+            setTamanhosSelecionados(tamanhoss);
+        }
+    }
+
 
     function adicionarCategoria() {
         if (!catSelecionadas.find(item => item == idCategoria)) {
@@ -76,6 +136,8 @@ export default function Cadastrar() {
     useEffect(() => {
         carregarCategorias();
         carregarMarcas();
+        carregarTamanhos();
+        carregarCores();
     }, [])
 
     return (
@@ -163,52 +225,75 @@ export default function Cadastrar() {
                             <input type="text" value={qtdItens} onChange={e => setQtdItens(e.target.value)} />
                         </div>
                         <div>
-                            <h3>Marca</h3>
-                            <select name="select">
-                                <option selected disabled hidden>Selecione</option>  
-                            </select>
-                            <button>+</button>
-                        </div>
-                        <div>
                             <h3>descricao</h3>
                             <textarea type="text" value={descricao} onChange={e => setDescricao(e.target.value)} />
                         </div>
+                        <div>
+                            <h3>Marca</h3>
+                            <select value={idMarcas} onChange={e => setIdMarcas(e.target.value)} name="select">
+                                <option selected hidden> Selecione </option>  
+                                {marcas.map(item =>
+                                    <option value={item.id}> {item.marca} </option>
+                                )}
+                            </select>
+                            <button  onClick={adicionarMarcas} >+</button>
+                        </div>
+                        <div className='cat-conteiner'>
+                            {marcasSelecionadas.map(id =>
+                                <div className='selecionados'>
+                                    {buscarNomeMarca(id)}
+                                </div>
+                            )}
+                        </div>
+                       
                     </div>
-  
-                    
-                    <div>
-
-                    
-
                     <div className="containercar6">
                     <div >
-                    <div>
                             <h3>Tamanhos </h3>
-                            <select>
-                                <option selected disabled hidden>Selecione</option>
+                            <select value={idTamanho} onChange={e => setIdTamanho(e.target.value)} >
+                                <option selected hidden> Selecione </option>
+                                
+                                        {tamanho.map(item =>
+                                            <option value={item.id}> {item.tamanho} </option>
+                                        )}
                             </select>
-                            <button>+</button>
+                            <button onClick={adicionarTamanhos} > +</button>
+                            
+                            <div className='cat-conteiner'>
+                            {tamanhosSelecionados.map(id =>
+                                <div className='selecionados'>
+                                    {buscarNomeTamanho(id)}
+                                </div>
+                            )}
+                        </div>
                         </div>
 
                         <div>
                             <h3>cores </h3>
                             <div>
-                                <select name="selecionar uma cor">
-                                    <option selected disabled hidden>Selecione</option>
+                                <select value={idCor} onChange={e => setIdcor(e.target.value)} name="selecionar-uma-cor">
+                                            <option selected hidden>Selecione</option>
+                                            {cor.map(item =>
+                                                <option value={item.id}> {item.cor} </option>
+                                            )}
                                 </select>
-                                <button>+</button>
-
-                            </div>
-
-
+                                <button onClick={adicionarCores}  >+</button>
+                                <div>
+                        <div className='cat-conteiner'>
+                            {coresSelecionadas.map(id =>
+                                <div className='selecionados'>
+                                    {buscarNomeCores(id)}
+                                </div>
+                            )}
                         </div>
+
                     </div>
-
-
+                            </div>
+                        </div>
                         <label>Categoria:</label>
                         <div className='gpo-categoria'>
                             <select value={idCategoria} onChange={e => setIdCategoria(e.target.value)} >
-                                <option selected disabled hidden>Selecione</option>
+                                <option selected hidden>Selecione</option>
 
                                 {categorias.map(item =>
                                     <option value={item.id}> {item.categoria} </option>
@@ -216,18 +301,19 @@ export default function Cadastrar() {
                             </select>
                             <button onClick={adicionarCategoria} className='btn-categoria'>+</button>
                         </div>
-                    </div>
+                    
                     <div>
                         <div className='cat-conteiner'>
                             {catSelecionadas.map(id =>
-                                <div className='cat-selecionada'>
+                                <div className='selecionados'>
                                     {buscarNomeCategoria(id)}
                                 </div>
                             )}
                         </div>
 
                     </div>
-                    </div>
+                       
+                </div>
                     <div className="SX">
                         <button onClick={salvar}>Cadastrar Produto</button>
                     </div>

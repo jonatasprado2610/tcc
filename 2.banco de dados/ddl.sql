@@ -3,25 +3,17 @@ drop database tccDB;
 show tables;
 USe tccDB;
 
+drop table tb_categoria;
 
 create table tb_produto (
 ID_PRODUTO						int primary key auto_increment,
-ID_CATEGORIA					int,
-ID_MARCA				int,
-ID_TAMANHO              int,
-ID_COR                  int,
 NM_PRODUTO						varchar(200),
 VL_PRECO_DE						decimal(15,2),
 VL_PRECO_POR					decimal(15,2),
 VL_MAX_PARCELAS					int,
 QTD_ITENS						int,
 BL_CATEGORIA_DIARIA				bool,
-DS_DESCRICAO					varchar(1000),
-foreign key (ID_CATEGORIA) references tb_categoria (ID_CATEGORIA),
-foreign key (ID_MARCA) references tb_marca(ID_MARCA),
-foreign key (ID_TAMANHO) references tb_tamanho(ID_TAMANHO),
-foreign key (ID_COR) references tb_cor(ID_COR)
-
+DS_DESCRICAO					varchar(1000)
 );
 
 create table tb_produto_categoria(
@@ -35,9 +27,7 @@ foreign key (ID_PRODUTO) references tb_produto(ID_PRODUTO)
 
 create table tb_categoria(
 ID_CATEGORIA					int primary key auto_increment,
-NM_CATEGORIA					varchar(100),
-IMG_CAPA						varchar(100),
-BL_DESTAQUE						boolean
+NM_CATEGORIA					varchar(100)
 );
 
 create table tb_produto_imagem(

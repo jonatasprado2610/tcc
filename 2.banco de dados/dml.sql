@@ -23,3 +23,15 @@ insert into tb_admin_login(DS_LOGIN, DS_SENHA)
 	from tb_usuario 
     where ds_email  =  'jonatasprado445@gmail.com'
       and  ds_senha =  'vasco';
+      
+      insert into tb_cor(DS_COR)
+      values ('preto');
+      
+        insert into tb_tamanho(DS_TAMANHO)
+      values ('GX');
+      
+        insert into tb_categoria(NM_CATEGORIA)
+      values ('');
+      
+              insert into tb_marca(NM_MARCA)
+      values ('ADIDAS')

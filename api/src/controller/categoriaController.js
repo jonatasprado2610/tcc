@@ -4,7 +4,6 @@ import { listarCategorias } from "../repository/categoriaRepository.js";
 import { Router } from "express";
 const server = Router();
 
-
 server.get('/api/categoria', async (req, resp) => {
     try {
         const linhas = await listarCategorias();
@@ -19,5 +18,3 @@ server.get('/api/categoria', async (req, resp) => {
 
 
 export default server;
-
-

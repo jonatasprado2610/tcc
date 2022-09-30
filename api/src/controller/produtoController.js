@@ -1,5 +1,13 @@
 import { Router } from 'express';
-import { novoProduto, salvarProdutoCategoria } from '../repository/produtoRepository.js';
+import {
+    novoProduto, salvarProdutoCategoria, salvarProdutoCor, salvarProdutoMarca,
+    salvarProdutoTamanho
+} from '../repository/produtoRepository.js';
+import { buscarCategoriaPorId } from '../repository/categoriaRepository.js';
+import { buscarCorPorId } from '../repository/corRepository.js';
+import { buscarTamanhoPorId } from '../repository/tamanhoRepository.js';
+import { buscarMarcaPorId } from '../repository/marcarepository.js';
+
 const server = Router();
 
 
@@ -7,9 +15,44 @@ server.post('/admin/produto', async (req, resp) => {
     try {
         const produto = req.body;
 
+        console.log(produto);
+
         const idProduto = await novoProduto(produto);
-        const x = await salvarProdutoCategoria(produto);
+
+
+        for (const idMarca of produto.marca) {
+            const cat = await buscarMarcaPorId(idMarca);
+
+            if (cat != undefined)
+                await salvarProdutoMarca(idMarca, idProduto);
+        }
+
+        for (const idTam of produto.tamanho) {
+            const cat = await buscarTamanhoPorId(idTam);
+
+            if (cat != undefined)
+                await salvarProdutoTamanho(idTam, idProduto);
+        }
+
+
+
+        for (const idCor of produto.cor) {
+            const cat = await buscarCorPorId(idCor);
+
+            if (cat != undefined)
+                await salvarProdutoCor(idCor, idProduto);
+        }
         
+        for (const idCateg of produto.categoria) {
+            const cat = await buscarCategoriaPorId(idCateg);
+
+            if (cat != undefined)
+                await salvarProdutoCategoria(idCateg, idProduto);
+        }
+
+
+       
+
         resp.status(204).send();
     }
     catch (err) {
@@ -18,7 +61,4 @@ server.post('/admin/produto', async (req, resp) => {
         })
     }
 })
-
-
-
 export default server;
