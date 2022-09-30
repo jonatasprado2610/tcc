@@ -9,6 +9,7 @@ import { listarCategorias } from '../../api/categoria'
 import { salvarProduto } from '../../api/produto'
 import { listarTamanhos } from '../../api/tamanho'
 import { listarCores } from '../../api/cor'
+import { toast } from 'react-toastify';
 
 
 export default function Cadastrar() {
@@ -34,7 +35,7 @@ export default function Cadastrar() {
     const [marcasSelecionadas, setMarcasSelecionadas] = useState([]);
     const [tamanhosSelecionados, setTamanhosSelecionados] = useState([]);
     const [coresSelecionadas, setCoresSelecionadas] = useState([]);
-
+    
 
     function sairClick() {
         storage.remove('usuario-logado')

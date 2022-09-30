@@ -29,6 +29,9 @@ server.post('/admin/produto', async (req, resp) => {
             if (cat != undefined)
                 await salvarProdutoMarca(idMarca, idProduto);
         }
+    
+           
+        
 
         for (const idTam of produto.tamanho) {
             const cat = await buscarTamanhoPorId(idTam);
