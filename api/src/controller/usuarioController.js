@@ -1,5 +1,6 @@
 import { CriarConta, LoginUsuario } from "../repository/usuarioRepository.js";
 import { Router } from "express";
+import { validarCadastro } from "../services/validarCadastro.js";
 const server = Router();
 
 
@@ -7,15 +8,17 @@ const server = Router();
 server.post('/criarconta', async (req, resp) =>{
       try{
            const  criconta = req.body;
-          
+           
+          await validarCadastro(criconta)
+         
 
            const x = await CriarConta(criconta);
            resp.send(x)
 
-
+         
       }catch(err){
         resp.status(400).send({
-            erro:err.message
+            erro: err.message
         });
    }
 

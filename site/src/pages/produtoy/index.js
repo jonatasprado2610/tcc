@@ -56,7 +56,9 @@ export default function Produtoy(){
                           </div>
                           <p>R$ 199,99</p>
                           <p>ou 4x de 55,99</p>                             
-                     </div><div className='card'>
+                     </div>
+                     
+                     <div className='card'>
                           <div className='sx3'>
                                 <img className='sximg' src='./assets/images/Star 14.png' alt=''/>
                                 <img className='sximg' src='./assets/images/carinho.png' alt=''/>
