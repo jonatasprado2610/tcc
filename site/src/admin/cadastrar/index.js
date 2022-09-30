@@ -48,13 +48,13 @@ export default function Cadastrar() {
 
             const r = await salvarProduto( nome, precoDe, precoPor, maxParcelas, qtdItens, categoriaDiaria, descricao,
                  marcasSelecionadas, tamanhosSelecionados, coresSelecionadas, catSelecionadas );
-            alert('Produto cadastrado com sucesso');
+            toast.dark('Produto cadastrado com sucesso');
 
 
             console.log(r)
         }
         catch (err) {
-            alert(err.response.data.erro);
+            toast.error(err.response.data.erro);
         }
 
     }
