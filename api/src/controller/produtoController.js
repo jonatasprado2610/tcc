@@ -7,6 +7,7 @@ import { buscarCategoriaPorId } from '../repository/categoriaRepository.js';
 import { buscarCorPorId } from '../repository/corRepository.js';
 import { buscarTamanhoPorId } from '../repository/tamanhoRepository.js';
 import { buscarMarcaPorId } from '../repository/marcarepository.js';
+import { validarProduto } from '../services/ValidarProduto.js';
 
 const server = Router();
 
@@ -15,6 +16,8 @@ server.post('/admin/produto', async (req, resp) => {
     try {
         const produto = req.body;
 
+        await validarProduto(produto);
+        
         console.log(produto);
 
         const idProduto = await novoProduto(produto);
@@ -57,6 +60,16 @@ server.post('/admin/produto', async (req, resp) => {
     }
     catch (err) {
         return resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.put('/admin/produto/:id', async (req, resp) => {
+    try{
+
+    }catch(err) {
+        resp.status(400).send({
             erro: err.message
         })
     }

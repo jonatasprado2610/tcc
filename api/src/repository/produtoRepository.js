@@ -59,3 +59,18 @@ export async function salvarProdutoMarca( idMarca, idProduto) {
 
     const [resp] = await con.query(comando, [idMarca, idProduto])
 }
+
+export async function alterarProduto(produto){
+    const comando = `
+    update tb_produto (NM_PRODUTO, VL_PRECO_DE,  VL_PRECO_POR, VL_MAX_PARCELAS ,QTD_ITENS ,BL_CATEGORIA_DIARIA , DS_DESCRICAO)
+    values (?,?, ?, ?, ?, ?, ? ) 
+    `
+    const [resp] = await con.query(comando, [ produto.nome,
+        produto.precoDe,
+        produto.precoPor,
+        produto.maxParcelas,
+        produto.qtdItens,
+        produto.categoriaDiaria,
+        produto.descricao ])
+        return resp.affectedRows;
+}
