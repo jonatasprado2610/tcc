@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import {
+    alterarImagem,
     alterarProduto,
     consultarMarcas,
     consultarProdutos,
@@ -11,8 +12,11 @@ import { buscarCorPorId } from '../repository/corRepository.js';
 import { buscarTamanhoPorId } from '../repository/tamanhoRepository.js';
 import { buscarMarcaPorId } from '../repository/marcarepository.js';
 import { validarProduto } from '../services/ValidarProduto.js';
+import multer from 'multer'
 
 const server = Router();
+const upload = multer({dest:'storage/imagesP'});
+
 
 
 server.post('/admin/produto', async (req, resp) => {
@@ -98,4 +102,20 @@ server.put('/admin/produto/:id', async (req, resp) => {
         })
     }
 })
+
+server.put('/admin/produto:id/imagem', upload.array('imgp','img2','img3','img4','img5') , async(req,resp) =>{
+    try{
+        const{id} = req.params;
+        const [imagem1,imagem2,imagem3,imagem4,imagem5] = req.file.path;
+        const resposta= await alterarImagem(imagem1,imagem2,imagem3,imagem4,imagem5,id)
+        if(resposta !=4)
+        throw new Error('A IMAGEM NAO PODE SER SALVA.');
+        resp.send(204).send();
+    }catch(err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
 export default server;

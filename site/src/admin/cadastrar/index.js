@@ -31,6 +31,12 @@ export default function Cadastrar() {
     const [cor, setCor] = useState([]);
     const [idCor, setIdcor] = useState('');
 
+    const [imagem1, setImagem1]= useState();
+    const [imagem2, setImagem2]= useState();
+    const [imagem3, setImagem3]= useState();
+    const [imagem4, setImagem4]= useState();
+    const [imagem5, setImagem5]= useState();
+
     const [catSelecionadas, setCatSelecionadas] = useState([]);
     const [marcasSelecionadas, setMarcasSelecionadas] = useState([]);
     const [tamanhosSelecionados, setTamanhosSelecionados] = useState([]);
@@ -134,6 +140,18 @@ export default function Cadastrar() {
         }
     }
 
+    function escolherImagem(inputId){
+        document.getElementById(inputId).click();
+    }
+    
+    function exibirImagem(imagem){
+        if(imagem== undefined){
+            return'./assets/images/bx_upload 1.png'
+        }else{
+               return URL.createObjectURL(imagem);
+        }
+        
+    }
     useEffect(() => {
         carregarCategorias();
         carregarMarcas();
@@ -170,7 +188,17 @@ export default function Cadastrar() {
                         <div className="sub1">
                             <h3>Imagem Principal</h3>
                             <div className="ss1">
-                                <img src="./assets/images/bx_upload 1.png" alt="" />
+
+                                <img src="./assets/images/bx_upload 1.png" alt="" onClick={()=>escolherImagem('imagem1')} />
+                              
+                                
+                            </div>
+                            <div>
+                            <input className='teste'  type='file' id='imagem1' onChange={e => setImagem1(e.target.files[0])}             />
+                            <input className='teste' type='file' id='imagem2' onChange={e => setImagem2(e.target.files[0])}             />
+                            <input className='teste'  type='file' id='imagem3' onChange={e => setImagem3(e.target.files[0])}             />
+                            <input className='teste'  type='file' id='imagem4' onChange={e => setImagem4(e.target.files[0])}             />
+                            <input className='teste' type='file' id='imagem5' onChange={e => setImagem5(e.target.files[0])}             />
                             </div>
                         </div>
 
@@ -179,19 +207,20 @@ export default function Cadastrar() {
                             <h3>Imagens secundarias</h3>
                             <div className="sub2">
                                 <div>
-                                    <img src="./assets/images/bx_upload 1.png" alt="" />
+                                    <img src="./assets/images/bx_upload 1.png" alt=""  onClick={()=>escolherImagem('imagem2')} />
+
                                 </div>
                                 <div>
-                                    <img src="./assets/images/bx_upload 1.png" alt="" />
+                                    <img src="./assets/images/bx_upload 1.png" alt="" onClick={()=>escolherImagem('imagem3')} />
                                 </div>
                             </div>
 
                             <div className="sub2">
                                 <div>
-                                    <img src="./assets/images/bx_upload 1.png" alt="" />
+                                    <img src="./assets/images/bx_upload 1.png" alt=""  onClick={()=>escolherImagem('imagem4')}/>
                                 </div>
                                 <div>
-                                    <img src="./assets/images/bx_upload 1.png" alt="" />
+                                    <img src="./assets/images/bx_upload 1.png" alt="" onClick={()=>escolherImagem('imagem5')} />
                                 </div>
                             </div>
 
