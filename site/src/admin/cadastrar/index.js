@@ -6,7 +6,7 @@ import CabecarioAdmin from '../../components/cabeçarioAdmin'
 import { useState, useEffect } from 'react'
 import { listarMarcas } from '../../api/marca'
 import { listarCategorias } from '../../api/categoria'
-import { salvarProduto } from '../../api/produto'
+import { salvarImagem, salvarProduto } from '../../api/produto'
 import { listarTamanhos } from '../../api/tamanho'
 import { listarCores } from '../../api/cor'
 import { toast } from 'react-toastify';
@@ -54,6 +54,9 @@ export default function Cadastrar() {
 
             const r = await salvarProduto( nome, precoDe, precoPor, maxParcelas, qtdItens, categoriaDiaria, descricao,
                  marcasSelecionadas, tamanhosSelecionados, coresSelecionadas, catSelecionadas );
+                 
+                 await salvarImagem(r.id, imagem1,imagem2,imagem2,imagem3,imagem4,imagem5);
+
             toast.dark('Produto cadastrado com sucesso');
 
 
@@ -189,7 +192,7 @@ export default function Cadastrar() {
                             <h3>Imagem Principal</h3>
                             <div className="ss1">
 
-                                <img src="./assets/images/bx_upload 1.png" alt="" onClick={()=>escolherImagem('imagem1')} />
+                                <img src={exibirImagem(imagem1)} alt="" onClick={()=>escolherImagem('imagem1')} />
                               
                                 
                             </div>
@@ -207,20 +210,20 @@ export default function Cadastrar() {
                             <h3>Imagens secundarias</h3>
                             <div className="sub2">
                                 <div>
-                                    <img src="./assets/images/bx_upload 1.png" alt=""  onClick={()=>escolherImagem('imagem2')} />
+                                    <img src={exibirImagem(imagem2)}alt=""  onClick={()=>escolherImagem('imagem2')} />
 
                                 </div>
                                 <div>
-                                    <img src="./assets/images/bx_upload 1.png" alt="" onClick={()=>escolherImagem('imagem3')} />
+                                    <img src={exibirImagem(imagem3)} alt="" onClick={()=>escolherImagem('imagem3')} />
                                 </div>
                             </div>
 
                             <div className="sub2">
                                 <div>
-                                    <img src="./assets/images/bx_upload 1.png" alt=""  onClick={()=>escolherImagem('imagem4')}/>
+                                    <img src={exibirImagem(imagem4)} alt=""  onClick={()=>escolherImagem('imagem4')}/>
                                 </div>
                                 <div>
-                                    <img src="./assets/images/bx_upload 1.png" alt="" onClick={()=>escolherImagem('imagem5')} />
+                                    <img src={exibirImagem(imagem5)} alt="" onClick={()=>escolherImagem('imagem5')} />
                                 </div>
                             </div>
 

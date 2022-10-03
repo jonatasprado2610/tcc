@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import {
-    alterarImagem,
+    
     alterarProduto,
     consultarMarcas,
     consultarProdutos,
-    novoProduto, salvarProdutoCategoria, salvarProdutoCor, salvarProdutoMarca,
+    novoProduto, salvarProdutoCategoria, salvarProdutoCor, salvarProdutoImagem, salvarProdutoMarca,
     salvarProdutoTamanho
 } from '../repository/produtoRepository.js';
 import { buscarCategoriaPorId } from '../repository/categoriaRepository.js';
@@ -14,8 +14,12 @@ import { buscarMarcaPorId } from '../repository/marcarepository.js';
 import { validarProduto } from '../services/ValidarProduto.js';
 import multer from 'multer'
 
+import { con } from '../repository/connection.js';
+
 const server = Router();
-const upload = multer({dest:'storage/imagesP'});
+const upload = multer({dest:'storage/produto'})
+
+
 
 
 
@@ -62,7 +66,9 @@ server.post('/admin/produto', async (req, resp) => {
             if (cat != undefined)
                 await salvarProdutoCategoria(idCateg, idProduto);
         }
-        resp.status(204).send();
+        resp.send({
+            id:idProduto
+        });
     }
     catch (err) {
         return resp.status(400).send({
@@ -103,19 +109,26 @@ server.put('/admin/produto/:id', async (req, resp) => {
     }
 })
 
-server.put('/admin/produto:id/imagem', upload.array('imgp','img2','img3','img4','img5') , async(req,resp) =>{
+server.put('/admin/produtoimg/:id', upload.array('imagens'), async (req,resp) =>{
     try{
-        const{id} = req.params;
-        const [imagem1,imagem2,imagem3,imagem4,imagem5] = req.file.path;
-        const resposta= await alterarImagem(imagem1,imagem2,imagem3,imagem4,imagem5,id)
-        if(resposta !=4)
-        throw new Error('A IMAGEM NAO PODE SER SALVA.');
-        resp.send(204).send();
+        const id = req.params.id;
+        const imagens = req.files;
+        console.log(imagens)
+
+        for(const imagem of imagens)
+        {
+               await salvarProdutoImagem(id, imagem.path);
+        }
+        resp.status(204).send();
+
+
+
     }catch(err) {
         resp.status(400).send({
             erro: err.message
         })
     }
+
 })
 
 export default server;

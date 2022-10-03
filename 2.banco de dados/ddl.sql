@@ -1,8 +1,8 @@
 create database tccDB;
 drop database tccDB;
 show tables;
-USe tccDB;
 
+USe tccDB;
 drop table tb_categoria;
 
 create table tb_produto (
@@ -30,10 +30,13 @@ ID_CATEGORIA					int primary key auto_increment,
 NM_CATEGORIA					varchar(100)
 );
 
+drop table  tb_produto_imagem;
+select * from  tb_produto_imagem;
+
 create table tb_produto_imagem(
 ID_PRODUTO_IMAGEM				int primary key auto_increment,
 ID_PRODUTO 						INT,
-IMG_PRODUTO						varchar(100),
+DS_IMAGEM				varchar(800),
 foreign key (ID_PRODUTO) references tb_produto(ID_PRODUTO)
 );
 

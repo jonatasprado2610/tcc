@@ -201,19 +201,15 @@ export async function alterarCategoria(categoria){
         return resp.affectedRows;
 }
 
-export async function alterarImagem(imagem1,imagem2,imagem3,imagem4,imagem5,id){
-  const comando = 
-  `
-  update tb_produto_imagem
-  set IMG_PRODUTOP =  ?
-   IMG_PRODUTO2 = ?,
-   IMG_PRODUTO3 =  ?,
-   IMG_PRODUTO4 =  ?,
-   IMG_PRODUTO5 =  ?'
-  where ID_PRODUTO = ? `;
-  
-  const [resposta]= await con.query(comando[imagem1,imagem2,imagem3,imagem4,imagem5,id]);
-  return resposta.affectedRows;
 
+export async function salvarProdutoImagem(idProduto, imagemPath) {
+    const comando =   
+    `insert into tb_produto_imagem (ID_PRODUTO, DS_IMAGEM)
+                                 values (?, ?)`
+    
+
+    const [resp] = await con.query(comando,[idProduto,imagemPath])
+
+    return resp.affectedRows
 }
 
