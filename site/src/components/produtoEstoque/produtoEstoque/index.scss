@@ -1,0 +1,38 @@
+.containerEstoque{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    
+    hr{
+        border: solid #959595 1px;
+        
+    }
+}
+
+.informacoesEstoque{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+.textoProduto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.Estoque{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+}
+
+.imagensEstoque{
+    display: flex;
+    flex-direction: row;
+    
+    align-items: center;
+    justify-content:space-around;
+
+}
+

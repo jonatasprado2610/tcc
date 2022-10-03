@@ -1,14 +1,14 @@
 import './index.scss'
 
 
-export default function estoqueProduto(){
+export default function EstoqueProduto(){
 
 
     return(
     <div className='containerEstoque'>
         <img src='./assets/images/image produtoEstoqueTESTE.png'/>
             
-            <div>
+            <div className='textoProduto'>
                 <div>Tênis Esportivo On Shoes Masculino/feminino</div>
                 <div className='informacoesEstoque'>
                     <div>ID: ?</div>
@@ -18,7 +18,16 @@ export default function estoqueProduto(){
             </div>
         <hr/>
 
-        <div></div>
+        <div className='Estoque'>
+            <div>Em Estoque:</div>
+
+            <div className='containerEstoque'> ? </div>
+        </div>
+
+        <div className='imagensEstoque'>
+            <img src='./assets/images/alterarEstoque.png'/>
+            <img src='./assets/images/apagarEstoque.png'/>
+        </div>
     </div>
         
         
