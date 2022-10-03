@@ -1,3 +1,8 @@
+section{
+    max-width: 50%;       
+     border: solid #959595 2px;
+}
+
 .containerEstoque{
     display: flex;
     flex-direction: row;
@@ -30,9 +35,10 @@
 .imagensEstoque{
     display: flex;
     flex-direction: row;
-    
     align-items: center;
-    justify-content:space-around;
-
+    
+    img{
+    margin-left: 10px;
+    }
 }
 

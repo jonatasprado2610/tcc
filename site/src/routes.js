@@ -9,7 +9,6 @@ import CadastarUsuario from './pages/cadastrarUsuario';
 import LoginUsuarios from './pages/login';
 import Produtrox from './pages/podutroX';
 import Estoque from './pages/estoque';
-import EstoqueProduto from './components/produtoEstoque/produtoEstoque';
 
 
 export default function Rotas(){
@@ -25,7 +24,6 @@ export default function Rotas(){
                 <Route path='/cadastrarUsuario' element={<CadastarUsuario/>} />
                 <Route path='/produtoIndividual' element={<Produtrox/>}/>
                 <Route path='/estoque' element={<Estoque/>}/>
-                <Route path='/produtoestoque' element={<EstoqueProduto/>}/>
             </Routes>
         </BrowserRouter>
     )
