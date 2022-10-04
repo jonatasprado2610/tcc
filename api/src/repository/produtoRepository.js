@@ -130,7 +130,7 @@ export async function consultarCategorias(){
 
 
 
-export async function alterarProduto(produto, id){
+export async function alterarProduto(id, produto){
     const comando = 
     `
          UPDATE     tb_produto 
@@ -210,6 +210,81 @@ export async function salvarProdutoImagem(idProduto, imagemPath) {
 
     const [resp] = await con.query(comando,[idProduto,imagemPath])
 
+    return resp.affectedRows
+}
+
+export async function buscarProdutos(){
+    const comando = `
+    select tb_produto.ID_PRODUTO as id,
+    NM_PRODUTO     as produto, 
+    VL_PRECO_DE    as preco,
+    QTD_ITENS      as quantidade,
+    NM_MARCA       as marca
+    from tb_produto 
+    inner join tb_produto_marca on tb_produto_marca.ID_PRODUTO = tb_produto.ID_PRODUTO
+    inner join tb_marca on tb_marca.ID_MARCA = tb_produto_marca.ID_MARCA 
+    `
+    const [registros] = await con.query(comando);
+    return registros;
+}
+
+export async function removerProdutoMarcas(idProduto) {
+    const comando = 
+        ` insert into tb_produto_marca ( ID_PRODUTO)
+                                  where ID_PRODUTO =  ? `
+    
+
+    const [resp] = await con.query(comando, [idProduto])
+    return resp.affectedRows
+}
+
+export async function removerProdutoTamanhos(idProduto) {
+    const comando = 
+        ` insert into tb_produto_tamanho ( ID_PRODUTO)
+                                  where ID_PRODUTO =  ? `
+    
+
+    const [resp] = await con.query(comando, [idProduto])
+    return resp.affectedRows
+}
+
+export async function removerProdutoCores(idProduto) {
+    const comando = 
+        ` insert into tb_produto_cor (ID_PRODUTO)
+                                  where ID_PRODUTO =  ? `
+    
+
+    const [resp] = await con.query(comando, [idProduto])
+    return resp.affectedRows
+}
+
+export async function removerProdutoCategorias(idProduto) {
+    const comando = 
+        ` insert into tb_produto_categoria ( ID_PRODUTO)
+                                  where ID_PRODUTO =  ? `
+    
+
+    const [resp] = await con.query(comando, [idProduto])
+    return resp.affectedRows
+}
+
+export async function removerProdutoImagens(idProduto) {
+    const comando = 
+        ` insert into tb_produto_imagem (ID_PRODUTO)
+                                  where ID_PRODUTO =  ? `
+    
+
+    const [resp] = await con.query(comando, [idProduto])
+    return resp.affectedRows
+}
+
+export async function removerProduto(idProduto) {
+    const comando = 
+        ` insert into tb_produto (ID_PRODUTO)
+                                  where ID_PRODUTO =  ? `
+    
+
+    const [resp] = await con.query(comando, [idProduto])
     return resp.affectedRows
 }
 

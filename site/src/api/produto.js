@@ -13,6 +13,11 @@ export async function salvarProduto(nome, precoDe,precoPor , maxParcelas , qtdIt
     return r.data;
 }
 
+export async function buscarProdutos() {
+   const r = await api.get('/admin/produto/estoque');
+   return r.data;
+}
+
 
 export async function salvarImagem(id,imagem1,imagem2,imagem3,imagem4,imagem5) {
     let form = new FormData();

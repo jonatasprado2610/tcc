@@ -1,45 +1,47 @@
-section{
-    max-width: 50%;       
-     border: solid #959595 2px;
-     margin-top: 2em;
-}
-
-.containerEstoque{
-    display: flex;
-    flex-direction: row;
-    justify-content:space-evenly;
+.tudo{
+    section{
+        min-width: 50%;      
+         border: solid #959595 2px;
+         margin-top: 2em;
+    }
     
-    hr{
-        border: solid #959595 1px;
+    .containerEstoque{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-evenly;
         
+        hr{
+            border: solid #959595 1px;
+            
+        }
     }
-}
-
-.informacoesEstoque{
-    display: flex;
-    flex-direction: row;
-    justify-content:space-between;
-}
-
-.textoProduto{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.Estoque{
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-}
-
-.imagensEstoque{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     
-    img{
-    margin-left: 10px;
+    .informacoesEstoque{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
     }
+    
+    .textoProduto{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    
+    .Estoque{
+        display: flex;
+        flex-direction: column;
+        justify-content:space-around;
+    }
+    
+    .imagensEstoque{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+        img{
+        margin-left: 10px;
+        }
+    }
+        
 }
-

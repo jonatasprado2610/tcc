@@ -1,12 +1,6 @@
 import { Router } from 'express';
-import {
-    
-    alterarProduto,
-    consultarMarcas,
-    consultarProdutos,
-    novoProduto, salvarProdutoCategoria, salvarProdutoCor, salvarProdutoImagem, salvarProdutoMarca,
-    salvarProdutoTamanho
-} from '../repository/produtoRepository.js';
+import { alterarProduto, buscarProdutos,consultarMarcas,consultarProdutos, novoProduto, removerProduto, removerProdutoCategorias, removerProdutoCores, removerProdutoImagens, 
+removerProdutoMarcas, removerProdutoTamanhos, salvarProdutoCategoria,  salvarProdutoCor, salvarProdutoImagem, salvarProdutoMarca, salvarProdutoTamanho } from '../repository/produtoRepository.js';
 import { buscarCategoriaPorId } from '../repository/categoriaRepository.js';
 import { buscarCorPorId } from '../repository/corRepository.js';
 import { buscarTamanhoPorId } from '../repository/tamanhoRepository.js';
@@ -77,18 +71,6 @@ server.post('/admin/produto', async (req, resp) => {
     }
 })
 
-server.get('/admin/produtos' , async (req, resp) => {
-    try{
-        const respo = await consultarProdutos() ;
-         resp.send(respo);
-
-    }catch(err) {
-        resp.status(400).send({
-            erro: err.message
-        })
-    } 
-})
-
 server.put('/admin/produto/:id', async (req, resp) => {
     try{
         const {id} = req.params;
@@ -129,6 +111,47 @@ server.put('/admin/produtoimg/:id', upload.array('imagens'), async (req,resp) =>
         })
     }
 
+})
+
+server.get('/admin/produto' , async (req, resp) => {
+    try{
+        const respo = await consultarProdutos() ;
+         resp.send(respo);
+
+    }catch(err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    } 
+})
+
+server.get('/admin/produto/estoque', async (req,resp) => {
+    try{
+        const r = await buscarProdutos();
+        resp.send(r);
+    }catch(err){
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+
+server.delete('/admin/produto/:id', async (req,resp) => {
+    try{
+        const {id} = req.params.id;
+        await removerProdutoImagens(id);
+        await removerProdutoMarcas(id);
+        await removerProdutoTamanhos(id);
+        await removerProdutoCores(id);
+        await removerProdutoCategorias(id);
+        await removerProduto(id);
+        resp.status(204).send()
+    }catch(err){
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
 })
 
 export default server;

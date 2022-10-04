@@ -29,9 +29,4 @@ server.use(corController);
 server.use(enderecoController);
 
 
-
-
-
-
-
 server.listen(process.env.PORT, () => console.log(`API CONECTA NA PORTA ${process.env.PORT}`));

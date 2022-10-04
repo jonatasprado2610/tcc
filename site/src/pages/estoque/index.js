@@ -5,7 +5,7 @@ import EstoqueProduto from '../../components/produtoEstoque';
 export default function Estoque(){
 
     return(
-        <main>
+        <main className='tudo'>
             <div className='container1'>
                 <div> ESTOQUE</div>
                

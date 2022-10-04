@@ -1,35 +1,48 @@
 import './index.scss'
 
+import { useEffect, useState } from 'react';
+import { buscarProdutos } from '../../api/produto';
 
 export default function EstoqueProduto(){
+const [produtos, setProdutos ] = useState([]);
 
+async function carregarProdutos(){
+    const r = buscarProdutos();
+    setProdutos(r);
+}
+
+useEffect(() => {
+    carregarProdutos();
+}, [])
 
     return(
      <section>
-        <div className='containerEstoque'>
-            <img src='./assets/images/image produtoEstoqueTESTE.png'/>
-                
-                <div className='textoProduto'>
-                    <div>Tênis Esportivo On Shoes Masculino/feminino</div>
-                    <div className='informacoesEstoque'>
-                        <div>ID: ?</div>
-                        <div>R$ ?</div>
-                        <div>CATEGORIA: ?</div>
+        {produtos.map(item =>{
+            <div className='containerEstoque'>
+                    <div className='textoProduto'>
+                        <div>{item.produto} </div>
+                        <div className='informacoesEstoque'>
+                            <div> {item.id} </div>
+                            <div> R$ {item.preco} </div>
+                            <div> {item.marca} </div>
+                        </div>
                     </div>
+
+                <hr/>
+                    
+                <div className='Estoque'>
+                    <div> {item.quantidade} </div>
+    
+                    <div className='containerEstoque'> ? </div>
                 </div>
-            <hr/>
-
-            <div className='Estoque'>
-                <div>Em Estoque:</div>
-
-                <div className='containerEstoque'> ? </div>
+    
+                <div className='imagensEstoque'>
+                    <span>  <img src='./assets/images/alterarEstoque.png'/> </span> 
+                    <span>  <img src='./assets/images/apagarEstoque.png'/> </span>
+                </div>
             </div>
-
-            <div className='imagensEstoque'>
-                <img src='./assets/images/alterarEstoque.png'/>
-                <img src='./assets/images/apagarEstoque.png'/>
-            </div>
-        </div>
+        })}
+    
     </section>
             
     )
