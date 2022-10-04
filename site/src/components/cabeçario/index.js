@@ -1,10 +1,23 @@
 
 import './index.scss';
 
+import { useNavigate } from 'react-router-dom';
+import storage from 'local-storage';
+import { useEffect } from 'react';
 
 
 
-        export default function Cabecario(){
+export default function Cabecario(){
+    
+    const navigate = useNavigate();
+
+        
+        useEffect(() => {
+            if(!storage('usuario-logado')) {
+                navigate('/');
+            }
+        }, [])
+
         return(
 
             <section className='page-cabecario'>

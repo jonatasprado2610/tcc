@@ -28,14 +28,19 @@ export default function Login(){
     const ref = useRef();
 
     useEffect(() =>{
+        if(storage('usuario-logado')){
+                navigate('/perfiladmin')
+        }
+ 
+    }, [])
+    useEffect(() =>{
         if(!storage('usuario-logado')){
                 navigate('/loginadm')
         }
  
     }, [])
-    
 
-        async function entrarClick(){
+    async function entrarClick(){
 
         ref.current.continuousStart()
         setCarregando(true);
@@ -74,7 +79,7 @@ export default function Login(){
 
             <div className='container1'>
                 <div>
-                    <h1>Login</h1>
+                    <h1>Login Administrador</h1>
                 </div>
 
                 <div>

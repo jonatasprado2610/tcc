@@ -5,7 +5,9 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    background-image: url('../../../public/assets/images/image b.png');
+    background: url('../../../public/assets/images/image b.png') no-repeat;
+    background-size: cover;
+    user-select: none;
    
 
     .container1{

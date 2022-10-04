@@ -1,10 +1,11 @@
 
 
 import './index.scss';
-import { useState ,useRef} from 'react';
+import { useState ,useRef, useEffect} from 'react';
 import LoadingBar  from 'react-top-loading-bar'
 import { loginU } from '../../api/usuario';
 
+import storage from 'local-storage';
 import {  useNavigate } from 'react-router-dom';
 
 
@@ -18,6 +19,12 @@ export default function LoginUsuarios(){
     const navigate= useNavigate();
     const ref  = useRef();
 
+    useEffect(() => {
+         if(storage('usuario-logado')) {
+            navigate('/endereco')
+        }
+    }, [])
+
 
     async function entrarClick(){
         
@@ -25,8 +32,8 @@ export default function LoginUsuarios(){
         setCarregando(true);
 
             try{
-                  const r = await loginU(email,senha);
-            
+                const r = await loginU(email,senha);
+                storage('usuario-logado', r);
 
             setTimeout(() =>{
                 navigate('/endereco')
