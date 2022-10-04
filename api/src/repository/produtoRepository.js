@@ -230,7 +230,7 @@ export async function buscarProdutos(){
 
 export async function removerProdutoMarcas(idProduto) {
     const comando = 
-        ` insert into tb_produto_marca ( ID_PRODUTO)
+        ` delete from tb_produto_marca
                                   where ID_PRODUTO =  ? `
     
 
@@ -240,7 +240,7 @@ export async function removerProdutoMarcas(idProduto) {
 
 export async function removerProdutoTamanhos(idProduto) {
     const comando = 
-        ` insert into tb_produto_tamanho ( ID_PRODUTO)
+        `  delete from tb_produto_tamanho 
                                   where ID_PRODUTO =  ? `
     
 
@@ -250,7 +250,7 @@ export async function removerProdutoTamanhos(idProduto) {
 
 export async function removerProdutoCores(idProduto) {
     const comando = 
-        ` insert into tb_produto_cor (ID_PRODUTO)
+        ` delete from tb_produto_cor 
                                   where ID_PRODUTO =  ? `
     
 
@@ -260,7 +260,7 @@ export async function removerProdutoCores(idProduto) {
 
 export async function removerProdutoCategorias(idProduto) {
     const comando = 
-        ` insert into tb_produto_categoria ( ID_PRODUTO)
+        ` delete from  tb_produto_categoria 
                                   where ID_PRODUTO =  ? `
     
 
@@ -270,7 +270,7 @@ export async function removerProdutoCategorias(idProduto) {
 
 export async function removerProdutoImagens(idProduto) {
     const comando = 
-        ` insert into tb_produto_imagem (ID_PRODUTO)
+        ` delete from  tb_produto_imagem
                                   where ID_PRODUTO =  ? `
     
 
@@ -280,7 +280,7 @@ export async function removerProdutoImagens(idProduto) {
 
 export async function removerProduto(idProduto) {
     const comando = 
-        ` insert into tb_produto (ID_PRODUTO)
+        `delete from  tb_produto 
                                   where ID_PRODUTO =  ? `
     
 

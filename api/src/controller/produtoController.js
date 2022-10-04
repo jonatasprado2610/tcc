@@ -139,7 +139,7 @@ server.get('/admin/produto/estoque', async (req,resp) => {
 
 server.delete('/admin/produto/:id', async (req,resp) => {
     try{
-        const {id} = req.params.id;
+        const id = Number(req.params.id);
         await removerProdutoImagens(id);
         await removerProdutoMarcas(id);
         await removerProdutoTamanhos(id);

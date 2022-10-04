@@ -1,15 +1,27 @@
 import './index.scss'
 
 import { useEffect, useState } from 'react';
-import { buscarProdutos } from '../../api/produto';
+import { buscarProdutos, removerProdutos } from '../../api/produto';
+import { toast } from 'react-toastify';
 
 export default function EstoqueProduto(){
 const [produtos, setProdutos ] = useState([]);
 
 async function carregarProdutos(){
-    const r = buscarProdutos();
+    const r = await buscarProdutos();
     setProdutos(r);
-}
+    console.log(r)
+    }
+    
+    async function deletarProduto(id) {
+        try {
+            await removerProdutos(id)
+            await carregarProdutos();
+            toast.dark('produto removido com sucesso');
+        } catch (err) {
+            toast.error(err.response.data.erro)
+            }
+    }
 
 useEffect(() => {
     carregarProdutos();
@@ -17,8 +29,8 @@ useEffect(() => {
 
     return(
      <section>
-        {produtos.map(item =>{
-            <div className='containerEstoque'>
+            {produtos.map(item => 
+                <div className='containerEstoque'>
                     <div className='textoProduto'>
                         <div>{item.produto} </div>
                         <div className='informacoesEstoque'>
@@ -27,21 +39,18 @@ useEffect(() => {
                             <div> {item.marca} </div>
                         </div>
                     </div>
-
-                <hr/>
-                    
-                <div className='Estoque'>
+                    <div className='Estoque'>
                     <div> {item.quantidade} </div>
     
-                    <div className='containerEstoque'> ? </div>
+                    <div className='containerEstoque'>  </div>
                 </div>
     
                 <div className='imagensEstoque'>
                     <span>  <img src='./assets/images/alterarEstoque.png'/> </span> 
-                    <span>  <img src='./assets/images/apagarEstoque.png'/> </span>
+                    <span onClick={() => deletarProduto(item.id)}>  <img src='./assets/images/apagarEstoque.png'/> </span>
                 </div>
             </div>
-        })}
+        )}
     
     </section>
             

@@ -14,16 +14,6 @@ export default function Estoque(){
                 <input className='busca' type="text" placeholder='Buscar produtos'>
                 
                 </input>
-
-                <EstoqueProduto/>
-                <EstoqueProduto/>
-                <EstoqueProduto/>
-                <EstoqueProduto/>
-                <EstoqueProduto/>
-                <EstoqueProduto/>
-                <EstoqueProduto/>
-                <EstoqueProduto/>
-                <EstoqueProduto/>
                 <EstoqueProduto/>
             </div>
         </main>

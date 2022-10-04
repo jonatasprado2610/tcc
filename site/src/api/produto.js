@@ -36,5 +36,10 @@ export async function salvarImagem(id,imagem1,imagem2,imagem3,imagem4,imagem5) {
 }
 
 
+export async function removerProdutos(id) {
+    const r = await api.delete('/admin/produto/' + id );
+    return r.data;
+ }
+ 
 
  
