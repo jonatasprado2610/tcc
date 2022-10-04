@@ -16,11 +16,11 @@ import './index.scss';
                             
                    
     
-                    <div className='subx'>
-                       
-                    <img src="./assets/images/image 279.png "  />
+                        <div className='subx'>
                         
-                    </div>
+                        <img src="./assets/images/image 279.png "  />
+                            
+                        </div>
                     </div>
                    
                   

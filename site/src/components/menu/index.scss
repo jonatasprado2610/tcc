@@ -1,0 +1,48 @@
+.paga-menux{
+     
+    display: flex;
+    flex-direction: row;
+    width: 15em;
+    height: 100vh;
+    border: 1px solid rgb(231, 231, 231);
+
+
+    .xvx{
+      
+        display: flex;
+        flex-direction: row;
+        background-color: #08374B;
+        color: white;
+    }
+    .xv1x{
+        margin-top: 2em;
+        padding: 5px 5px;
+        width: 14.2em;
+        border: 1px solid red;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+
+        img{
+            height: 25px;
+            width: 25px;
+        }
+    }
+    .xv1x2{
+        margin-top: 2em;
+        padding: 5px 5px;
+        width: 14.2em;
+        border: 1px solid red;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+       
+ 
+    }
+    .xv1x2 img{
+        width: 30px;
+        height: 15px;
+    }
+
+}
