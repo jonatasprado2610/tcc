@@ -12,11 +12,7 @@ export default function Cabecario(){
     const navigate = useNavigate();
 
         
-        useEffect(() => {
-            if(!storage('usuario-logado')) {
-                navigate('/');
-            }
-        }, [])
+ 
 
         return(
 

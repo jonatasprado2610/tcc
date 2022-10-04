@@ -4,10 +4,10 @@ const server = Router();
 
 server.post('/api/cadastrarendereco', async (req, resp) => {
     try{
-        const endereco  = req.body;
+        const endereco = req.body;
 
         const linhas = await cadastrarEndereco(endereco)
-        resp.send(endereco)
+        resp.send(linhas)
         
 
     }

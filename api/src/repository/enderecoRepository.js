@@ -2,14 +2,13 @@ import {con} from './connection.js';
 
 export async function cadastrarEndereco(endereco) {
     const comando = `insert into tb_usuario_endereco (
-        ID_USUARIO,
         DS_LOGRADOURO,
         DS_CEP,
         DS_RUA,
         DS_BLOCO,
         NR_NUMERO
     )
-    values(?, ?, ?, ?, ?, ?)
+    values(?, ?, ?, ?, ?)
     `
     const [linhas] = await con.query(comando, [         
                                                endereco.idUsuario,
@@ -19,5 +18,5 @@ export async function cadastrarEndereco(endereco) {
                                                endereco.bloco, 
                                                endereco.numero
                                             ])
-    return linhas.insertId;
+    return linhas;
 }
