@@ -3,6 +3,7 @@ import './index.scss'
 import { useEffect, useState } from 'react';
 import { buscarProdutos, removerProdutos } from '../../api/produto';
 import { toast } from 'react-toastify';
+import { Navigate } from 'react-router-dom';
 
 export default function EstoqueProduto(){
 const [produtos, setProdutos ] = useState([]);
@@ -10,18 +11,23 @@ const [produtos, setProdutos ] = useState([]);
 async function carregarProdutos(){
     const r = await buscarProdutos();
     setProdutos(r);
-    console.log(r)
     }
     
     async function deletarProduto(id) {
         try {
+
             await removerProdutos(id)
             await carregarProdutos();
+
             toast.dark('produto removido com sucesso');
         } catch (err) {
             toast.error(err.response.data.erro)
             }
     }
+    function editar(id) {
+        Navigate( ` /admin/produto/${id}` )
+    }
+
 
 useEffect(() => {
     carregarProdutos();
@@ -46,7 +52,7 @@ useEffect(() => {
                 </div>
     
                 <div className='imagensEstoque'>
-                    <span>  <img src='./assets/images/alterarEstoque.png'/> </span> 
+                    <span onClick={() => editar(item.id)}>  <img src='./assets/images/alterarEstoque.png'/> </span> 
                     <span onClick={() => deletarProduto(item.id)}>  <img src='./assets/images/apagarEstoque.png'/> </span>
                 </div>
             </div>

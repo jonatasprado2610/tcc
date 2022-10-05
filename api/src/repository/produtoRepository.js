@@ -1,6 +1,8 @@
 import { con } from "./connection.js";
 
 
+// CADASTRAR PRODUTOS // // CADASTRAR PRODUTOS // // CADASTRAR PRODUTOS // // CADASTRAR PRODUTOS // 
+
 export async function novoProduto(produto) {
     const comando = 
     
@@ -59,6 +61,7 @@ export async function salvarProdutoMarca( idMarca, idProduto) {
 
     const [resp] = await con.query(comando, [idMarca, idProduto])
 }
+// CONSULTAR PRODUTOS // // CONSULTAR PRODUTOS // // CONSULTAR PRODUTOS // // CONSULTAR PRODUTOS // 
 
 export async function consultarProdutos(){
     const comando = 
@@ -127,7 +130,7 @@ export async function consultarCategorias(){
 }
 
 
-
+// ALTERAR PRODUTO // // ALTERAR PRODUTO // // ALTERAR PRODUTO // // ALTERAR PRODUTO // 
 
 
 export async function alterarProduto(id, produto){
@@ -213,6 +216,7 @@ export async function salvarProdutoImagem(idProduto, imagemPath) {
     return resp.affectedRows
 }
 
+
 export async function buscarProdutos(){
     const comando = `
     select tb_produto.ID_PRODUTO as id,
@@ -227,6 +231,83 @@ export async function buscarProdutos(){
     const [registros] = await con.query(comando);
     return registros;
 }
+// PROCURAR PRODUTO // // PROCURAR PRODUTO // // PROCURAR PRODUTO // // PROCURAR PRODUTO //
+export async function procurarProdutoPorId(id){
+    const comando = `
+    SELECT 
+    ID_PRODUTO as ID,
+    NM_PRODUTO as nome,
+    VL_PRECO_DE as precoInicial,
+    VL_PRECO_POR as precoFinal,
+    VL_MAX_PARCELAS as parcelas,
+    QTD_ITENS as quantidade,
+    BL_CATEGORIA_DIARIA as diaria,
+    DS_DESCRICAO as descricao
+    FROM tb_produto
+    WHERE id_produto = ?
+    `
+    const [registros] = await con.query(comando, [id]);
+    return registros[0];
+}
+
+export async function procurarImagemPorId(idProduto){
+    const comando = 
+    `
+    SELECT 
+    DS_IMAGEM as imagem
+    FROM tb_produto_imagem
+    WHERE id_produto =  ?
+    `
+    const [linhas] = await con.query(comando, [idProduto]);
+    return linhas.map(item => item.imagem); 
+}
+export async function procurarMarcaPorId(idProduto){
+    const comando = 
+    `
+    SELECT 
+    ID_MARCA as id
+    FROM tb_produto_marca
+    WHERE id_produto =  ?
+    `
+    const [linhas] = await con.query(comando , [idProduto]);
+    return linhas.map(item => item.id); 
+}
+export async function procurarTamanhoPorId(idProduto){
+    const comando = 
+    `
+    SELECT 
+    ID_TAMANHO as id
+    FROM tb_produto_tamanho
+    WHERE id_produto =  ?
+    `
+    const [linhas] = await con.query(comando , [idProduto]);
+    return linhas.map(item => item.id); 
+}
+export async function procurarCorPorId(idProduto){
+    const comando = 
+    `
+    SELECT 
+    ID_COR as id
+    FROM tb_produto_cor
+    WHERE id_produto =  ?
+    `
+    const [linhas] = await con.query(comando , [idProduto]);
+    return linhas.map(item => item.id); 
+}
+
+export async function procurarCategoriaPorId(idProduto){
+    const comando = 
+    `
+    SELECT 
+    ID_CATEGORIA as id
+    FROM tb_produto_categoria
+    WHERE id_produto =  ?
+    `
+    const [linhas] = await con.query(comando , [idProduto]);
+    return linhas.map(item => item.id); 
+}
+
+// REMOVER PRODUTO // // REMOVER PRODUTO // // REMOVER PRODUTO // // REMOVER PRODUTO // 
 
 export async function removerProdutoMarcas(idProduto) {
     const comando = 
