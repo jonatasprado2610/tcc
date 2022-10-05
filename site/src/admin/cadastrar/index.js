@@ -1,20 +1,22 @@
 import './index.scss'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import storage from 'local-storage'
 import { useNavigate } from 'react-router-dom'
 import CabecarioAdmin from '../../components/cabeçarioAdmin'
 import { useState, useEffect } from 'react'
 import { listarMarcas } from '../../api/marca'
 import { listarCategorias } from '../../api/categoria'
-import { salvarImagem, salvarProduto } from '../../api/produto'
+import { carregarProdutosPorId, salvarImagem, salvarProduto } from '../../api/produto'
 import { listarTamanhos } from '../../api/tamanho'
 import { listarCores } from '../../api/cor'
 import { toast } from 'react-toastify';
+import { API_URL } from '../../api/config'
 
 
 export default function Cadastrar() {
 
     const navigate = useNavigate();
+    const [idProduto, setIdProduto] = useState();
     const [nome, setNome] = useState('');
     const [precoDe, setPrecoDe] = useState();
     const [precoPor, setPrecoPor] = useState();
@@ -41,7 +43,7 @@ export default function Cadastrar() {
     const [marcasSelecionadas, setMarcasSelecionadas] = useState([]);
     const [tamanhosSelecionados, setTamanhosSelecionados] = useState([]);
     const [coresSelecionadas, setCoresSelecionadas] = useState([]);
-    
+    const {id} = useParams()
 
     function sairClick() {
         storage.remove('usuario-logado')
@@ -68,7 +70,37 @@ export default function Cadastrar() {
 
     }
 
+    async function carregarProdutos() {
+        if (!id) return
+        
+        const r = carregarProdutosPorId(id);
+        setIdProduto(r.info.id);
+        setNome(r.info.nome);
+        setPrecoDe(r.info.precoInicial);
+        setPrecoPor(r.info.precoFinal);
+        setMaxParcelas(r.info.parcelas);
+        setQtdItens(r.info.quantidade);
+        setCategoriaDiaria(r.info.diaria);
+        setDescricao(r.info.descricao);
+        if (r.imagens.lenght > 0) {
+            setImagem1(r.imagens[0]);
+        }
+        if (r.imagens.lenght > 1) {
+            setImagem2(r.imagens[1]);
+        }
+        if (r.imagens.lenght > 2) {
+            setImagem3(r.imagens[2]);
+        }
+        if (r.imagens.lenght > 3) {
+            setImagem4(r.imagens[3]);
+        }
+        setMarcasSelecionadas(r.marcas);
+        setTamanhosSelecionados(r.tamanhos)
+        setCoresSelecionadas(r.cores)
+        setCatSelecionadas(r.categorias);
 
+
+}
     function buscarNomeCategoria(id) {
         const cat = categorias.find(item => item.id == id);
         return cat.categoria;
@@ -150,16 +182,21 @@ export default function Cadastrar() {
     function exibirImagem(imagem){
         if(imagem== undefined){
             return'./assets/images/bx_upload 1.png'
-        }else{
-               return URL.createObjectURL(imagem);
         }
-        
+        else if (typeof (imagem) == 'string') {
+            return `${API_URL}/${imagem}`
+        }
+        else {
+               return URL.createObjectURL(imagem);
+        }  
     }
+
     useEffect(() => {
         carregarCategorias();
         carregarMarcas();
         carregarTamanhos();
         carregarCores();
+        carregarProdutos();
     }, [])
 
     return (

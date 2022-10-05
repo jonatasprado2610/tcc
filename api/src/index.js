@@ -27,6 +27,7 @@ server.use(produtoController);
 server.use(tamanhoController);
 server.use(corController);
 server.use(enderecoController);
+server.use('/storage/produto', express.static('storage/produto'))
 
 
 server.listen(process.env.PORT, () => console.log(`API CONECTA NA PORTA ${process.env.PORT}`));
