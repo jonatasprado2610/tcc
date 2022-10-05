@@ -95,7 +95,10 @@ export default function Login(){
                 <div>
                     <button onClick={entrarClick} disabled={carregando  }>ENTRAR</button>
                 </div><br></br>
-                  {erro}
+                <h2>
+                      {erro}
+                </h2>
+                
 
               
                 <h2>Overlend</h2>

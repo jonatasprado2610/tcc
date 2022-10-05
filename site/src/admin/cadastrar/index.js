@@ -149,7 +149,7 @@ export default function Cadastrar() {
     
     function exibirImagem(imagem){
         if(imagem== undefined){
-            return'./assets/images/bx_upload 1.png'
+            return'./assets/images/pngwing.com.png'
         }else{
                return URL.createObjectURL(imagem);
         }
@@ -172,20 +172,13 @@ export default function Cadastrar() {
 
             <div className="containermar">
 
-                <div className="container1">
-                    <p>aaa</p>
-                    <p>aaa</p>
-                    <p>aaa</p>
-                    <p>aaa</p>
-
-
-                </div>
+                
 
                 <div className="containerx">
                     <div><h2>Cadastrar produto</h2></div>
-                    <div className='containercar3'>
+                    <div className='containercar3xx'>
                         <h3> Nome Produto: </h3>
-                        <input type='text' placeholder='Produto x' value={nome} onChange={e => setNome(e.target.value)} />
+                        <input className='input' type='text' placeholder='Nome' value={nome} onChange={e => setNome(e.target.value)} />
                     </div>
                     <div className="containercar">
                         <div className="sub1">
@@ -257,31 +250,34 @@ export default function Cadastrar() {
                             <h3>Quantidade Disponivel</h3>
                             <input type="text" value={qtdItens} onChange={e => setQtdItens(e.target.value)} />
                         </div>
-                        <div>
+                        <div  className='opx'>
                             <h3>descricao</h3>
                             <textarea type="text" value={descricao} onChange={e => setDescricao(e.target.value)} />
                         </div>
-                        <div>
+                        <div className='opx'>
                             <h3>Marca</h3>
                             <select value={idMarcas} onChange={e => setIdMarcas(e.target.value)} name="select">
                                 <option selected hidden> Selecione </option>  
+
                                 {marcas.map(item =>
                                     <option value={item.id}> {item.marca} </option>
                                 )}
+
                             </select>
-                            <button  onClick={adicionarMarcas} >+</button>
-                        </div>
-                        <div className='cat-conteiner'>
+                            <button className='btx2'  onClick={adicionarMarcas} >+</button>
+                            
                             {marcasSelecionadas.map(id =>
                                 <div className='selecionados'>
                                     {buscarNomeMarca(id)}
                                 </div>
                             )}
+                        
                         </div>
+                       
                        
                     </div>
                     <div className="containercar6">
-                    <div >
+                      <div  className='opx'>
                             <h3>Tamanhos </h3>
                             <select value={idTamanho} onChange={e => setIdTamanho(e.target.value)} >
                                 <option selected hidden> Selecione </option>
@@ -289,8 +285,9 @@ export default function Cadastrar() {
                                         {tamanho.map(item =>
                                             <option value={item.id}> {item.tamanho} </option>
                                         )}
+
                             </select>
-                            <button onClick={adicionarTamanhos} > +</button>
+                            <button className='btx2'  onClick={adicionarTamanhos} > +</button>
                             
                             <div className='cat-conteiner'>
                             {tamanhosSelecionados.map(id =>
@@ -301,7 +298,7 @@ export default function Cadastrar() {
                         </div>
                         </div>
 
-                        <div>
+                        <div  className='opx'>
                             <h3>cores </h3>
                             <div>
                                 <select value={idCor} onChange={e => setIdcor(e.target.value)} name="selecionar-uma-cor">
@@ -310,7 +307,7 @@ export default function Cadastrar() {
                                                 <option value={item.id}> {item.cor} </option>
                                             )}
                                 </select>
-                                <button onClick={adicionarCores}  >+</button>
+                                <button className='btx2'  onClick={adicionarCores}  >+</button>
                                 <div>
                         <div className='cat-conteiner'>
                             {coresSelecionadas.map(id =>
@@ -323,8 +320,9 @@ export default function Cadastrar() {
                     </div>
                             </div>
                         </div>
-                        <label>Categoria:</label>
-                        <div className='gpo-categoria'>
+                       
+                         <div  className='opx'>
+                         <h3>Categoria</h3>
                             <select value={idCategoria} onChange={e => setIdCategoria(e.target.value)} >
                                 <option selected hidden>Selecione</option>
 
@@ -332,17 +330,18 @@ export default function Cadastrar() {
                                     <option value={item.id}> {item.categoria} </option>
                                 )}
                             </select>
-                            <button onClick={adicionarCategoria} className='btn-categoria'>+</button>
-                        </div>
-                    
-                    <div>
-                        <div className='cat-conteiner'>
+                            <button onClick={adicionarCategoria} className='btx2' >+</button>
+                            <div className='cat-conteiner'>
                             {catSelecionadas.map(id =>
                                 <div className='selecionados'>
                                     {buscarNomeCategoria(id)}
                                 </div>
                             )}
                         </div>
+                        </div>
+                    
+                    <div>
+                        
 
                     </div>
                        
