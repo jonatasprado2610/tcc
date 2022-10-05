@@ -19,11 +19,12 @@ export default function LoginUsuarios(){
     const navigate= useNavigate();
     const ref  = useRef();
 
-    useEffect(() => {
-         if(storage('usuario-logado')) {
+    /*useEffect(() => {
+         if(!storage('usuario-logado')) {
             navigate('/endereco')
         }
     }, [])
+    */
 
 
     async function entrarClick(){

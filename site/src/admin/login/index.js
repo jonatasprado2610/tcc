@@ -27,6 +27,7 @@ export default function Login(){
 
     const ref = useRef();
 
+    /*
     useEffect(() =>{
         if(storage('usuario-logado')){
                 navigate('/perfiladmin')
@@ -39,6 +40,7 @@ export default function Login(){
         }
  
     }, [])
+    */
 
     async function entrarClick(){
 
