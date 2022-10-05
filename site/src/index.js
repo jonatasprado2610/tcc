@@ -9,6 +9,7 @@ import Carrinho from './pages/carrinho';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Routes } from 'react-router-dom';
+import Produtoy from './pages/produtoy';
 
 
 

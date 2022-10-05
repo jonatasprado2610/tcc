@@ -1,9 +1,38 @@
-.container1{
+.tudo{
+    margin: 0;
+    padding: 0;
+    .container1xx{
+
+    
     display: flex;
     flex-direction: column;
     align-items: center
+        }
+
+        .buscaxx{
+            border: solid 2px;
+        }
+
+        .sx2{
+            display: flex;
+            flex-direction: row;
+        }
+        .sx2 img{
+            cursor: pointer;
+            margin-left: 1em;
+            width: 40px;
+            height: 40px;
+        }
+
+        input{
+            padding: 5px ;
+            outline: none;
+            margin-top: 0.5em;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        
 }
 
-.busca{
-    border: solid 2px;
-}
+

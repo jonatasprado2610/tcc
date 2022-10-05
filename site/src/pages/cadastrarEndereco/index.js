@@ -2,16 +2,31 @@ import Cabecario from "../../components/cabeçario";
 import Rodape from "../../components/Rodape";
 import './index.scss';
 import {useState} from 'react';
-
+import { cadastrarEndereco } from "../../api/cadastrarEndereco";
 
 
 export default function Endereco () {
-    const [rua, setRua] = useState('');
-    const [numero, setNumero] = useState('');
-    const [casaap, setCasaap] = useState('');
+    const [idUsuario, setIdUsuario] = useState()
+    const [logradouro, setLogradouro] = useState('');
     const [cep, setCep] = useState('');
+    const [rua, setRua] = useState('');
     const [bloco, setBloco] = useState('');
     const [complemento, setComplemento] = useState('');
+
+    const [numero, setNumero] = useState('');
+
+    async function salvarEndereco() {
+        try{
+            const r = cadastrarEndereco(idUsuario, logradouro, cep, rua, bloco, numero) 
+            alert('Endereço cadastrado ;)');
+        }
+        catch(err) {
+            alert(err.message);
+        }
+    }
+    
+    localStorage.getItem('usuario-logado');
+    
 
    
     return (
@@ -32,7 +47,7 @@ export default function Endereco () {
                         </div> 
                         <div className="infos"> 
                             <h3>CASA OU APARTAMENTO:</h3>
-                            <input type='text' value={casaap} onChange={e => setCasaap(e.target.value)} />
+                            <input type='text' value={logradouro} onChange={e => setLogradouro(e.target.value)} />
                         </div>
                     </div>
                     <div className="dds">
@@ -53,7 +68,7 @@ export default function Endereco () {
                 </div>
             
                 <div className="div-botao ">
-                     <button className="botao"><p className="texto-botao">Cadastrar</p></button>
+                     <button className="botao" onClick={salvarEndereco}><p className="texto-botao">Cadastrar</p></button>
                 </div>
             </div>
             <Rodape/>

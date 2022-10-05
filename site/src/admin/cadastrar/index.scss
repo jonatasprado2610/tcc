@@ -9,26 +9,60 @@
      padding: 0px;
 
      .containermar{
+       
          display: flex;
          flex-direction: row;
          justify-content: space-between;
      }
+     .cat-conteiner{
+        border: 1px solid red;
+     }
+    select{
+        width: 10em;
+        padding: 2px;
+       border-radius: 5px;
+        border: 1px solid black;
+    }
     
-     .container1{
+    label{
+        font-size: 20px;
+        font-family:"BebasNeue-Regular";
+    }
+    .btx2{
+        margin-left: 1em;
+        border: 1px solid black;
 
+    }
+    .btx2:hover{
+        color: white;
+        background-color: #08374B;
+        cursor: pointer;
+    }
+    .xs2{
+        display: flex;
+        flex-direction: column;
+    }
+     .container1{
+       
          display: flex;
          justify-content: center;
-         border: 1px solid red;
+      
          height: 40em;
          width: 150px;
          
      }
+    
      textarea{
+        resize: none;
+        outline: none;
         border-radius: 5px;
+        width: 15em;
+        height: 10em;
         border: 1px solid black;
      }
 
      .containerx{
+        border: 1px solid red;
         margin-top: 1em;
          background-color: white;
          width: 800px;
@@ -42,7 +76,8 @@
 
      }
      .containercar{
-       
+        
+         margin-top: 3em;
          display: flex;
          justify-content: center;
          
@@ -65,8 +100,9 @@
          flex-direction: row;
      }
      .containercar4{
-       
-          width: 100%;
+      
+        margin-left: 3em;
+          width: 50em;
           margin-top: 3em;
           display: flex;
           justify-content: space-evenly;
@@ -76,6 +112,7 @@
       }
 
       .containercar5{
+        
         width: 100%;
         margin-top: 3em;
         display: flex;
@@ -87,7 +124,7 @@
       }
       .containercar4 input{
           border-radius: 5px;
-        border: 1px solid #168CBF;
+        border: 1px solid #08374B;
         height: 20px;
         width: 70px;
         outline: none;
@@ -121,11 +158,14 @@
       }
 
       .containercar6{
-          width: 100%;
+       
+          width: 50em;
+          margin-left: 9em;
           margin-top: 3em;
           display: flex;
           flex-direction: row;
           justify-content: space-around;
+          flex-wrap: wrap;
       }
       
       .inputx{
@@ -137,8 +177,24 @@
         border-radius: 5px;
          border: 1px solid #168CBF;
          height: 20px;
-         width: 70px;
+         width: 100px;
          outline: none;
+     }
+     .container3xx{
+       
+        width: 20em;
+        margin-top: 4em;
+        display: flex;
+        text-align: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+     }
+     .input{
+        border-radius: 5px;
+        border: 1px solid #0096d6;
+        height: 20px;
+       
+        outline: none;
      }
      .containercar3 div{
          margin-left: 1em;
@@ -157,26 +213,32 @@
          flex-direction: column;
      }
      .ss1{
-        background-color: #0B4E6B;
+        background-color: #ffffff;
         padding: 10px;
+        width: 8em;
+        height: 5em;
+        border: 1px solid black;
         border-radius: 5px;
-        width: 100px;
-        width: 100px;
+        border-radius: 5px;
+        
 
      }
      .sub1 img{
-      
+        
          width: 70px;
          height: 70px;
      }
 
      .sub2{
+        
+        border-radius: 5px;
          display: flex;
-         
+       
          flex-direction: row;
      }
 
       h1{
+      
         font-family:"BebasNeue-Regular";
       }
 
@@ -191,11 +253,13 @@
       }
 
      .sub2 img{
-         margin-left: 5px;
+        border: 1px solid black;
+        padding: 10px;
+         margin-left: 10px;
          border-radius: 5px;
-        background-color: #0B4E6B;
-        width: 40px;
-        height: 40px;
+        background-color: #fcfcfc;
+        width: 50px;
+        height: 50px;
     }
 
     .sub3{
@@ -230,9 +294,21 @@
         justify-content: space-evenly;
     }
     .SX{
-        margin-top: 3em;
+        margin-top: 9em;
 
     }
+    .opx{
+        font-family: 15px;
+        margin-left: 1em;
+        font-family: 'BebasNeue-Regular';
+    }
+    .opx option{
+        position: absolute;
+    }
+    .selecionados{
+        position: absolute;
+    }
+        
     .SX button{
         font-family: 'BebasNeue-Regular';
         font-size: 20px;

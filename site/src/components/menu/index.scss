@@ -1,48 +1,45 @@
+
+
 .paga-menux{
-     
     display: flex;
-    flex-direction: row;
-    width: 15em;
-    height: 100vh;
-    border: 1px solid rgb(231, 231, 231);
+    flex-direction: column;
+    
+}
 
-
-    .xvx{
-      
-        display: flex;
-        flex-direction: row;
+.xvx{
         background-color: #08374B;
-        color: white;
-    }
-    .xv1x{
-        margin-top: 2em;
-        padding: 5px 5px;
-        width: 14.2em;
-        border: 1px solid red;
+        color: rgb(255, 255, 255);
         display: flex;
         flex-direction: row;
-        align-items: center;
-        justify-content: space-evenly;
-
-        img{
-            height: 25px;
-            width: 25px;
-        }
-    }
-    .xv1x2{
-        margin-top: 2em;
-        padding: 5px 5px;
-        width: 14.2em;
-        border: 1px solid red;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-       
  
-    }
-    .xv1x2 img{
-        width: 30px;
-        height: 15px;
-    }
+}
+
+   
+.links{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.xv1x{
+        padding: 7px 7px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
 
 }
+    
+
+.sair{
+        padding: 5px 5px;
+        display: flex;            
+
+        img{
+            width: 2.3em;
+            height: 1.8em;
+    
+        }
+}
+   
+   
