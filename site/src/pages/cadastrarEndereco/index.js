@@ -26,7 +26,7 @@ export default function Endereco () {
     }
     
     localStorage.getItem('usuario-logado');
-    console.log(id);
+    
 
    
     return (

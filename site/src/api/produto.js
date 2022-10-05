@@ -47,4 +47,9 @@ export async function carregarProdutosPorId(id) {
     return r.data;
 }
 
+
+export async function buscarProPorNome(nome){
+    const resposta = await api.get(`/produto/busca?nome=${nome}`);
+    return resposta.data;
+}
  

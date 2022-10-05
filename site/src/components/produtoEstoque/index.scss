@@ -1,8 +1,26 @@
 .tudo{
     section{
-        min-width: 50%;      
+       width: 40em;   
          border: solid #959595 2px;
          margin-top: 2em;
+    }
+    .s1xx{
+        border: 1px solid red;
+        display: flex;
+        justify-content: center;
+        
+        flex-direction: row;
+    }
+    .s1xx img {
+        cursor: pointer;
+        margin-left: 1em;
+        height: 40px;
+        width: 40px;
+    }
+    h1{
+        text-align: center;
+        font-family: "BebasNeue-Regular";
+    
     }
     
     .containerEstoque{
