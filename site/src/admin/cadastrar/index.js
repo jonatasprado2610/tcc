@@ -1,12 +1,12 @@
 import './index.scss'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import storage from 'local-storage'
 import { useNavigate } from 'react-router-dom'
 import CabecarioAdmin from '../../components/cabeçarioAdmin'
 import { useState, useEffect } from 'react'
 import { listarMarcas } from '../../api/marca'
 import { listarCategorias } from '../../api/categoria'
-import { salvarImagem, salvarProduto } from '../../api/produto'
+import { procurarProdutosPorId, salvarImagem, salvarProduto } from '../../api/produto'
 import { listarTamanhos } from '../../api/tamanho'
 import { listarCores } from '../../api/cor'
 import { toast } from 'react-toastify';
@@ -41,6 +41,8 @@ export default function Cadastrar() {
     const [marcasSelecionadas, setMarcasSelecionadas] = useState([]);
     const [tamanhosSelecionados, setTamanhosSelecionados] = useState([]);
     const [coresSelecionadas, setCoresSelecionadas] = useState([]);
+
+    const {id} = useParams();
     
 
     function sairClick() {
@@ -154,6 +156,10 @@ export default function Cadastrar() {
                return URL.createObjectURL(imagem);
         }
         
+    }
+    async function carregarProduto(){
+        if(!id) return;
+        const r = await procurarProdutosPorId(id)
     }
     useEffect(() => {
         carregarCategorias();

@@ -41,5 +41,9 @@ export async function removerProdutos(id) {
     return r.data;
  }
  
+ export async function procurarProdutosPorId(id) {
+    const r = await api.delete('/admin/produto/' + id );
+    return r.data;
+ }
 
  

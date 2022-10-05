@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { alterarProduto, buscarProdutos,consultarMarcas,consultarProdutos, novoProduto, removerProduto, removerProdutoCategorias, removerProdutoCores, removerProdutoImagens, 
-removerProdutoMarcas, removerProdutoTamanhos, salvarProdutoCategoria,  salvarProdutoCor, salvarProdutoImagem, salvarProdutoMarca, salvarProdutoTamanho } from '../repository/produtoRepository.js';
+import { alterarProduto, procurarCategoriasPorId, procurarImagemPorId, procurarProdutoPorId, buscarProdutos,consultarMarcas,consultarProdutos, novoProduto, removerProduto, removerProdutoCategorias, removerProdutoCores, removerProdutoImagens, 
+removerProdutoMarcas, removerProdutoTamanhos, salvarProdutoCategoria,  salvarProdutoCor, salvarProdutoImagem, salvarProdutoMarca, salvarProdutoTamanho, procurarMarcaPorId, procurarTamannhoPorId, procurarCorPorId } from '../repository/produtoRepository.js';
 import { buscarCategoriaPorId } from '../repository/categoriaRepository.js';
 import { buscarCorPorId } from '../repository/corRepository.js';
 import { buscarTamanhoPorId } from '../repository/tamanhoRepository.js';
@@ -20,8 +20,6 @@ const upload = multer({dest:'storage/produto'})
 server.post('/admin/produto', async (req, resp) => {
     try {
         const produto = req.body;
-
-        await validarProduto(produto);
         
         console.log(produto);
 
@@ -111,6 +109,32 @@ server.put('/admin/produtoimg/:id', upload.array('imagens'), async (req,resp) =>
         })
     }
 
+})
+
+server.get('admin/produto/:id', async (req,resp ) => {
+    try{
+        const {id} = req.params;
+        const produto = await procurarProdutoPorId(id);
+        const imagens = await procurarImagemPorId(id);
+        const marcas = await procurarMarcaPorId(id);
+        const tamanhos = await procurarTamannhoPorId(id);
+        const cores = await procurarCorPorId(id);
+        const categorias = await procurarCategoriasPorId(id);
+        resp.send({
+            info:produto,
+            imagem:imagens,
+            marca:marcas,
+            tamanho:tamanhos,
+            cor:cores,
+            categoria:categorias
+        })
+
+
+    }catch(err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    } 
 })
 
 server.get('/admin/produto' , async (req, resp) => {

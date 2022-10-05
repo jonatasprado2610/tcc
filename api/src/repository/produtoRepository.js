@@ -1,68 +1,68 @@
 import { con } from "./connection.js";
 
-
+// // CADASTRAR PRODUTO  // //               // // CADASTRAR PRODUTO  // //              // // CADASTRAR PRODUTO  // //              // // CADASTRAR PRODUTO  // // 
 export async function novoProduto(produto) {
-    const comando = 
-    
-    `
+    const comando =
+
+        `
         insert into tb_produto (NM_PRODUTO, VL_PRECO_DE,  VL_PRECO_POR, VL_MAX_PARCELAS ,QTD_ITENS ,BL_CATEGORIA_DIARIA , DS_DESCRICAO)
                         values (?,?, ?, ?, ?, ?, ? )   `
-    
+
 
     const [resp] = await con.query(comando, [
-                            produto.nome,
-                            produto.precoDe,
-                            produto.precoPor,
-                            produto.maxParcelas,
-                            produto.qtdItens,
-                            produto.categoriaDiaria,
-                            produto.descricao
-                        ])
+        produto.nome,
+        produto.precoDe,
+        produto.precoPor,
+        produto.maxParcelas,
+        produto.qtdItens,
+        produto.categoriaDiaria,
+        produto.descricao
+    ])
     return resp.insertId;
 }
 
 export async function salvarProdutoCategoria(idCategoria, idProduto) {
-    const comando = 
+    const comando =
         ` insert into tb_produto_categoria (ID_CATEGORIA, ID_PRODUTO)
                                   values (?, ?) `
-    
+
 
     const [resp] = await con.query(comando, [idCategoria, idProduto])
 }
 
 export async function salvarProdutoCor(idCor, idProduto) {
-    const comando = 
-       ` insert into tb_produto_cor (ID_COR, ID_PRODUTO)
+    const comando =
+        ` insert into tb_produto_cor (ID_COR, ID_PRODUTO)
                                   values (?, ? ) `
-    
+
 
     const [resp] = await con.query(comando, [idCor, idProduto])
 }
 
 export async function salvarProdutoTamanho(idTamanho, idProduto) {
-    const comando = 
-       ` insert into tb_produto_tamanho (ID_TAMANHO, ID_PRODUTO)
+    const comando =
+        ` insert into tb_produto_tamanho (ID_TAMANHO, ID_PRODUTO)
                                   values (?, ?) 
     `
-                                  console.log(idTamanho)
-                                  console.log(idProduto)
-                              
+    console.log(idTamanho)
+    console.log(idProduto)
+
 
     const [resp] = await con.query(comando, [idTamanho, idProduto])
 }
-export async function salvarProdutoMarca( idMarca, idProduto) {
-    const comando = 
-       `  insert into tb_produto_marca (ID_MARCA,ID_PRODUTO)
+export async function salvarProdutoMarca(idMarca, idProduto) {
+    const comando =
+        `  insert into tb_produto_marca (ID_MARCA,ID_PRODUTO)
                               values (?, ?)
-    `   
+    `
 
 
     const [resp] = await con.query(comando, [idMarca, idProduto])
 }
 
-export async function consultarProdutos(){
-    const comando = 
-    `
+export async function consultarProdutos() {
+    const comando =
+        `
     SELECT 
     ID_PRODUTO as ID,
     NM_PRODUTO as nome,
@@ -75,64 +75,142 @@ export async function consultarProdutos(){
     FROM tb_produto
     `
     const [linhas] = await con.query(comando);
-    return linhas; 
+    return linhas;
 
 }
 
-export async function consultarMarcas(){
-    const comando = 
-    `
+export async function consultarMarcas() {
+    const comando =
+        `
     SELECT 
     ID_MARCA as ID,
     NM_MARCA as marca,
     FROM tb_marca
     `
     const [linhas] = await con.query(comando);
-    return linhas; 
+    return linhas;
 }
-export async function consultarTamanhos(){
-    const comando = 
-    `
+export async function consultarTamanhos() {
+    const comando =
+        `
     SELECT 
     ID_TAMANHO as ID,
     DS_TAMANHO as tamanho,
     FROM tb_tamanho
     `
     const [linhas] = await con.query(comando);
-    return linhas; 
+    return linhas;
 }
 
-export async function consultarCores(){
-    const comando = 
-    `
+export async function consultarCores() {
+    const comando =
+        `
     SELECT 
     ID_COR as ID,
     DS_COR as cor,
     FROM tb_cor
     `
     const [linhas] = await con.query(comando);
-    return linhas; 
+    return linhas;
 }
 
-export async function consultarCategorias(){
-    const comando = 
-    `
+export async function consultarCategorias() {
+    const comando =
+        `
     SELECT 
     ID_CATEGORIA as ID,
     NM_CATEGORIA as categoria,
     FROM tb_categoria
     `
     const [linhas] = await con.query(comando);
-    return linhas; 
+    return linhas;
+}
+
+
+
+// // ALTERAR PRODUTO  // //             // // ALTERAR PRODUTO  // //             // // ALTERAR PRODUTO  // //             // // ALTERAR PRODUTO  // //
+
+export async function procurarProdutoPorId(id) {
+    const comando =
+        `
+                SELECT 
+                ID_PRODUTO as ID,
+                NM_PRODUTO as nome,
+                VL_PRECO_DE as precoInicial,
+                VL_PRECO_POR as precoFinal,
+                VL_MAX_PARCELAS as parcelas,
+                QTD_ITENS as quantidade,
+                BL_CATEGORIA_DIARIA as diaria,
+                DS_DESCRICAO as descricao
+                FROM tb_produto
+                WHERE id_produto = ?
+                `
+    const [linhas] = await con.query(comando, [id]);
+    return linhas[0];
+
+}
+export async function procurarImagemPorId(idProduto) {
+    const comando =
+        `
+    SELECT 
+    DS_IMAGEM as imagem ,
+    FROM tb_produto_imagem
+    where id_produto = ? 
+    `
+    const [linhas] = await con.query(comando, [idProduto]);
+    return linhas.map(item => item.imagem);
+}
+export async function procurarMarcaPorId(idProduto) {
+    const comando =
+        `
+    SELECT 
+    ID_PRODUTO_MARCA as ID,
+    FROM tb_produto_marca
+    where id_produto = ? 
+    `
+    const [linhas] = await con.query(comando, [idProduto]);
+    return linhas.map(item => item.id);
+}
+export async function procurarTamannhoPorId(idProduto) {
+    const comando =
+        `
+    SELECT 
+    ID_PRODUTO_TAMANHO as ID,
+    FROM tb_produto_tamanho
+    where id_produto = ? 
+    `
+    const [linhas] = await con.query(comando, [idProduto]);
+    return linhas.map(item => item.id);
+}
+export async function procurarCorPorId(idProduto) {
+    const comando =
+        `
+    SELECT 
+    ID_PRODUTO_COR as ID,
+    FROM tb_produto_cor
+    where id_produto = ? 
+    `
+    const [linhas] = await con.query(comando, [idProduto]);
+    return linhas.map(item => item.id);
+}
+export async function procurarCategoriasPorId(idProduto) {
+    const comando =
+        `
+    SELECT 
+    ID_CATEGORIA as ID,
+    FROM tb_produto_categoria
+    where id_produto = ? 
+    `
+    const [linhas] = await con.query(comando, [idProduto]);
+    return linhas.map(item => item.id);
 }
 
 
 
 
-
-export async function alterarProduto(id, produto){
-    const comando = 
-    `
+export async function alterarProduto(id, produto) {
+    const comando =
+        `
          UPDATE     tb_produto 
             SET     NM_PRODUTO = ?, 
                     VL_PRECO_DE = ?,  
@@ -142,9 +220,9 @@ export async function alterarProduto(id, produto){
                     BL_CATEGORIA_DIARIA = ? , 
                     DS_DESCRICAO = ? 
                     WHERE ID_PRODUTO = ? `
-            
-    const [resp] = await con.query(comando, [ 
-        
+
+    const [resp] = await con.query(comando, [
+
         produto.nome,
         produto.precoDe,
         produto.precoPor,
@@ -153,67 +231,69 @@ export async function alterarProduto(id, produto){
         produto.categoriaDiaria,
         produto.descricao,
         id
-        ])
-        return resp.affectedRows;
+    ])
+    return resp.affectedRows;
 }
 
-export async function alterarMarca(marca){
+export async function alterarMarca(marca) {
     const comando = `
     update tb_marca (NM_PRODUTO)
     values (?) 
     `
-    const [resp] = await con.query(comando, [ 
+    const [resp] = await con.query(comando, [
         marca.nome,
- ])
-        return resp.affectedRows;
+    ])
+    return resp.affectedRows;
 }
 
-export async function alterarTamanho(tamanho){
+export async function alterarTamanho(tamanho) {
     const comando = `
     update tb_tamanho (DS_TAMANHO)
     values (?) 
     `
-    const [resp] = await con.query(comando, [ 
+    const [resp] = await con.query(comando, [
         tamanho.nome,
- ])
-        return resp.affectedRows;
+    ])
+    return resp.affectedRows;
 }
 
-export async function alterarCor(cor){
+export async function alterarCor(cor) {
     const comando = `
     update tb_cor (DS_COR)
     values (?) 
     `
-    const [resp] = await con.query(comando, [ 
+    const [resp] = await con.query(comando, [
         cor.nome,
- ])
-        return resp.affectedRows;
+    ])
+    return resp.affectedRows;
 }
 
-export async function alterarCategoria(categoria){
+export async function alterarCategoria(categoria) {
     const comando = `
     update tb_categoria (NM_CATEGORIA)
     values (?) 
     `
-    const [resp] = await con.query(comando, [ 
+    const [resp] = await con.query(comando, [
         categoria.nome,
- ])
-        return resp.affectedRows;
+    ])
+    return resp.affectedRows;
 }
 
 
 export async function salvarProdutoImagem(idProduto, imagemPath) {
-    const comando =   
-    `insert into tb_produto_imagem (ID_PRODUTO, DS_IMAGEM)
+    const comando =
+        `insert into tb_produto_imagem (ID_PRODUTO, DS_IMAGEM)
                                  values (?, ?)`
-    
 
-    const [resp] = await con.query(comando,[idProduto,imagemPath])
+
+    const [resp] = await con.query(comando, [idProduto, imagemPath])
 
     return resp.affectedRows
 }
 
-export async function buscarProdutos(){
+// // PRODUTO ESTOQUE // //             // // PRODUTO ESTOQUE // //             // // PRODUTO ESTOQUE // //             // // PRODUTO ESTOQUE // //
+
+export async function buscarProdutos() {
     const comando = `
     select tb_produto.ID_PRODUTO as id,
     NM_PRODUTO     as produto, 
@@ -228,61 +308,66 @@ export async function buscarProdutos(){
     return registros;
 }
 
+
+
+
+// //REMOVER PRODUTOS // //                     // //REMOVER PRODUTOS // //                    // //REMOVER PRODUTOS // //                    // //REMOVER PRODUTOS // // 
+
 export async function removerProdutoMarcas(idProduto) {
-    const comando = 
+    const comando =
         ` delete from tb_produto_marca
                                   where ID_PRODUTO =  ? `
-    
+
 
     const [resp] = await con.query(comando, [idProduto])
     return resp.affectedRows
 }
 
 export async function removerProdutoTamanhos(idProduto) {
-    const comando = 
+    const comando =
         `  delete from tb_produto_tamanho 
                                   where ID_PRODUTO =  ? `
-    
+
 
     const [resp] = await con.query(comando, [idProduto])
     return resp.affectedRows
 }
 
 export async function removerProdutoCores(idProduto) {
-    const comando = 
+    const comando =
         ` delete from tb_produto_cor 
                                   where ID_PRODUTO =  ? `
-    
+
 
     const [resp] = await con.query(comando, [idProduto])
     return resp.affectedRows
 }
 
 export async function removerProdutoCategorias(idProduto) {
-    const comando = 
+    const comando =
         ` delete from  tb_produto_categoria 
                                   where ID_PRODUTO =  ? `
-    
+
 
     const [resp] = await con.query(comando, [idProduto])
     return resp.affectedRows
 }
 
 export async function removerProdutoImagens(idProduto) {
-    const comando = 
+    const comando =
         ` delete from  tb_produto_imagem
                                   where ID_PRODUTO =  ? `
-    
+
 
     const [resp] = await con.query(comando, [idProduto])
     return resp.affectedRows
 }
 
 export async function removerProduto(idProduto) {
-    const comando = 
+    const comando =
         `delete from  tb_produto 
                                   where ID_PRODUTO =  ? `
-    
+
 
     const [resp] = await con.query(comando, [idProduto])
     return resp.affectedRows
