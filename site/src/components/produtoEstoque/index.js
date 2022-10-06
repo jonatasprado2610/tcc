@@ -33,7 +33,7 @@ async function carregarProdutos(){
             }
     }
     function editar(id) {
-        navigate( ` /admin/produto/${id}` )
+        navigate( `/cadastrar/${id}` )
     }
 
 

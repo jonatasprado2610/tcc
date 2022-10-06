@@ -1,8 +1,8 @@
 import { Router } from 'express';
 
-import { alterarProduto, buscarProdutos,consultarMarcas,consultarProdutos, novoProduto,  procurarCorPorId, procurarImagemPorId, 
+import {  buscarProdutos, novoProduto,  procurarCorPorId, procurarImagemPorId, 
     procurarMarcaPorId, procurarProdutoPorId, procurarTamanhoPorId,procurarCategoriasPorId, removerProduto, removerProdutoCategorias, removerProdutoCores, removerProdutoImagens, 
-removerProdutoMarcas, removerProdutoTamanhos, salvarProdutoCategoria,  salvarProdutoCor, salvarProdutoImagem, salvarProdutoMarca, salvarProdutoTamanho,
+removerProdutoMarcas, removerProdutoTamanhos, salvarProdutoCategoria,  salvarProdutoCor, salvarProdutoImagem, salvarProdutoMarca, salvarProdutoTamanho, removerProdutoImagensDiferentesDe, alterarProduto,
  } from '../repository/produtoRepository.js';
 import { buscarCategoriaPorId } from '../repository/categoriaRepository.js';
 import { buscarCorPorId } from '../repository/corRepository.js';
@@ -24,7 +24,7 @@ server.post('/admin/produto', async (req, resp) => {
     try {
         const produto = req.body;
         
-        console.log(produto);
+
 
         const idProduto = await novoProduto(produto);
 
@@ -72,31 +72,17 @@ server.post('/admin/produto', async (req, resp) => {
     }
 })
 
-server.put('/admin/produto/:id', async (req, resp) => {
-    try{
-        const {id} = req.params;
-        const produto = req.body;
-        console.log(id)
-        console.log(produto)
-
-        const resposta = await alterarProduto(id, produto)
-        if( resposta != 1 )
-        throw new Error ('produto não pode ser alterado')
-        else 
-         resp.status(204).send();
-
-    }catch(err) {
-        resp.status(400).send({
-            erro: err.message
-        })
-    }
-})
-
-server.put('/admin/produtoimg/:id', upload.array('imagens'), async (req,resp) =>{
+server.put('/admin/produtoimg/:id/', upload.array('imagens'), async (req,resp) =>{
     try{
         const id = req.params.id;
         const imagens = req.files;
-        console.log(imagens)
+        const imagensPermancem = req.body.imagens
+
+        if (imagensPermancem.length > 0)
+            await removerProdutoImagensDiferentesDe(imagensPermancem);
+        else
+            await removerProdutoImagens(id);
+
 
         for(const imagem of imagens)
         {
@@ -114,25 +100,54 @@ server.put('/admin/produtoimg/:id', upload.array('imagens'), async (req,resp) =>
 
 })
 
+server.put('/admin/produto/:id', async (req, resp) => {
+    try {
+        const id = req.params.id
+        const produto = req.body;
+        const img = req.files;
+        await alterarProduto(id, produto)
+        await removerProdutoMarcas(id);
+        await removerProdutoTamanhos(id);
+        await removerProdutoCores(id);
+        await removerProdutoCategorias(id);
 
-server.get('/admin/produto' , async (req, resp) => {
-    try{
-        const respo = await consultarProdutos() ;
-         resp.send(respo);
 
-    }catch(err) {
-        resp.status(400).send({
-            erro: err.message
-        })
-    } 
-})
+        for (const idMarca of produto.marca) {
+            const cat = await buscarMarcaPorId(idMarca);
 
-server.get('/admin/produto/estoque', async (req,resp) => {
-    try{
-        const r = await buscarProdutos();
-        resp.send(r);
-    }catch(err){
-        resp.status(400).send({
+            if (cat != undefined)
+                await salvarProdutoMarca(idMarca, idProduto);
+        }
+    
+           
+        
+
+        for (const idTam of produto.tamanho) {
+            const cat = await buscarTamanhoPorId(idTam);
+
+            if (cat != undefined)
+                await salvarProdutoTamanho(idTam, idProduto);
+        }
+
+
+
+        for (const idCor of produto.cor) {
+            const cat = await buscarCorPorId(idCor);
+
+            if (cat != undefined)
+                await salvarProdutoCor(idCor, idProduto);
+        }
+        
+        for (const idCateg of produto.categoria) {
+            const cat = await buscarCategoriaPorId(idCateg);
+
+            if (cat != undefined)
+                await salvarProdutoCategoria(idCateg, idProduto);
+        }
+        resp.status(204).send();
+    }
+    catch (err) {
+        return resp.status(400).send({
             erro: err.message
         })
     }
@@ -141,7 +156,7 @@ server.get('/admin/produto/estoque', async (req,resp) => {
 
 server.delete('/admin/produto/:id', async (req,resp) => {
     try{
-        const id = Number(req.params.id);
+        const id = req.params.id;
         await removerProdutoImagens(id);
         await removerProdutoMarcas(id);
         await removerProdutoTamanhos(id);
@@ -156,16 +171,31 @@ server.delete('/admin/produto/:id', async (req,resp) => {
     }
 })
 
+
+server.get('/admin/produto', async (req,resp) => {
+    try{
+        const r = await buscarProdutos();
+        resp.send(r);
+    }catch(err){
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
 server.get('/admin/produto/:id', async (req, resp) => {
 
     try{
-        const id = req.params.id;
+        const {id} = req.params;
+        
         const produto = await procurarProdutoPorId(id);
         const imagens = await procurarImagemPorId(id);
         const marcas = await procurarMarcaPorId(id);
         const tamanhos = await procurarTamanhoPorId(id);
         const cores = await procurarCorPorId(id);
         const categorias = await procurarCategoriasPorId(id);
+
+
         resp.send({
             info: produto,
             imagens: imagens,

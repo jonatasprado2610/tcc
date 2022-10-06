@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import { listarMarcas } from '../../api/marca'
 import { listarCategorias } from '../../api/categoria'
 
-import {carregarProdutosPorId, salvarImagem, salvarProduto } from '../../api/produto'
+import {alterarProduto, carregarProdutosPorId, salvarImagem, salvarProduto } from '../../api/produto'
 
 import { listarTamanhos } from '../../api/tamanho'
 import { listarCores } from '../../api/cor'
@@ -57,6 +57,9 @@ export default function Cadastrar() {
     async function salvar() {
         try {
             const prevoProduto = Number(precoDe.replace(',', '.'));
+            if(!id){
+
+            
 
             const r = await salvarProduto( nome, precoDe, precoPor, maxParcelas, qtdItens, categoriaDiaria, descricao,
                  marcasSelecionadas, tamanhosSelecionados, coresSelecionadas, catSelecionadas );
@@ -64,9 +67,17 @@ export default function Cadastrar() {
                  await salvarImagem(r.id, imagem1,imagem2,imagem2,imagem3,imagem4,imagem5);
 
             toast.dark('Produto cadastrado com sucesso');
+            }else{
+                    await alterarProduto( id, nome, precoDe, precoPor, maxParcelas, qtdItens, categoriaDiaria, descricao,
+                    marcasSelecionadas, tamanhosSelecionados, coresSelecionadas, catSelecionadas );
+                    
+                    await salvarImagem(id, imagem1,imagem2,imagem2,imagem3,imagem4,imagem5);
+   
+               toast.dark('Produto alterado com sucesso');
+            }
+            
 
 
-            console.log(r)
         }
         catch (err) {
             toast.error(err.response.data.erro);
@@ -150,8 +161,8 @@ export default function Cadastrar() {
 
     async function carregarProdutos() {
         if (!id) return
-        
         const r = carregarProdutosPorId(id);
+
         setIdProduto(r.info.id);
         setNome(r.info.nome);
         setPrecoDe(r.info.precoInicial);
