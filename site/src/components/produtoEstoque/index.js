@@ -3,21 +3,18 @@ import './index.scss'
 import { useEffect, useState } from 'react';
 import { buscarProdutos, removerProdutos,buscarProPorNome } from '../../api/produto';
 import { toast } from 'react-toastify';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function EstoqueProduto(){
 const [produtos, setProdutos ] = useState([]);
     const [filtro, setFiltro]= useState('');
-
-
+    const navigate  = useNavigate();
 
  async function Filtrar(){
      const resp= await buscarProPorNome(filtro);
     setProdutos(resp)
  }
-
- 
 
 async function carregarProdutos(){
     const r = await buscarProdutos();
@@ -36,7 +33,7 @@ async function carregarProdutos(){
             }
     }
     function editar(id) {
-        Navigate( ` /admin/produto/${id}` )
+        navigate( ` /admin/produto/${id}` )
     }
 
 
@@ -88,9 +85,6 @@ useEffect(() => {
             
 
             </section>
-            
-
-
                     </main>
                 )
      

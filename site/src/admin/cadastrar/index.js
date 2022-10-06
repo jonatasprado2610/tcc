@@ -1,13 +1,12 @@
 import './index.scss'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate,useParams } from 'react-router-dom'
 import storage from 'local-storage'
-import { useNavigate } from 'react-router-dom'
 import CabecarioAdmin from '../../components/cabeçarioAdmin'
 import { useState, useEffect } from 'react'
 import { listarMarcas } from '../../api/marca'
 import { listarCategorias } from '../../api/categoria'
 
-import { procurarProdutosPorId,carregarProdutosPorId, salvarImagem, salvarProduto } from '../../api/produto'
+import {carregarProdutosPorId, salvarImagem, salvarProduto } from '../../api/produto'
 
 import { listarTamanhos } from '../../api/tamanho'
 import { listarCores } from '../../api/cor'
@@ -16,7 +15,6 @@ import { API_URL } from '../../api/config'
 
 
 export default function Cadastrar() {
-
     const navigate = useNavigate();
     const [idProduto, setIdProduto] = useState();
     const [nome, setNome] = useState('');
@@ -47,13 +45,15 @@ export default function Cadastrar() {
     const [coresSelecionadas, setCoresSelecionadas] = useState([]);
 
 
-    const {id} = useParams();
-    
+
     function sairClick() {
         storage.remove('usuario-logado')
         navigate('/loginadm');
     }
 
+    const { id } = useParams();
+    console.log(id)
+    
     async function salvar() {
         try {
             const prevoProduto = Number(precoDe.replace(',', '.'));
@@ -74,37 +74,6 @@ export default function Cadastrar() {
 
     }
 
-    async function carregarProdutos() {
-        if (!id) return
-        
-        const r = carregarProdutosPorId(id);
-        setIdProduto(r.info.id);
-        setNome(r.info.nome);
-        setPrecoDe(r.info.precoInicial);
-        setPrecoPor(r.info.precoFinal);
-        setMaxParcelas(r.info.parcelas);
-        setQtdItens(r.info.quantidade);
-        setCategoriaDiaria(r.info.diaria);
-        setDescricao(r.info.descricao);
-        if (r.imagens.lenght > 0) {
-            setImagem1(r.imagens[0]);
-        }
-        if (r.imagens.lenght > 1) {
-            setImagem2(r.imagens[1]);
-        }
-        if (r.imagens.lenght > 2) {
-            setImagem3(r.imagens[2]);
-        }
-        if (r.imagens.lenght > 3) {
-            setImagem4(r.imagens[3]);
-        }
-        setMarcasSelecionadas(r.marcas);
-        setTamanhosSelecionados(r.tamanhos)
-        setCoresSelecionadas(r.cores)
-        setCatSelecionadas(r.categorias);
-
-
-}
     function buscarNomeCategoria(id) {
         const cat = categorias.find(item => item.id == id);
         return cat.categoria;
@@ -179,6 +148,36 @@ export default function Cadastrar() {
         }
     }
 
+    async function carregarProdutos() {
+        if (!id) return
+        
+        const r = carregarProdutosPorId(id);
+        setIdProduto(r.info.id);
+        setNome(r.info.nome);
+        setPrecoDe(r.info.precoInicial);
+        setPrecoPor(r.info.precoFinal);
+        setMaxParcelas(r.info.parcelas);
+        setQtdItens(r.info.quantidade);
+        setCategoriaDiaria(r.info.diaria);
+        setDescricao(r.info.descricao);
+        if (r.imagens.lenght > 0) {
+            setImagem1(r.imagens[0]);
+        }
+        if (r.imagens.lenght > 1) {
+            setImagem2(r.imagens[1]);
+        }
+        if (r.imagens.lenght > 2) {
+            setImagem3(r.imagens[2]);
+        }
+        if (r.imagens.lenght > 3) {
+            setImagem4(r.imagens[3]);
+        }
+        setMarcasSelecionadas(r.marcas);
+        setTamanhosSelecionados(r.tamanhos)
+        setCoresSelecionadas(r.cores)
+        setCatSelecionadas(r.categorias);
+}
+
     function escolherImagem(inputId){
         document.getElementById(inputId).click();
     }
@@ -195,10 +194,6 @@ export default function Cadastrar() {
         else {
                return URL.createObjectURL(imagem);
         }  
-    }
-    async function carregarProduto(){
-        if(!id) return;
-        const r = await procurarProdutosPorId(id)
     }
 
     useEffect(() => {
