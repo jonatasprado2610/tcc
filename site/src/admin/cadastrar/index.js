@@ -161,7 +161,7 @@ export default function Cadastrar() {
 
     async function carregarProdutos() {
         if (!id) return
-        const r = carregarProdutosPorId(id);
+        const r = await carregarProdutosPorId(id);
 
         setIdProduto(r.info.id);
         setNome(r.info.nome);
