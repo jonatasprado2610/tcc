@@ -159,7 +159,7 @@ server.delete('/admin/produto/:id', async (req,resp) => {
 server.get('/admin/produto/:id', async (req, resp) => {
 
     try{
-        const id = Number(req.params.id);
+        const id = req.params.id;
         const produto = await procurarProdutoPorId(id);
         const imagens = await procurarImagemPorId(id);
         const marcas = await procurarMarcaPorId(id);

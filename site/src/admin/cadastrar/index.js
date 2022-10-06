@@ -52,7 +52,7 @@ export default function Cadastrar() {
     }
 
     const { id } = useParams();
-    console.log(id)
+
     
     async function salvar() {
         try {
