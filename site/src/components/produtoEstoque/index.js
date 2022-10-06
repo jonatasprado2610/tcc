@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function EstoqueProduto(){
-const [produtos, setProdutos ] = useState([]);
+    const [produtos, setProdutos ] = useState([]);
     const [filtro, setFiltro]= useState('');
     const navigate  = useNavigate();
 
@@ -55,37 +55,51 @@ useEffect(() => {
                 </div>
             </div>
 
-            <section className='tudo'>
-
-            <div className='.section'>
-            {produtos.map(item => 
-                <div className='containerEstoque'>
-                    <div className='textoProduto'>
-                        <div>{item.produto} </div>
-                        <div className='informacoesEstoque'>
-                            <div> {item.id} </div>
-                            <div>  R$ {item.preco} </div>
-                            <div> {item.marca} </div>
-                        </div>
-                    </div>
-                    <div className='Estoque'>
-                    <div> {item.quantidade} </div>
-
-                    <div className='containerEstoque'>  </div>
-                </div>
-
-                <div className='imagensEstoque'>
-                    <span onClick={() => editar(item.id)}>  <img src='./assets/images/alterarEstoque.png'/> </span> 
-                    <span onClick={() => deletarProduto(item.id)}>  <img src='./assets/images/apagarEstoque.png'/> </span>
-                </div>
-            </div>
-            )}
+            <div>
+            <table >
+                <thead>
+                <tr>
+                            <th>ID</th>
+                            <th>Produto</th>
+                            <th>Preço</th>
+                            <th>Parcelado</th>
+                            <th>quantidade</th>
+                            <th>destaque</th>
+                           
+                            <th>QTD categoria</th>
+                            <th>marca</th>
                 
-            </div>
-            
+                
 
-            </section>
-                    </main>
-                )
-     
-} 
+            </tr>
+
+                </thead>
+                <tbody>
+                    {produtos.map(item =>
+                        <tr>
+                        <td>{item.id}</td>
+                        <td>{item.nome}</td>
+                        <td>{item.preco}</td>
+                        <td>{item.precopar}</td>
+                        <td>{item.qtd}</td>
+                        <td>{item.destaque ? 'sim':'nao'}</td>
+                        <td>{item.qtd_categoria}</td>
+                        <td>{item.marca}</td>
+                        <span onClick={() => editar(item.id)}>  <img  src='./assets/images/alterarEstoque.png'/> </span> 
+                        <span onClick={() => deletarProduto(item.id)}>  <img src='./assets/images/apagarEstoque.png'/> </span>
+                        </tr>
+
+                        )}    
+
+                </tbody>
+             
+            
+        </table>
+
+            </div>
+
+           
+           </main>
+    )
+
+}
