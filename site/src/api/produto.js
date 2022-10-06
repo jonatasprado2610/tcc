@@ -43,10 +43,12 @@ export async function removerProdutos(id) {
     return r.data;
 }
 
+
 export async function buscarProdutos() {
     const r = await api.get('/admin/produto/');
     return r.data;
  }
+
  
 
 export async function carregarProdutosPorId(id) {

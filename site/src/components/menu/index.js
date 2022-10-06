@@ -1,9 +1,25 @@
 
 import './index.scss'
+import { useNavigate } from 'react-router-dom'
+
 
 
 
 export default function Menu(){
+
+   const navigate = useNavigate();
+
+   function navegacaoPerfiladmin(){
+      navigate('/perfiladmin');
+   }
+
+   
+
+
+   function navegacaoCadastrar(){
+      navigate('/cadastrar');
+   }
+
 
 
 
@@ -25,7 +41,7 @@ export default function Menu(){
             <div className='links'>       
                  <div className='xv1x'>
                     <div>
-                      <p>Perfil</p>
+                      <p onClick={navegacaoPerfiladmin}>Perfil</p>
                     </div>
                     <div> 
                     <img  src="./assets/images/seta1.png" /> 
@@ -33,19 +49,53 @@ export default function Menu(){
                  </div>
 
                     
-                 <div className='xv1x'>
-                    <div>
-                      <p>Produtos</p>
-                    </div>
-                    <div> 
-                    <img  src="./assets/images/seta1.png" /> 
-                    </div>
-                 </div>
-
+   
                     
                  <div className='xv1x'>
                     <div>
-                      <p>Categorias</p>
+                      <p> Produtos </p>
+
+                      <select > 
+                        <option  >
+                        </option>
+                      </select>
+                    </div>
+                    <div> 
+                    <img  src="./assets/images/seta1.png"  /> 
+                    </div>
+                 </div>
+
+
+
+                 <div className='xv1x'>
+                    <div>
+                     <p>Categorias</p>
+                      <select>
+                        <option hidden></option>
+                        <option onClick={navegacaoCadastrar}>Ver Categorias</option>
+                        <option> cadastrar Categorias</option>
+                      </select>
+                    </div>
+                    <div> 
+                    <img  src="./assets/images/seta1.png"  /> 
+                    </div>
+                 </div>
+
+
+
+                 <div className='xv1x'>
+                    <div>
+                      <p> Entregas </p>
+                    </div>
+                    <div> 
+                    <img  src="./assets/images/seta1.png"  /> 
+                    </div>
+                 </div>
+
+
+                 <div className='xv1x'>
+                    <div>
+                      <p>Pedidos</p>
                     </div>
                     <div> 
                     <img  src="./assets/images/seta1.png"/> 
@@ -56,7 +106,7 @@ export default function Menu(){
                     
                  <div className='xv1x'>
                     <div>
-                      <p>Histórico de Entregas</p>
+                      <p>Estoque</p>
                     </div>
                     <div> 
                     <img  src="./assets/images/seta1.png" /> 
@@ -67,51 +117,7 @@ export default function Menu(){
                     
                  <div className='xv1x'>
                     <div>
-                      <p>Histórico de Pedidos</p>
-                    </div>
-                    <div> 
-                    <img  src="./assets/images/seta1.png"  /> 
-                    </div>
-                 </div>
-
-
-
-                 <div className='xv1x'>
-                    <div>
-                      <p>Estoque</p>
-                    </div>
-                    <div> 
-                    <img  src="./assets/images/seta1.png"  /> 
-                    </div>
-                 </div>
-
-
-
-                 <div className='xv1x'>
-                    <div>
-                      <p>Cadastrar Produto</p>
-                    </div>
-                    <div> 
-                    <img  src="./assets/images/seta1.png"  /> 
-                    </div>
-                 </div>
-
-
-
-                 <div className='xv1x'>
-                    <div>
-                      <p>Cadastrar Categoria</p>
-                    </div>
-                    <div> 
-                    <img  src="./assets/images/seta1.png"  /> 
-                    </div>
-                 </div>
-
-
-
-                 <div className='xv1x'>
-                    <div>
-                      <p>Cadastrar Cupom</p>
+                      <p>Cupons</p>
                     </div>
                     <div> 
                     <img  src="./assets/images/seta1.png"  /> 
@@ -131,6 +137,9 @@ export default function Menu(){
 
 
 
+
+
+
                  <div className='xv1x'>
                     <div>
                       <p>Avaliação Clientes</p>
@@ -139,7 +148,10 @@ export default function Menu(){
                     <img  src="./assets/images/seta1.png"  /> 
                     </div>
                  </div>
-            </div> 
+
+
+
+      
          
 
                  <div className='sair'>
@@ -151,8 +163,8 @@ export default function Menu(){
                   
                  </div>
 
+               </div>
                
-               
-      </section>
+   </section>
    )
 }
