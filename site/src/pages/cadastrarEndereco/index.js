@@ -6,18 +6,19 @@ import { cadastrarEndereco } from "../../api/cadastrarEndereco";
 
 
 export default function Endereco () {
-    const [idUsuario, setIdUsuario] = useState()
+    const [idusuario, setIdusuario] = useState();
     const [logradouro, setLogradouro] = useState('');
     const [cep, setCep] = useState('');
     const [rua, setRua] = useState('');
     const [bloco, setBloco] = useState('');
     const [complemento, setComplemento] = useState('');
-
     const [numero, setNumero] = useState('');
 
+    var storageArray = localStorage.getItem('usuario-logado');
+    setIdusuario = storageArray[0];
     async function salvarEndereco() {
         try{
-            const r = cadastrarEndereco(idUsuario, logradouro, cep, rua, bloco, numero) 
+            const r = cadastrarEndereco(idusuario, logradouro, cep, rua, bloco, numero) 
             alert('Endereço cadastrado ;)');
         }
         catch(err) {
@@ -25,7 +26,7 @@ export default function Endereco () {
         }
     }
     
-    localStorage.getItem('usuario-logado');
+   
     
 
    
