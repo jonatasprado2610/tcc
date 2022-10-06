@@ -167,18 +167,18 @@ export async function buscarProdutos() {
     count(NM_CATEGORIA) qtd_categoria ,
     NM_MARCA      marca
      
-  from tb_produto
-  inner join tb_produto_categoria on tb_produto.id_produto=tb_produto.id_produto
-  inner join tb_categoria on tb_categoria.id_categoria = tb_produto_categoria.id_produto
-  inner join tb_produto_marca on tb_produto_marca.ID_PRODUTO = tb_produto.ID_PRODUTO
-  inner join tb_marca on tb_marca.ID_MARCA = tb_produto_marca.ID_MARCA 
-  group by
-   tb_produto.ID_PRODUTO,
-   NM_PRODUTO,
-   VL_PRECO_DE,
-   VL_PRECO_POR,
-   QTD_ITENS,
-   BL_CATEGORIA_DIARIA,
+    from tb_produto
+    inner join tb_produto_categoria on tb_produto.id_produto=tb_produto.id_produto
+    inner join tb_categoria on tb_categoria.id_categoria = tb_produto_categoria.id_produto
+    inner join tb_produto_marca on tb_produto_marca.ID_PRODUTO = tb_produto.ID_PRODUTO
+    inner join tb_marca on tb_marca.ID_MARCA = tb_produto_marca.ID_MARCA 
+    group by
+    tb_produto.ID_PRODUTO,
+    NM_PRODUTO,
+    VL_PRECO_DE,
+    VL_PRECO_POR,
+    QTD_ITENS,
+    BL_CATEGORIA_DIARIA,
     NM_MARCA;
               
     `
