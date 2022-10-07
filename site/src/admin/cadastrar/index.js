@@ -43,7 +43,7 @@ export default function Cadastrar() {
     const [marcasSelecionadas, setMarcasSelecionadas] = useState([]);
     const [tamanhosSelecionados, setTamanhosSelecionados] = useState([]);
     const [coresSelecionadas, setCoresSelecionadas] = useState([]);
-
+    const { id } = useParams();
 
 
     function sairClick() {
@@ -51,16 +51,14 @@ export default function Cadastrar() {
         navigate('/loginadm');
     }
 
-    const { id } = useParams();
+
 
     
     async function salvar() {
         try {
             const prevoProduto = Number(precoDe.replace(',', '.'));
-            if(!id){
-
             
-
+            if(!id){
             const r = await salvarProduto( nome, precoDe, precoPor, maxParcelas, qtdItens, categoriaDiaria, descricao,
                  marcasSelecionadas, tamanhosSelecionados, coresSelecionadas, catSelecionadas );
                  
@@ -83,6 +81,24 @@ export default function Cadastrar() {
             toast.error(err.response.data.erro);
         }
 
+    }
+
+    function removerCategoria(id) {
+        const x = catSelecionadas.filter(item => item != id);
+        setCatSelecionadas(x);
+    }
+    function removerTamanhos(id){
+        const x = tamanhosSelecionados.filter(item => item != id);
+        setTamanhosSelecionados(x)
+    }
+    function removerMarcas(id){
+        const x = marcasSelecionadas.filter(item => item != id );
+        setMarcasSelecionadas(x)
+    }
+
+    function removerCores(id) {
+        const x = coresSelecionadas.filter(item => item != id);
+        setCoresSelecionadas(x);
     }
 
     function buscarNomeCategoria(id) {
@@ -130,6 +146,7 @@ export default function Cadastrar() {
     }
     
     function adicionarMarcas() {
+        if (!idMarcas) return;
         if (!marcasSelecionadas.find(item => item == idMarcas)) {
             const marca = [...marcasSelecionadas, idMarcas];
             setMarcasSelecionadas(marca);
@@ -137,6 +154,7 @@ export default function Cadastrar() {
     }
 
     function adicionarCores() {
+        if (!idCor) return;
         if (!coresSelecionadas.find(item => item == idCor)) {
             const cor = [...coresSelecionadas, idCor];
             setCoresSelecionadas(cor);
@@ -145,6 +163,7 @@ export default function Cadastrar() {
     
     
     function adicionarTamanhos() {
+        if (!idTamanho) return;
         if (!tamanhosSelecionados.find(item => item == idTamanho)) {
             const tamanhoss = [...tamanhosSelecionados, idTamanho];
             setTamanhosSelecionados(tamanhoss);
@@ -153,6 +172,8 @@ export default function Cadastrar() {
 
 
     function adicionarCategoria() {
+        if (!idCategoria) return;
+
         if (!catSelecionadas.find(item => item == idCategoria)) {
             const categorias = [...catSelecionadas, idCategoria];
             setCatSelecionadas(categorias);
@@ -165,12 +186,6 @@ export default function Cadastrar() {
 
         setIdProduto(r.info.id);
         setNome(r.info.nome);
-        setPrecoDe(r.info.precoInicial);
-        setPrecoPor(r.info.precoFinal);
-        setMaxParcelas(r.info.parcelas);
-        setQtdItens(r.info.quantidade);
-        setCategoriaDiaria(r.info.diaria);
-        setDescricao(r.info.descricao);
         if (r.imagens.lenght > 0) {
             setImagem1(r.imagens[0]);
         }
@@ -183,10 +198,17 @@ export default function Cadastrar() {
         if (r.imagens.lenght > 3) {
             setImagem4(r.imagens[3]);
         }
+        setPrecoDe(r.info.precoInicial.toString());
+        setPrecoPor(r.info.precoFinal.toString());
+        setMaxParcelas(r.info.parcelas);
+        setQtdItens(r.info.quantidade);
+        setCategoriaDiaria(r.info.diaria);
+        setDescricao(r.info.descricao);
         setMarcasSelecionadas(r.marcas);
         setTamanhosSelecionados(r.tamanhos)
         setCoresSelecionadas(r.cores)
         setCatSelecionadas(r.categorias);
+        
 }
 
     function escolherImagem(inputId){
@@ -217,6 +239,8 @@ export default function Cadastrar() {
 
     return (
         <main className='page-cadastrar'>
+           
+            
             <div onClick={sairClick}>
                 <Link to="/loginadm">Sair</Link>
             </div>
@@ -228,7 +252,7 @@ export default function Cadastrar() {
                 
 
                 <div className="containerx">
-                    <div><h2>Cadastrar produto</h2></div>
+                    <div><h2> {id ? 'Alterar Produto' : 'Novo Produto'} </h2></div>
                     <div className='containercar3xx'>
                         <h3> Nome Produto: </h3>
                         <input className='input' type='text' placeholder='Nome' value={nome} onChange={e => setNome(e.target.value)} />
@@ -320,7 +344,7 @@ export default function Cadastrar() {
                             <button className='btx2'  onClick={adicionarMarcas} >+</button>
                             
                             {marcasSelecionadas.map(id =>
-                                <div className='selecionados'>
+                                <div className='selecionados' onClick={removerMarcas}>
                                     {buscarNomeMarca(id)}
                                 </div>
                             )}
@@ -344,7 +368,7 @@ export default function Cadastrar() {
                             
                             <div className='cat-conteiner'>
                             {tamanhosSelecionados.map(id =>
-                                <div className='selecionados'>
+                                <div className='selecionados' onClick={removerTamanhos}>
                                     {buscarNomeTamanho(id)}
                                 </div>
                             )}
@@ -364,7 +388,7 @@ export default function Cadastrar() {
                                 <div>
                         <div className='cat-conteiner'>
                             {coresSelecionadas.map(id =>
-                                <div className='selecionados'>
+                                <div className='selecionados' onClick={removerCores}>
                                     {buscarNomeCores(id)}
                                 </div>
                             )}
@@ -386,7 +410,8 @@ export default function Cadastrar() {
                             <button onClick={adicionarCategoria} className='btx2' >+</button>
                             <div className='cat-conteiner'>
                             {catSelecionadas.map(id =>
-                                <div className='selecionados'>
+                                <div className='selecionados' onClick={() => removerCategoria(id)}>
+
                                     {buscarNomeCategoria(id)}
                                 </div>
                             )}
@@ -400,7 +425,7 @@ export default function Cadastrar() {
                        
                 </div>
                     <div className="SX">
-                        <button onClick={salvar}>Cadastrar Produto</button>
+                        <button onClick={salvar}> Salvar </button>
                     </div>
 
 

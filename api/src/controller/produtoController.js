@@ -1,9 +1,11 @@
 import { Router } from 'express';
 
-import {  buscarProdutos, novoProduto,  procurarCorPorId, procurarImagemPorId, 
-    procurarMarcaPorId, procurarProdutoPorId, procurarTamanhoPorId,procurarCategoriasPorId, removerProduto, removerProdutoCategorias, removerProdutoCores, removerProdutoImagens, 
-removerProdutoMarcas, removerProdutoTamanhos, salvarProdutoCategoria,  salvarProdutoCor, salvarProdutoImagem, salvarProdutoMarca, salvarProdutoTamanho, removerProdutoImagensDiferentesDe, alterarProduto,
- } from '../repository/produtoRepository.js';
+import {
+    buscarProdutos, novoProduto, procurarCorPorId, procurarImagemPorId,
+    procurarMarcaPorId, procurarProdutoPorId, procurarTamanhoPorId, procurarCategoriasPorId, removerProduto, removerProdutoCategorias, removerProdutoCores, removerProdutoImagens,
+    removerProdutoMarcas, removerProdutoTamanhos, salvarProdutoCategoria, salvarProdutoCor, salvarProdutoImagem, salvarProdutoMarca, salvarProdutoTamanho, 
+    removerProdutoImagensDiferentesDe, alterarProduto,
+} from '../repository/produtoRepository.js';
 import { buscarCategoriaPorId } from '../repository/categoriaRepository.js';
 import { buscarCorPorId } from '../repository/corRepository.js';
 import { buscarTamanhoPorId } from '../repository/tamanhoRepository.js';
@@ -14,7 +16,7 @@ import multer from 'multer'
 import { con } from '../repository/connection.js';
 
 const server = Router();
-const upload = multer({dest:'storage/produto'})
+const upload = multer({ dest: 'storage/produto' })
 
 
 
@@ -23,7 +25,7 @@ const upload = multer({dest:'storage/produto'})
 server.post('/admin/produto', async (req, resp) => {
     try {
         const produto = req.body;
-        
+
 
 
         const idProduto = await novoProduto(produto);
@@ -35,9 +37,9 @@ server.post('/admin/produto', async (req, resp) => {
             if (cat != undefined)
                 await salvarProdutoMarca(idMarca, idProduto);
         }
-    
-           
-        
+
+
+
 
         for (const idTam of produto.tamanho) {
             const cat = await buscarTamanhoPorId(idTam);
@@ -54,7 +56,7 @@ server.post('/admin/produto', async (req, resp) => {
             if (cat != undefined)
                 await salvarProdutoCor(idCor, idProduto);
         }
-        
+
         for (const idCateg of produto.categoria) {
             const cat = await buscarCategoriaPorId(idCateg);
 
@@ -62,7 +64,7 @@ server.post('/admin/produto', async (req, resp) => {
                 await salvarProdutoCategoria(idCateg, idProduto);
         }
         resp.send({
-            id:idProduto
+            id: idProduto
         });
     }
     catch (err) {
@@ -72,11 +74,13 @@ server.post('/admin/produto', async (req, resp) => {
     }
 })
 
-server.put('/admin/produtoimg/:id/', upload.array('imagens'), async (req,resp) =>{
-    try{
+server.put('/admin/produtoimg/:id/imagem', upload.array('imagens'), async (req, resp) => {
+    try {
         const id = req.params.id;
         const imagens = req.files;
-        const imagensPermancem = req.body.imagens
+        const imagensPermancem = req.body.imagens.filter(item => item != 'undefined')
+
+
 
         if (imagensPermancem.length > 0)
             await removerProdutoImagensDiferentesDe(imagensPermancem);
@@ -84,15 +88,14 @@ server.put('/admin/produtoimg/:id/', upload.array('imagens'), async (req,resp) =
             await removerProdutoImagens(id);
 
 
-        for(const imagem of imagens)
-        {
-               await salvarProdutoImagem(id, imagem.path);
+        for (const imagem of imagens) {
+            await salvarProdutoImagem(id, imagem.path);
         }
         resp.status(204).send();
 
 
 
-    }catch(err) {
+    } catch (err) {
         resp.status(400).send({
             erro: err.message
         })
@@ -104,45 +107,40 @@ server.put('/admin/produto/:id', async (req, resp) => {
     try {
         const id = req.params.id
         const produto = req.body;
-        const img = req.files;
-        await alterarProduto(id, produto)
+
         await removerProdutoMarcas(id);
         await removerProdutoTamanhos(id);
         await removerProdutoCores(id);
         await removerProdutoCategorias(id);
 
+        await alterarProduto(id,produto)
 
         for (const idMarca of produto.marca) {
             const cat = await buscarMarcaPorId(idMarca);
 
             if (cat != undefined)
-                await salvarProdutoMarca(idMarca, idProduto);
+                await salvarProdutoMarca(idMarca, id);
         }
-    
-           
-        
 
         for (const idTam of produto.tamanho) {
             const cat = await buscarTamanhoPorId(idTam);
 
             if (cat != undefined)
-                await salvarProdutoTamanho(idTam, idProduto);
+                await salvarProdutoTamanho(idTam, id);
         }
-
-
 
         for (const idCor of produto.cor) {
             const cat = await buscarCorPorId(idCor);
 
             if (cat != undefined)
-                await salvarProdutoCor(idCor, idProduto);
+                await salvarProdutoCor(idCor, id);
         }
-        
+
         for (const idCateg of produto.categoria) {
             const cat = await buscarCategoriaPorId(idCateg);
 
             if (cat != undefined)
-                await salvarProdutoCategoria(idCateg, idProduto);
+                await salvarProdutoCategoria(idCateg, id);
         }
         resp.status(204).send();
     }
@@ -154,8 +152,8 @@ server.put('/admin/produto/:id', async (req, resp) => {
 })
 
 
-server.delete('/admin/produto/:id', async (req,resp) => {
-    try{
+server.delete('/admin/produto/:id', async (req, resp) => {
+    try {
         const id = req.params.id;
         await removerProdutoImagens(id);
         await removerProdutoMarcas(id);
@@ -164,7 +162,7 @@ server.delete('/admin/produto/:id', async (req,resp) => {
         await removerProdutoCategorias(id);
         await removerProduto(id);
         resp.status(204).send()
-    }catch(err){
+    } catch (err) {
         resp.status(400).send({
             erro: err.message
         })
@@ -172,11 +170,11 @@ server.delete('/admin/produto/:id', async (req,resp) => {
 })
 
 
-server.get('/admin/produto', async (req,resp) => {
-    try{
+server.get('/admin/produto', async (req, resp) => {
+    try {
         const r = await buscarProdutos();
         resp.send(r);
-    }catch(err){
+    } catch (err) {
         resp.status(400).send({
             erro: err.message
         })
@@ -185,9 +183,9 @@ server.get('/admin/produto', async (req,resp) => {
 
 server.get('/admin/produto/:id', async (req, resp) => {
 
-    try{
-        const {id} = req.params;
-        
+    try {
+        const { id } = req.params;
+
         const produto = await procurarProdutoPorId(id);
         const imagens = await procurarImagemPorId(id);
         const marcas = await procurarMarcaPorId(id);
@@ -201,10 +199,10 @@ server.get('/admin/produto/:id', async (req, resp) => {
             imagens: imagens,
             marcas: marcas,
             tamanhos: tamanhos,
-            cores:cores,
+            cores: cores,
             categorias: categorias
         });
-    }catch(err){
+    } catch (err) {
         resp.status(400).send({
             erro: err.message
         })

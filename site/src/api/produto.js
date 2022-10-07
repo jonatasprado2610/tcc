@@ -29,7 +29,7 @@ export async function salvarImagem(id,imagem1,imagem2,imagem3,imagem4,imagem5) {
     form.append('imagens', imagem4);
     form.append('imagens', imagem5);
 
-   const r = await api.put('/admin/produtoimg/' + id , form,{
+   const r = await api.put(`/admin/produtoimg/${id}/imagem`, form,{
        headers:{
            'Content-Type': 'multipart/form-data'
        }
