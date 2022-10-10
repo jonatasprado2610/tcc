@@ -3,6 +3,7 @@ import Rodape from "../../components/Rodape";
 import './index.scss';
 import {useState} from 'react';
 import { cadastrarEndereco } from "../../api/cadastrarEndereco";
+import storage from 'local-storage'
 
 
 export default function Endereco () {
@@ -14,8 +15,9 @@ export default function Endereco () {
     const [complemento, setComplemento] = useState('');
     const [numero, setNumero] = useState('');
 
-    var storageArray = localStorage.getItem('usuario-logado');
-    setIdusuario = storageArray[0];
+    /*  PROBLEMA PODE TA AQUI   */
+    /*setIdusuario = storage('usuario-logado');*/
+
     async function salvarEndereco() {
         try{
             const r = cadastrarEndereco(idusuario, logradouro, cep, rua, bloco, numero) 
@@ -26,9 +28,6 @@ export default function Endereco () {
         }
     }
     
-   
-    
-
    
     return (
         <section className="page-endereco">

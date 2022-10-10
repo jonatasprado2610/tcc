@@ -23,8 +23,8 @@ export default function LoginUsuarios(){
          if(!storage('usuario-logado')) {
             navigate('/endereco')
         }
-    }, [])
-    */
+    }, [])*/
+    
 
 
     async function entrarClick(){
@@ -33,12 +33,12 @@ export default function LoginUsuarios(){
         setCarregando(true);
 
             try{
-                const r = await loginU(email,senha);
-                storage('usuario-logado', r);
+                const r = await loginU(email, senha);
+               /* storage('usuario-logado', r);
 
             setTimeout(() =>{
                 navigate('/endereco')
-            },3000)
+            },3000)*/
 
 
                      
