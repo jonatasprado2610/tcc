@@ -180,7 +180,7 @@ export default function Cadastrar() {
         }
     }
 
-    async function carregarProdutos() {
+    async function carregarProduto() {
         if (!id) return
         const r = await carregarProdutosPorId(id);
 
@@ -234,7 +234,7 @@ export default function Cadastrar() {
         carregarMarcas();
         carregarTamanhos();
         carregarCores();
-        carregarProdutos();
+        carregarProduto();
     }, [])
 
     return (
@@ -263,7 +263,7 @@ export default function Cadastrar() {
                             <div className="ss1">
 
                                 <img src={exibirImagem(imagem1)} alt="" onClick={()=>escolherImagem('imagem1')} />
-                              
+                                {imagem1 ? <span onClick={() => setImagem1()}>Remover</span> : ''}
                                 
                             </div>
                             <div>
@@ -281,19 +281,23 @@ export default function Cadastrar() {
                             <div className="sub2">
                                 <div>
                                     <img src={exibirImagem(imagem2)}alt=""  onClick={()=>escolherImagem('imagem2')} />
+                                    {imagem2 ? <span onClick={() => setImagem2()}>Remover</span> : ''}
 
                                 </div>
                                 <div>
                                     <img src={exibirImagem(imagem3)} alt="" onClick={()=>escolherImagem('imagem3')} />
+                                    {imagem3 ? <span onClick={() => setImagem3()}>Remover</span> : ''}
                                 </div>
                             </div>
 
                             <div className="sub2">
                                 <div>
                                     <img src={exibirImagem(imagem4)} alt=""  onClick={()=>escolherImagem('imagem4')}/>
+                                    {imagem4 ? <span onClick={() => setImagem4()}>Remover</span> : ''}
                                 </div>
                                 <div>
                                     <img src={exibirImagem(imagem5)} alt="" onClick={()=>escolherImagem('imagem5')} />
+                                    {imagem5 ? <span onClick={() => setImagem5()}>Remover</span> : ''}
                                 </div>
                             </div>
 
