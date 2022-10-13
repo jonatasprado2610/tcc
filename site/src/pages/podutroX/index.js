@@ -1,5 +1,5 @@
 import './index.scss'
-import Cabecario from '../../components/cabeçario'
+
 import OfertasDiarias from '../../components/ofertas diarias'
 import Rodape from '../../components/Rodape'
 

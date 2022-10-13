@@ -1,0 +1,75 @@
+.page-pagameto{
+padding: 0;
+margin: 0;
+
+ 
+  h1{
+      margin-top: 1em;
+      position:absolute;
+      text-align: center;
+      font-family: 'BebasNeue-Regular';
+  }
+   .subx1{
+       
+       margin-top: 3em;
+       display: flex;
+       flex-direction: row;
+       margin-left: 3em;
+       margin-right: 3em;
+       
+      
+       
+
+      
+   }
+
+  .cx1{
+    margin-left: 3em;
+    margin-right: 3em;
+    margin-top: 3em;
+      
+      background-color: rgb(81, 104, 240);
+      display: flex;
+      border-radius: 10px;
+      flex-direction: column;
+      align-items: center;
+ 
+      width: 12em;
+      height: 20em;
+      transition:  .3s;
+      padding: 20px;
+      
+
+      h3{
+          
+        font-size: 30px;
+        font-family: 'BebasNeue-Regular';
+      }
+      
+  }
+  .cx1:hover{
+    cursor: pointer;
+    background-color: #157aa5;
+    width: 13em;
+    height: 21em;
+    transform: scale(1.05);
+    color: beige;
+    box-shadow: 10px 5px 5px rgb(179, 177, 177); transform: scale(1.05);
+   
+    h3{
+        color: white;
+    }
+  
+  }
+  .img1{
+      margin-top: 3em;
+
+      width: 150px;
+      height: 150px;
+  }
+  .img{
+    margin-top: 2em;
+    width: 200px;
+    height: 200px;
+}
+}

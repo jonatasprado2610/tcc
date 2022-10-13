@@ -1,0 +1,62 @@
+.paga-pix{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+     h1{
+        font-family: 'BebasNeue-Regular';
+        margin-bottom: 1em;
+     }
+
+     .section{
+        padding: 10px 10px;
+        display: flex;
+        justify-content: center;
+        width: 96%;
+        height: 35em;
+    }
+    .sx1{
+        margin-top: 5em;
+        align-items: center;
+        box-shadow: 10px 5px 5px rgb(204, 204, 204);
+        border: 0.5px solid black;
+        border-radius: 5px;
+        width: 15em;
+        padding: 20px 20px;
+        display: flex;
+        margin-bottom: 2em;
+        flex-direction: column;
+        img{
+            height: 200px;
+            width: 200px;
+        }
+        
+    }
+    button{
+        border-radius: 5px;
+        font-size: 20px;
+        font-family: 'BebasNeue-Regular';
+        background-color: #0B4E6B;
+        color: white;
+        padding: 15px 20px;
+    }
+    button:hover{
+        cursor: pointer;
+        background-color: #1175a0;
+    }
+
+    h3{
+        text-align: center;
+        font-size: 20px;
+        font-family: 'BebasNeue-Regular';
+        margin-bottom: 1em;
+    }
+    .x3{
+        display: flex;
+        flex-direction: column;
+        margin-top: 2em;
+       
+    }
+}

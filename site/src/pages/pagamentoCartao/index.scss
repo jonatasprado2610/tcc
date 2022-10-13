@@ -1,0 +1,76 @@
+.page-cartao{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    h1{
+        font-family: 'BebasNeue-Regular';
+    }
+   
+    .section{
+        padding: 10px 10px;
+        display: flex;
+        justify-content: center;
+        width: 96%;
+        height: 35em;
+    }
+    .x1{
+        box-shadow: 10px 5px 5px rgb(204, 204, 204);
+        margin-top: 5em;
+        border: 0.5px solid black;
+        border-radius: 5px;
+        align-items: center;
+        width: 50em;
+        padding: 20px 10px;
+        height: 27em;
+        
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .ip1{
+        width: 250px;
+        border: none;
+        outline: 0;
+        border-bottom: 2px solid #0B4E6B;
+    }
+  
+   
+    .x2{
+        div{
+            margin-top: 3em;
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+       
+        display: flex;
+        flex-direction: row;
+    }
+    h3{
+          text-align: start;
+        font-size: 25px;
+        font-family: 'BebasNeue-Regular';
+      }
+      button{
+          border-radius: 5px;
+          font-size: 20px;
+          font-family: 'BebasNeue-Regular';
+          background-color: #0B4E6B;
+          color: white;
+          padding: 15px 20px;
+      }
+      button:hover{
+          cursor: pointer;
+          background-color: #1175a0;
+      }
+      .x3{
+          display: flex;
+          flex-direction: column;
+          margin-top: 2em;
+          h3{
+              margin-bottom: 2em;
+          }
+      }
+      
+}

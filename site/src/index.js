@@ -1,23 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Rotas from './routes';
-import Filtros from './components/filtros';
-import loginUsuario from './pages/login';
-import Produtrox from './pages/podutroX';
-import Cabecario from './components/cabeçario';
-import Carrinho from './pages/carrinho';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Routes } from 'react-router-dom';
-import Produtoy from './pages/produtoy';
-
+import Pagamento from './pages/pagamento';
+import PagamentoCartao from './pages/pagamentoCartao';
+import PagamentoPix from './pages/pagamentoPix';
+import PagametoBoleto from './pages/pagametoBoleto';
+import CompraFinalizada from './pages/compr';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ToastContainer/>
-        <Rotas/>
+        <CompraFinalizada/>
   </React.StrictMode>
 );
 
