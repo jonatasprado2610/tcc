@@ -25,14 +25,17 @@ export  async  function LoginUsuario(email,senha){
     const comando = 
         `
         select ID_USUARIO	 id,
-           ds_email    email,
-          ds_senha    senha
-     from tb_usuario 
-        where ds_email  =  ?
-        and  ds_senha =  ?  `
+               NM_USUARIO   nome,
+               ds_email    email,
+               ds_senha    senha
+  	      from tb_usuario 
+         where ds_email  =  ?
+          and  ds_senha = md5(?); `
 
          const [linhas] = await con.query(comando, [email,senha])
           console.log(linhas)
           return linhas[0];
 }
+
+
 

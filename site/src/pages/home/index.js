@@ -7,8 +7,21 @@ import 'react-multi-carousel/lib/styles.css';
 import CategoriaDestaque from '../../components/CategoriaDestaque';
 import CarrosselMarca from '../../components/carrosselMarca'; 
 import Rodape from '../../components/Rodape';
+import { useEffect, useState } from 'react';
+import { listarProdutosIncioxx } from '../../api/produtoApi';
+
 
 export default function Home(){
+     
+    const[produto, setProduto] = useState([])
+
+    async function listar(){
+        const r = await listarProdutosIncioxx();
+        setProduto(r)
+    }
+    useEffect(() =>{
+       listar();
+    }, [])
     
 
     return (
@@ -17,7 +30,15 @@ export default function Home(){
         <Cabecario/>
             <Carrossel />
             <h1 className='titulo-landing'> Ofertas Diárias</h1>
-            <OfertasDiarias/>
+          
+          <div className='xx1'>
+               {produto.map(item =>
+                 <OfertasDiarias item={item}/>                  
+            )}
+          </div>
+           
+           
+           
 
             
 

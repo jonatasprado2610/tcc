@@ -2,58 +2,40 @@
 
 import './index.scss';
 import { useState ,useRef, useEffect} from 'react';
-import LoadingBar  from 'react-top-loading-bar'
-import { loginU } from '../../api/usuario';
-
-import storage from 'local-storage';
 import {  useNavigate } from 'react-router-dom';
+import { loginU } from '../../api/usuario';
+import Storage from 'local-storage';
+
+import { toast } from 'react-toastify';
 
 
 export default function LoginUsuarios(){
 
     const [email ,setEmail] = useState('');
     const [senha ,setSenha] = useState('');
-    const [erro, setErro] = useState('');
-    const [carregando, setCarregando] = useState(false);
-
-    const navigate= useNavigate();
-    const ref  = useRef();
-
-    /*useEffect(() => {
-         if(!storage('usuario-logado')) {
-            navigate('/endereco')
-        }
-    }, [])*/
     
+
+    const navigate = useNavigate();
+   
 
 
     async function entrarClick(){
         
-        ref.current.continuousStart()
-        setCarregando(true);
 
             try{
                 const r = await loginU(email, senha);
-               /* storage('usuario-logado', r);
-
-            setTimeout(() =>{
-                navigate('/endereco')
-            },3000)*/
-
-
-                     
-            }catch (err){
-                ref.current.complete();     
-                setCarregando(false);
-                if(err.response.status === 401){  
-                    setErro(err.response.data.erro)
-               }
+                Storage('cliente-logado', r);
+                 toast.dark('Usuario-logado',{autoClose:400,hideProgressBar:true});
+                 setTimeout(()=>{
+                    navigate('/')
+                 },1500)
+                
+                  
+            } catch (err){
+               toast.error(err.response.data.erro);
             }
 
-         
-        
-          
-          
+       
            
            
     }
@@ -63,7 +45,7 @@ export default function LoginUsuarios(){
 
     return(
         <main className='page-loginusu'>
-             <LoadingBar color='#0B4E6B' ref={ref} />
+             
           <div className='container1'>
               <div>
               <img src="./assets/images/image 1067.png" alt=""/>
@@ -82,11 +64,11 @@ export default function LoginUsuarios(){
               </div>
 
               <div className="cx">
-                  <button onClick={entrarClick} disabled={carregando}  >
+                  <button onClick={entrarClick}  >
                       Entrar
                   </button>
               </div>
-              {erro}
+         
               <p>Não tem uma conta? <a>lique aqui</a>C e cadastre-se</p>
 
               <h1>Overland</h1>

@@ -9,14 +9,14 @@
      padding: 0px;
 
      .containermar{
-       
+        border: 1px solid red;
          display: flex;
          flex-direction: row;
          justify-content: space-between;
      }
      .cat-conteiner{
         padding: 3px;
-        border: 1px solid red;
+        
      }
     .paraBaixo{
         display: flex;
@@ -67,8 +67,9 @@
      }
 
      .containerx{
+         
         border: 1px solid red;
-        margin-top: 1em;
+        margin-top: 10em;
          background-color: white;
          width: 800px;
          height: 102%;

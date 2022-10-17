@@ -1,14 +1,15 @@
 import 'dotenv/config'
 
-import adminController from './controller/adminController.js';
+import adminController from './controller/admin/adminController.js';
 import usuarioController from './controller/usuarioController.js';
-import marcaController from './controller/marcacontroller.js'
-import categoriaController from './controller/categoriaController.js'
-import produtoController from './controller/produtoController.js'
-import tamanhoController from './controller/tamanhoController.js'
-import corController from './controller/corController.js'
+import marcaController from './controller/admin/marcacontroller.js'
+import amincategoriaController from './controller/admin/categoriaController.js'
+import adminprodutoController from './controller/admin/produtoController.js'
+import tamanhoController from './controller/admin/tamanhoController.js'
+import admincorController from './controller/admin/corController.js'
 import enderecoController  from './controller/enderecoController.js'
 import filtrosController from './controller/filtrosController.js'
+import produtoController  from './controller/produtoController.js'
 
 import express from 'express'
 import cors from 'cors'
@@ -23,13 +24,14 @@ server.use(express.json());
 server.use(adminController);
 server.use(usuarioController);
 server.use(marcaController);
-server.use(categoriaController);
-server.use(produtoController);
+server.use(amincategoriaController);
+server.use(adminprodutoController);
 server.use(tamanhoController);
-server.use(corController);
+server.use(admincorController);
 server.use(enderecoController);
 
-server.use(filtrosController)
+server.use(filtrosController);
+server.use(produtoController);
 
 server.use('/storage/produto', express.static('storage/produto'))
 

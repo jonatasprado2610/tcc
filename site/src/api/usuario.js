@@ -24,12 +24,7 @@ export async function cadUsu(nome,nascimento,rg,cpf,email,senha){
 }
 
 export async  function loginU(email, senha){
-    const r = await api.post('http://localhost:5000/usuario/login',
-                {
-                 email: email, 
-                 senha: senha
-            }); 
-
+    const r = await api.post('/usuario/login',{ email: email, senha: senha }); 
        return r.data;
 
 }

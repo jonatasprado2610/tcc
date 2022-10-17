@@ -1,6 +1,6 @@
 
 import {  useNavigate } from 'react-router-dom';
-import { loginADM } from '../../api/adminApi';
+import { loginADM } from '../../api/admin/adminApi';
 import storage from 'local-storage'
 
 import LoadingBar  from 'react-top-loading-bar'

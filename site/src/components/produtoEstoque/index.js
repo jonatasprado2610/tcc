@@ -1,7 +1,7 @@
 import './index.scss'
 
 import { useEffect, useState } from 'react';
-import { buscarProdutos, removerProdutos,buscarProPorNome } from '../../api/produto';
+import { buscarProdutos, removerProdutos,buscarProPorNome } from '../../api/admin/produto';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 

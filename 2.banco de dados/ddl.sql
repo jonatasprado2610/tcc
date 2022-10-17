@@ -142,8 +142,11 @@ NM_USUARIO						varchar(150),
 DT_NASCIMENTO					date,
 DS_RG							varchar(100),
 DS_CPF							varchar(100),
-ds_email varchar(100),
-ds_senha varchar(100)
+ds_email                        varchar(100),
+ds_senha                        varchar(100),
+bt_trocar           boolean,
+cod_reset           varchar(50),
+dt_expiracao_cod  datetime
 );
 
 create table tb_usuario_endereco(

@@ -3,13 +3,13 @@ import { Link, useNavigate,useParams } from 'react-router-dom'
 import storage from 'local-storage'
 import CabecarioAdmin from '../../components/cabeçarioAdmin'
 import { useState, useEffect } from 'react'
-import { listarMarcas } from '../../api/marca'
-import { listarCategorias } from '../../api/categoria'
+import { listarMarcas } from '../../api/admin/marca'
+import { listarCategorias } from '../../api/admin/categoria'
 
-import {alterarProduto, carregarProdutosPorId, salvarImagem, salvarProduto } from '../../api/produto'
+import {alterarProduto, carregarProdutosPorId, salvarImagem, salvarProduto } from '../../api/admin/produto'
 
-import { listarTamanhos } from '../../api/tamanho'
-import { listarCores } from '../../api/cor'
+import { listarTamanhos } from '../../api/admin/tamanho'
+import { listarCores } from '../../api/admin/cor'
 import { toast } from 'react-toastify';
 import { API_URL } from '../../api/config'
 

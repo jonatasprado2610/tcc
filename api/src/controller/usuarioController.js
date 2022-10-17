@@ -32,14 +32,20 @@ server.post('/usuario/login', async (req, resp) =>{
         if(!resposta){
             throw new Error('CREDENCIAIS INVALIDADAS')
         }
-        resp.send(resposta)
-
+        resp.send({
+            id: resposta.id,
+            nome:  resposta.nome
+        })
+        
     } catch(err){
          resp.status(401).send({
              erro:err.message
          });
     }
 });
+
+
+
 
 
 
