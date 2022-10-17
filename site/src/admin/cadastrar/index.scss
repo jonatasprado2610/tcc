@@ -15,17 +15,22 @@
          justify-content: space-between;
      }
      .cat-conteiner{
+        padding: 3px;
         border: 1px solid red;
      }
+    .paraBaixo{
+        display: flex;
+        flex-direction: column;
+    }
     select{
         width: 10em;
-        padding: 2px;
-       border-radius: 5px;
+        padding: 4px;
+        border-radius: 5px;
         border: 1px solid black;
     }
     
     label{
-        font-size: 20px;
+        font-size: 10px;
         font-family:"BebasNeue-Regular";
     }
     .btx2{
@@ -305,10 +310,6 @@
     .opx option{
         position: absolute;
     }
-    .selecionados{
-        position: absolute;
-    }
-        
     .SX button{
         font-family: 'BebasNeue-Regular';
         font-size: 20px;

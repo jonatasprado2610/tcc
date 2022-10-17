@@ -279,23 +279,23 @@ export default function Cadastrar() {
                         <div className="containercar2">
                             <h3>Imagens secundarias</h3>
                             <div className="sub2">
-                                <div>
+                                <div className='paraBaixo'>
                                     <img src={exibirImagem(imagem2)}alt=""  onClick={()=>escolherImagem('imagem2')} />
                                     {imagem2 ? <span onClick={() => setImagem2()}>Remover</span> : ''}
 
                                 </div>
-                                <div>
+                                <div className='paraBaixo'>
                                     <img src={exibirImagem(imagem3)} alt="" onClick={()=>escolherImagem('imagem3')} />
-                                    {imagem3 ? <span onClick={() => setImagem3()}>Remover</span> : ''}
+                                    {imagem3 ? <span onClick={() => setImagem3()}>Remover </span> : ''}
                                 </div>
                             </div>
 
                             <div className="sub2">
-                                <div>
+                                <div className='paraBaixo'>
                                     <img src={exibirImagem(imagem4)} alt=""  onClick={()=>escolherImagem('imagem4')}/>
                                     {imagem4 ? <span onClick={() => setImagem4()}>Remover</span> : ''}
                                 </div>
-                                <div>
+                                <div className='paraBaixo'>
                                     <img src={exibirImagem(imagem5)} alt="" onClick={()=>escolherImagem('imagem5')} />
                                     {imagem5 ? <span onClick={() => setImagem5()}>Remover</span> : ''}
                                 </div>
@@ -341,14 +341,14 @@ export default function Cadastrar() {
                                 <option selected hidden> Selecione </option>  
 
                                 {marcas.map(item =>
-                                    <option value={item.id}> {item.marca} </option>
+                                        <option value={item.id}> {item.marca} </option>
                                 )}
 
                             </select>
                             <button className='btx2'  onClick={adicionarMarcas} >+</button>
                             
                             {marcasSelecionadas.map(id =>
-                                <div className='selecionados' onClick={removerMarcas}>
+                                <div className='selecionados' onClick={() => removerMarcas(id)}>
                                     {buscarNomeMarca(id)}
                                 </div>
                             )}
@@ -372,7 +372,7 @@ export default function Cadastrar() {
                             
                             <div className='cat-conteiner'>
                             {tamanhosSelecionados.map(id =>
-                                <div className='selecionados' onClick={removerTamanhos}>
+                                <div className='selecionados' onClick={()=> removerTamanhos(id)}>
                                     {buscarNomeTamanho(id)}
                                 </div>
                             )}
@@ -392,7 +392,7 @@ export default function Cadastrar() {
                                 <div>
                         <div className='cat-conteiner'>
                             {coresSelecionadas.map(id =>
-                                <div className='selecionados' onClick={removerCores}>
+                                <div className='selecionados' onClick={()=> removerCores(id)}>
                                     {buscarNomeCores(id)}
                                 </div>
                             )}
