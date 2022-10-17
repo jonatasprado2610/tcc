@@ -10,8 +10,8 @@ import CadastarUsuario from './pages/cadastrarUsuario';
 import LoginUsuarios from './pages/login';
 import Produtrox from './pages/podutroX';
 import Estoque from './pages/estoque';
-import Menu from './components/menu';
 import Produtoy from './pages/produtoy';
+import MenuADM from './components/menuADM';
 
 
 export default function Rotas(){
@@ -28,9 +28,9 @@ export default function Rotas(){
                 <Route path='/cadastrarUsuario' element={<CadastarUsuario/>} />
                 <Route path='/produtoIndividual' element={<Produtrox/>}/>
                 <Route path='/estoque' element={<Estoque/>}/>
-                <Route path='/menu' element={<Menu/>}/>
                 <Route path='/produtoy' element={<Produtoy/>}/>
                 <Route path='/entrega' element={<Entrega/>}/>
+                <Route path='/menuADM' element={<MenuADM/>}/>
             </Routes>
         </BrowserRouter>
     )

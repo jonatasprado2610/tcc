@@ -1,0 +1,23 @@
+.menu-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-button{
+    cursor: pointer;
+    border-radius: 90px;
+}
+
+
+.menu.active{
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.menu{
+    opacity: 0;
+}
