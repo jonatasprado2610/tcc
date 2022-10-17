@@ -11,7 +11,7 @@ import LoginUsuarios from './pages/login';
 import Produtrox from './pages/podutroX';
 import Estoque from './pages/estoque';
 import Produtoy from './pages/produtoy';
-
+import MeusPedidos from './pages/meusPedidos';
 import MeusPedid from './pages/meusPedid';
 
 import MenuADM from './components/menuADM';
@@ -33,7 +33,7 @@ export default function Rotas(){
                 <Route path='/estoque' element={<Estoque/>}/>
                 <Route path='/produtoy' element={<Produtoy/>}/>
                 <Route path='/entrega' element={<Entrega/>}/>
-
+                <Route path='/meusPedidos' element={<MeusPedidos/>}/>
                 <Route path='/meusPedid' element={<MeusPedid/>}/>
 
 
