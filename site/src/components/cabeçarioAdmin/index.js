@@ -8,7 +8,7 @@ import './index.scss';
                         
                          
                     <div className='sub1'>
-                        <img src="./assets/images/image 1067.png"  />
+                        <img src="/assets/images/image 1067.png"  />
                        
                         <h1> Overland</h1>
     
@@ -18,7 +18,7 @@ import './index.scss';
     
                         <div className='subx'>
                         
-                        <img src="./assets/images/image 279.png "  />
+                        <img src="/assets/images/image 279.png "  />
                             
                         </div>
                     </div>

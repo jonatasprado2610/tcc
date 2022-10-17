@@ -97,51 +97,6 @@ export async function alterarProduto(id, produto) {
     return resp.affectedRows;
 }
 
-
-export async function alterarMarca(marca) {
-    const comando = `
-    update tb_marca (NM_PRODUTO)
-    values (?) 
-    `
-    const [resp] = await con.query(comando, [
-        marca.nome,
-    ])
-    return resp.affectedRows;
-}
-
-export async function alterarTamanho(tamanho) {
-    const comando = `
-    update tb_tamanho (DS_TAMANHO)
-    values (?) 
-    `
-    const [resp] = await con.query(comando, [
-        tamanho.nome,
-    ])
-    return resp.affectedRows;
-}
-
-export async function alterarCor(cor) {
-    const comando = `
-    update tb_cor (DS_COR)
-    values (?) 
-    `
-    const [resp] = await con.query(comando, [
-        cor.nome,
-    ])
-    return resp.affectedRows;
-}
-
-export async function alterarCategoria(categoria) {
-    const comando = `
-    update tb_categoria (NM_CATEGORIA)
-    values (?) 
-    `
-    const [resp] = await con.query(comando, [
-        categoria.nome,
-    ])
-    return resp.affectedRows;
-}
-
 // // SALVAR IMAGEM // // // // SALVAR IMAGEM // // // // SALVAR IMAGEM // // // // SALVAR IMAGEM // // // // SALVAR IMAGEM // //
 export async function salvarProdutoImagem(idProduto, imagemPath) {
     const comando =

@@ -80,8 +80,6 @@ server.put('/admin/produtoimg/:id/imagem', upload.array('imagens'), async (req, 
         const imagens = req.files;
         const imagensPermancem = req.body.imagens.filter(item => item != 'undefined')
 
-
-
         if (imagensPermancem.length > 0)
             await removerProdutoImagensDiferentesDe(imagensPermancem);
         else
@@ -107,13 +105,17 @@ server.put('/admin/produto/:id', async (req, resp) => {
     try {
         const id = req.params.id
         const produto = req.body;
+        
 
         await removerProdutoMarcas(id);
         await removerProdutoTamanhos(id);
         await removerProdutoCores(id);
         await removerProdutoCategorias(id);
 
-        await alterarProduto(id,produto)
+        await alterarProduto(id, produto)
+
+        console.log(produto)
+        console.log(produto.marca)
 
         for (const idMarca of produto.marca) {
             const cat = await buscarMarcaPorId(idMarca);
@@ -182,9 +184,8 @@ server.get('/admin/produto', async (req, resp) => {
 })
 
 server.get('/admin/produto/:id', async (req, resp) => {
-
     try {
-        const { id } = req.params;
+        const id = req.params.id;
 
         const produto = await procurarProdutoPorId(id);
         const imagens = await procurarImagemPorId(id);
@@ -202,6 +203,7 @@ server.get('/admin/produto/:id', async (req, resp) => {
             cores: cores,
             categorias: categorias
         });
+
     } catch (err) {
         resp.status(400).send({
             erro: err.message
