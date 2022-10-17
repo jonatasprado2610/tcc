@@ -8,14 +8,14 @@ const api = axios.create({
 
 export async function salvarProduto(nome, precoDe,precoPor , maxParcelas , qtdItens,
      categoriaDiaria,descricao, marca, tamanho, cor, categoria) {
-    const r = await api.post('/admin/produto', { nome, precoDe, precoPor, maxParcelas, qtdItens,
+    const r = await api.post('/admin/produto/', { nome, precoDe, precoPor, maxParcelas, qtdItens,
          categoriaDiaria, descricao, marca,tamanho,cor, categoria  });
     return r.data;
 }
 
 export async function alterarProduto(id, nome, precoDe,precoPor , maxParcelas , qtdItens,
     categoriaDiaria,descricao, marca, tamanho, cor, categoria) {
-   const r = await api.put('/admin/produto' + id, { nome, precoDe, precoPor, maxParcelas, qtdItens,
+   const r = await api.put('/admin/produto/' + id, { nome, precoDe, precoPor, maxParcelas, qtdItens,
         categoriaDiaria, descricao, marca,tamanho,cor, categoria  });
    return r.data;
 }
@@ -48,8 +48,6 @@ export async function buscarProdutos() {
     const r = await api.get('/admin/produto/');
     return r.data;
  }
-
- 
 
 export async function carregarProdutosPorId(id) {
     const r = await api.get('/admin/produto/' + id );

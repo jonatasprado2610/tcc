@@ -69,11 +69,9 @@ export default function Cadastrar() {
                     await alterarProduto( id, nome, precoDe, precoPor, maxParcelas, qtdItens, categoriaDiaria, descricao,
                     marcasSelecionadas, tamanhosSelecionados, coresSelecionadas, catSelecionadas );
                     
-                    await salvarImagem(id, imagem1,imagem2,imagem2,imagem3,imagem4,imagem5);
-   
+                await salvarImagem(id, imagem1, imagem2, imagem2, imagem3, imagem4, imagem5);
                toast.dark('Produto alterado com sucesso');
             }
-            
 
 
         }
@@ -186,17 +184,20 @@ export default function Cadastrar() {
 
         setIdProduto(r.info.id);
         setNome(r.info.nome);
-        if (r.imagens.lenght > 0) {
+        if (r.imagens.length > 0) {
             setImagem1(r.imagens[0]);
         }
-        if (r.imagens.lenght > 1) {
+        if (r.imagens.length > 1) {
             setImagem2(r.imagens[1]);
         }
-        if (r.imagens.lenght > 2) {
+        if (r.imagens.length > 2) {
             setImagem3(r.imagens[2]);
         }
-        if (r.imagens.lenght > 3) {
+        if (r.imagens.length > 3) {
             setImagem4(r.imagens[3]);
+        }
+        if (r.imagens.length > 4) {
+            setImagem5(r.imagens[4]);
         }
         setPrecoDe(r.info.precoInicial.toString());
         setPrecoPor(r.info.precoFinal.toString());
@@ -208,7 +209,6 @@ export default function Cadastrar() {
         setTamanhosSelecionados(r.tamanhos)
         setCoresSelecionadas(r.cores)
         setCatSelecionadas(r.categorias);
-        
 }
 
     function escolherImagem(inputId){
@@ -218,7 +218,7 @@ export default function Cadastrar() {
     function exibirImagem(imagem){
         if(imagem== undefined){
 
-            return'./assets/images/pngwing.com.png'
+            return'/assets/images/pngwing.com.png'
 
         }
         else if (typeof (imagem) == 'string') {
