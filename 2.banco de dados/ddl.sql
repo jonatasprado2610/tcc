@@ -89,7 +89,6 @@ create table tb_pedido(
 ID_PEDIDO						int primary key auto_increment,
 ID_USUARIO						int,
 ID_USUARIO_ENDERECO				int,
-
 DT_PEDIDO						date,
 COD_NOTAL_FISCAL				varchar(200),
 TP_FRETE						varchar(200),

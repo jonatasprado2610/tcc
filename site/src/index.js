@@ -15,7 +15,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ToastContainer/>
-    { /* Proibido alterar o Rotas para outro nome de pagina*/ }
+    { /* Proibido alterar o "Rotas" para outro nome de pagina !!!*/ }
         <Rotas/>
   </React.StrictMode>
 );

@@ -12,7 +12,7 @@ import Produtrox from './pages/podutroX';
 import Estoque from './pages/estoque';
 import Menu from './components/menu';
 import Produtoy from './pages/produtoy';
-
+import MeusPedid from './pages/meusPedid';
 
 export default function Rotas(){
     return(
@@ -31,6 +31,8 @@ export default function Rotas(){
                 <Route path='/menu' element={<Menu/>}/>
                 <Route path='/produtoy' element={<Produtoy/>}/>
                 <Route path='/entrega' element={<Entrega/>}/>
+                <Route path='/meusPedid' element={<MeusPedid/>}/>
+
             </Routes>
         </BrowserRouter>
     )

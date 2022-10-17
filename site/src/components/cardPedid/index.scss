@@ -1,0 +1,26 @@
+.cont-cardPedido {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50%;    
+
+    .div-infos {
+       display: flex;
+       flex-direction: row;
+    }
+
+    .div-valor {
+        display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+    }
+    .div-titulo {
+        margin-bottom: 3em;
+    }
+
+    .div-entrega {
+        display: flex;
+       flex-direction: column; 
+       justify-content: space-between;
+    }
+}
