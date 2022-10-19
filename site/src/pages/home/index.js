@@ -13,12 +13,13 @@ import { listarProdutosIncioxx } from '../../api/produtoApi';
 
 export default function Home(){
      
-    const[produto, setProduto] = useState([])
+    const [produtos, setProdutos] = useState([]);
 
     async function listar(){
         const r = await listarProdutosIncioxx();
-        setProduto(r)
+        setProdutos(r)
     }
+
     useEffect(() =>{
        listar();
     }, [])
@@ -28,13 +29,16 @@ export default function Home(){
         <main className='page-home'>
 
         <Cabecario/>
-            <Carrossel />
+           <Carrossel/>
+
             <h1 className='titulo-landing'> Ofertas Diárias</h1>
           
           <div className='xx1'>
-               {produto.map(item =>
+
+               {produtos.map(item =>
                  <OfertasDiarias item={item}/>                  
             )}
+
           </div>
            
            
@@ -56,7 +60,7 @@ export default function Home(){
        
             <h1 className='titulo-landing'> Itens mais procurados</h1>
   
-            <OfertasDiarias/>
+            {/* <OfertasDiarias/> */}
 
             <h1 className='titulo-landing'> Melhores Marcas</h1>
 

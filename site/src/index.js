@@ -9,6 +9,7 @@ import PagamentoCartao from './pages/pagamentoCartao';
 import PagamentoPix from './pages/pagamentoPix';
 import PagametoBoleto from './pages/pagametoBoleto';
 import CompraFinalizada from './pages/compr';
+import Home from './pages/home';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -16,8 +16,8 @@ export default function Carrossel(){
         },
         tablet: {
           breakpoint: { max: 1024, min: 464 },
-          items: 2,
-          slidesToSlide: 2 // optional, default to 1.
+          items: 1,
+          slidesToSlide: 1 // optional, default to 1.
         },
         mobile: {
           breakpoint: { max: 464, min: 0 },
@@ -32,9 +32,9 @@ export default function Carrossel(){
             
         
         <Carousel
-        swipeable={false}
-        draggable={false}
-        infinite={true}
+         swipeable={false}
+         draggable={false}
+         infinite={true}
          responsive={responsive}
          autoPlay={true}
          autoPlaySpeed={4000}

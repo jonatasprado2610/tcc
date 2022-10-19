@@ -10,7 +10,8 @@ const api = axios.create({
 
 
 export async  function listarProdutosIncioxx(){
-    const r = await api.get('/produto',); 
+    const r = await api.get('/produto'); 
        return r.data;
 
 }
+
