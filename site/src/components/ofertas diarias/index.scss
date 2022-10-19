@@ -1,13 +1,17 @@
 .page-oferta{
 
     
-     width: 100%;
+     width: 110%;
      padding: 0;
      margin: 0;
+     display: flex;
+     flex-direction: row;
+     border: 1px solid red;
 
     
     .card{
-        display: flex;
+        border: 1px solid red;
+        margin-left: 4em;
         flex-direction: column;
         align-items: center;
         margin-left: 1em;

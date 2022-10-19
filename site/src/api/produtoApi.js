@@ -15,3 +15,8 @@ export async  function listarProdutosIncioxx(){
 
 }
 
+
+export async function carregarProdutosPorId(id) {
+    const r = await api.get('/admin/produto/' + id );
+    return r.data;
+}

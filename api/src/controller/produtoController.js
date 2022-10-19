@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { listarProdutosInicio } from "../repository/produtoRepository.js";
+import { listarProdutosInicio, procurarCategoriasPorId, procurarCorPorId, procurarImagemPorId, procurarMarcaPorId, procurarProdutoPorId, procurarTamanhoPorId } from "../repository/produtoRepository.js";
 const server = Router();
 
 server.get('/produto', async (req, resp) =>{
@@ -17,5 +17,33 @@ server.get('/produto', async (req, resp) =>{
          });
     }
 });
+
+server.get('/api/produto/:id', async (req, resp) => {
+    try {
+        const id = req.params.id;
+
+        const produto = await procurarProdutoPorId(id);
+        const imagens = await procurarImagemPorId(id);
+        const marcas = await procurarMarcaPorId(id);
+        const tamanhos = await procurarTamanhoPorId(id);
+        const cores = await procurarCorPorId(id);
+        const categorias = await procurarCategoriasPorId(id);
+
+
+        resp.send({
+            info: produto,
+            imagens: imagens,
+            marcas: marcas,
+            tamanhos: tamanhos,
+            cores: cores,
+            categorias: categorias
+        });
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
 
 export default server;

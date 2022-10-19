@@ -1,35 +1,87 @@
 import './index.scss'
-
-import OfertasDiarias from '../../components/ofertas diarias'
+import Storage from 'local-storage'
+import Cabecario from '../../components/cabeçario';
 import Rodape from '../../components/Rodape'
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { carregarProdutosPorId } from '../../api/produtoApi';
+import { API_URL } from '../../api/config';
+import { toast } from 'react-toastify';
 
 
 export default function Produtrox(){
 
+    const[produto,setProduto]= useState({categorias:[],cores:[],imagens:[],info:{},marcas:[],tamanhos:[]    })
+    const[imagemPrincipal, setImagemPrincipal]=useState(0)
+    const {id }= useParams();
+
+   async function carregarPagina(){
+     const r = await  carregarProdutosPorId(id)
+     console.log(r)
+       setProduto(r)
+   }
+   useEffect(()=>{
+       carregarPagina();
+   }, [])
+
+   function exibirImagemPrincipal(){
+
+       if(produto.imagens.length>=0){
+          return API_URL + '/' + produto.imagens[imagemPrincipal]
+       }
+
+       else {
+           return '/assets/images/tenis1.png';
+       }
+
+   }
+   function exibirImagens(imagem){
+    return API_URL + '/' + imagem;
+   }
+   function adicionarAoCarrinho(){
+
+    let carrinho= []
+    if  (Storage('carrinho')){
+        carrinho= Storage('carrinho')
+    }
+    if(!carrinho.find(item => item.id === id)){
+         carrinho.push({
+             id: id,
+             qtd: 1 ,
+         })
+         Storage('carrinho', carrinho);
+        
+    }
+    toast.dark('Produto adicionado ao carrinho')
+    
+   }
 
 
     return(
         
         <main className='page-px'>
+            
              
        
 
             <div className='container1'>
                <div className='subx'>
                         <div className='sub1'>
-                            <img className='img1' src='./assets/images/tenis1.png' alt=''/>
+                            <img className='img1' src={exibirImagemPrincipal()} alt=''/>
                         </div>
 
                         
-                        <div>
-                            <img className='img2' src='./assets/images/tenis2.png' alt=''/>
-                            <img className='img2' src='./assets/images/tenis2.png' alt=''/>
-                            <img className='img2' src='./assets/images/tenis2.png' alt=''/>
-                            <img className='img2' src='./assets/images/tenis2.png' alt=''/>
+                        <div className='img2'>
+                            {produto.imagens.map((item, pos) =>
+                                 <img  src={exibirImagens(item)} onClick={() =>setImagemPrincipal(pos)}
+                                 />
+                                )}
+                           
+                            
                         </div>
                     <div className='subdes'>
                         <h1>Descrição</h1>
-                        <p className='p1'>Os tênis BF Shoes são confortáveis, práticos, estilosos e oferecem resistência e aderência segura. Com seu visual moderno, combina com calça ou bermuda. Podendo ser utilizado para prática de esportes, ou para o uso do dia a dia.</p>
+                        <p className='p1'>{produto.info.descricao}</p>
                     </div>
 
 
@@ -42,7 +94,7 @@ export default function Produtrox(){
 
                  <div>
                     
-                 <h1>Tênis Esportivo On Shoes Masculino/feminino</h1>
+                 <h1>{produto.info.nome}</h1>
                  </div>
 
                  <div>
@@ -54,8 +106,8 @@ export default function Produtrox(){
                  </div>
 
                  <div>
-                    <p className='preço1'>R$ 299,99</p>
-                    <p className='preço2'>ou 4x de 55,99</p>
+                    <p className='preço1'>R$ {produto.info.precoInicial}</p>
+                    <p className='preço2'>ou 4x de {produto.info.precoFinal}</p>
                  </div>
 
                  <div className="sub3">
@@ -65,10 +117,7 @@ export default function Produtrox(){
                     <select>
                     <option selected disabled hidden>Selecione</option>
                         <option>verde</option>
-                        <option>verde</option>
-                        <option>verde</option>
-                        <option>verde</option>
-                        <option>verde</option>
+                      
                     </select>
                     </div>
                     
@@ -88,14 +137,14 @@ export default function Produtrox(){
                  </div>
 
                  <div className='sub4'>
-                    <h4>Quantidae : 1</h4>
-                    <button className='bt1'>+</button>
-                    <button className='bt1'>-</button>
+                    <h4>Quantidae disponivel:</h4>
+                    <h3> {produto.info.quantidade}</h3>
+                   
                  </div>
 
                  <div className='sub5'>
                     <button className='bt2'>Comprar agora </button><br></br>
-                    <button className='bt3'>Adicionar no carrinho</button>
+                    <button   onClick={adicionarAoCarrinho}  className='bt3'>Adicionar no carrinho</button>
                  </div>
 
                 <div className='sub6'>
@@ -110,7 +159,7 @@ export default function Produtrox(){
 
                 <div className='sub6'>
                     <div>
-                     <img src="./assets/images/okay.png" alt=""/>
+                   
                     </div>
                     <div>
                         <p className='p2'>Devolução grátis.</p>
@@ -188,10 +237,10 @@ export default function Produtrox(){
             <div className='subx1'>
                <h1>produto semelhantes</h1>
 
-                <OfertasDiarias/>
+                
             </div>
 
-            <Rodape/>
+  
             
 
             

@@ -13,7 +13,7 @@ import Estoque from './pages/estoque';
 import Produtoy from './pages/produtoy';
 import MeusPedidos from './pages/meusPedidos';
 import MeusPedid from './pages/meusPedid';
-
+import Carrinho from './pages/carrinho';
 import MenuADM from './components/menuADM';
 
 
@@ -30,6 +30,8 @@ export default function Rotas(){
                 <Route path='/endereco' element={<Endereco/>} />
                 <Route path='/cadastrarUsuario' element={<CadastarUsuario/>} />
                 <Route path='/produtoIndividual' element={<Produtrox/>}/>
+                <Route path='/produto/:id/produtoIndividual' element={<Produtrox/>}/>
+                <Route path='/carrinho' element={<Carrinho/>}/>
                 <Route path='/estoque' element={<Estoque/>}/>
                 <Route path='/produtoy' element={<Produtoy/>}/>
                 <Route path='/entrega' element={<Entrega/>}/>

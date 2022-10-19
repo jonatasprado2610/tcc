@@ -1,115 +1,89 @@
-import './index.scss';
-import Cabecario from '../../components/cabeçario'
-import Rodape from '../../components/Rodape';
+import './index.scss'
+import CabecarioAdmin from '../../components/cabeçarioAdmin'
+import Rodape from '../../components/Rodape'
+import { useEffect, useState } from 'react'
+import Storage from 'local-storage'
+import { Await } from 'react-router-dom'
+import { carregarProdutosPorId } from '../../api/produtoApi'
+import Car from '../../components/carrinhocomp'
+
+export default function Carrinho(props) {
 
 
-export default function Carrinho(){
+    const [itens, setItens] = useState([])
 
-    return(
-        <main className='pge-carrinho' >
-            <Cabecario/>
+    async function carregarCarrinho() {
 
-            <div className='sx'>
-                <div  >
-                    <div className='s2'>
-                        <div className='s3'>
-                            <div>
-                                <img className='img1' src='./assets/images/tenis1.png' alt=''/>
+        let carrinho = Storage('carrinho');
+        if (carrinho) {
 
-                            </div>
-                            <div>
-                                 <h2>Tênis Esportivo On Shoes Masculino/feminino </h2>
-                            </div>
-                            <div>
-                                 <img className='img2'  src='./assets/images/lixeira1.png' alt=''/>
+            let temp = [];
 
-                            </div>  
+            for (let produto of carrinho) {
+                let p = await carregarProdutosPorId(produto.id);
 
-                        </div>
-                              <div className='s4'>
-                                <div><h3>Quantidade</h3></div>
-                                <div><img src='./assets/images/-.png' alt=''/>   </div>
-                                <div><button className='button'>1</button></div>
-                                <div><img src='./assets/images/+.png' alt=''/></div>
-                                 <div>
-                                     <h4>Valor total</h4>
-                                     <p>R$ 229,99</p>
-                                 </div>
+                temp.push({
+                    produto: p,
+                    qtd: produto.qtd
+                })
+            }
+            console.log(temp);
+            setItens(temp);
+        }
 
-                                 <div>
-                                     <h4>Valor unitário</h4>
-                                     <p>R$ 229,99</p>
-                                 </div>
-                                
-                             </div>
+    }
+    function removerItem(id){
+        let carrinho =  Storage('carrinho')
+        carrinho= carrinho.filter(item=> item.id !=id)
 
 
-                    </div>
+        Storage('carrinho', carrinho);  
+        carregarCarrinho();
+    }
 
-                    <div className='s2'>
-                        <div className='s3'>
-                            <div>
-                                <img className='img1' src='./assets/images/tenis1.png' alt=''/>
 
-                            </div>
-                            <div>
-                                 <h2>Tênis Esportivo On Shoes Masculino/feminino </h2>
-                            </div>
-                            <div>
-                                 <img className='img2'  src='./assets/images/lixeira1.png' alt=''/>
 
-                            </div>  
 
-                        </div>
-                              <div className='s4'>
-                                <div><h3>Quantidade</h3></div>
-                                <div><img src='./assets/images/-.png' alt=''/>   </div>
-                                <div><button className='button'>1</button></div>
-                                <div><img src='./assets/images/+.png' alt=''/></div>
-                                 <div>
-                                     <h4>Valor total</h4>
-                                     <p>R$ 229,99</p>
-                                 </div>
+    useEffect(() => {
+        carregarCarrinho();
 
-                                 <div>
-                                     <h4>Valor unitário</h4>
-                                     <p>R$ 229,99</p>
-                                 </div>
-                                
-                             </div>
+    }, []);
 
+
+    return (
+        <section className='page-carrinho'>
+            <CabecarioAdmin />
+            <div className='x1x'>
+                <h1>Carrinho</h1>
+
+                <div className='c1' >
+
+              <div className='cx2'>
+                 {itens.map(item =>
+                     <Car item={item} removerItem={removerItem}/>
+                    )} 
+              </div>
+                 
+                 
+                
+
+
+
+                    <div className='c2'>
+                        <h3>subtotal</h3>
+                        <p>3 itens</p>
+                        <button>Fechar Pedido</button>
 
                     </div>
 
-                   
-                </div>
-                <div className='s5'>
-                    <h3>Resumo da compra</h3>
-
-                    <div className='div'>
-                        <p>Subtotal        R$ 128, 99</p>
-                    </div>
-                    
-
-                    <div className='div'>
-                        <p>Frete xxxx</p>
-                    </div>
-
-                    <div className='div'>
-                        <p>Desconto xxxx</p>
-                    </div >
-
-                    <div className='div'>
-                        <p>Total xxxx</p>
-                    </div>
-                    <div>
-                        <button className='button2'>Continuar pedido </button>
-                    </div>
 
                 </div>
+
             </div>
-            <Rodape/>
 
-        </main>
+
+            <Rodape />
+
+        </section>
     )
 }

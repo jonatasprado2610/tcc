@@ -1,0 +1,36 @@
+.paga-compcar{
+    margin:0;
+    pad: 0;
+   width: 100%;
+
+    .cx{
+        width: 100%;
+       border: 1px solid red;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        
+       
+    }
+
+    .card{
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+        height: 200px;
+        width: 12em;
+       border: 1px solid red;
+     
+      p{
+          font-size: 20px;
+          font-family: 'BebasNeue-Regular';
+      }
+    }
+      .imgxx{
+    
+       img{
+        width: 180px;
+       }
+      
+      }
+}
