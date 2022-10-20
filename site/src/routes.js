@@ -13,6 +13,7 @@ import Estoque from './pages/estoque';
 import Produtoy from './pages/produtoy';
 import MeusPedid from './pages/meusPedid';
 import DetalhesPedido from './pages/detalhesPedido';
+import PedidoClientes from './admin/pedidoClientes';
 import Carrinho from './pages/carrinho';
 import MenuADM from './components/menuADM';
 
@@ -37,7 +38,10 @@ export default function Rotas(){
                 <Route path='/entrega' element={<Entrega/>}/>
                 <Route path='/meusPedid' element={<MeusPedid/>}/>
                 <Route path='/detalhesPedido' element={<DetalhesPedido/>}/>
-                
+                <Route path='/pedidoClientes' element={<PedidoClientes/>}/>
+
+
+
                 <Route path='/menuADM' element={<MenuADM/>}/>
             </Routes>
         </BrowserRouter>

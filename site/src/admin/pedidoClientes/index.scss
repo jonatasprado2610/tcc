@@ -1,0 +1,18 @@
+.cont-pedidoClientes {
+    width: 100%;
+
+    .section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 30em;
+        width: 100%;
+    }
+
+    .tabela {
+        th{
+        background-color: blue;
+    }
+}
+}
