@@ -5,8 +5,10 @@ import Storage from 'local-storage'
 
 
 
-export default function Car({item:{produto:{info,imagens } , qtd }, removerItem}){
+export default function Car({item:{produto:{info,imagens } , qtd }, removerItem, carregarCarrinho}){
          const [qtdproduto, setQtdproduto]= useState(qtd)
+
+
 
          function remover(){
              removerItem(info.id);
@@ -34,13 +36,14 @@ export default function Car({item:{produto:{info,imagens } , qtd }, removerItem}
                 let itemStorage= carrinho.find(item => item.id == info.id);
                 itemStorage.qtd=novaQtd;
                 Storage('carrinho', carrinho);
+                carregarCarrinho();
         }
-
         
+      
     return(
         <section className='paga-compcar'>
 
-             <div className='cx'>
+               <div className='cx'>
                         <div className='card'>
                             <div>
                                 
@@ -74,6 +77,9 @@ export default function Car({item:{produto:{info,imagens } , qtd }, removerItem}
 
 
                     </div>
+
+                   
+
 
 
         </section>

@@ -9,6 +9,19 @@ import Car from '../../components/carrinhocomp'
 
 export default function Carrinho(props) {
 
+    function qtdItens(){
+     return itens.length;
+    }
+
+    function calcularValorTotal(){
+        let total= 0;
+        for(let item of itens){
+           total = total +  item.produto.info.precoInicial * item.qtd
+        }
+        return total;
+    }
+    
+
 
     const [itens, setItens] = useState([])
 
@@ -60,7 +73,7 @@ export default function Carrinho(props) {
 
               <div className='cx2'>
                  {itens.map(item =>
-                     <Car item={item} removerItem={removerItem}/>
+                     <Car item={item} removerItem={removerItem} carregarCarrinho={carregarCarrinho} />
                     )} 
               </div>
                  
@@ -71,7 +84,8 @@ export default function Carrinho(props) {
 
                     <div className='c2'>
                         <h3>subtotal</h3>
-                        <p>3 itens</p>
+                        <p>{qtdItens()} itens</p>
+                        <p>R$ {calcularValorTotal()} </p>
                         <button>Fechar Pedido</button>
 
                     </div>
