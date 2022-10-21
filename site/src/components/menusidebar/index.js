@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 { /*
     
 import './index.scss'
+=======
+/*import './index.scss'
+>>>>>>> 1179aa6611b7fb3dd8396535f10fe0bd7928ffe8
 import React, { useState } from 'react'
 import { Cont } from './styles.js'
 import { FaBars } from 'react-icons/fa'
@@ -20,5 +24,4 @@ const Header = () => {
     )
 }
 
-export default Header
-*/ }
+
