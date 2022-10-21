@@ -5,8 +5,11 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    background: url('../../../public/assets/images/image b.png') no-repeat;
-    background-size: cover;
+    background: url('../../../public/assets/images/loginUSU.svg') no-repeat;
+    background-position:top;
+    background-attachment:fixed;
+    background-size:contain;
+
     user-select: none;
    
 
