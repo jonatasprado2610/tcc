@@ -12,7 +12,7 @@ export default function pedidoClientes() {
                     <input type='text'></input>
                 </div>
 
-                <div>
+                <div className='div-tabela'>
                     <table className='tabela'>
                         <tr>
                             <th>Produtos</th>
@@ -25,27 +25,31 @@ export default function pedidoClientes() {
                              <td>Tênis Esportivo On Shoes Masculino/feminino</td>
                              <td>666666</td>
                              <td>Calçados</td>
+                             <td>R$ 269, 99</td>
+                             <td>Nicolas</td>
                         </tr>
                         <tr>
-                             <td>Ola</td>
                              <td>Bola nike</td>
+                             <td>55555</td>
                              <td>Chuteira e camisa adidas</td>
+                             <td>R$ 89, 90</td>
+                             <td>Ana Julia  </td>
                         </tr>
                     </table>
                 </div>
 
                 <div>
                     <div>ID:</div>
-                    <div>
+                    <div className='card'>
                         <div>card casa</div>
                         <div>Valor total</div>
                     </div>
                 </div>
 
                 <div>____________________Barra status da entrega __________________</div>
-                <div>
-                    <button>Alterar situação</button>
-                </div>
+    
+                    <button className='botao'>Alterar situação</button>
+             
             </section>
         </main>
     )

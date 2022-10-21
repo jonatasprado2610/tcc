@@ -1,4 +1,4 @@
-import './index.scss'
+/*import './index.scss'
 import React, { useState } from 'react'
 import { Cont } from './styles.js'
 import { FaBars } from 'react-icons/fa'
@@ -17,4 +17,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;*/
