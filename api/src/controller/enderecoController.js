@@ -1,13 +1,32 @@
 import { Router } from "express";
-import { cadastrarEndereco } from "../repository/enderecoRepository.js"; 
+import {  Listar, salvar } from "../repository/enderecoRepository.js"; 
 const server = Router();
 
-server.post('/api/cadastrarendereco', async (req, resp) => {
+server.get('/api/usuario/:id/indereco', async (req, resp) => {
     try{
-        const endereco = req.body;
+        const id =req.params.id;
+        const  r=  await Listar(id);
 
-        const linhas = await cadastrarEndereco(endereco)
-        resp.send(linhas)
+        resp.send(r);
+
+        
+
+    }
+    catch (err) {
+        return resp.status(400).send({
+        erro: err.message
+        });
+    }
+})
+
+server.post('/api/usuario/:id/indereco', async (req, resp) => {
+    try{
+
+        const id =req.params.id;
+        const endereco= req.body
+
+        const r = await salvar(id, endereco)
+        resp.status(204).send();
         
 
     }

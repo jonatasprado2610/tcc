@@ -17,7 +17,7 @@ import PedidoClientes from './admin/pedidoClientes';
 import Carrinho from './pages/carrinho';
 import MenuADM from './components/menuADM';
 
-
+import Ender from './pages/endereco2';
 export default function Rotas(){
     return(
         <BrowserRouter>
@@ -39,6 +39,7 @@ export default function Rotas(){
                 <Route path='/meusPedid' element={<MeusPedid/>}/>
                 <Route path='/detalhesPedido' element={<DetalhesPedido/>}/>
                 <Route path='/pedidoClientes' element={<PedidoClientes/>}/>
+                <Route path='/ende' element={<Ender/>}/>
 
 
 

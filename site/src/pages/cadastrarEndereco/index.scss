@@ -1,72 +1,37 @@
 .page-endereco {
     display: flex;
     flex-direction: column;
+    
 
-    .div-subgeral {
-        padding-bottom: 4em;
-        padding-top: 3em;
-
-    }
-
-    .titulo-endereco{
-        font-family: "BebasNeue-Regular";
-        font-size: 2em;
-        margin-bottom: 2em;
-        margin-top: 2em;
-        text-align: center;
-        color: #0447c4;
-    }
-
-    .div-dados{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
+    
+     .c1{
         
-        height: 30em;
-    }
+         width: 50em;
+         padding: 5px 5px;
+         height: 25em;
+         display: flex;
+         justify-content: start;
+         flex-direction: column;
+         margin-top: 8em;
+         border: 1px solid rgb(100, 100, 100);
+         border-radius: 5px;
 
-    .dds {
-        display: flex;
-        flex-direction: column;
-        height: 25em;
-        justify-content: space-evenly;
+         input{
+            width: 300px;
+            border: none;
+            outline: 0;
+            border-bottom: 2px solid #0B4E6B;
+         }
+         h3{
+            font-family: 'BebasNeue-Regular';
+         }
+         margin-bottom: 3em;
 
-    }
-
-    .infos {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 4.5em;
-    }
-    h3 {
-        font-size: 2em;
-       
-    }
-    input{
-        width: 300px;
-        border: none;
-        outline: 0;
-        border-bottom: 2px solid #0B4E6B;
-    }
-    
-    .div-botao{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .botao{
-        background-color: #0B4E6B;
-        height: 4em;
-        width: 15em;
-        border-radius: 1em;
-    }
-
-    .texto-botao{
-        font-size: 1.5em;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        color: white;
-    }
-    
+     }
+     .c2{
+        margin-top: 3em;
+         display: flex;
+         justify-content: space-around;
+         flex-direction: row;
+     }
 }
