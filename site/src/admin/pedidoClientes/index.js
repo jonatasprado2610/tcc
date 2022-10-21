@@ -1,5 +1,4 @@
 import CabecarioAdmin from '../../components/cabeçarioAdmin';
-import MenuADM from '../../components/menuADM';
 import'./index.scss';
 
 export default function pedidoClientes() {

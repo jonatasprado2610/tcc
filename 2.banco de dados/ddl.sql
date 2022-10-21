@@ -1,9 +1,5 @@
 create database tccDB;
-drop database tccDB;
-show tables;
-
 USe tccDB;
-drop table tb_categoria;
 
 create table tb_produto (
 ID_PRODUTO						int primary key auto_increment,
@@ -15,7 +11,10 @@ QTD_ITENS						int,
 BL_CATEGORIA_DIARIA				bool,
 DS_DESCRICAO					varchar(1000)
 );
-
+create table tb_categoria(
+ID_CATEGORIA					int primary key auto_increment,
+NM_CATEGORIA					varchar(100)
+);
 create table tb_produto_categoria(
 ID_PRODUTO_CATEGORIA			int primary key auto_increment,
 ID_CATEGORIA					int,
@@ -25,18 +24,11 @@ foreign key (ID_CATEGORIA) references  tb_categoria (ID_CATEGORIA),
 foreign key (ID_PRODUTO) references tb_produto(ID_PRODUTO)
 );
 
-create table tb_categoria(
-ID_CATEGORIA					int primary key auto_increment,
-NM_CATEGORIA					varchar(100)
-);
-
-drop table  tb_produto_imagem;
-select * from  tb_produto_imagem;
 
 create table tb_produto_imagem(
 ID_PRODUTO_IMAGEM				int primary key auto_increment,
 ID_PRODUTO 						INT,
-DS_IMAGEM				varchar(800),
+DS_IMAGEM						varchar(800),
 foreign key (ID_PRODUTO) references tb_produto(ID_PRODUTO)
 );
 
@@ -84,6 +76,31 @@ foreign key (ID_TAMANHO) references  tb_tamanho (ID_TAMANHO),
 foreign key (ID_PRODUTO) references tb_produto(ID_PRODUTO)
 );
 
+
+create table tb_usuario(
+ID_USUARIO						int primary key auto_increment,
+NM_USUARIO						varchar(150),
+DT_NASCIMENTO					date,
+DS_RG							varchar(100),
+DS_CPF							varchar(100),
+ds_email                        varchar(100),
+ds_senha                        varchar(100),
+bt_trocar           boolean,
+cod_reset           varchar(50),
+dt_expiracao_cod  datetime
+);
+
+create table tb_usuario_endereco(
+ID_USUARIO_ENDERECO				int primary key auto_increment,
+ID_USUARIO						int,
+DS_LOGRADOURO					varchar(100),
+DS_CEP							varchar(15),
+DS_ESTADO						varchar(50),
+DS_CIDADE						varchar(50),
+DS_COMPLEMENTO					varchar(10),
+NR_NUMERO						varchar(5),
+foreign key (ID_USUARIO) references tb_usuario (ID_USUARIO)
+);
 
 create table tb_pedido(
 ID_PEDIDO						int primary key auto_increment,
@@ -136,30 +153,6 @@ foreign key (ID_USUARIO) references tb_usuario (ID_USUARIO)
 
 );
 
-create table tb_usuario(
-ID_USUARIO						int primary key auto_increment,
-NM_USUARIO						varchar(150),
-DT_NASCIMENTO					date,
-DS_RG							varchar(100),
-DS_CPF							varchar(100),
-ds_email                        varchar(100),
-ds_senha                        varchar(100),
-bt_trocar           boolean,
-cod_reset           varchar(50),
-dt_expiracao_cod  datetime
-);
-
-create table tb_usuario_endereco(
-ID_USUARIO_ENDERECO				int primary key auto_increment,
-ID_USUARIO						int,
-DS_LOGRADOURO					varchar(100),
-DS_CEP							varchar(15),
-DS_RUA							varchar(100),
-DS_BLOCO						varchar(10),
-NR_NUMERO						varchar(5),
-foreign key (ID_USUARIO) references tb_usuario (ID_USUARIO)
-);
-
 create table tb_pagamento_pix(
 ID_PAGAMENTO_PIX				int primary key auto_increment,
 ID_PEDIDO						int,
@@ -182,7 +175,7 @@ foreign key (ID_PEDIDO) references tb_pedido (ID_PEDIDO)
 create table tb_boleto(
 ID_BOLETO						int primary key auto_increment,
 ID_PEDIDO						int,
-IMG_BOLETO						varchar(150),
+IMG_BOLETO						varchar(800),
 DS_CODIGO						varchar(100),
 foreign key (ID_PEDIDO) references tb_pedido (ID_PEDIDO)
 );
@@ -206,9 +199,7 @@ foreign key (ID_FUNCIONARIO) REFERENCES tb_admin (ID_FUNCIONARIO)
 
 create table tb_carrossel_principal(
 ID_CARROSSEL_PRINCIPAL					int primary key auto_increment,
-DS_IMG									varchar(100)
+DS_IMG									varchar(800)
 );
 
-DESC TB_CARROSSEL_PRINCIPAL;
-DROP TABLE tb_carrossel_principal;
 show tables;
