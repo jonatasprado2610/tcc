@@ -1,14 +1,18 @@
 .cxx{
+    img{
+        
+        border: 1px solid red;
+    }
     border: 1px solid red;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    
     width: 15em;
-    text-align: center;
+  
     border: 1px solid rgb(167, 167, 167);
     h3{
-        margin-top: 2.5em;
+        
         font-family:"BebasNeue-Regular";
     }
 

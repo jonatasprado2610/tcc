@@ -1,9 +1,9 @@
-import {con} from './connection.js';
+import { con } from './connection.js';
 
-export  async  function Listar(idUsuario){
-    const comando = 
+export async function Listar(idUsuario) {
+    const comando =
         `
-        select id_usuario_endereco1  id,
+        select id_usuario_endereco  id,
         ds_referencia           referencia,
         ds_cep             cep,
         ds_logradouro      logradouro ,
@@ -15,8 +15,8 @@ export  async  function Listar(idUsuario){
   from tb_usuario_endereco
   where id_usuario = ?`
 
-          const [linhas] = await con.query(comando, [idUsuario])
-          return linhas;
+    const [linhas] = await con.query(comando, [idUsuario])
+    return linhas;
 
 
 

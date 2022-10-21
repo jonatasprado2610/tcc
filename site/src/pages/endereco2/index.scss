@@ -3,10 +3,15 @@
     padding: 0;
    
 
-  
+   
 
   section{ 
-         border: 1px solid red;
+         h1{
+             font-size: 30px;
+             margin-left: 1em;
+             margin-right: .5em;
+            font-family:"BebasNeue-Regular";
+         }
       height: 35em;
       width: 100%;
   }
@@ -27,7 +32,7 @@
         display: flex;
         justify-content: space-around;
         text-align: center;
-        width: 50em;
+        width: 100%;
         flex-direction: row;
         
     }
@@ -54,7 +59,7 @@
     .cs{
         display: flex;
         flex-direction: row;
-        border:1px solid aqua;
+       
     }
 
    .cxx{

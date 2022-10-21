@@ -48,11 +48,12 @@ export default function Endereco () {
     return (
         <main className="page-endereco">
             <Cabecario></Cabecario>
+            <div>
+             <button onClick={sairClick}>Novo</button>
+            </div>
             
         <div className="c1">
-            <div>
-            <button onClick={sairClick}>Novo</button>
-            </div>
+            
           <div>
                 <div className="c2">
                     <div>

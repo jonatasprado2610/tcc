@@ -9,7 +9,8 @@ export default function CrdEndereco({item : {referencia,logradouro,cep,bairro,ci
         <main>
             
                 <div className='cxx'>
-                            
+                   <div><img src='./assets/images/ps.png ' /></div>        
+                    
                 <div>
                     <h3>{referencia}</h3>
                 </div>

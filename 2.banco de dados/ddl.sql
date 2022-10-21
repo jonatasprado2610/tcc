@@ -90,16 +90,18 @@ cod_reset           varchar(50),
 dt_expiracao_cod  datetime
 );
 
-create table tb_usuario_endereco(
-ID_USUARIO_ENDERECO				int primary key auto_increment,
-ID_USUARIO						int,
-DS_LOGRADOURO					varchar(100),
-DS_CEP							varchar(15),
-DS_ESTADO						varchar(50),
-DS_CIDADE						varchar(50),
-DS_COMPLEMENTO					varchar(10),
-NR_NUMERO						varchar(5),
-foreign key (ID_USUARIO) references tb_usuario (ID_USUARIO)
+create table tb_usuario_endereco (
+	id_usuario_endereco			int primary key auto_increment,
+	id_usuario					int,
+    ds_referencia               varchar(200),
+    ds_cep						varchar(50),
+    ds_logradouro				varchar(400),
+    ds_bairro					varchar(100),
+    ds_cidade					varchar(100),
+    ds_estado					varchar(100),
+    ds_numero					varchar(100),
+    ds_complemento				varchar(200),
+    foreign key (id_usuario) references tb_usuario (id_usuario)
 );
 
 create table tb_pedido(
@@ -117,13 +119,14 @@ foreign key (ID_USUARIO) references tb_usuario (ID_USUARIO),
 foreign key (ID_USUARIO_ENDERECO) references tb_usuario_endereco (ID_USUARIO_ENDERECO)
 );
 
-create table tb_pedido_item(
-ID_PEDIDO_ITEM					int primary key auto_increment,
-ID_PEDIDO 						int,
-ID_PRODUTO						int,
-VL_PRODUTO						int,
-foreign key (ID_PEDIDO) references tb_pedido (ID_PEDIDO),
-foreign key (ID_PRODUTO) references tb_produto (ID_PRODUTO)
+create table tb_pedido_item (
+	id_pedido_item		int primary key auto_increment,
+    id_pedido			int,
+    id_produto			int,
+    qtd_itens			int,
+    vl_produto			decimal(15,2),
+    foreign key (id_pedido) references tb_pedido (id_pedido),
+    foreign key (id_produto) references tb_produto (id_produto)
 );
 
 create table tb_produto_avaliacao(

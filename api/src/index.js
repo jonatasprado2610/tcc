@@ -10,7 +10,7 @@ import admincorController from './controller/admin/corController.js'
 import enderecoController  from './controller/enderecoController.js'
 import filtrosController from './controller/filtrosController.js'
 import produtoController  from './controller/produtoController.js'
-
+import pedidoController from './controller/pedidoController.js'
 import express from 'express'
 import cors from 'cors'
 
@@ -32,7 +32,7 @@ server.use(enderecoController);
 
 server.use(filtrosController);
 server.use(produtoController);
-
+server.use(pedidoController);
 server.use('/storage/produto', express.static('storage/produto'))
 
 

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "randomstring": "^1.2.3",
     "react-icons": "^4.6.0",
     "react-multi-carousel": "^2.8.2",
     "react-toastify": "^9.0.8",

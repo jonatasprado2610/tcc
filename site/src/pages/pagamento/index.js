@@ -1,10 +1,15 @@
 import './index.scss'
 import { Link } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom'
 
 
 export default function Pagamento(){
 
+ const navigate= useNavigate();
+
+ function navi(){
+    navigate('/pagamento/cartao')
+  }
 
     return(
         <main className='page-pagameto'>
@@ -12,7 +17,7 @@ export default function Pagamento(){
              
             <div className='subx1'>
               
-              <div className='cx1'>
+              <div onClick={navi} className='cx1'>
                   
                   <h3>Cartao</h3>
                   <img className='img' src='./assets/images/cartaoa.png'  alt=''    />
