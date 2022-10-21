@@ -12,6 +12,7 @@ import { listarTamanhos } from '../../api/admin/tamanho'
 import { listarCores } from '../../api/admin/cor'
 import { toast } from 'react-toastify';
 import { API_URL } from '../../api/config'
+import MenuADM from '../../components/menuADM'
 
 
 export default function Cadastrar() {
@@ -240,19 +241,19 @@ export default function Cadastrar() {
     return (
         <main className='page-cadastrar'>
            
-            
-            <div onClick={sairClick}>
-                <Link to="/loginadm">Sair</Link>
+            <div className='cabecario'>
+                <CabecarioAdmin />
+
             </div>
-
-            <CabecarioAdmin />
-
+            
             <div className="containermar">
 
-                
+                <div className='Menu'>
+                    <MenuADM/>
+                </div>
 
                 <div className="containerx">
-                    <div><h2> {id ? 'Alterar Produto' : 'Novo Produto'} </h2></div>
+                    <div className='titulo'><h2> {id ? 'Alterar Produto' : 'Novo Produto'} </h2></div>
                     <div className='containercar3xx'>
                         <h3> Nome Produto: </h3>
                         <input className='input' type='text' placeholder='Nome' value={nome} onChange={e => setNome(e.target.value)} />
@@ -435,7 +436,12 @@ export default function Cadastrar() {
 
                 </div>
 
+                <div className='fantasma'>
+                
+                </div>
+
             </div>
+
         </main>
     )
 }
