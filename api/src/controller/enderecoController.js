@@ -22,10 +22,10 @@ server.get('/api/usuario/:id/indereco', async (req, resp) => {
 server.post('/api/usuario/:id/indereco', async (req, resp) => {
     try{
 
-        const id =req.params.id;
-        const endereco= req.body
+        const id = req.params.id;
+        const endereco = req.body;
 
-        const r = await salvar(id, endereco)
+        const r = await salvar(id, endereco);
         resp.status(204).send();
         
 
