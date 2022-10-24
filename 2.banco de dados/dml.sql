@@ -238,7 +238,7 @@ insert into tb_carrossel_principal(
 DS_IMG
 )
 values(
-'https://media.istockphoto.com/photos/carrousel-at-dusk-picture-id136325144')
+'https://media.istockphoto.com/photos/carrousel-at-dusk-picture-id136325144');
 
 select *
  from tb_pedido_item;

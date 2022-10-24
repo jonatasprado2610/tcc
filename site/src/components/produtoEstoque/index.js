@@ -42,7 +42,7 @@ useEffect(() => {
 }, [])
 
     return(
-        <main>
+        <main className='tudo'>
                  <h1>ESTOQUE</h1>
             <div className='s1xx'>
              
@@ -51,13 +51,13 @@ useEffect(() => {
                 </div>
 
                 <div>
-                    <img onClick={Filtrar}  src='./assets/images/lupa.png' alt=' ' />
+                    <img onClick={Filtrar}  src='/assets/images/lupa.png' alt=' ' />
                 </div>
             </div>
 
-            <div>
+            <div className='tabela'>
             <table >
-                <thead>
+                <thead className='cabecario'>
                 <tr>
                             <th>ID</th>
                             <th>Produto</th>
@@ -65,12 +65,9 @@ useEffect(() => {
                             <th>Parcelado</th>
                             <th>quantidade</th>
                             <th>destaque</th>
-                           
                             <th>QTD categoria</th>
                             <th>marca</th>
-                
-                
-
+                            <th>  </th>
             </tr>
 
                 </thead>
@@ -85,8 +82,8 @@ useEffect(() => {
                         <td>{item.destaque ? 'sim':'nao'}</td>
                         <td>{item.qtd_categoria}</td>
                         <td>{item.marca}</td>
-                        <span onClick={() => editar(item.id)}>  <img  src='./assets/images/alterarEstoque.png'/> </span> 
-                        <span onClick={() => deletarProduto(item.id)}>  <img src='./assets/images/apagarEstoque.png'/> </span>
+                        <span onClick={() => editar(item.id)}>  <img  className='imagens' src='/assets/images/alterarEstoque.png'/> </span> 
+                        <span onClick={() => deletarProduto(item.id)}>  <img className='imagens' src='/assets/images/apagarEstoque.png'/> </span>
                         </tr>
 
                         )}    
