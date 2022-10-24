@@ -22,11 +22,7 @@ import './index.scss';
                             
                         </div>
                     </div>
-                   
-                  
-    
-    
-                    
+                                
                 </section>
             )
             }
