@@ -112,31 +112,30 @@ export async function salvarProdutoImagem(idProduto, imagemPath) {
 // // PRODUTO ESTOQUE // //             // // PRODUTO ESTOQUE // //             // // PRODUTO ESTOQUE // //             // // PRODUTO ESTOQUE // //
 
 export async function buscarProdutos() {
-    const comando = `
-    select  tb_produto.ID_PRODUTO    id,
+    const comando = ` 
+    select  tb_produto.
+    ID_PRODUTO    id,
     NM_PRODUTO                    nome,
     VL_PRECO_DE                    preco,
     VL_PRECO_POR           precopar,
     QTD_ITENS              qtd,
     BL_CATEGORIA_DIARIA     destaque,
-    count(NM_CATEGORIA) qtd_categoria ,
+    NM_CATEGORIA qtd_categoria ,
     NM_MARCA      marca
-     
     from tb_produto
     inner join tb_produto_categoria on tb_produto.id_produto=tb_produto.id_produto
     inner join tb_categoria on tb_categoria.id_categoria = tb_produto_categoria.id_produto
     inner join tb_produto_marca on tb_produto_marca.ID_PRODUTO = tb_produto.ID_PRODUTO
-    inner join tb_marca on tb_marca.ID_MARCA = tb_produto_marca.ID_MARCA 
+    inner join tb_marca on tb_marca.ID_MARCA = tb_produto_marca.ID_MARCA
+    where tb_produto.id_produto = 2
     group by
     tb_produto.ID_PRODUTO,
     NM_PRODUTO,
     VL_PRECO_DE,
     VL_PRECO_POR,
     QTD_ITENS,
-    BL_CATEGORIA_DIARIA,
-    NM_MARCA;
-              
-    `
+    BL_CATEGORIA_DIARIA;
+     `
     const [registros] = await con.query(comando);
     return registros;
 }
