@@ -15,7 +15,6 @@ import MeusPedid from './pages/meusPedid';
 import DetalhesPedido from './pages/detalhesPedido';
 import PedidoClientes from './admin/pedidoClientes';
 import Carrinho from './pages/carrinho';
-import MenuSidebar from './components/menusidebar';
 import Ender from './pages/endereco2';
 import Pagamento from './pages/pagamento';
 import PagamentoCartao from './pages/pagamentoCartao';
@@ -44,7 +43,6 @@ export default function Rotas(){
                 <Route path='/ende' element={<Ender/>}/>
                 <Route path='/pagamento' element={<Pagamento/>}/>
                 <Route path='/pagamento/cartao' element={<PagamentoCartao/>}/>
-                <Route path='/menusidebar' element={<MenuSidebar />} />
                 <Route path='/perfil/usuario' element={<PerfilUsuario />} />
 
                 
