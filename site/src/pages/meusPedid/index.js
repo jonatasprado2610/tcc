@@ -12,4 +12,4 @@ export default function MeusPedid() {
             </section>
         </main>
     )
-} 
+}
