@@ -1,94 +1,58 @@
 import './index.scss'
 import Filtros from '../../components/filtros'
 import Cabecario from '../../components/cabeçario'
-import Rodape  from '../../components/Rodape'
-import { listarProdutosIncioxx } from '../../api/produtoApi';
-import { useEffect, useState } from 'react';
-import { API_URL } from '../../api/config';
+import Rodape from '../../components/Rodape'
+import CardP from '../../components/cardProduto'
+import { useEffect, useState } from 'react'
+import { listarProdutosIncioxx } from '../../api/produtoApi'
+import Storage from 'local-storage'
+export default function  Produtoy() {
 
-export default function Produtoy(props){
+  
+      const[produto,setProduto]=useState([]);
 
-      const [produtos, setProdutos] = useState([]);
-
-      function exibir(imagem) {
-            
-            if (!imagem)
-                return ``;
-            else
-                return `${API_URL}/${imagem}`
-                
-        }
+      async function listar(){
+        const r  = await listarProdutosIncioxx();
+        setProduto(r)
+      }
 
 
-    async function listar(){
-        
-        const r = await listarProdutosIncioxx();
-        setProdutos(r);
-        console.log(r);
-    }
+      useEffect(()=>{
+           listar();
+      }, [])
 
-    useEffect(() =>{
-       listar();
-    }, [])
-
-
-
-    return(
-        <main className='page-pr'
-                  {...produtos.map(item =>
-                        item={item}                
-                  )}
+    return (
+        <main className='page-pr'       
         >
-            <Cabecario/>
-           
+            <Cabecario />
+
             <div className='sx1'>
-             <Filtros/>
+                <Filtros />
 
 
-              <div className='sx2'>
-                 <h1>Resultados para ? </h1>
+                <div className='sx2'>
+                    <h1>Resultados para ? </h1>
 
 
-                  <div className='sxD'
-                            
-       
-                   
-                  >
-                     <div className='card'>
-                          <div className='sx3'>
-                                <img className='sximg' src='./assets/images/Star 14.png' alt=''/>
-                                <img className='sximg' src='./assets/images/carinho.png' alt=''/>
-                          </div>
-                          <div>
-                            <img className='imgx'  src={exibir(props.item.imagem)} />
-                           <p className='sxp'>{props.item.nome} </p>
-                          <div>
-                          <img src='./assets/images/star1.png' alt=''/>
-                          <img src='./assets/images/star1.png' alt=''/>
-                          <img src='./assets/images/star1.png' alt=''/>
-                          <img src='./assets/images/star1.png' alt=''/>
-                          <img src='./assets/images/star1.png' alt=''/>
-                          </div>
-                          <p>R${props.item.preco}</p>
-                          <p>ou 4x de {props.item.precopar}</p>    
-                          </div>
-                                                   
-                     </div>
+                    <div className='sxD'>
+                        {produto.map(
+                            item =>
 
-                     
-                 
-                 
+                            <CardP  item={item}/>
+                        )}
 
-           
-                    
-                    
-                 </div>
-             </div>
+          
+
+
+
+                    </div>
+                </div>
             </div>
-            
-                
-            
-            
+            <Rodape/>
+
+
+
+
         </main>
     )
 }
