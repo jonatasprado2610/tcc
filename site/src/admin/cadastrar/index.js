@@ -12,11 +12,6 @@ import { listarTamanhos } from '../../api/admin/tamanho'
 import { listarCores } from '../../api/admin/cor'
 import { toast } from 'react-toastify';
 import { API_URL } from '../../api/config'
-<<<<<<< HEAD
-
-=======
-//import MenuADM from '../../components/menuADM'
->>>>>>> 1179aa6611b7fb3dd8396535f10fe0bd7928ffe8
 
 
 export default function Cadastrar() {
@@ -253,11 +248,6 @@ export default function Cadastrar() {
             <div className="containermar">
 
                 <div className='Menu'>
-<<<<<<< HEAD
-                    
-=======
-                   /*Menu*/
->>>>>>> 1179aa6611b7fb3dd8396535f10fe0bd7928ffe8
                 </div>
 
                 <div className="containerx">
