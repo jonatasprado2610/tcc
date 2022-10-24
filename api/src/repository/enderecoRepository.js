@@ -29,6 +29,6 @@ export async function salvar(idUsuario, endereco) {
                              values (?, ?, ?, ?, ?, ?, ?, ?, ?)
     `
 
-    const [info] = await con.query(comando, [idUsuario, endereco.referencia, endereco.cep, endereco.logradouro, endereco.bairro, endereco.cidade, endereco.estado, endereco.numero, endereco.complemento]);
+    const [info] = await con.query(comando, [idUsuario, endereco.referencia, endereco.cep, endereco.logradouro, endereco.bairro, endereco.cidade, endereco.estado, endereco.numero, endereco.complemento])
     return info.insertId;
 }

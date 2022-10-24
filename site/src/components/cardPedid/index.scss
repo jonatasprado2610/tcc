@@ -1,19 +1,64 @@
-.cont-cardPedido {
+    .divPraApagar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        width: 94.8em;
+        padding-top: 3em;
+        background-color: #959595;
+
+
+
+    .cont-cardPedido {
     display: flex;
     flex-direction: row;
-    width: 100%;
-    height: 50%;    
+    justify-content: space-between;
+    width: 55%;
+    height: 27%;    
+    padding: 2em;
+    background-color: #F4F4F4;
+    border-radius: 1em;
+    border: 2px #808080;
+    }
+
+    .div-prim {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        width: 65%;
+        border: solid 2px green;
+
+    }
 
     .div-infos {
        display: flex;
        flex-direction: row;
+       height: 50%;
+       border: solid 2px green;
+
     }
 
+    .imgProduto {
+        width: 8em;
+        height: 5.2em;
+    }
     .div-valor {
         display: flex;
        flex-direction: column;
        justify-content: space-between;
+       height: 35%;
+       border: solid 2px green;
+
     }
+
+    .valor {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
     .div-titulo {
         margin-bottom: 3em;
     }
@@ -22,5 +67,22 @@
         display: flex;
        flex-direction: column; 
        justify-content: space-between;
+       height: 90%;
     }
+
+    .botao {
+        height: 2.5em;
+        width: 15em;
+        border-radius: 0.7em;
+        background-color: #0B4E6B;
+        
+    }
+    .botao-cancel {
+        height: 2.5em;
+        width: 15em;
+        border-radius: 0.7em;
+        background-color: #ffffff;
+        }
+    
+
 }

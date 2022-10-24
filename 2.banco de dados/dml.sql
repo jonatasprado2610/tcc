@@ -126,20 +126,24 @@ true,
 insert into tb_usuario_endereco(
 ID_USUARIO,
 DS_LOGRADOURO,
+DS_BAIRRO,
+DS_REFERENCIA,
 DS_CEP,
 DS_ESTADO,
 DS_CIDADE,
 DS_COMPLEMENTO,
-NR_NUMERO
+DS_NUMERO
 )
 values(
 1,
-'Rua Manoel de Lima',
+'Rua José de Vieira',
+'Jardim Nova Holanda',
+'Próximo a escola Ayrton Senna',
 123456789123456,
 'São Paulo',
 'SP',
 'A',
-150);
+180);
 
 insert into tb_pedido(
 ID_USUARIO,
