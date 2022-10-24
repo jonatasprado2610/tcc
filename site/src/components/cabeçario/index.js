@@ -6,8 +6,7 @@ import storage from 'local-storage';
 import { useEffect } from 'react';
 
 
-
-export default function Cabecario(){
+export default function Cabecario(props){
     
     const navigate = useNavigate();
 
@@ -44,6 +43,9 @@ export default function Cabecario(){
                     
                 </div>
                 </div>
+                <div className={props.esconder}>
+
+
                 <div className='x2'>
                     <p>ESPORTES</p>
                     <p>MASCULINO</p>
@@ -57,7 +59,7 @@ export default function Cabecario(){
                     
                     
                 </div>
-              
+                </div>
 
 
                 

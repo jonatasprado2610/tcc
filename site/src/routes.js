@@ -19,6 +19,7 @@ import MenuSidebar from './components/menusidebar';
 import Ender from './pages/endereco2';
 import Pagamento from './pages/pagamento';
 import PagamentoCartao from './pages/pagamentoCartao';
+import PerfilUsuario from './pages/perfilUsuario';
 export default function Rotas(){
     return(
         <BrowserRouter>
@@ -44,6 +45,8 @@ export default function Rotas(){
                 <Route path='/pagamento' element={<Pagamento/>}/>
                 <Route path='/pagamento/cartao' element={<PagamentoCartao/>}/>
                 <Route path='/menusidebar' element={<MenuSidebar />} />
+                <Route path='/perfil/usuario' element={<PerfilUsuario />} />
+
                 
             </Routes>
         </BrowserRouter>

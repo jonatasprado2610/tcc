@@ -1,14 +1,12 @@
 .tudo{
-    section{
-       width: 40em;   
-         border: solid #959595 2px;
-         margin-top: 2em;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
     .s1xx{
-        border: 1px solid red;
         display: flex;
         justify-content: center;
-        
         flex-direction: row;
     }
     .s1xx img {
@@ -17,30 +15,26 @@
         height: 40px;
         width: 40px;
     }
+    .imagens{
+        margin-top: 10px;
+    }
     h1{
         text-align: center;
         font-family: "BebasNeue-Regular";
-    
     }
     table {
-       
-        width: 100%;
+        width: 98vw;
         border-collapse: collapse;
-        margin-top: 50px;
+        margin-top: 30px;
     }
     th {
-        text-align: left;
+        padding: 20px;
         color: #fff;
-        padding: 25px 40px;
         font-size: 14px;
         text-shadow: 0px 1px 4px rgba(217, 217, 217, 0.5);
     }
     thead {
         background-color: #7773F2;
-    }
-    td {
-        padding: 25px 40px;
-        font-weight: 500;
     }
     tbody tr:nth-child(even) {
         background-color: #EDEDED;
@@ -51,22 +45,25 @@
     td img {
         width: 18px;
         cursor: pointer;
-    }
+        }
     tr td:nth-child(2) {
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap; 
-        width: 100px;
+        padding: 20px;
     }
     tr td:nth-child(1) {
         color: #606060;
         font-weight: 700;
+        
     }
     tr td:nth-last-child(1) * {
         visibility: hidden;
+        
     }
     tr:hover td:nth-last-child(1) img {
         visibility: visible;
+        
     }
     
     .containerEstoque{
@@ -74,11 +71,6 @@
         flex-direction: row;
         justify-content:space-evenly;
         padding: 9px;
-        
-        hr{
-            border: solid #959595 1px;
-            
-        }
     }
     
     .informacoesEstoque{
@@ -103,10 +95,6 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        
-        img{
-        margin-left: 10px;
-        }
     }
         
 }
