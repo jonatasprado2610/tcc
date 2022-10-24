@@ -21,7 +21,7 @@ export default function Cabecario(){
                     
                      
                 <div className='sub1'>
-                    <img src="./assets/images/image 1067.png" />
+                    <img src="/assets/images/image 1067.png" />
                     <h1> Overland</h1>
 
                 </div>
@@ -33,13 +33,13 @@ export default function Cabecario(){
                 </div>
 
                 <div className='subx'>
-                    <img src='./assets/images/image 1066.png' alt='1' />
+                    <img src='/assets/images/image 1066.png' alt='1' />
                     
 
-                    <img src='./assets/images/image 1065.png' alt='1' />
+                    <img src='/assets/images/image 1065.png' alt='1' />
                     
 
-                    <img src='./assets/images/Star 14.png' alt='1' />
+                    <img src='/assets/images/Star 14.png' alt='1' />
                   
                     
                 </div>

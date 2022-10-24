@@ -13,9 +13,6 @@ import { listarCores } from '../../api/admin/cor'
 import { toast } from 'react-toastify';
 import { API_URL } from '../../api/config'
 
-//import MenuADM from '../../components/menuADM'
-
-
 export default function Cadastrar() {
     const navigate = useNavigate();
     const [idProduto, setIdProduto] = useState();
@@ -250,8 +247,7 @@ export default function Cadastrar() {
             <div className="containermar">
 
                 <div className='Menu'>
-                    
-                   /*Menu*/
+
                 </div>
 
                 <div className="containerx">

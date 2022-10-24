@@ -43,7 +43,8 @@ export default function Rotas(){
                 <Route path='/ende' element={<Ender/>}/>
                 <Route path='/pagamento' element={<Pagamento/>}/>
                 <Route path='/pagamento/cartao' element={<PagamentoCartao/>}/>
-                <Route path='menusidebar' element={<MenuSidebar/>}/>
+                <Route path='/menusidebar' element={<MenuSidebar />} />
+                
             </Routes>
         </BrowserRouter>
     )
