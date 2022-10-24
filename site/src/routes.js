@@ -15,7 +15,7 @@ import MeusPedid from './pages/meusPedid';
 import DetalhesPedido from './pages/detalhesPedido';
 import PedidoClientes from './admin/pedidoClientes';
 import Carrinho from './pages/carrinho';
-import MenuSidebar from './components/menusidebar';
+import MenuSidebar from './components/menusidebar/header';
 import Ender from './pages/endereco2';
 import Pagamento from './pages/pagamento';
 import PagamentoCartao from './pages/pagamentoCartao';
