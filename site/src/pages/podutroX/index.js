@@ -17,7 +17,7 @@ export default function Produtrox(){
 
    async function carregarPagina(){
      const r = await  carregarProdutosPorId(id)
-     console.log(r)
+     
        setProduto(r)
    }
    useEffect(()=>{
