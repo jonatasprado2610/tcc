@@ -1,0 +1,17 @@
+.m{
+    display: flex;
+    flex-direction: column;
+    .lads{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .mural{
+        display: flex;
+        flex-direction: row;
+    }
+    .perfil{
+        height: 1000px;
+    }
+    
+}

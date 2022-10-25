@@ -11,6 +11,7 @@ import { buscarCorPorId } from '../../repository/corRepository.js';
 import { buscarTamanhoPorId } from '../../repository/tamanhoRepository.js';
 import { buscarMarcaPorId } from '../../repository/marcarepository.js';
 
+
 import multer from 'multer'
 
 import { con } from '../../repository/connection.js';
@@ -27,9 +28,7 @@ server.post('/admin/produto', async (req, resp) => {
         const produto = req.body;
 
 
-
         const idProduto = await novoProduto(produto);
-
 
         for (const idMarca of produto.marca) {
             const cat = await buscarMarcaPorId(idMarca);

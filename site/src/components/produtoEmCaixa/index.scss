@@ -1,0 +1,22 @@
+.caixa{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width:40vw;
+    border: 1px solid black;
+    border-radius: 9px;
+    .ladinho{
+        padding: 15px;
+        display: flex;
+
+    }
+    .info{
+        margin-left: 30px;
+        font-size: 20px;
+    }
+    .barra{
+        border: 1px solid rgb(59, 59, 59);
+        height: 25px;
+        margin-left: 40px;
+    }
+}
