@@ -192,6 +192,13 @@ DT_ATUA_DESDE					date,
 DT_NASCIMENTO					date
 );
 
+create table tb_cupom (
+	id_cupom			int primary key auto_increment,
+    cod_cupom			varchar(200),
+    vl_cupom			decimal(15,2),
+    qtd_restante		int
+);
+
 create table tb_admin_login(
 ID_ADMIN_LOGIN					int primary key auto_increment,
 ID_FUNCIONARIO					int,
