@@ -104,19 +104,20 @@ create table tb_usuario_endereco (
     foreign key (id_usuario) references tb_usuario (id_usuario)
 );
 
-create table tb_pedido(
-ID_PEDIDO						int primary key auto_increment,
-ID_USUARIO						int,
-ID_USUARIO_ENDERECO				int,
-DT_PEDIDO						date,
-COD_NOTAL_FISCAL				varchar(200),
-TP_FRETE						varchar(200),
-VL_FRETE						int,
-NR_NUMERO_PEDIDO				varchar(50),
-DS_STATUS						varchar(50),
-TP_PAGAMENTO					varchar(50),
-foreign key (ID_USUARIO) references tb_usuario (ID_USUARIO),
-foreign key (ID_USUARIO_ENDERECO) references tb_usuario_endereco (ID_USUARIO_ENDERECO)
+create table tb_pedido (
+	id_pedido			int primary key auto_increment,
+    id_usuario			int,
+    id_usuario_endereco	int,
+    id_cupom			int,
+    dt_pedido			datetime,
+    cod_nota_fiscal		varchar(200),
+    tp_frete			varchar(200),
+    vl_frete			decimal(15,2),
+    ds_status			varchar(200),
+    tp_pagamento		varchar(200),
+    foreign key (id_usuario) references tb_usuario (id_usuario),
+    foreign key (id_usuario_endereco) references tb_usuario_endereco (id_usuario_endereco),
+    foreign key (id_cupom) references tb_cupom (id_cupom)
 );
 
 create table tb_pedido_item (

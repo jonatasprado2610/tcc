@@ -75,14 +75,12 @@ export default function Carrinho2({item: {produto:{info,categorias, imagens}, qt
                        
                        
                     </div>
-                    <div children="xcx">
+                    <div className="xcx">
+                        <div> <p>R$:{info.precoInicial}</p></div>
+                        <div><label>Subtotal</label></div>
+                        <div><p>R$:{calcularSubtotal()}</p></div>
 
-                        <p>R$:{info.precoInicial}</p>
-
-                        <div>
-                         <label>Subtotal</label>
-                        <p>R$:{calcularSubtotal()}</p>
-                       </div>
+                        
                     </div>
 
                 </div>

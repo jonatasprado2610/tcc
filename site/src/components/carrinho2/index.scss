@@ -56,7 +56,11 @@
 
     }
     .xcx{
+        width: 150px;
+        align-items: center;
+        border: 1px solid red;
         display: flex;
+        justify-content: space-around;
         flex-direction: row;
     }
 }

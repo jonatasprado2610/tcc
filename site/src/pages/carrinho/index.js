@@ -7,9 +7,17 @@ import Storage from 'local-storage'
 import { carregarProdutosPorId } from '../../api/produtoApi'
 
 import Carrinho2 from '../../components/carrinho2'
+import { useNavigate } from 'react-router-dom'
 
 export default function Carrinho() {
     const[itens,setItens]=useState([])
+
+    const navigate=useNavigate();
+
+
+    function Continuar(){
+        navigate('/ende')
+    }
 
     function qtdItens() {
         return itens.length;
@@ -26,7 +34,7 @@ export default function Carrinho() {
     function calcularValorTotal() {
         let total = 0;
         for (let item of itens) {
-            total = total + item.produto.info.precoIncial * item.qtd;
+            total = total + item.produto.info.precoInicial * item.qtd;
         }
         return total;
     }
@@ -35,7 +43,7 @@ export default function Carrinho() {
         let carrinho = Storage('carrinho');
      
         if (carrinho) {
-            console.log('aaaa')
+        
             let temp = [];
             
             for (let produto of carrinho) {
@@ -79,7 +87,7 @@ export default function Carrinho() {
                         <h3>subtotal</h3>
                         <p> ({qtdItens()} itens)</p>
                         <p> R$ {calcularValorTotal()}   </p>
-                        <button>Fechar Pedido</button>
+                        <button onClick={Continuar} >Continuar</button>
 
                     </div>
 

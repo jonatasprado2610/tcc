@@ -10,8 +10,9 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 export default function CardP(props) {
-    const {id }= useParams();
+    
     function adicionarAoCarrinho(){
+        const id = props.item.id;
 
         let carrinho= []
         if  (Storage('carrinho')){
