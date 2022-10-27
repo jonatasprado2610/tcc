@@ -20,3 +20,8 @@ export async function carregarProdutosPorId(id) {
     const r = await api.get('/admin/produto/' + id );
     return r.data;
 }
+
+export async function listarProdutosCadastrados() {
+    const r = await api.get('/produto/cadastrados');
+    return r.data;
+}
