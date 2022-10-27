@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Container } from './styles'
-import { FaBars } from 'react-icons/fa'
 import Sidebar from '../Sidebar'
 
 const  Header = () => {
@@ -10,7 +9,7 @@ const  Header = () => {
 
   return (
     <Container>
-      <FaBars onClick={showSiderbar} />
+      <img className='icon' src="/assets/images/image 1067.png" onClick={showSiderbar}/>
       {sidebar && <Sidebar active={setSidebar} />}
     </Container>
   )

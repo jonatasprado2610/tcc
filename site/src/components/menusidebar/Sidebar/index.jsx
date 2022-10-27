@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container, Content } from './styles'
-    
+import { Navigate, useNavigate } from 'react-router-dom'
 
 import { 
-  FaTimes, FaHome, FaHistory, FaUserAlt, FaChartBar, FaTruck, FaBox
+  FaTimes, FaHistory, FaUserAlt, FaChartBar, FaTruck, FaBox
 } from 'react-icons/fa'
 
 import {
@@ -26,13 +26,15 @@ const closeSidebar = () => {
   active(false)
 }
 
+    
+const navigate = useNavigate();
 
 
   return (
     <Container sidebar={active}>
       <FaTimes onClick={closeSidebar} />  
       <Content>
-        <SidebarItem Icon={FaUserAlt} Text="Perfil" />
+        <SidebarItem  onClick = {()=> navigate("/")} Icon={FaUserAlt} Text="Perfil"  />
         <SidebarItem Icon={FaTruck} Text="Entregas" />
         <SidebarItem Icon={BsBagFill} Text="Produtos" />
         <SidebarItem Icon={BsFillBookmarkFill} Text="Cupons" />
