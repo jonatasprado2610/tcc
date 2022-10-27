@@ -6,7 +6,7 @@ const server = Router();
 
 
 
-server.post('/api/pedido/:idUsuario', async (req, resp) => {
+server.post('/api/pedido/:idUsuario/', async (req, resp) => {
     try {
         const { idUsuario } = req.params;
         const info = req.body;
@@ -19,14 +19,13 @@ server.post('/api/pedido/:idUsuario', async (req, resp) => {
 
         await inserirPagamento(idPedidoCriado, info.cartao);
 
-   
-         for (let item of info.produtos) {
+
+        for (let item of info.produtos) {
             const prod = await procurarProdutoPorId(item.id);
             await inserirPedidoItem(idPedidoCriado, prod.id, item.qtd, prod.preco);
         }
 
         resp.status(204).send();
-        console.log()
 
     }
     catch (err) {
