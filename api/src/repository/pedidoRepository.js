@@ -9,7 +9,7 @@ export async function inserirPedido(novoPedido) {
             id_usuario_endereco,
             id_cupom,
             dt_pedido,
-            cod_notal_fiscal,
+            cod_nota_fiscal,
             tp_frete,
             vl_frete,
             ds_status,
@@ -65,7 +65,7 @@ export async function inserirPagamento(idPedido, novoPagamento) {
 
     const [info] = await con.query(comando, [
         idPedido,
-        novoPagamento.nome,
+        novoPagamento.xx,
         novoPagamento.numero,
         novoPagamento.vencimento,
         novoPagamento.codSeguranca,
@@ -74,6 +74,7 @@ export async function inserirPagamento(idPedido, novoPagamento) {
     ]);
     return info.affectedRows;
 }
+
 
 
 

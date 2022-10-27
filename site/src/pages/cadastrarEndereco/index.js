@@ -26,11 +26,7 @@ export default function Endereco () {
     /*setIdusuario = storage('usuario-logado');*/
 
 
-    function sairClick() {
-
-        
-        navigate('/ende');
-    }
+   
 
     async function salvarEndereco() {
         try{
@@ -38,6 +34,7 @@ export default function Endereco () {
            const r = await cadastrarEndereco(id, referencia,  cep, logradouro, bairro, cidade, estado, numero, complemento);
            
            toast.dark('Endereço cadastreado com sucesso')
+           navigate('/ende');
         }
         catch(err) {
             toast.error(err.response.data.erro)
@@ -48,9 +45,8 @@ export default function Endereco () {
     return (
         <main className="page-endereco">
             <Cabecario></Cabecario>
-            <div>
-             <button onClick={sairClick}>Novo</button>
-            </div>
+
+          
             
         <div className="c1">
             
@@ -102,10 +98,11 @@ export default function Endereco () {
                         <input type='text'   value={numero} onChange={e => setNumero(e.target.value)}  />
                     </div>
                 </div>
-            </div>
-            <div>
+                <div className="c">
                  <button onClick={salvarEndereco}>Salvar</button>
             </div>
+            </div>
+            
            
            </div>
            

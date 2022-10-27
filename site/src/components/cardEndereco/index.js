@@ -1,12 +1,19 @@
+import { useNavigate } from 'react-router-dom'
 import './index.scss'
+import Storage from 'local-storage'
 
+export default function CrdEndereco({item : {id, referencia,logradouro,cep,bairro,cidade,estado,numero,complemento }}){
 
-export default function CrdEndereco({item : {referencia,logradouro,cep,bairro,cidade,estado,numero,complemento }}){
+    const navigate = useNavigate();
 
- 
+    function avancar() {
+        Storage('endereco', id);
+        navigate('/pagamento/cartao');
+    }
+
 
     return(
-        <main>
+        <main onClick={avancar}>
             
                 <div className='cxx'>
                    <div><img src='./assets/images/ps.png ' /></div>        

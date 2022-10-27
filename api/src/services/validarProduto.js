@@ -25,22 +25,22 @@ export async function validarProduto(produto){
 
 
 
-    const marca = await buscarMarcaPorId(produto.marca);
+    const marca = await buscarMarcaPorId(produto.marcas);
     if (marca == undefined) {
-        throw new Error('categoria inválida');
+        throw new Error('marca inválida');
     }
 
-    const tam = await buscarTamanhoPorId(produto.tamanho);
+    const tam = await buscarTamanhoPorId(produto.tamanhos);
     if (tam == undefined) {
         throw new Error('tamanho inválido');
     }
 
-    const co= await buscarCorPorId(produto.cor);
+    const co= await buscarCorPorId(produto.cores);
     if (co == undefined) {
         throw new Error('cor inválida');
     }
 
-    const cat = await buscarCategoriaPorId(produto.categoria);
+    const cat = await buscarCategoriaPorId(produto.categorias);
     if (cat == undefined) {
         throw new Error('categoria inválida');
     }

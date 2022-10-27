@@ -5,7 +5,6 @@ import CabecarioAdmin from '../../components/cabeçarioAdmin'
 import { useState, useEffect } from 'react'
 import { listarMarcas } from '../../api/admin/marca'
 import { listarCategorias } from '../../api/admin/categoria'
-
 import {alterarProduto, carregarProdutosPorId, salvarImagem, salvarProduto } from '../../api/admin/produto'
 
 import { listarTamanhos } from '../../api/admin/tamanho'

@@ -46,13 +46,12 @@ export default function PagamentoCartao() {
        return total
    }
 
-    function exibirImagem(item) {
-        if (item.produto.imagens.length > 0)
-            return API_URL + '/' + item.produto.imagens[0];
-        else
-            return '/produto-padrao.png';
-    }
-
+   function exibirImagem(item) {
+    if (item.produto.imagens.length > 0)
+        return API_URL + '/' + item.produto.imagens[0];
+    else
+        return 'https://image.shutterstock.com/image-vector/cross-sign-element-red-x-260nw-567030823.jpg';
+}
 
     useEffect(() => {
 
@@ -119,7 +118,7 @@ export default function PagamentoCartao() {
                                 <tr>
                                     <td>
                                         <div className='celula-item'>
-                                            <img />
+                                            <img  />
                                             <div>
                                                 <h3> {item.produto.info.nome} </h3>
                                                 
