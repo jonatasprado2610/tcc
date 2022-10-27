@@ -14,6 +14,6 @@ export const Container = styled.div`
     margin: 0 20px;
   }
   &:hover {
-    background-color: black;
+    background-color: #1077A4;
   }
 `;

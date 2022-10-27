@@ -1,6 +1,7 @@
 .page-pr{
-   margin: 0;
+    margin: 0;
    padding: 0;
+   width:100%;
 
    .sxD{
        display: flex;
@@ -51,27 +52,6 @@
         font-family:"BebasNeue-Regular";
     }
   
-    .imgx{
- 
-        height: 180px;
-        width: 200px;
-    }
-
-    .card{
     
-        margin-left: 3em;
-        transition:  .3s;
-         margin-top: 3em;
-    }
-
-    .card:hover{
-        cursor: pointer;
-        width: 200px;
-        height: 200px;
-        transform: scale(1.05);
-        border: 0.0px solid rgb(230, 230, 230);
-        box-shadow: 10px 5px 5px rgb(179, 177, 177);
-   }
-   
    
 }

@@ -1,7 +1,7 @@
 import './index.scss';
 import CardPedid from '../../components/cardPedid';
 
-export default function MeusPedid() {
+export default function MeusPedidos() {
     return (
         <main >
             <section>
@@ -12,4 +12,4 @@ export default function MeusPedid() {
             </section>
         </main>
     )
-} 
+}
