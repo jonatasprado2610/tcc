@@ -203,7 +203,9 @@ server.get('/admin/produto/:id', async (req, resp) => {
             erro: err.message
         })
     }
-})
+});
+
+
 
 
 
