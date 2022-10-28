@@ -27,14 +27,15 @@ const closeSidebar = () => {
 }
 
     
-const navigate = useNavigate();
+function Navegar(){
+   Navigate('/perfilADMIN')};
 
 
   return (
     <Container sidebar={active}>
       <FaTimes onClick={closeSidebar} />  
       <Content>
-        <SidebarItem  onClick = {()=> navigate("/")} Icon={FaUserAlt} Text="Perfil"  />
+        <SidebarItem Icon={FaUserAlt} onClick={Navegar} Text="Perfil"  />
         <SidebarItem Icon={FaTruck} Text="Entregas" />
         <SidebarItem Icon={BsBagFill} Text="Produtos" />
         <SidebarItem Icon={BsFillBookmarkFill} Text="Cupons" />

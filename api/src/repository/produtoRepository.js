@@ -302,6 +302,7 @@ export async function listarProdutosInicio(){
 export async function ProdutosCadastrados() {
     const comando = `
     select  tb_produto.ID_PRODUTO    id,
+    ID_PRODUTO_IMAGEM             idImagem,
     DS_IMAGEM                       imagem,
     NM_PRODUTO                    nome,
     VL_PRECO_POR           precopar,
@@ -314,6 +315,7 @@ export async function ProdutosCadastrados() {
     inner join tb_marca on tb_marca.ID_MARCA = tb_produto_marca.ID_MARCA 
     group by
     tb_produto.ID_PRODUTO,
+    ID_PRODUTO_IMAGEM,
 	DS_IMAGEM,
     NM_PRODUTO,
     VL_PRECO_POR,
