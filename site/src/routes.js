@@ -20,7 +20,6 @@ import Pagamento from './pages/pagamento';
 import PagamentoCartao from './pages/pagamentoCartao';
 import PerfilUsuario from './pages/perfilUsuario';
 import Menusidebar from './components/menusidebar/header'
-import Header from './components/menusidebar/header';
 
 export default function Rotas(){
     return(
