@@ -1,8 +1,8 @@
 import './index.scss'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-
-
+import Rodape from '../../components/Rodape';
+import Cabecario from '../../components/cabeçario';
 export default function Pagamento(){
 
  const navigate= useNavigate();
@@ -13,9 +13,12 @@ export default function Pagamento(){
 
     return(
         <main className='page-pagameto'>
-             <h1>Escolha um metodo de Pagamento</h1>
+            <Cabecario/>
+            <h1 className='h1'>Escolha um metodo de Pagamento</h1>
+             
              
             <div className='subx1'>
+                
               
               <div onClick={navi} className='cx1'>
                   
@@ -40,7 +43,7 @@ export default function Pagamento(){
 
 
        
-
+<Rodape/>
         </main>
     )
 }

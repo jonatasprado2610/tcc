@@ -71,7 +71,7 @@ export default function PagamentoCartao() {
     async function salvarPedido() {
 
         try {
-            let endereco = Storage('endereco').id;
+            let ende = Storage('endereco');
             let produtos = Storage('carrinho');
             let id = Storage('cliente-logado').id;
 
@@ -79,7 +79,7 @@ export default function PagamentoCartao() {
             {
                 cupom: cupom,
                 frete: frete,
-                idEndereco: endereco,
+                idEndereco: ende,
                 tipoPagamento: 'Cartão',
                 cartao: {
                     nome: nome,
@@ -90,19 +90,18 @@ export default function PagamentoCartao() {
                     parcelas: parcela
                 },
                 produtos: produtos
-               
+
             }
-            console.log(endereco)
 
             const r = await salvarNovoPedido(id, pedido);
             toast.dark('Pedido foi inserido com sucesso');
             Storage('carrinho', []);
-            
+
             navigate('/');
 
         }
         catch (err) {
-            toast.error(err.response.data.erro);
+            alert(err.response.data.erro);
         }
 
     }
@@ -145,36 +144,55 @@ export default function PagamentoCartao() {
                         </div>
 
                     </div>
-                    <div className='x2' >
-                        <label>Tipo de Pagamento:</label>
-                        <select value={tipo} onChange={e => setTipo(e.target.value)}   >
-                            <option disabled hidden selected>Selecione</option>
-                            <option>Crédito</option>
-                            <option>Débito</option>
-                        </select>
+
+
+                    <div className='x2'>
+
+                        <div>
+                            <h3>Tipo de Pagamento:</h3>
+                            <select className='ip1' value={tipo} onChange={e => setTipo(e.target.value)}   >
+                                <option disabled hidden selected>Selecione</option>
+                                <option>Crédito</option>
+                                <option>Débito</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <h3> Cupom </h3>
+                            <input type='text' className='ip1' value={cupom} onChange={e => setCupom(e.target.value)} />
+
+                        </div>
+                    </div>
+                    <div className='x2'>
+
+                        <div>
+                            <h3>Parcela</h3>
+
+                            <select className='ip1' value={parcela} onChange={e => setParcela(e.target.value)}  >
+                                <option disabled hidden selected>Selecione</option>
+                                <option value={1}>01x à Vista</option>
+                                <option value={1}>01x com Juros</option>
+                                <option value={2}>02x com Juros</option>
+                                <option value={3}>03x com Juros</option>
+                            </select>
+
+                        </div>
+
+
+                        <div>
+                            <h3>frete</h3>
+                            <select className='ip1' value={frete} onChange={e => setFrete(e.target.value)}  >
+                                <option disabled hidden selected>Selecione</option>
+                                <option value={'Normal'}>Normal - R$ 10,00</option>
+                                <option value={'Sedex'}>Sedex - R$ 25,00</option>
+                            </select>
+                        </div>
+
+
+
                     </div>
 
-                    <div className='info-extra'>
-                        <div>
-                            <h2> Cupom </h2>
-                            <div className='form'>
-                                <div>
-                                    <label>Código:</label>
-                                    <input type='text' value={cupom} onChange={e => setCupom(e.target.value)} />
-                                </div>
-                                <div />
-                            </div>
-                        </div>
-                    
-                        <label>Parcelas:</label>
-                        <select value={parcela} onChange={e => setParcela(e.target.value)}  >
-                            <option disabled hidden selected>Selecione</option>
-                            <option value={1}>01x à Vista</option>
-                            <option value={1}>01x sem Juros</option>
-                            <option value={2}>02x sem Juros</option>
-                            <option value={3}>03x sem Juros</option>
-                        </select>
-                    </div>
+
                     <div className='x3'>
                         <input />
 
@@ -182,7 +200,7 @@ export default function PagamentoCartao() {
                         <button onClick={salvarPedido} >Finalizar Compra</button>
                     </div>
 
-                    
+
                 </div>
 
             </section>

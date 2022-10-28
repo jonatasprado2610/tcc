@@ -18,6 +18,7 @@ server.post('/api/pedido/:idUsuario/', async (req, resp) => {
         const idPedidoCriado = await inserirPedido(novoPedido);
 
         await inserirPagamento(idPedidoCriado, info.cartao);
+        await inserirPagamento(idPedidoCriado, info.pix);
 
 
         for (let item of info.produtos) {

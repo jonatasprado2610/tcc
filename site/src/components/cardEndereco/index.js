@@ -1,12 +1,14 @@
 import { useNavigate } from 'react-router-dom'
 import './index.scss'
 import Storage from 'local-storage'
+import { cadastrarEndereco } from '../../api/cadastrarEndereco';
 
 export default function CrdEndereco({item : {id, referencia,logradouro,cep,bairro,cidade,estado,numero,complemento }}){
 
     const navigate = useNavigate();
 
-    function avancar() {
+  async  function avancar() {
+    
         Storage('endereco', id);
         navigate('/pagamento/cartao');
     }

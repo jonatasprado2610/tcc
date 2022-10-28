@@ -235,8 +235,8 @@ export default function Produtrox(){
             </div>
 
             <div className='subx1'>
-               <h1>produto semelhantes</h1>
-
+              
+                     <Rodape/>
                 
             </div>
 

@@ -1,13 +1,24 @@
 import './index.scss';
+import { useEffect } from 'react';
 
 export default function Rodape() {
+
+    function exibirImagem(item) {
+
+        return 'https://cdn-icons-png.flaticon.com/512/49/49967.png';
+    }
+
+    useEffect(() => {
+
+        exibirImagem();
+    })
     return (
 
         <section className='page-rodape'>
             <div className='direcao-rodape'>
-                     <div> 
-                        <img src="./assets/images/image 1067.png"/>
-                    </div>
+                <div>
+                    <img className='gx' src={exibirImagem()} />
+                </div>
 
                 <div className='coluna-rodape'>
 
@@ -72,11 +83,11 @@ export default function Rodape() {
                     </p>
                 </div>
 
-                
+
             </div>
             <div className='baixo'>
                 <p className='text'>
-                                Copyright © 2000 - 2022 www.OVERLAND.com.br, TODOS OS DIREITOS RESERVADOS. Todo o conteúdo do site, todas as fotos, imagens, logotipos, marcas, dizeres, som, software, conjunto imagem, layout, trade dress, aqui veiculados são de propriedade exclusiva da NS2.COM Internet S.A. ou de seus parceiros. É vedada qualquer reprodução, total ou parcial, de qualquer elemento de identidade, sem expressa autorização. A violação de qualquer direito mencionado implicará na responsabilização cível e criminal nos termos da Lei. NS2.Com Internet S/A 
+                    Copyright © 2000 - 2022 www.OVERLAND.com.br, TODOS OS DIREITOS RESERVADOS. Todo o conteúdo do site, todas as fotos, imagens, logotipos, marcas, dizeres, som, software, conjunto imagem, layout, trade dress, aqui veiculados são de propriedade exclusiva da NS2.COM Internet S.A. ou de seus parceiros. É vedada qualquer reprodução, total ou parcial, de qualquer elemento de identidade, sem expressa autorização. A violação de qualquer direito mencionado implicará na responsabilização cível e criminal nos termos da Lei. NS2.Com Internet S/A
                 </p>
 
 

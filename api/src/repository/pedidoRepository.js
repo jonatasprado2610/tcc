@@ -42,6 +42,7 @@ export async function inserirPagamentopix(idPedido, novoPagamentox){
     const [info]= await con.query(comando, [ 
         idPedido,  
         novoPagamentox.chave,
+        novoPagamentox.codChave,
         novoPagamentox.formaPagamentox
     ]);
     return info.affectedRows;
@@ -65,7 +66,7 @@ export async function inserirPagamento(idPedido, novoPagamento) {
 
     const [info] = await con.query(comando, [
         idPedido,
-        novoPagamento.xx,
+        novoPagamento.cartao,
         novoPagamento.numero,
         novoPagamento.vencimento,
         novoPagamento.codSeguranca,

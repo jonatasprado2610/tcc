@@ -32,6 +32,12 @@ export default function Carrinho2({item: {produto:{info,categorias, imagens}, qt
         itemStorage.qtd= novaQtd;
 
         Storage('carrinho', carrinho)
+
+
+
+
+
+        
     
     };
 

@@ -84,14 +84,7 @@ export default function Ender() {
 
                 </div>
 
-                <div>
-                                    <label>Tipo:</label>
-                                    <select value={frete} onChange={e => setFrete(e.target.value)}  >
-                                        <option disabled hidden selected>Selecione</option>
-                                        <option value={'Normal'}>Normal - R$ 10,00</option>
-                                        <option value={'Sedex'}>Sedex - R$ 25,00</option>
-                                    </select>
-                                </div>
+
 
             </section>
 
