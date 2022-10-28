@@ -13,7 +13,7 @@ export default function CrdEndereco({item : {id, referencia,logradouro,cep,bairr
 
 
     return(
-        <main onClick={avancar}>
+        <main onClick={avancar} >
             
                 <div className='cxx'>
                    <div><img src='./assets/images/ps.png ' /></div>        
