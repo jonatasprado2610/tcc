@@ -1,4 +1,6 @@
+import './index.scss'
 import Navegacaoadm from "../../components/navegacaoadm";
+
 import { useEffect, useState } from 'react';
 import { removerProdutos } from '../../api/admin/produto';
 import { toast } from 'react-toastify';
@@ -6,9 +8,9 @@ import { useNavigate } from 'react-router-dom';
 import CabecarioAdmin from '../../components/cabeçarioAdmin';
 import { listarProdutosCadastrados } from "../../api/produtoApi";
 import { API_URL } from '../../api/config'
-import Menu from '../../components/menu'
 import Menusidebar from '../../components/menusidebar/header'
 import './index.scss'
+
 export default function PerfilADMIN() {
     const [produto, setProduto] = useState([]);
     const [imagem1, setImagem1] = useState();
@@ -62,13 +64,62 @@ export default function PerfilADMIN() {
             </div>
             <div className="lado">
                 <div className="menu">
-                    <Menusidebar/>
-                </div>
-                <div>
-                    <h1 > PERFIL </h1>
-
+                    <Menusidebar />
                 </div>
 
+                <div className='mural'>
+                    <div className='perfil'>
+                        <div>
+                            <h1>Perfil</h1>
+                            <div>
+                                <img src='' alt='back-gorund' />
+                            </div>
+                        </div>
+                        <div className='info-adm'>
+                            <div>
+                                <img src='' alt='imagem' />
+                            </div>
+                            <div>
+                                <h3>
+                                    MATHEUS
+                                </h3>
+                                <h4>
+                                    @matheus
+                                </h4>
+                            </div>
+
+                        </div>
+                        <div>
+                            <h1>
+                                Área
+                            </h1>
+                            <h2>
+                                administração
+                            </h2>
+                        </div>
+                        <div>
+                            <h1>
+                                Atua desde
+                            </h1>
+                            <h2>
+                                11/11/2009
+                            </h2>
+                        </div>
+                        <div>
+                            <h1>
+                                Nascido em
+                            </h1>
+                            <h2>
+                                20/05/2006
+                            </h2>
+                        </div>
+
+                    </div>
+                    <div>
+                        <h1>Produtos Cadastrados</h1>
+                    </div>
+
+                </div>
                 <div className="pra-baixo" >
                     {produto.map(item =>
                         <tr className="card">
@@ -87,6 +138,5 @@ export default function PerfilADMIN() {
                 </div>
             </div>
         </main>
-
-    );
-}
+    )
+}    

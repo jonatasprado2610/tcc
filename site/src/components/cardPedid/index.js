@@ -1,6 +1,24 @@
+import { useState } from 'react';
 import './index.scss';
 
+
+
 export default function CardPedid() {
+    const [img, setImg] = useState('');
+    const [numerop, setNumerop] = useState('');
+    const [descricao, setDescricao] = useState('');
+    const [itens, setItens] = useState();
+    const [valor, setValor] = useState();
+    const [datapedido, setDatapedido] = useState();
+    const [ dataentrega, setDataentrega] = useState();
+
+
+
+    async function CarregarPedido () {
+        
+
+   }
+
     return(
         <div className='divPraApagar'>
         <section className='cont-cardPedido'>
