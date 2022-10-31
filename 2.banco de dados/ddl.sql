@@ -90,6 +90,8 @@ cod_reset           varchar(50),
 dt_expiracao_cod  datetime
 );
 
+drop table tb_usuario;
+
 create table tb_usuario_endereco (
 	id_usuario_endereco			int primary key auto_increment,
 	id_usuario					int,
@@ -103,6 +105,13 @@ create table tb_usuario_endereco (
     ds_complemento				varchar(200),
     foreign key (id_usuario) references tb_usuario (id_usuario)
 );
+
+create table tb_cupom (
+	id_cupom			int primary key auto_increment,
+    cod_cupom			varchar(200),
+    vl_cupom			decimal(15,2),
+    qtd_restante		int
+)
 
 create table tb_pedido (
 	id_pedido			int primary key auto_increment,
@@ -193,12 +202,7 @@ DT_ATUA_DESDE					date,
 DT_NASCIMENTO					date
 );
 
-create table tb_cupom (
-	id_cupom			int primary key auto_increment,
-    cod_cupom			varchar(200),
-    vl_cupom			decimal(15,2),
-    qtd_restante		int
-);
+
 
 create table tb_admin_login(
 ID_ADMIN_LOGIN					int primary key auto_increment,
