@@ -20,3 +20,20 @@ export async function loginAdm(login, senha){
           return linhas[0];
 
 }
+
+export async function PerfilADM(id) {
+    const comando =
+
+    `select 
+    NM_FUNCIONARIO as nome,
+    DS_IMAGEM      as imagem, 
+    NM_AREA_ATUANTE as area, 
+    DT_ATUA_DESDE as atua,
+    DT_NASCIMENTO as nascimento
+    from tb_admin
+    where ID_FUNCIONARIO = ? `
+
+        const [linhas] = await con.query(comando)
+        return linhas[0];
+
+}

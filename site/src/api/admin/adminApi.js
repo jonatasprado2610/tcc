@@ -12,3 +12,9 @@ export async  function loginADM (login, senha){
        return r.data;
 
 }
+
+export async  function PerfilADM (id){
+    const r = await api.get('/admin/perfil'+ id);
+       return r.data;
+
+}

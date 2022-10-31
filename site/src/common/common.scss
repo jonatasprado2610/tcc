@@ -3,6 +3,15 @@
     margin: 0;
     
 }
+a:link, a:visited {
+    color: (none);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  a:link:active, a:visited:active {
+    color: (none);
+  }
 
 @font-face {
 
@@ -33,3 +42,4 @@
     font-family: "Sen-Regular";
     src: url("../../public/assets/fonts/Sen-Regular.ttf");
 }
+

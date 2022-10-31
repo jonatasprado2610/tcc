@@ -1,16 +1,16 @@
 
 
-    
-        
 
-    
 
-    
-        
 
-    
 
-import { useEffect, useState } from 'react';
+
+
+
+
+
+
+import { useEffect, useRef, useState } from 'react';
 import { removerProdutos } from '../../api/admin/produto';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
@@ -18,12 +18,17 @@ import CabecarioAdmin from '../../components/cabeçarioAdmin';
 import { listarProdutosCadastrados } from "../../api/produtoApi";
 import { API_URL } from '../../api/config'
 import Menusidebar from '../../components/menusidebar/header'
+import { PerfilADM } from '../../api/admin/adminApi';
 import './index.scss'
+import storage from 'local-storage';
 
 export default function PerfilADMIN() {
+    const [usuario, setUsuario] = useState('-');
     const [produto, setProduto] = useState([]);
     const [imagem1, setImagem1] = useState();
+    const [info, setInfo] = useState([]);
     const navigate = useNavigate();
+    const ref = useRef();
     async function carregarProdutos() {
         const r = await listarProdutosCadastrados();
         setProduto(r);
@@ -31,6 +36,11 @@ export default function PerfilADMIN() {
             setImagem1(r.imagens[0]);
         }
     }
+    async function carregarInfoAdm() {
+        const r = await PerfilADM();
+        setInfo(r);
+    }
+
     function exibirImagem(imagem) {
         if (imagem == undefined) {
 
@@ -62,8 +72,17 @@ export default function PerfilADMIN() {
 
     useEffect(() => {
         carregarProdutos();
+        carregarInfoAdm();
     }, [])
 
+    useEffect(() => {
+        if(!storage('usuario-logado')){
+            navigate('/loginadm')
+        }else{
+            const usuarioLogado = storage('usuario-logado');
+            setUsuario(usuarioLogado.login);
+        }
+    }, [])
 
     return (
         <main className="tudo">
@@ -72,64 +91,31 @@ export default function PerfilADMIN() {
                 <CabecarioAdmin />
             </div>
             <div className="lado">
+ 
                 <div className="menu">
-                    <Menusidebar />
+                 
                 </div>
 
                 <div className='mural'>
-                    <div className='perfil'>
                         <div>
                             <h1>Perfil</h1>
                             <div>
-                                <img src='' alt='back-gorund' />
-                            </div>
-                        </div>
-                        <div className='info-adm'>
-                            <div>
-                                <img src='' alt='imagem' />
-                            </div>
-                            <div>
-                                <h3>
-                                    MATHEUS
-                                </h3>
-                                <h4>
-                                    @matheus
-                                </h4>
+                            {usuario}
+                                {info.map(item =>
+                                    <div className="">
+                                        <img className="imagem" src={exibirImagem(item.imagem)} alt="" /> 
+                                        <div className="infos"> <h1 className="inicial" > NOME :</h1> {item.nome} {usuario} </div>
+                                        <div className="infos"> <h1 className="inicial" >ÁREA : </h1> {item.area}</div>
+                                        <div className="infos"> <h1 className="inicial" > ATUA DESDE DE  :</h1> {item.atua}</div>
+                                        <div className="infos"> <h1 className="inicial" > NASCIDO EM :</h1> {item.nascimento}</div>
+                                    </div>)}
                             </div>
 
-                        </div>
-                        <div>
-                            <h1>
-                                Área
-                            </h1>
-                            <h2>
-                                administração
-                            </h2>
-                        </div>
-                        <div>
-                            <h1>
-                                Atua desde
-                            </h1>
-                            <h2>
-                                11/11/2009
-                            </h2>
-                        </div>
-                        <div>
-                            <h1>
-                                Nascido em
-                            </h1>
-                            <h2>
-                                20/05/2006
-                            </h2>
-                        </div>
-
-                    </div>
-                    <div>
-                        <h1>Produtos Cadastrados</h1>
                     </div>
 
                 </div>
                 <div className="pra-baixo" >
+                    <h1>Produtos Cadastrados</h1>
                     {produto.map(item =>
                         <tr className="card">
                             <img className="imagem" src={exibirImagem(item.imagem)} alt="" />
@@ -148,5 +134,5 @@ export default function PerfilADMIN() {
             </div>
         </main>
     )
-}    
+}
 

@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { buscarProdutos, removerProdutos,buscarProPorNome } from '../../api/admin/produto';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import CabecarioAdmin from '../../components/cabeçarioAdmin';
+
 
 
 export default function EstoqueProduto(){
@@ -43,6 +45,7 @@ useEffect(() => {
 
     return(
         <main className='tudo'>
+                <CabecarioAdmin/>
                  <h1>ESTOQUE</h1>
             <div className='s1xx'>
              

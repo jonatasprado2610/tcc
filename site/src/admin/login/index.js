@@ -27,7 +27,6 @@ export default function Login(){
 
     const ref = useRef();
 
-    /*
     useEffect(() =>{
         if(storage('usuario-logado')){
                 navigate('/perfiladmin')
@@ -40,7 +39,6 @@ export default function Login(){
         }
  
     }, [])
-    */
 
     async function entrarClick(){
 
@@ -54,11 +52,9 @@ export default function Login(){
 
 
         setTimeout(() => {
-            navigate('/cadastrar')
+            navigate('/perfiladmin')
         },3000);
        
-      
- 
         
        }catch (err){
         ref.current.complete();

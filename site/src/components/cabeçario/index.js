@@ -1,18 +1,40 @@
 
 import './index.scss';
 
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
-import { useEffect } from 'react';
-
+import { useEffect,useState } from 'react';
 
 export default function Cabecario(props){
-    
+/* 
+    const [filtro, setFiltro]= useState('');
+    const [produtos, setProdutos ] = useState([]);
+
+    async function Filtrar(){
+        const resp= await buscarProPorNome(filtro);
+       setProdutos(resp)
+    }
+
+    async function carregarProdutos(){
+        const r = await buscarProdutos();
+        setProdutos(r);
+        }
     const navigate = useNavigate();
 
-        
+   useEffect(() =>{
+        if(storage('asuario-logado')){
+                navigate('/perfil/usuario')
+        }
  
-
+    }, [])
+    useEffect(() =>{
+        if(!storage('asuario-logado')){
+                navigate('/loginusu')
+        }
+ 
+    }, [])
+ 
+ */
         return(
 
             <section className='page-cabecario'>
@@ -20,7 +42,7 @@ export default function Cabecario(props){
                     
                      
                 <div className='sub1'>
-                    <img src="/assets/images/image 1067.png" />
+                <Link to="/"> <img src="/assets/images/image 1067.png" /> </Link> 
                     <h1> Overland</h1>
 
                 </div>
@@ -32,10 +54,13 @@ export default function Cabecario(props){
                 </div>
 
                 <div className='subx'>
-                    <img src='/assets/images/image 1066.png' alt='1' />
+
+                    <Link to="/perfil/usuario"> <img src='/assets/images/image 1066.png' alt='1' /> </Link>
+
+                    <Link to="/loginusu"> LOGIN </Link>
                     
 
-                    <img src='/assets/images/image 1065.png' alt='1' />
+                    <Link to="/carrinho"> <img src='/assets/images/image 1065.png' alt='1' /> </Link>
                     
 
                     <img src='/assets/images/Star 14.png' alt='1' />

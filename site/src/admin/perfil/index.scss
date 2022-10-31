@@ -1,6 +1,5 @@
 
 .tudo{
-    background-color: rgb(194, 194, 194);
     display: flex;
     flex-direction: column;
 
@@ -11,6 +10,10 @@
     .lado{
         display: flex;
         flex-direction: row;
+        justify-content: space-around;
+    }
+    .cabecario{
+        margin-bottom: 3em;
     }
     .card{
         display: flex;
@@ -18,7 +21,8 @@
         justify-content: flex-start;
         align-items: center;
         border: 1px solid black;
-        width: 65vh;
+        width: 75vh;
+        background-color: white;
     }
     .infos{
         font-size: 20px;
@@ -50,9 +54,7 @@
         .mural{
             display: flex;
             flex-direction: row;
-        }
-        .perfil{
-            height: 1000px;
+            background-color: white;
         }
         
     }
