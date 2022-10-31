@@ -39,10 +39,10 @@ function sairClick(){
       <FaTimes onClick={closeSidebar} />  
       <Content className='vai'>
         <div >
-        <Link to="/perfiladmin">  <SidebarItem Icon={FaUserAlt} Text="Perfil"  /> </Link>
+        <Link to="/perfiladmin/:id">  <SidebarItem Icon={FaUserAlt} Text="Perfil"  /> </Link>
         <Link to="/perfiladmin">  <SidebarItem Icon={FaTruck} Text="Entregas" /> </Link>
         <Link to="/Cadastrar"> <SidebarItem Icon={BsBagFill} Text="Cadastrar Produtos" /> </Link>
-        <Link to="/perfiladmin">  <SidebarItem Icon={BsFillBookmarkFill} Text="Cupons" /> </Link>
+        <Link to="/admin/cadastrarCupom">  <SidebarItem Icon={BsFillBookmarkFill} Text="Cupons" /> </Link>
         <Link to="/estoque">  <SidebarItem Icon={FaBox} Text="Estoque" /> </Link>
         <Link to="/perfiladmin">  <SidebarItem Icon={FaChartBar} Text="Gráficos" /> </Link>
         <Link to="/perfiladmin">  <SidebarItem Icon={MdFeedback} Text="Avaliações" /> </Link>  

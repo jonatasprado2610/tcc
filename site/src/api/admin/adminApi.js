@@ -14,7 +14,6 @@ export async  function loginADM (login, senha){
 }
 
 export async  function PerfilADM (id){
-    const r = await api.get('/admin/perfil'+ id);
+    const r = await api.get(`/admin/perfil/${id}` );
        return r.data;
-
 }

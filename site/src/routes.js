@@ -20,6 +20,7 @@ import Pagamento from './pages/pagamento';
 import PagamentoCartao from './pages/pagamentoCartao';
 import PerfilUsuario from './pages/perfilUsuario';
 import Menusidebar from './components/menusidebar/header'
+import CadastrarCupom from './admin/cupom';
 
 export default function Rotas(){
     return(
@@ -30,7 +31,7 @@ export default function Rotas(){
                 <Route path='/loginusu' element={<LoginUsuarios/>} />
                 <Route path='/cadastrar' element={<Cadastrar />} />
                 <Route path='/cadastrar/:id' element={<Cadastrar />} />
-                <Route path='/perfiladmin' element={<PerfilADMIN/>} />
+                <Route path='/perfiladmin/:id' element={<PerfilADMIN/>} />
                 <Route path='/endereco' element={<Endereco/>} />
                 <Route path='/cadastrarUsuario' element={<CadastarUsuario/>} />
                 <Route path='/produtoIndividual' element={<Produtrox/>}/>
@@ -47,6 +48,7 @@ export default function Rotas(){
                 <Route path='/pagamento/cartao' element={<PagamentoCartao/>}/>
                 <Route path='/perfil/usuario' element={<PerfilUsuario />} />
                 <Route path='/menusidebar' element={<Menusidebar />} />
+                <Route path='/admin/cadastrarCupom' element={<CadastrarCupom />} />
                 
             </Routes>
         </BrowserRouter>

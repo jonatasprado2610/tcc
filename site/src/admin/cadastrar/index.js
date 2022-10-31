@@ -41,17 +41,7 @@ export default function Cadastrar() {
     const [marcasSelecionadas, setMarcasSelecionadas] = useState([]);
     const [tamanhosSelecionados, setTamanhosSelecionados] = useState([]);
     const [coresSelecionadas, setCoresSelecionadas] = useState([]);
-    const { id } = useParams();
-
-
-    function sairClick() {
-        storage.remove('usuario-logado')
-        navigate('/loginadm');
-    }
-
-
-
-    
+    const { id } = useParams(); 
     async function salvar() {
         try {
             const prevoProduto = Number(precoDe.replace(',', '.'));

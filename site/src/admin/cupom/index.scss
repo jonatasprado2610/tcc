@@ -1,0 +1,24 @@
+.tudo{
+
+    .pagina{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .baixo{
+            display: flex;
+            flex-direction: column;
+        }
+    .lado{
+        display: flex;
+        flex-direction: row;
+    }
+    .div{
+        background-color: aqua;
+        display: flex;
+        flex-direction: row;
+    }
+    button{
+        
+    }
+}

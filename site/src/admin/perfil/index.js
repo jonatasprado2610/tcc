@@ -1,19 +1,7 @@
-
-
-
-
-
-
-
-
-
-
-
-
 import { useEffect, useRef, useState } from 'react';
 import { removerProdutos } from '../../api/admin/produto';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import CabecarioAdmin from '../../components/cabeçarioAdmin';
 import { listarProdutosCadastrados } from "../../api/produtoApi";
 import { API_URL } from '../../api/config'
@@ -29,6 +17,9 @@ export default function PerfilADMIN() {
     const [info, setInfo] = useState([]);
     const navigate = useNavigate();
     const ref = useRef();
+    const { id } = useParams();
+
+    
     async function carregarProdutos() {
         const r = await listarProdutosCadastrados();
         setProduto(r);
@@ -37,7 +28,7 @@ export default function PerfilADMIN() {
         }
     }
     async function carregarInfoAdm() {
-        const r = await PerfilADM();
+        const r = await PerfilADM(storage('usuario-logado').id);
         setInfo(r);
     }
 
@@ -70,6 +61,7 @@ export default function PerfilADMIN() {
         navigate(`/cadastrar/${id}`)
     }
 
+
     useEffect(() => {
         carregarProdutos();
         carregarInfoAdm();
@@ -79,7 +71,7 @@ export default function PerfilADMIN() {
         if(!storage('usuario-logado')){
             navigate('/loginadm')
         }else{
-            const usuarioLogado = storage('usuario-logado');
+            const usuarioLogado = storage('usuario-logado').id;
             setUsuario(usuarioLogado.login);
         }
     }, [])
@@ -106,8 +98,8 @@ export default function PerfilADMIN() {
                                         <img className="imagem" src={exibirImagem(item.imagem)} alt="" /> 
                                         <div className="infos"> <h1 className="inicial" > NOME :</h1> {item.nome} {usuario} </div>
                                         <div className="infos"> <h1 className="inicial" >ÁREA : </h1> {item.area}</div>
-                                        <div className="infos"> <h1 className="inicial" > ATUA DESDE DE  :</h1> {item.atua}</div>
-                                        <div className="infos"> <h1 className="inicial" > NASCIDO EM :</h1> {item.nascimento}</div>
+                                        <div className="infos"> <h1 className="inicial" > ATUA DESDE DE  :</h1> {item.atua.substr(0,10)}</div>
+                                        <div className="infos"> <h1 className="inicial" > NASCIDO EM :</h1> {item.nascimento.substr(0,10)}</div>
                                     </div>)}
                             </div>
 

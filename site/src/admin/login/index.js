@@ -1,6 +1,6 @@
 
-import {  useNavigate } from 'react-router-dom';
-import { loginADM } from '../../api/admin/adminApi';
+import {  useNavigate, useParams } from 'react-router-dom';
+import { loginADM, PerfilADM } from '../../api/admin/adminApi';
 import storage from 'local-storage'
 
 import LoadingBar  from 'react-top-loading-bar'
@@ -9,6 +9,7 @@ import { useState ,useRef, useEffect} from 'react';
 
 import './index.scss'
 import '../../common/common.scss'
+import { MdAdminPanelSettings } from 'react-icons/md';
 
    
 
@@ -22,14 +23,15 @@ export default function Login(){
     const [senha, setSenha] = useState('');
     const [carregando, setCarregando] = useState(false);
     const [erro, setErro] = useState('');
+    const [admin, setAdmin] = useState([]);
 
     const navigate= useNavigate();
-
+    const { id } =useParams()
     const ref = useRef();
-
+    console.log(id)
     useEffect(() =>{
         if(storage('usuario-logado')){
-                navigate('/perfiladmin')
+                navigate(`/perfiladmin/`+ id)
         }
  
     }, [])
@@ -37,8 +39,8 @@ export default function Login(){
         if(!storage('usuario-logado')){
                 navigate('/loginadm')
         }
- 
     }, [])
+
 
     async function entrarClick(){
 
@@ -52,7 +54,7 @@ export default function Login(){
 
 
         setTimeout(() => {
-            navigate('/perfiladmin')
+            navigate(`/perfiladmin/`+ id )
         },3000);
        
         

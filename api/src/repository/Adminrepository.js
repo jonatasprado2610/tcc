@@ -30,10 +30,10 @@ export async function PerfilADM(id) {
     NM_AREA_ATUANTE as area, 
     DT_ATUA_DESDE as atua,
     DT_NASCIMENTO as nascimento
-    from tb_admin
-    where ID_FUNCIONARIO = ? `
+    from tb_admin 
+    where ID_FUNCIONARIO = ?`
 
-        const [linhas] = await con.query(comando)
+        const [linhas] = await con.query(comando, [id])
         return linhas[0];
 
 }
