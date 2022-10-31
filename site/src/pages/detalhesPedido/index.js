@@ -2,6 +2,7 @@ import './index.scss';
 
 import { Listar} from '../../api/cadastrarEndereco';
 import { useEffect, useState } from 'react';
+import storage from 'local-storage'
 
 
 export default function MeusPedidos() {
@@ -9,7 +10,8 @@ export default function MeusPedidos() {
 
 
     async function carregarEnderecos() {
-        const r = await Listar(1);
+        /*const id = storage('cliente-logado').id;*/   /*     *****    Falta Terminar aqui !!!!!   *****    */
+        const r = await Listar(2);
         setEnderecos(r);
     }
 
@@ -18,13 +20,13 @@ export default function MeusPedidos() {
     }, [])
 
 
-
+    
 
     return(
         <main className='cont-detalhes'>
             <section className='section'>
                 <div>
-                    <h1>Detalhes do pedidos Pedidos</h1>
+                    <h1>Detalhes do Pedido</h1>
                 </div>
                 <div className='div-numPedido'> 
                     Número do pedido: 123456
@@ -65,29 +67,37 @@ export default function MeusPedidos() {
                     </div>
                     
                     <div className='cards'>
-                        <h3>Entrega</h3>
+                        <h3>--- ENTREGA ---</h3>
                         <div>
-                            <p>Entrega normal</p>
+                            <p>Etrega Normal</p>
                         </div>
 
                         {enderecos.map(item =>
-                           
-                             <div>
-                                <div>
-                                    <p>Rua</p>
-                                    <p>CEP 5727539867</p>
-                                </div>
-                                <div>
-                                    <p>Jardim bairro bairro</p>
-                                    <p>São Paulo - SP</p>
-                                </div>
-                                <div>
-                                    <p>thtfddh</p>
-                                </div>
+                            <div classname= "div-infosende" >
+                                <h3>Rua</h3>
+                                {item.logradouro}
+
+                                <h3>Bairro:</h3>
+                                {item.bairro}
+
+                                <h3>CEP:</h3>
+                                {item.cep}
+
+                                <h3>cidade:</h3>
+                                {item.cidade}
+
+                                <h3>Estado:</h3>
+                                {item.estado}
+                                  
+                                <h3>Referência</h3>
+                                {item.referencia}
+                               
+                                <h3>Complemento:</h3>
+                                {item.complemento}
                             </div>
-                            )}
                            
-                        
+                            )}
+                       
                     </div> 
 
                 </div>
