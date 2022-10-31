@@ -1,5 +1,4 @@
-use database tccdb;
-
+use tccdb;
 
 insert into tb_produto(
 NM_PRODUTO,
@@ -106,22 +105,20 @@ NM_USUARIO,
 DT_NASCIMENTO,
 DS_RG,
 DS_CPF,
-ds_email,
-ds_senha,
 bt_trocar,
 cod_reset,
 dt_expiracao_cod  
 )
 values(
-'João Victor Andrade',
-10/12/2005,
+'JJuliano Neres',
+22/05/2006,
 50189965999,
 39146716816,
-'jvasantos2005@gmail.com',
-'braz2005',
 true,
 12345678,
 31/12/2022);
+
+select * from tb_USUARIO;
 
 insert into tb_usuario_endereco(
 ID_USUARIO,
@@ -135,21 +132,23 @@ DS_COMPLEMENTO,
 DS_NUMERO
 )
 values(
-1,
-'Rua José de Vieira',
-'Jardim Nova Holanda',
-'Próximo a escola Ayrton Senna',
+5,
+'Rua Vlady',
+'Jardim Urubá',
+'Próximo fábrica Senna',
 123456789123456,
 'São Paulo',
 'SP',
 'A',
-180);
+10);
+
+select * from tb_usuario_endereco;
 
 insert into tb_pedido(
 ID_USUARIO,
 ID_USUARIO_ENDERECO,
 DT_PEDIDO,
-COD_NOTAL_FISCAL,
+COD_NOTA_FISCAL,
 TP_FRETE,
 VL_FRETE,
 NR_NUMERO_PEDIDO,
@@ -160,7 +159,7 @@ values(
 1,
 1,
 31/02/2022,
-12456789,
+'12456789',
 'aéreo',
 150,
 1500,
@@ -205,10 +204,18 @@ ID_USUARIO,
 DS_EMAIL,
 DS_SENHA)
 values(
-1,
-'jvasantos2005@gmail.com',
-'abc@123');
+5,
+'juli@gmail.com',
+'1234');
 
+ select ID_USUARIO	 id,
+               ds_email    email,
+               ds_senha    senha
+  	      from tb_login 
+         where ds_email  =  'juli@gmail.com'
+          and  ds_senha = '1234';
+
+select * from tb_login;
 
 insert into tb_admin(
 NM_FUNCIONARIO,
@@ -224,6 +231,9 @@ values(
 10/12/2005,
 12/10/2005);
 
+select * from tb_admin;
+
+
 insert into tb_admin_login(
 ID_FUNCIONARIO,
 DS_LOGIN,
@@ -234,14 +244,13 @@ values(
 'ADMIN@123',
 'abc@123');
 
+select * from tb_admin_login;
+
 insert into tb_carrossel_principal(
 DS_IMG
 )
 values(
 'https://media.istockphoto.com/photos/carrousel-at-dusk-picture-id136325144');
-
-select *
- from tb_pedido_item;
 
 
 SELECT *
@@ -282,3 +291,13 @@ select *
 
 select *
 	from  tb_produto_imagem;
+    
+select *
+	from tb_pedido_item;
+   
+   
+		-- select inner join produtos e pedidos... 
+-- select
+-- VL_PRECO_POR,
+-- VL_MAX_PARCELAS,
+-- DS_DESCRICAO

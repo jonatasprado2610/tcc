@@ -10,8 +10,8 @@ export default function MeusPedidos() {
 
 
     async function carregarEnderecos() {
-        /*const id = storage('cliente-logado').id;*/   /*     *****    Falta Terminar aqui !!!!!   *****    */
-        const r = await Listar(2);
+        const id = storage('cliente-logado').id;  
+        const r = await Listar(id);
         setEnderecos(r);
     }
 
@@ -19,8 +19,6 @@ export default function MeusPedidos() {
             carregarEnderecos();
     }, [])
 
-
-    
 
     return(
         <main className='cont-detalhes'>
@@ -94,6 +92,10 @@ export default function MeusPedidos() {
                                
                                 <h3>Complemento:</h3>
                                 {item.complemento}
+
+                                hyu7iguyg
+                                <h3>Complemento:</h3>
+                                dsfilolyoi 
                             </div>
                            
                             )}
