@@ -62,12 +62,12 @@ export async function salvarProdutoMarca(idMarca, idProduto) {
 }
 // ALTERAR PRODUTO // // ALTERAR PRODUTO // // ALTERAR PRODUTO // // ALTERAR PRODUTO // 
 
-export async function removerProdutoImagensDiferentesDe(imagem){
+export async function removerProdutoImagensDiferentesDe(imagem) {
     const comando = `
     delete from tb_produto_imagem 
     where DS_IMAGEM  not in (?)
     `
-    const [resp] = await con.query(comando, [ imagem ]);
+    const [resp] = await con.query(comando, [imagem]);
     return resp.affectedRows;
 }
 
@@ -141,7 +141,7 @@ export async function buscarProdutos() {
     return registros;
 }
 // PROCURAR PRODUTO // // PROCURAR PRODUTO // // PROCURAR PRODUTO // // PROCURAR PRODUTO //
-export async function procurarProdutoPorId(id){
+export async function procurarProdutoPorId(id) {
     const comando = `
     SELECT 
     ID_PRODUTO as id,
@@ -159,61 +159,61 @@ export async function procurarProdutoPorId(id){
     return registros[0];
 }
 
-export async function procurarImagemPorId(idProduto){
-    const comando = 
-    `
+export async function procurarImagemPorId(idProduto) {
+    const comando =
+        `
     SELECT 
     DS_IMAGEM as imagem
     FROM tb_produto_imagem
     WHERE id_produto =  ?
     `
     const [linhas] = await con.query(comando, [idProduto]);
-    return linhas.map(item => item.imagem); 
+    return linhas.map(item => item.imagem);
 }
-export async function procurarMarcaPorId(idProduto){
-    const comando = 
-    `
+export async function procurarMarcaPorId(idProduto) {
+    const comando =
+        `
     SELECT 
     ID_MARCA as id
     FROM tb_produto_marca
     WHERE id_produto =  ?
     `
-    const [linhas] = await con.query(comando , [idProduto]);
-    return linhas.map(item => item.id); 
+    const [linhas] = await con.query(comando, [idProduto]);
+    return linhas.map(item => item.id);
 }
-export async function procurarTamanhoPorId(idProduto){
-    const comando = 
-    `
+export async function procurarTamanhoPorId(idProduto) {
+    const comando =
+        `
     SELECT 
     ID_TAMANHO as id
     FROM tb_produto_tamanho
     WHERE id_produto =  ?
     `
-    const [linhas] = await con.query(comando , [idProduto]);
-    return linhas.map(item => item.id); 
+    const [linhas] = await con.query(comando, [idProduto]);
+    return linhas.map(item => item.id);
 }
-export async function procurarCorPorId(idProduto){
-    const comando = 
-    `
+export async function procurarCorPorId(idProduto) {
+    const comando =
+        `
     SELECT 
     ID_COR as id
     FROM tb_produto_cor
     WHERE id_produto =  ?
     `
-    const [linhas] = await con.query(comando , [idProduto]);
-    return linhas.map(item => item.id); 
+    const [linhas] = await con.query(comando, [idProduto]);
+    return linhas.map(item => item.id);
 }
 
-export async function procurarCategoriasPorId(idProduto){
-    const comando = 
-    `
+export async function procurarCategoriasPorId(idProduto) {
+    const comando =
+        `
     SELECT 
     ID_CATEGORIA as id
     FROM tb_produto_categoria
     WHERE id_produto =  ?
     `
-    const [linhas] = await con.query(comando , [idProduto]);
-    return linhas.map(item => item.id); 
+    const [linhas] = await con.query(comando, [idProduto]);
+    return linhas.map(item => item.id);
 }
 
 // REMOVER PRODUTO // // REMOVER PRODUTO // // REMOVER PRODUTO // // REMOVER PRODUTO // 
@@ -278,8 +278,8 @@ export async function removerProduto(idProduto) {
     return resp.affectedRows
 }
 
-export async function listarProdutosInicio(){
-    const comando=`
+export async function listarProdutosInicio() {
+    const comando = `
     select tb_produto.id_produto                id,
            NM_PRODUTO                           nome,
            VL_PRECO_DE                          preco,
@@ -326,5 +326,22 @@ export async function ProdutosCadastrados() {
          `
     const [registros] = await con.query(comando);
     return registros
-}
+};
+
+export async function listarProdutosporMarca() {
+    const comando = `
+    select  tb_produto.ID_PRODUTO    id,   
+    NM_PRODUTO                       nome,
+    DS_IMAGEM                        imagem,
+    VL_PRECO_POR                     precopar
+    from tb_produto
+    inner join tb_produto_imagem on tb_produto_imagem.ID_PRODUTO = tb_produto.ID_PRODUTO
+    inner join tb_produto_marca on tb_produto_marca.ID_PRODUTO = tb_produto.ID_PRODUTO
+    inner join tb_marca on tb_marca.ID_MARCA = tb_produto_marca.ID_MARCA
+    where nm_marca like '%';
+     `
+
+    const [registros] = await con.query(comando)
+    return registros
+};
 

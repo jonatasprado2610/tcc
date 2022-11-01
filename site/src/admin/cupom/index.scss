@@ -37,7 +37,21 @@
             padding: 3px;
             border-bottom: 1px solid #0B4E6B;
         }
+
         
+
+    .lado{
+        display: flex;
+        flex-direction: row;
+    }
+    .div{
+        background-color: aqua;
+        display: flex;
+        flex-direction: row;
+    }
+    button{
+        font-size: 12px;
+
     }
 
     .mural {
@@ -60,16 +74,7 @@
 
 
         }
-
-    }
-
-
-
-
-
-
-
-    input {
+ input {
 
         width: 160px;
 
@@ -96,4 +101,12 @@
 
 
     }
+    }
+
+
+
+}
+
+
+
 }

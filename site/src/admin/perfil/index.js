@@ -5,7 +5,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import CabecarioAdmin from '../../components/cabeçarioAdmin';
 import { listarProdutosCadastrados } from "../../api/produtoApi";
 import { API_URL } from '../../api/config'
-import Menusidebar from '../../components/menusidebar/header'
 import { PerfilADM } from '../../api/admin/adminApi';
 import './index.scss'
 import storage from 'local-storage';
@@ -17,34 +16,39 @@ export default function PerfilADMIN() {
     const [info, setInfo] = useState([]);
     const navigate = useNavigate();
     const ref = useRef();
-    const { id } = useParams();
-
     
+    //const { id } = useParams();
+
     async function carregarProdutos() {
         const r = await listarProdutosCadastrados();
         setProduto(r);
-        if (r.imagens.length > 0) {
-            setImagem1(r.imagens[0]);
+
+        if (r.length > 0) {
+            setImagem1(r[0].imagem);
         }
     }
     async function carregarInfoAdm() {
-        const r = await PerfilADM(storage('usuario-logado').id);
+        const id = storage('usuario-logado').id
+        const r = await PerfilADM(id);
         setInfo(r);
     }
 
     function exibirImagem(imagem) {
         if (imagem == undefined) {
-
-            return '/assets/images/pngwing.com.png'
-
+            return '/assets/images/pngwing.com.png'            
+        }
+        else if (imagem.substr(0, 4) == 'http') {
+            return imagem;
         }
         else if (typeof (imagem) == 'string') {
+            console.log(`${API_URL}/${imagem}`)
             return `${API_URL}/${imagem}`
         }
         else {
             return URL.createObjectURL(imagem);
         }
     }
+
 
     async function deletarProduto(id) {
         try {
@@ -63,11 +67,6 @@ export default function PerfilADMIN() {
 
 
     useEffect(() => {
-        carregarProdutos();
-        carregarInfoAdm();
-    }, [])
-
-    useEffect(() => {
         if(!storage('usuario-logado')){
             navigate('/loginadm')
         }else{
@@ -75,9 +74,12 @@ export default function PerfilADMIN() {
             setUsuario(usuarioLogado.login);
         }
     }, [])
-
+    useEffect(() => {
+        carregarProdutos();
+        carregarInfoAdm();
+    }, [])
     return (
-        <main className="tudo">
+        <main className="tudoo">
 
             <div className='cabecario'>
                 <CabecarioAdmin />
@@ -91,15 +93,17 @@ export default function PerfilADMIN() {
                 <div className='mural'>
                         <div>
                             <h1>Perfil</h1>
-                            <div>
-                            {usuario}
+                            <div className="perfilAdm">
                                 {info.map(item =>
-                                    <div className="">
-                                        <img className="imagem" src={exibirImagem(item.imagem)} alt="" /> 
-                                        <div className="infos"> <h1 className="inicial" > NOME :</h1> {item.nome} {usuario} </div>
-                                        <div className="infos"> <h1 className="inicial" >ÁREA : </h1> {item.area}</div>
-                                        <div className="infos"> <h1 className="inicial" > ATUA DESDE DE  :</h1> {item.atua.substr(0,10)}</div>
-                                        <div className="infos"> <h1 className="inicial" > NASCIDO EM :</h1> {item.nascimento.substr(0,10)}</div>
+                                    <div className="perfilAdm">
+                                        <div className='back'>
+                                            <img className="imagem" src={exibirImagem(item.imagem)} alt="" /> 
+                                            <div className="info"> <h1 className="inicial" > NOME :</h1> <p>{item.nome} </p> </div>
+                                        </div> 
+                                        
+                                        <div className="info"> <h1 className="inicial" >ÁREA : </h1>  <p> {item.area} </p> </div>
+                                        <div className="info"> <h1 className="inicial" > ATUA DESDE DE  :</h1> <p> {item.atua.substr(0,10)} </p> </div>
+                                        <div className="info"> <h1 className="inicial" > NASCIDO EM :</h1> <p> {item.nascimento.substr(0,10)} </p> </div>
                                     </div>)}
                             </div>
 
@@ -111,16 +115,17 @@ export default function PerfilADMIN() {
                     {produto.map(item =>
                         <tr className="card">
                             <img className="imagem" src={exibirImagem(item.imagem)} alt="" />
-                            <td className="infos"> <p className="inicial" > ID :</p> {item.id}</td>
-                            <td className="infos"> <p className="inicial" >NOME : </p> {item.nome}</td>
-                            <td className="infos"> <p className="inicial" > PREÇO :</p> {item.precopar}</td>
-                            <td className="infos"> <p className="inicial" > MARCA :</p> {item.marca}</td>
+                            <div className="infos"> <p className="inicial" > ID :</p> {item.id}</div>
+                            <div className="infos"> <p className="inicial" >NOME : </p> {item.nome}</div>
+                            <div className="infos"> <p className="inicial" > PREÇO :</p> {item.precopar}</div>
+                            <div className="infos"> <p className="inicial" > MARCA :</p> {item.marca}</div>
                             <hr className="traco" />
-                            <td className="infos"> <p className="inicial" > DISPONIVEIS : </p> {item.qtd}</td>
+                            <div className="infos"> <p className="inicial" > DISPONIVEIS : </p> {item.qtd}</div>
+                            <div className='fundo'> 
                             <span onClick={() => editar(item.id)}>  <img className='imagens' src='/assets/images/alterarEstoque.png' /> </span>
                             <span onClick={() => deletarProduto(item.id)}>  <img className='imagens' src='/assets/images/apagarEstoque.png' /> </span>
+                            </div>
                         </tr>
-
                     )}
                 </div>
             </div>

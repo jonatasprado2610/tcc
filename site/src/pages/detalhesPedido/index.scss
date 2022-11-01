@@ -46,20 +46,23 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: start;
-        width: 15em;
-        height: 15em;
+        width: 18em;
+        height: 10em;
         padding: 2em;
         background-color: #18759C;
         color: rgb(0, 0, 0);
         border-radius: 1em;
     }
 
+    .titulo-entrega {
+        align-items: center;
+    }
+
     .div-infosende {
         width: 13em;
         height: 13em;
-        text-overflow: inherit;
+        
     } 
 
-    
 
 }

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { listarProdutosInicio, procurarCategoriasPorId, procurarCorPorId, procurarImagemPorId, procurarMarcaPorId, procurarProdutoPorId, procurarTamanhoPorId, ProdutosCadastrados } from "../repository/produtoRepository.js";
+import { listarProdutosInicio, procurarCategoriasPorId, procurarCorPorId, procurarImagemPorId, procurarMarcaPorId, procurarProdutoPorId, procurarTamanhoPorId, ProdutosCadastrados, listarProdutosporMarca } from "../repository/produtoRepository.js";
 const server = Router();
 
 server.get('/produto', async (req, resp) =>{
@@ -57,4 +57,20 @@ server.get('/produto/cadastrados', async (req, resp) =>{
     }
 });
 
+
+server.get('/produtos/marca:marca', async (req, resp) =>{
+
+    try{
+        const marca = req.params.marca;
+
+        const resposta = await listarProdutosporMarca(marca)
+        resp.send(resposta)
+    } catch(err){
+         resp.status(401).send({
+             erro:err.message
+         });
+    }
+});
+
 export default server;
+        
