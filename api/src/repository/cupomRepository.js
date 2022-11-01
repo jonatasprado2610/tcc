@@ -15,6 +15,34 @@ export async function buscarCupom(cod) {
 }
 
 
+export async function cadastracupom(cupom) {
+    const comando = `
+    insert into tb_cupom (cod_cupom, vl_cupom, qtd_restante)
+    values (?, ?, ?);
+    `
+
+    const [info] = await con.query(comando, [
+
+        cupom.codigo,
+        cupom.valor,
+        cupom.qtd
+       ])
+    return info.insertId;
+}
+
+export async function listarCupom() {
+    const comando = `
+    select 
+    id_cupom  id,
+    cod_cupom  codigo,
+    vl_cupom    valor,
+    qtd_restante
+    from tb_cupom;
+    `
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
+
 export async function atualizarCupom(cod) {
     const comando = `
         UPDATE tb_cupom

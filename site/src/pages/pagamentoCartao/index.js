@@ -222,7 +222,7 @@ export default function PagamentoCartao() {
                             <tr>
                                 <td>
                                     <div className='celula-item'>
-                                        <img />
+                                        <img  />
                                         <div>
                                             <h3> {item.produto.info.nome} </h3>
 

@@ -4,13 +4,14 @@ import adminController from './controller/admin/adminController.js';
 import usuarioController from './controller/usuarioController.js';
 import marcaController from './controller/admin/marcacontroller.js'
 import amincategoriaController from './controller/admin/categoriaController.js'
-import adminprodutoController from './controller/admin/produtoController.js'
-import tamanhoController from './controller/admin/tamanhoController.js'
-import admincorController from './controller/admin/corController.js'
+import adminprodutoController  from './controller/admin/produtoController.js'
+import tamanhoController   from './controller/admin/tamanhoController.js'
+import admincorController  from './controller/admin/corController.js'
 import enderecoController  from './controller/enderecoController.js'
-import filtrosController from './controller/filtrosController.js'
-import produtoController  from './controller/produtoController.js'
-import pedidoController from './controller/pedidoController.js'
+import filtrosController   from './controller/filtrosController.js'
+import produtoController   from './controller/produtoController.js'
+import pedidoController   from './controller/pedidoController.js'
+import cupomController from './controller/cupomController.js'
 import express from 'express'
 import cors from 'cors'
 
@@ -33,6 +34,7 @@ server.use(enderecoController);
 server.use(filtrosController);
 server.use(produtoController);
 server.use(pedidoController);
+server.use(cupomController);
 server.use('/storage/produto', express.static('storage/produto'))
 
 

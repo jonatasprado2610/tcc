@@ -53,6 +53,7 @@ export default function Cadastrar() {
                  await salvarImagem(r.id, imagem1,imagem2,imagem2,imagem3,imagem4,imagem5);
 
             toast.dark('Produto cadastrado com sucesso');
+            
             }else{
                     await alterarProduto( id, nome, precoDe, precoPor, maxParcelas, qtdItens, categoriaDiaria, descricao,
                     marcasSelecionadas, tamanhosSelecionados, coresSelecionadas, catSelecionadas );

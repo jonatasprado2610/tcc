@@ -4,9 +4,34 @@ import CabecarioAdmin from '../../components/cabeçarioAdmin';
 import { API_URL } from '../../api/config'
 import './index.scss'
 import storage from 'local-storage';
+import { salvarCupom, listarCupom } from '../../api/admin/cupom'
+import { toast } from 'react-toastify';
 
 export default function CadastrarCupom() {
-    const [cupom, setCupom] = useState([]);
+
+    const [cupom, setCupom] = useState([])
+    const [codigo, setCodigo] = useState('');
+    const [valor, setValor] = useState(0);
+    const [qtd, setQtd] = useState(0);
+
+    async function cadastracupomx() {
+        try {
+            const r = await salvarCupom(codigo, valor, qtd)
+            toast('cupom cadastrado')
+
+        } catch (err) {
+            toast(err.response.data.erro)
+        }
+    }
+
+    async function carregarCupom() {
+        const r = await listarCupom();
+        setCupom(r);
+    }
+
+    useEffect(() => {
+        carregarCupom();
+    }, [])
 
     return (
         <main className="tudo">
@@ -21,31 +46,40 @@ export default function CadastrarCupom() {
                         <div className='baixo'>
                             <h1>Cadastrar Cupom</h1>
                             <h2>Nome Cupom </h2>
-                            <input className='teste' type='text' />
+                            <input className='teste' type='text' value={codigo} onChange={e => setCodigo(e.target.value)} />
                             <h2>Valor Cupom </h2>
-                            <input className='teste' type='text' />
+                            <input className='teste' type='text' value={valor} onChange={e => setValor(Number(e.target.value))} />
+                            <h2>quantidade </h2>
+                            <input className='teste' type='text' value={qtd} onChange={e => setQtd(Number(e.target.value))} />
 
                         </div>
                         <div>
+
                             <h2> Cupons Registrados </h2>
-                            <div className='div'>
-                                {cupom.map(item =>
-                                    <div>
-                                        <div>{item.nome}  </div>
-                                        <hr className='barra'/>
-                                        <div>{item.criado} </div>
-                                        <hr  className='barra'/>
-                                        <div>{item.Desconto} </div>
-                                    </div>
-                                )}
+
+                            <div className='xx1'>
+                            {cupom.map(item =>
+                        <tr>
+                        <td>{item.id}</td>
+                        <td>{item.codigo}</td>
+                        <td>{item.valor}</td>
+                        <td>{item.qtd}</td>
+                       
+                        <img className='imagens' src='/assets/images/apagarEstoque.png'/> 
+                        </tr>
+
+                        )}  
+
+                               
                             </div>
+
 
                         </div>
                     </div>
 
                     <div>
-                        <button> Cadastrar Cupom   </button>
-                        <button> Alterar Cupom  </button>
+                        <button onClick={cadastracupomx}> Cadastrar Cupom   </button>
+
                     </div>
 
 

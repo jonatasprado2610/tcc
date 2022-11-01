@@ -39,6 +39,7 @@ export async function salvarProdutoCor(idCor, idProduto) {
     const [resp] = await con.query(comando, [idCor, idProduto])
 }
 
+
 export async function salvarProdutoTamanho(idTamanho, idProduto) {
     const comando =
         ` insert into tb_produto_tamanho (ID_TAMANHO, ID_PRODUTO)
@@ -145,7 +146,7 @@ export async function procurarProdutoPorId(id){
     SELECT 
     ID_PRODUTO as id,
     NM_PRODUTO as nome,
-    VL_PRECO_DE as precoInicial,
+    VL_PRECO_DE as valor,
     VL_PRECO_POR as precoFinal,
     VL_MAX_PARCELAS as parcelas,
     QTD_ITENS as quantidade,

@@ -66,7 +66,7 @@ export async function inserirPagamento(idPedido, novoPagamento) {
 
     const [info] = await con.query(comando, [
         idPedido,
-        novoPagamento.cartao,
+        novoPagamento.nome,
         novoPagamento.numero,
         novoPagamento.vencimento,
         novoPagamento.codSeguranca,
@@ -81,8 +81,7 @@ export async function inserirPagamento(idPedido, novoPagamento) {
 
 
 
-
-export async function inserirPedidoItem(idPedido, idProduto, qtd, preco) {
+export async function inserirPedidoItem(idPedido, idProduto, qtd, valor) {
     const comando = `
         INSERT INTO tb_pedido_item (
             id_pedido,
@@ -93,6 +92,6 @@ export async function inserirPedidoItem(idPedido, idProduto, qtd, preco) {
         VALUES (?, ?, ?, ?)
     `
 
-    const [info] = await con.query(comando, [idPedido, idProduto, qtd, preco]);
+    const [info] = await con.query(comando, [idPedido, idProduto, qtd, valor]);
     return info.affectedRows;
 }
