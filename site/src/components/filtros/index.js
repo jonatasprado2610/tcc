@@ -1,10 +1,7 @@
 import './index.scss'
 
-
-
 export default function Filtros() {
-
-
+   
 
      return (
           <main className='page-filtros'>
@@ -16,7 +13,7 @@ export default function Filtros() {
                               <input type="checkbox" id="scales" />
                          </div>
                          <div>
-                              <p>xxxxxx</p>
+                              <p>allyb</p>
 
                          </div>
                     </div>
@@ -42,7 +39,7 @@ export default function Filtros() {
                     </div>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" placeholder='vasco da gama' id="scales" />
+                              <input type="checkbox" />
                          </div>
                          <div>
                               <p>xxxxxx</p>
