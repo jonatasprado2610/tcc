@@ -15,5 +15,6 @@ export const Container = styled.div`
   }
   &:hover {
     background-color: #1077A4;
+    transition: 0.7s;
   }
 `;

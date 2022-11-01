@@ -11,27 +11,20 @@ import './index.scss'
 import '../../common/common.scss'
 import { MdAdminPanelSettings } from 'react-icons/md';
 
-   
-
-
-
-
-
-
 export default function Login(){
     const [login, setLogin] = useState('');
     const [senha, setSenha] = useState('');
     const [carregando, setCarregando] = useState(false);
     const [erro, setErro] = useState('');
     const [admin, setAdmin] = useState([]);
+   // const { id } =useParams()
 
     const navigate= useNavigate();
-    const { id } =useParams()
     const ref = useRef();
-    console.log(id)
+   // console.log(id)
     useEffect(() =>{
         if(storage('usuario-logado')){
-                navigate(`/perfiladmin/`+ id)
+                navigate(`/perfiladmin/`+ PerfilADM.id )
         }
  
     }, [])
@@ -54,7 +47,7 @@ export default function Login(){
 
 
         setTimeout(() => {
-            navigate(`/perfiladmin/`+ id )
+            navigate(`/perfiladmin/`)
         },3000);
        
         
@@ -101,7 +94,7 @@ export default function Login(){
                 
 
               
-                <h2>Overlend</h2>
+                <h2>Overland</h2>
 
               
                 
