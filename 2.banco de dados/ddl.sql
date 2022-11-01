@@ -90,7 +90,6 @@ cod_reset           varchar(50),
 dt_expiracao_cod  datetime
 );
 
-drop table tb_usuario;
 
 create table tb_usuario_endereco (
 	id_usuario_endereco			int primary key auto_increment,
