@@ -17,6 +17,7 @@ export default function CadastrarCupom() {
     async function cadastracupomx() {
         try {
             const r = await salvarCupom(codigo, valor, qtd)
+            carregarCupom();
             toast('cupom cadastrado')
 
         } catch (err) {
