@@ -28,10 +28,9 @@ export default function Carrossel() {
 
 
   return (
-    <section className='page-c1'>
-
-
-      <Carousel
+    
+     <section className='xxpage-c1'>
+        <Carousel
         swipeable={false}
         draggable={false}
         infinite={true}
@@ -41,13 +40,15 @@ export default function Carrossel() {
       >
         <div><img src="./assets/images/image 46.png" alt='' /></div>
 
-        <div><img src="./assets/images/image 46.png" alt='' /></div>
-        <div><img src="./assets/images/image 46.png" alt='' /></div>
-        <div><img src="./assets/images/image 46.png" alt='' /></div>
-
+        <div><img className='aaa' src="./assets/images/Component 43.png" alt='' /></div>
+        <div><img src="./assets/images/Component 44.png" alt='' /></div>
+     
       </Carousel>
+     </section>
+
+    
 
 
-    </section>
+    
   )
 }

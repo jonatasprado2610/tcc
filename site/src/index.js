@@ -9,12 +9,13 @@ import PagamentoCartao from './pages/pagamentoCartao';
 import PagamentoPix from './pages/pagamentoPix';
 import PagametoBoleto from './pages/pagametoBoleto';
 import CompraFinalizada from './pages/compr';
-import Home from './pages/home';
+
 import Produtrox from './pages/podutroX';
 import Carrinho from './pages/carrinho';
 import CardEntrega from './components/cardEntrega';
 import Ender from './pages/endereco2';
 import Carrinho2 from './components/carrinho2';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

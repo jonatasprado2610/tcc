@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { inserirPagamento, inserirPagamentopix, inserirPedido, inserirPedidoItem } from "../repository/pedidoRepository.js";
+import { alterarStatusx, inserirPagamento, inserirPagamentopix, inserirPedido, inserirPedidoItem } from "../repository/pedidoRepository.js";
 import { procurarProdutoPorId} from "../repository/produtoRepository.js";
 import { acharCupom,  criarNovoPedido, criarNotaFiscal } from "../services/novoProduto.js"
 const server = Router();
@@ -29,6 +29,39 @@ server.post('/api/pedido/:idUsuario/', async (req, resp) => {
     }
     catch (err) {
         console.log(err);
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.put('/pedido/status/:id', async (req, resp) => {
+
+    try {
+        const { id } = req.params;
+        const status = req.body;
+
+        const resposta = await alterarStatus(id, status);
+        if (resposta != 1)
+            throw new Error('pedido  não pode ser alterado')
+        else
+            resp.status(204).send();
+    }
+
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        });
+    }
+
+})
+
+
+server.put('/pedido/status2/:id', async (req, resp) => {
+    try {
+        const r = await alterarStatusx();
+        resp.send(r);
+    } catch (err) {
         resp.status(400).send({
             erro: err.message
         })

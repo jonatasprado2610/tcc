@@ -48,6 +48,7 @@ export default function OfertasDiarias(props) {
 
     return (
         <section className='page-oferta'>
+          
           <div className='card' onClick={()=>abrir(props.item.id)} >
                 <div>
 

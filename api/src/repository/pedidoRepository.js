@@ -32,15 +32,15 @@ export async function inserirPedido(novoPedido) {
     return info.insertId;
 }
 
-export async function inserirPagamentopix(idPedido, novoPagamentox){
-    
+export async function inserirPagamentopix(idPedido, novoPagamentox) {
+
     const comando = `
 
     insert  into tb_pagamento_pix (ID_PEDIDO,DS_CHAVE_PIX,DS_FORMA_PAGAMENTO	)
     values (?,?,?);
     `
-    const [info]= await con.query(comando, [ 
-        idPedido,  
+    const [info] = await con.query(comando, [
+        idPedido,
         novoPagamentox.chave,
         novoPagamentox.codChave,
         novoPagamentox.formaPagamentox
@@ -95,3 +95,38 @@ export async function inserirPedidoItem(idPedido, idProduto, qtd, valor) {
     const [info] = await con.query(comando, [idPedido, idProduto, qtd, valor]);
     return info.affectedRows;
 }
+
+export async function alterarStatus(id, pedido) {
+
+    const comando =
+        `
+        UPDATE tb_pedido
+           SET DS_STATUS     = ?
+         WHERE id_pedido = ? `
+
+    const [resp] = await con.query(comando, [
+
+        pedido.status,
+        id
+    ])
+    return resp.affectedRows;
+}
+
+export async function alterarStatusx(id, pedido) {
+
+    const comando =
+        `
+        UPDATE tb_pedido
+           SET DS_STATUS     = 'pedido recebidox'
+         WHERE id_pedido = ? ` ;
+
+
+
+    const [registros] = await con.query(comando, [id], pedido);
+
+    return registros[0];
+
+   
+}
+
+

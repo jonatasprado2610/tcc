@@ -30,7 +30,9 @@ export  async  function LoginUsuario(email,senha){
                ds_senha    senha
   	      from tb_login
          where ds_email  =  ?
-          and  ds_senha = (?); `
+          and  ds_senha =  (?); `
+
+          
 
          const [linhas] = await con.query(comando, [email,senha])
           console.log(linhas)
