@@ -322,7 +322,8 @@ export async function ProdutosCadastrados() {
     VL_PRECO_POR,
     QTD_ITENS,
     BL_CATEGORIA_DIARIA,
-    NM_MARCA;  
+    NM_MARCA
+    LIMIT 10;  
          `
     const [registros] = await con.query(comando);
     return registros

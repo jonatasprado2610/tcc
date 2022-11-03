@@ -92,18 +92,16 @@ export default function PerfilADMIN() {
 
                 <div className='mural'>
                         <div>
-                            <h1>Perfil</h1>
+
                             <div className="perfilAdm">
+                            <h1>Perfil Administrador</h1>
                                 {info.map(item =>
                                     <div className="perfilAdm">
-                                        <div className='back'>
-                                            <img className="imagem" src={exibirImagem(item.imagem)} alt="" /> 
-                                            <div className="info"> <h1 className="inicial" > NOME :</h1> <p>{item.nome} </p> </div>
-                                        </div> 
-                                        
-                                        <div className="info"> <h1 className="inicial" >ÁREA : </h1>  <p> {item.area} </p> </div>
-                                        <div className="info"> <h1 className="inicial" > ATUA DESDE DE  :</h1> <p> {item.atua.substr(0,10)} </p> </div>
-                                        <div className="info"> <h1 className="inicial" > NASCIDO EM :</h1> <p> {item.nascimento.substr(0,10)} </p> </div>
+                                        <img className="imagem" src={exibirImagem(item.imagem)} alt="" /> 
+                                        <div className="info"> <h1 className="inicialAdm" > NOME :</h1> <p>{item.nome.toUpperCase()} </p> </div>
+                                        <div className="info"> <h1 className="inicialAdm" >ÁREA : </h1>  <p> {item.area} </p> </div>
+                                        <div className="info"> <h1 className="inicialAdm" > ATUA DESDE DE  :</h1> <p> {item.atua.substr(0,10)} </p> </div>
+                                        <div className="info"> <h1 className="inicialAdm" > NASCIDO EM :</h1> <p> {item.nascimento.substr(0,10)} </p> </div>
                                     </div>)}
                             </div>
 
@@ -111,10 +109,10 @@ export default function PerfilADMIN() {
 
                 </div>
                 <div className="pra-baixo" >
-                    <h1>Produtos Cadastrados</h1>
+                    <h1>Ultimos Produtos Cadastrados</h1>
                     {produto.map(item =>
-                        <tr className="card">
-                            <img className="imagem" src={exibirImagem(item.imagem)} alt="" />
+                        <div className="card">
+                            <img className="imagensProdutos" src={exibirImagem(item.imagem)} alt="" />
                             <div className="infos"> <p className="inicial" > ID :</p> {item.id}</div>
                             <div className="infos"> <p className="inicial" >NOME : </p> {item.nome}</div>
                             <div className="infos"> <p className="inicial" > PREÇO :</p> {item.precopar}</div>
@@ -125,7 +123,7 @@ export default function PerfilADMIN() {
                             <span onClick={() => editar(item.id)}>  <img className='imagens' src='/assets/images/alterarEstoque.png' /> </span>
                             <span onClick={() => deletarProduto(item.id)}>  <img className='imagens' src='/assets/images/apagarEstoque.png' /> </span>
                             </div>
-                        </tr>
+                        </div>
                     )}
                 </div>
             </div>

@@ -4,14 +4,17 @@
     flex-direction: column;
 
     .imagem{
+        border-radius: 50%;
         cursor:default;
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
+
     }
+    
     .lado{
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
     }
     .cabecario{
         margin-bottom: 3em;
@@ -19,11 +22,12 @@
     .card{
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: space-around;
         align-items: center;
         border: 1px solid black;
         width: 75vh;
         background-color: white;
+        height: 10vh;
     }
     .infos{
         font-size: 20px;
@@ -39,6 +43,10 @@
         font-family:"BebasNeue-Regular";
         font-size: 20px;
     }
+    .inicialAdm{
+        font-family:"BebasNeue-Regular";
+        font-size: 30px;
+    }
     .traco{
         height: 40px;
         border: 1px solid rgb(61, 61, 61);
@@ -48,6 +56,7 @@
         display: flex;
         flex-direction: column;
         gap:10px;
+        margin-left: 55px;
         
     }
     .m{
@@ -81,6 +90,13 @@
             justify-content: flex-start;
             align-items: flex-start;
         }
+        .imagensProdutos{
+            cursor:default;
+            width: 70px;
+            height: 70px;
+            margin-right: 25px;
+        }
+        
         
     }
 
