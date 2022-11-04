@@ -4,7 +4,7 @@ const server = Router();
 
 server.get('/produto', async (req, resp) =>{
     try{
-        const {email, senha} = req.body;
+       
         const resposta = await listarProdutosInicio()
         if(!resposta){
             throw new Error('CREDENCIAIS INVALIDADAS')

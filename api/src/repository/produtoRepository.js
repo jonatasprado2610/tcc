@@ -284,6 +284,7 @@ export async function listarProdutosInicio() {
            NM_PRODUTO                           nome,
            VL_PRECO_DE                          preco,
            VL_PRECO_POR                         precopar,
+           BL_CATEGORIA_DIARIA                  ctg_diara,
            QTD_ITENS                            qtd,
            min(ds_imagem)                          imagem
            from tb_produto  
@@ -292,7 +293,8 @@ export async function listarProdutosInicio() {
             tb_produto.id_produto  , 
             NM_PRODUTO         ,            
             VL_PRECO_DE      ,              
-            VL_PRECO_POR       ,            
+            VL_PRECO_POR       ,  
+            BL_CATEGORIA_DIARIA ,          
             QTD_ITENS                   
         
     `

@@ -3,12 +3,20 @@ import { API_URL } from '../../api/config';
 import './index.scss'
 import Storage from 'local-storage'
 
-export default function Carrinho2({item: {produto:{info,categorias, imagens}, qtd},removerItem,}) {
-    const [cont, setCont] = useState(0);
+export default function Carrinho2({item: {produto:{info, categorias, imagens}, qtd},removerItem,}) {
+    
     const [qtdProduto, setQtdProduto] = useState(qtd);
 
 
-    
+    function remover() {
+        removerItem(info.id);
+    }
+
+    function calcularSubtotal() {
+        const subtotal = qtdProduto * info.valor;
+        return subtotal;
+    }
+
    
     
     function exibirImagem() {
@@ -20,10 +28,7 @@ export default function Carrinho2({item: {produto:{info,categorias, imagens}, qt
         }
     }
 
-    function calcularSubtotal() {
-        const subtotal = qtdProduto * info.precoInicial;
-        return subtotal;
-    }
+    
 
     function alterarContidade1(novaQtd){
         setQtdProduto(novaQtd);
@@ -41,10 +46,7 @@ export default function Carrinho2({item: {produto:{info,categorias, imagens}, qt
     
     };
 
-    function ad(){
-        setCont(cont -1)
-    
-    };
+   
 
     return (
         <section className="paga-carrinho2">
@@ -54,7 +56,7 @@ export default function Carrinho2({item: {produto:{info,categorias, imagens}, qt
                     <div><img className='img' src={exibirImagem()} /></div>
                     <p>{info.nome}</p>
               
-                    <div><img    src="./assets/images/lixeira1.png"/> </div>
+                    <div><img  onClick={remover}   src="./assets/images/lixeira1.png"/> </div>
 
                 </div>
                 <div className='c1xx2'>
@@ -82,9 +84,9 @@ export default function Carrinho2({item: {produto:{info,categorias, imagens}, qt
                        
                     </div>
                     <div className="xcx">
-                        <div> <p>R$:{info.precoInicial}</p></div>
+                        <div> <p>R$:{info.valor}</p></div>
                         <div><label>Subtotal</label></div>
-                        <div><p>R$:{calcularSubtotal()}</p></div>
+                        <div><p>R$ {calcularSubtotal()}</p></div>
 
                         
                     </div>

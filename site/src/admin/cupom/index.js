@@ -40,11 +40,10 @@ export default function CadastrarCupom() {
             <div className='cabecario'>
                 <CabecarioAdmin />
             </div>
-            <div className="pagina">
+           
 
-                <div className='mural'>
-                    <div className='lado'>
-                        <div className='baixo'>
+            <div className='m'>
+             <div className='baixo'>
                             <h1>Cadastrar Cupom</h1>
                             <h2>Nome Cupom </h2>
                             <input className='teste' type='text' value={codigo} onChange={e => setCodigo(e.target.value)} />
@@ -53,12 +52,13 @@ export default function CadastrarCupom() {
                             <h2>quantidade </h2>
                             <input className='teste' type='text' value={qtd} onChange={e => setQtd(Number(e.target.value))} />
 
-                        </div>
-                        <div>
+             </div>
+             <div>
 
                             <h2> Cupons Registrados </h2>
 
                             <div className='xx1'>
+                                
                             {cupom.map(item =>
                         <tr>
                         <td>{item.id}</td>
@@ -76,15 +76,7 @@ export default function CadastrarCupom() {
 
 
                         </div>
-                    </div>
 
-                    <div>
-                        <button onClick={cadastracupomx}> Cadastrar Cupom   </button>
-
-                    </div>
-
-
-                </div>
             </div>
         </main>
     )

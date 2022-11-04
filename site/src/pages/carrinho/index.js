@@ -8,6 +8,7 @@ import { carregarProdutosPorId } from '../../api/produtoApi'
 
 import Carrinho2 from '../../components/carrinho2'
 import { useNavigate } from 'react-router-dom'
+import Cabecario from '../../components/cabeçario'
 
 export default function Carrinho() {
     const[itens,setItens]=useState([])
@@ -34,7 +35,7 @@ export default function Carrinho() {
     function calcularValorTotal() {
         let total = 0;
         for (let item of itens) {
-            total = total + item.produto.info.precoInicial * item.qtd;
+            total = total + item.produto.info.valor * item.qtd;
         }
         return total;
     }
@@ -48,6 +49,7 @@ export default function Carrinho() {
             
             for (let produto of carrinho) {
                 let p = await carregarProdutosPorId(produto.id);
+                console.log(p)
                 
                 temp.push({
                     produto: p,
@@ -69,9 +71,11 @@ export default function Carrinho() {
 
     return (
         <section className='page-carrinho'>
-            <CabecarioAdmin />
+           
+                <Cabecario/>
+
             <div className='x1x'>
-                <h1>Carrinho</h1>
+                <h1 className='h1'>Carrinho</h1>
 
                 <div className='c1' >
 

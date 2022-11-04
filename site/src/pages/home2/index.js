@@ -12,7 +12,7 @@ import CarrosselMarca from "../../components/carrosselMarca";
 import 'react-multi-carousel/lib/styles.css';
 import './index.scss'
 
-function App() {
+function App( ) {
 
     const responsive = {
         desktop: {
@@ -35,8 +35,17 @@ function App() {
     const [produtos, setProdutos] = useState([]);
 
     async function listar() {
-        const r = await listarProdutosIncioxx();
-        setProdutos(r)
+
+     
+
+          const r = await listarProdutosIncioxx();
+          setProdutos(r)
+          console.log(r)
+        
+      
+       
+      
+        
     }
 
     useEffect(() => {
