@@ -58,13 +58,13 @@ server.get('/produto/cadastrados', async (req, resp) =>{
 });
 
 
-server.get('/produtos/marca:marca', async (req, resp) =>{
+server.get('/produtos/marca/:marca', async (req, resp) =>{
 
     try{
-        const marca = req.params.marca;
-
+        const marca = req.params.marca
         const resposta = await listarProdutosporMarca(marca)
         resp.send(resposta)
+        
     } catch(err){
          resp.status(401).send({
              erro:err.message
