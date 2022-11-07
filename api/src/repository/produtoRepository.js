@@ -116,9 +116,9 @@ export async function buscarProdutos() {
     const comando = ` 
     select  tb_produto.
     ID_PRODUTO    id,
-    NM_PRODUTO                    nome,
+    NM_PRODUTO                     nome,
     VL_PRECO_DE                    preco,
-    VL_PRECO_POR           precopar,
+    VL_PRECO_POR                  precopar,
     QTD_ITENS              qtd,
     BL_CATEGORIA_DIARIA     destaque,
     NM_CATEGORIA qtd_categoria ,
