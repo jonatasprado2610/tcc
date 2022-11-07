@@ -13,7 +13,7 @@ export  async  function CriarConta(usuario){
           const [resposta]= await con.query(comando, [usuario.nome, usuario.nascimento, usuario.rg, usuario.cpf, usuario.email,usuario.senha]);
           usuario.id= resposta.insertId;
 
-       
+
         return usuario;
         
 
@@ -24,13 +24,15 @@ export  async  function CriarConta(usuario){
 export  async  function LoginUsuario(email,senha){
     const comando = 
         `
-        select ID_USUARIO	 id,
-                   
-               ds_email    email,
-               ds_senha    senha
-  	      from tb_login
-         where ds_email  =  ?
-          and  ds_senha =  (?); `
+        select id_usuario 		id,
+           NM_USUARIO           nome,
+           ds_email			email,
+           ds_senha    senha
+      from tb_usuario
+     where ds_email 		= ?
+      and ds_senha			= ?; `
+
+         
 
           
 
