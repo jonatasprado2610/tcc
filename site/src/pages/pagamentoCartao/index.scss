@@ -3,28 +3,36 @@
     padding: 0;
     display: flex;
     justify-content: center;
+    height: 100%;
     width: 99.9%;
     flex-direction: column;
     h1{
         font-family: 'BebasNeue-Regular';
     }
    .itens{
-       margin-top: 15em;
+       margin-top: 5em;
        margin-bottom: 3em;
-       border: 1px solid aqua;
-       width: 100%;
+       border: 1px solid black;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       width:20em;
        margin-bottom: 3em;
+       border-radius: 5px;
+       box-shadow: 10px 5px 5px rgb(204, 204, 204);
+       box-sizing: 10px 5px 5px rgb(204, 204, 204); 
    }
     .section{
+        justify-content: space-around;
         padding: 10px 10px;
         display: flex;
-        justify-content: center;
+        flex-direction: row;
         width: 96%;
-        height: 35em;
+        height: 50em;
     }
     .x1{
         box-shadow: 10px 5px 5px rgb(204, 204, 204);
-        box-sizing: 10px 5px 5px rgb(204, 204, 204); ;
+        box-sizing: 10px 5px 5px rgb(204, 204, 204); 
         margin-top: 5em;
         border: 0.5px solid rgb(65, 64, 64);
         border-radius: 5px;
@@ -47,7 +55,7 @@
    .info-extra{
     display: flex;
     flex-direction: row;
-    border: 1px solid red;
+    border: 1px solid rgba(3, 29, 102, 0.37);
     div{
         margin-top: 3em;
         margin-left: 2em;
@@ -97,8 +105,8 @@
       }
 
       table {
-          border: 1px solid red;
-        width: 100%;
+       
+        width: 20em;
         border-collapse: collapse;
         text-align: center;
         font-weight: 700;

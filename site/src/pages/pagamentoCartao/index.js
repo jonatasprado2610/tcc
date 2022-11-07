@@ -202,11 +202,11 @@ export default function PagamentoCartao() {
 
 
                 </div>
-
-            </section>
-
-
-            <div className='itens'>
+                
+                <div>
+                    
+                <div className='itens'>
+                <h1>Resumo do pedido</h1>
                 <table>
                     <thead>
                         <tr>
@@ -248,6 +248,13 @@ export default function PagamentoCartao() {
                 </table>
             </div>
 
+
+                </div>
+
+            </section>
+
+
+           
 
             <Rodape />
         </main>
