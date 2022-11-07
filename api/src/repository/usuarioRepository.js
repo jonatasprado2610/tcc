@@ -37,5 +37,13 @@ export  async  function LoginUsuario(email,senha){
           return linhas[0];
 }
 
-
-
+export  async  function PerfilUsuario(id){
+  const comando = 
+      `select NM_USUARIO, 
+      ds_email 
+      from tb_usuario 
+      where ID_USUARIO = ?;
+       `
+       const [linhas] = await con.query(comando, [id])
+        return linhas;
+}

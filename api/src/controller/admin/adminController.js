@@ -4,6 +4,7 @@ const server = Router();
 
 import { loginAdm, PerfilADM } from "../../repository/Adminrepository.js";
 
+
 server.post('/admin/login', async (req, resp) =>{
     try{
         const {login, senha} = req.body;

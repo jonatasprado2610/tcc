@@ -195,12 +195,11 @@ foreign key (ID_PEDIDO) references tb_pedido (ID_PEDIDO)
 create table tb_admin(
 ID_FUNCIONARIO					int primary key auto_increment,
 NM_FUNCIONARIO					varchar(200),
-IMG_IMAGEM						blob,
+DS_IMAGEM						varchar(200),
 NM_AREA_ATUANTE					varchar(50),
 DT_ATUA_DESDE					date,
 DT_NASCIMENTO					date
 );
-
 
 
 create table tb_admin_login(

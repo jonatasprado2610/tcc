@@ -28,3 +28,8 @@ export async  function loginU(email, senha){
        return r.data;
 
 }
+
+export async  function PerfilADM (id){
+    const r = await api.get(`/usuario/perfil/${id}` );
+       return r.data;
+}

@@ -1,4 +1,4 @@
-import { CriarConta, LoginUsuario } from "../repository/usuarioRepository.js";
+import { CriarConta, LoginUsuario, PerfilUsuario } from "../repository/usuarioRepository.js";
 import { Router } from "express";
 import { validarCadastro } from "../services/validarCadastro.js";
 const server = Router();
@@ -44,9 +44,17 @@ server.post('/usuario/login', async (req, resp) =>{
     }
 });
 
-
-
-
+server.get('/usuario/perfil/:id' ,async(req,resp) => {
+    try{
+        const id = req.params.id
+        const resposta = await PerfilUsuario(id);
+        resp.send(resposta)
+    } catch(err){
+         resp.status(401).send({
+             erro:err.message
+         });
+    }
+});
 
 
 export default server;
