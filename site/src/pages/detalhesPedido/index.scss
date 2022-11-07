@@ -1,3 +1,4 @@
+
 .cont-detalhes {
     justify-content: center;
     align-items: center;
@@ -7,18 +8,20 @@
     .section {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
-        height: 80%;
+        height: 90%;
         width: 100%;
     }
 
     h1 {
-        font-size: 2.2em;
+        font-size: 2.5em;
+        font-family: 'IstokWeb-Bold';
     }
     
     .div-numPedido {
-        font-size: 1.2em;
+        font-size: 1.5em;
+        font-family: 'BebasNeue-Regular';
         width: 80%;
         height: 5%;
     }
@@ -27,42 +30,93 @@
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        width: 70%;
-        height: 25%;
+        width: 63%;
+        height: 22%;
+        padding: 1em;
+       background-color: rgb(206, 206, 206);
+       border-radius: 0.7em
+    }
+
+    .descricoes {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: flex-start;
+        width: 60%;
         font-size: 1.3em;
-        background-color: rgb(206, 206, 206);
-        border-radius: 0.7em;
+    }
+
+    .img-produto {
+        width: 7em;
+        height: 7em;
+        border-radius: 5px;
+        margin-right: 1em;
+    }
+
+    .descricoes2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        
+        height: 100%;
+        font-size: 1.3em;
+    }
+/*tamanho da fonte tem q ser separado da div pra nao interferir*/
+
+    .botao-confirmar {
+        width: 75%;
+        height: 25%;
+        font-size: 1em;
+        font-family: 'IstokWeb-Regular';
+        border-radius: 0.4em;
+        background-color: #18759C;
+        color: #ffffff;
     }
 
     .div-cards {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 70%;
+        width: 60%;
     }
     
     .cards {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: start;
         align-items: start;
-        width: 18em;
-        height: 10em;
-        padding: 2em;
+        width: 20em;
+        height: 11em;
+        padding: 1.5em;
         background-color: #18759C;
         color: rgb(0, 0, 0);
         border-radius: 1em;
     }
 
     .titulo-entrega {
+        display: flex;
+        flex-direction: column;
         align-items: center;
+        width: 100%;
+        height: 25%;
+        border: #823409 2px;
+        font-family: 'BebasNeue-Regular';
     }
 
     .div-infosende {
-        width: 13em;
-        height: 13em;
+        width: 100%;
         
-    } 
+    }
+
+    .infosende {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            
+            font-family: 'Sen-Regular';
+            color: #ffffff;
+        }
 
 
 }

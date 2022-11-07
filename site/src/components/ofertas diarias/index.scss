@@ -6,12 +6,17 @@
      margin: 0;
      display: flex;
      flex-direction: row;
-     border: 1px solid red;
+     align-items: center;
+     margin-left: 4em;
+     margin-right: 4em;
+    
 
     
     .card{
-        border: 1px solid red;
-        margin-left: 4em;
+        
+        width: 100px;
+        display: flex;
+        margin-right: 1em;
         flex-direction: column;
         align-items: center;
         margin-left: 1em;

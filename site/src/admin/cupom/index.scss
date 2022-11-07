@@ -1,8 +1,19 @@
 .tudo {
 
     .pagina {
+        border: 1px solid red;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+    }
+    .m{
+        margin-top: 5em;
+        display: flex;
+        flex-direction: row;
+        width: 700px;
+        height: 400px;
+        justify-content: space-around;
+        border: 1px solid black;
+
     }
 
     .baixo {
@@ -11,6 +22,7 @@
         border-radius: 5px;
 
         display: flex;
+        height: 250px;
         flex-direction: column;
     }
 
@@ -37,71 +49,32 @@
             padding: 3px;
             border-bottom: 1px solid #0B4E6B;
         }
-
+    }
+h2{
+    font-family: 'BebasNeue-Regular';
+}
         
 
-    .lado{
-        display: flex;
-        flex-direction: row;
-    }
-    .div{
-        background-color: aqua;
-        display: flex;
-        flex-direction: row;
-    }
-    button{
-        font-size: 12px;
-
-    }
-
-    .mural {
-
-        .lado {
-            border-radius: 15px;
-            box-shadow: 10px 5px 5px rgb(204, 204, 204);
-            padding: 40px;
-            width: 900px;
-            height: 100%;
-            border: 1px solid rgb(0, 0, 0);
-            display: flex;
-            justify-content: space-around;
-            flex-direction: row;
-        }
-
-        h2 {
-            margin-top: 0.5em;
+        button{
             font-family: 'BebasNeue-Regular';
-
-
+            font-size: 20px;
+            border: none;
+            color: white;
+            padding: 15px 15px;
+            border-radius: 10px;
+            background-color:#1077A4 ;
+            
         }
- input {
-
-        width: 160px;
-
-
-
-    }
-
-    button {
-        background-color: #0B4E6B;
-        color: white;
-        margin-top: 2em;
-        padding: 11px 40px;
-        border: none;
-        font-family: 'BebasNeue-Regular';
-        font-size: 20px;
-        border-radius: 5px;
-    }
-
-    button:hover {
-        cursor: pointer;
-        background-color: #0e6286;
-        transform: scale(1.04);
+    
+        button:hover{
+            cursor: pointer;
+            background-color:#399dc9 ;
+            transition: 1s;
+            
+        }
+    
 
 
-
-    }
-    }
 
 
 
@@ -109,4 +82,3 @@
 
 
 
-}

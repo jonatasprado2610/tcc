@@ -284,6 +284,7 @@ export async function listarProdutosInicio() {
            NM_PRODUTO                           nome,
            VL_PRECO_DE                          preco,
            VL_PRECO_POR                         precopar,
+           BL_CATEGORIA_DIARIA                  ctg_diara,
            QTD_ITENS                            qtd,
            min(ds_imagem)                          imagem
            from tb_produto  
@@ -292,7 +293,8 @@ export async function listarProdutosInicio() {
             tb_produto.id_produto  , 
             NM_PRODUTO         ,            
             VL_PRECO_DE      ,              
-            VL_PRECO_POR       ,            
+            VL_PRECO_POR       ,  
+            BL_CATEGORIA_DIARIA ,          
             QTD_ITENS                   
         
     `
@@ -329,20 +331,21 @@ export async function ProdutosCadastrados() {
     return registros
 };
 
-export async function listarProdutosporMarca() {
+export async function listarProdutosporMarca(marca) {
     const comando = `
     select  tb_produto.ID_PRODUTO    id,   
     NM_PRODUTO                       nome,
     DS_IMAGEM                        imagem,
-    VL_PRECO_POR                     precopar
+    VL_PRECO_POR                     precopar,
+    NM_MARCA                         marca
     from tb_produto
     inner join tb_produto_imagem on tb_produto_imagem.ID_PRODUTO = tb_produto.ID_PRODUTO
-    inner join tb_produto_marca on tb_produto_marca.ID_PRODUTO = tb_produto.ID_PRODUTO
+    inner join tb_produto_marca on tb_produto_marca.ID_PRODUTO = tb_produto_marca.ID_PRODUTO
     inner join tb_marca on tb_marca.ID_MARCA = tb_produto_marca.ID_MARCA
-    where nm_marca like '%';
+    where nm_marca = ?;
      `
-
-    const [registros] = await con.query(comando)
+        console.log(marca)
+    const [registros] = await con.query(comando,marca)
     return registros
 };
 

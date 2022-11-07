@@ -56,7 +56,7 @@ export default function PagamentoCartao() {
         let total = 0
 
         for (let item of itens) {
-            total = item.qtd * item.produto.info.precoInicial
+            total = item.qtd * item.produto.info.valor
         }
         return total
     }
@@ -233,11 +233,11 @@ export default function PagamentoCartao() {
                                     {item.qtd}
                                 </td>
                                 <td>
-                                    R$: {item.produto.info.precoInicial}
+                                    R$: {item.produto.info.valor}
 
                                 </td>
                                 <td>
-                                    R$:  {item.qtd * item.produto.info.precoInicial}
+                                    R$:  {item.qtd * item.produto.info.valor}
                                 </td>
                             </tr>
 

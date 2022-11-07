@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import Home from './pages/home'
+
 import Login from './admin/login';
 import Cadastrar from './admin/cadastrar';
 import PerfilADMIN from './admin/perfil';
@@ -21,12 +21,13 @@ import PagamentoCartao from './pages/pagamentoCartao';
 import PerfilUsuario from './pages/perfilUsuario';
 import Menusidebar from './components/menusidebar/header'
 import CadastrarCupom from './admin/cupom';
-
+import App from './pages/home2';
 export default function Rotas(){
     return(
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<Home/>} />
+                
+                <Route path='/' element={<App/>} />
                 <Route path='/loginadm' element={<Login/>} />
                 <Route path='/loginusu' element={<LoginUsuarios/>} />
                 <Route path='/cadastrar' element={<Cadastrar />} />

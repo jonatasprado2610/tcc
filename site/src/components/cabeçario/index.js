@@ -57,7 +57,7 @@ export default function Cabecario(props){
 
                     <Link to="/perfil/usuario"> <img src='/assets/images/image 1066.png' alt='1' /> </Link>
 
-                    <Link to="/loginusu"> LOGIN </Link>
+                    
                     
 
                     <Link to="/carrinho"> <img src='/assets/images/image 1065.png' alt='1' /> </Link>

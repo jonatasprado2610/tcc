@@ -3,7 +3,7 @@ import { Router } from 'express';
 import {
     buscarProdutos, novoProduto, procurarCorPorId, procurarImagemPorId,
     procurarMarcaPorId, procurarProdutoPorId, procurarTamanhoPorId, procurarCategoriasPorId, removerProduto, removerProdutoCategorias, removerProdutoCores, removerProdutoImagens,
-    removerProdutoMarcas, removerProdutoTamanhos, salvarProdutoCategoria, salvarProdutoCor, salvarProdutoImagem, salvarProdutoMarca, salvarProdutoTamanho, 
+    removerProdutoMarcas, removerProdutoTamanhos, salvarProdutoCategoria, salvarProdutoCor, salvarProdutoImagem, salvarProdutoMarca, salvarProdutoTamanho,
     removerProdutoImagensDiferentesDe, alterarProduto,
 } from '../../repository/produtoRepository.js';
 import { buscarCategoriaPorId } from '../../repository/categoriaRepository.js';
@@ -15,6 +15,7 @@ import { buscarMarcaPorId } from '../../repository/marcarepository.js';
 import multer from 'multer'
 
 import { con } from '../../repository/connection.js';
+import { alterarStatus } from '../../repository/pedidoRepository.js';
 
 const server = Router();
 const upload = multer({ dest: 'storage/produto' })
@@ -77,11 +78,10 @@ server.put('/admin/produtoimg/:id/imagem', upload.array('imagens'), async (req, 
     try {
         const id = req.params.id;
         const imagens = req.files;
-       
 
-        for(const imagem of imagens)
-        {
-               await salvarProdutoImagem(id, imagem.path);
+
+        for (const imagem of imagens) {
+            await salvarProdutoImagem(id, imagem.path);
         }
         resp.status(204).send();
 
@@ -99,7 +99,7 @@ server.put('/admin/produto/:id', async (req, resp) => {
     try {
         const id = req.params.id
         const produto = req.body;
-        
+
 
         await removerProdutoMarcas(id);
         await removerProdutoTamanhos(id);
@@ -204,6 +204,14 @@ server.get('/admin/produto/:id', async (req, resp) => {
         })
     }
 });
+
+
+
+
+
+
+
+
 
 
 

@@ -3,21 +3,14 @@ import { useEffect } from 'react';
 
 export default function Rodape() {
 
-    function exibirImagem(item) {
-
-        return 'https://cdn-icons-png.flaticon.com/512/49/49967.png';
-    }
-
-    useEffect(() => {
-
-        exibirImagem();
-    })
+   
+    
     return (
 
         <section className='page-rodape'>
             <div className='direcao-rodape'>
                 <div>
-                    <img className='gx' src={exibirImagem()} />
+                <img src="/assets/images/image 1067.png" />
                 </div>
 
                 <div className='coluna-rodape'>
