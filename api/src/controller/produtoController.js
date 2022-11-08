@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { listarProdutosInicio, procurarCategoriasPorId, procurarCorPorId, procurarImagemPorId, procurarMarcaPorId, procurarProdutoPorId, procurarTamanhoPorId, ProdutosCadastrados, listarProdutosporMarca } from "../repository/produtoRepository.js";
+import { listarProdutosInicio, procurarCategoriasPorId, procurarCorPorId, procurarImagemPorId, procurarMarcaPorId, procurarProdutoPorId, procurarTamanhoPorId, ProdutosCadastrados, listarProdutosporMarca, listarProdutosporTamanho, listarProdutosporGenero, listarProdutosporCategoria } from "../repository/produtoRepository.js";
 const server = Router();
 
 server.get('/produto', async (req, resp) =>{
@@ -72,5 +72,46 @@ server.get('/produtos/marca/:marca', async (req, resp) =>{
     }
 });
 
+server.get('/produtos/tamanho/:tamanho', async (req, resp) =>{
+
+    try{
+        const tamanho = req.params.tamanho
+        const resposta = await listarProdutosporTamanho(tamanho)
+        resp.send(resposta)
+        
+    } catch(err){
+         resp.status(401).send({
+             erro:err.message
+         });
+    }
+});
+
+server.get('/produtos/gender/:genero', async (req, resp) =>{
+
+    try{
+        const genero = req.params.genero
+        const resposta = await listarProdutosporGenero(genero)
+        resp.send(resposta)
+        
+    } catch(err){
+         resp.status(401).send({
+             erro:err.message
+         });
+    }
+});
+
+server.get('/produtos/categoria/:categoria', async (req, resp) =>{
+
+    try{
+        const categoria = req.params.categoria
+        const resposta = await listarProdutosporCategoria(categoria)
+        resp.send(resposta)
+        
+    } catch(err){
+         resp.status(401).send({
+             erro:err.message
+         });
+    }
+});
 export default server;
         
