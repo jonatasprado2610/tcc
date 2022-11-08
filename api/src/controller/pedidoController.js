@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { alterarStatusx, inserirPagamento, inserirPagamentopix, inserirPedido, inserirPedidoItem } from "../repository/pedidoRepository.js";
+import { alterarStatusx, alterarStatus, inserirPagamento,  inserirPedido, inserirPedidoItem, listarpedidoIdx, listarpedidox } from "../repository/pedidoRepository.js";
 import { procurarProdutoPorId} from "../repository/produtoRepository.js";
 import { acharCupom,  criarNovoPedido, criarNotaFiscal } from "../services/novoProduto.js"
 const server = Router();
@@ -68,6 +68,34 @@ server.put('/pedido/status2/:id', async (req, resp) => {
     }
 })
 
+
+server.get('/pedido', async (req, resp) => {
+    try {
+        const r = await listarpedidox ();
+        resp.send(r);
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/pedido/:id', async (req, resp) => {
+    try{
+        const id =req.params.id;
+        const  r=  await listarpedidoIdx(id);
+
+        resp.send(r);
+
+        
+
+    }
+    catch (err) {
+        return resp.status(400).send({
+        erro: err.message
+        });
+    }
+})
 
 
 export default server;
