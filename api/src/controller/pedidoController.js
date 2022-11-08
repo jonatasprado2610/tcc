@@ -69,7 +69,7 @@ server.put('/pedido/status2/:id', async (req, resp) => {
 })
 
 
-server.get('/pedido', async (req, resp) => {
+server.get('/admin/pedido', async (req, resp) => {
     try {
         const r = await listarpedidox ();
         resp.send(r);

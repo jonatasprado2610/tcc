@@ -22,12 +22,14 @@ import PerfilUsuario from './pages/perfilUsuario';
 import Menusidebar from './components/menusidebar/header'
 import CadastrarCupom from './admin/cupom';
 import App from './pages/home2';
+import PedidoSc from './components/pedido';
 export default function Rotas(){
     return(
         <BrowserRouter>
             <Routes>
                 
                 <Route path='/' element={<App/>} />
+                
                 <Route path='/loginadm' element={<Login/>} />
                 <Route path='/loginusu' element={<LoginUsuarios/>} />
                 <Route path='/cadastrar' element={<Cadastrar />} />

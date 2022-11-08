@@ -36,16 +36,10 @@ function App( ) {
 
     async function listar() {
 
-     
-
           const r = await listarProdutosIncioxx();
           setProdutos(r)
           console.log(r)
-        
-      
-       
-      
-        
+    
     }
 
     useEffect(() => {

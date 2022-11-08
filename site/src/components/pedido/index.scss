@@ -1,0 +1,129 @@
+.page-pedc {
+
+    border: 0;
+    margin: 0;
+    padding: 10px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 20em;
+
+    box-shadow: 10px 5px 5px rgb(204, 204, 204);
+    box-sizing: 10px 5px 5px rgb(204, 204, 204);
+
+    table {
+        align-items: center;
+        width: 70em;
+        border-collapse: collapse;
+        margin-top: 50px;
+    }
+
+    button {
+        background-color: #0B4E6B;
+        color: white;
+        margin-top: 5.7em;
+        padding: 5px 30px;
+        margin-left: 1em;
+        border: none;
+        font-family: 'BebasNeue-Regular';
+        font-size: 20px;
+        border-radius: 5px;
+    }
+
+    button:hover {
+        cursor: pointer;
+        background-color: #0e6286;
+        transform: scale(1.04);
+
+
+
+    }
+
+    .cx2 {
+
+        display: flex;
+        flex-direction: row;
+    }
+
+    .cx {
+        margin-top: 3em;
+        width: 15em;
+        height: 5em;
+        padding: 10px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 0.5px solid black;
+        border-radius: 5px;
+
+        h3 {
+            font-size: 20px;
+            font-family: 'BebasNeue-Regular';
+        }
+
+        input {
+            border: 1px solid black;
+            border-radius: 5px;
+            width: 200px;
+
+
+
+        }
+
+    }
+
+    th {
+        border: 1px solid black;
+        font-family: sans-serif;
+        text-align: left;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 14px;
+        text-shadow: 0px 1px 4px rgba(217, 217, 217, 0.5);
+    }
+
+    thead {
+
+        background-color: #0B4E6B;
+    }
+
+    td {
+        font-family: 'BebasNeue-Regular';
+        border: 1px solid black;
+        padding: 5px 30px;
+        font-weight: 500;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #EDEDED;
+    }
+
+    tbody tr:hover {
+        background-color: #e1e1e1;
+    }
+
+    td img {
+        width: 15px;
+        cursor: pointer;
+    }
+
+    tr td:nth-child(2) {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100px;
+    }
+
+    tr td:nth-child(1) {
+        color: #606060;
+        font-weight: 700;
+    }
+
+    tr td:nth-last-child(1) * {
+        visibility: hidden;
+    }
+
+    tr:hover td:nth-last-child(1) img {
+        visibility: visible;
+    }
+
+}

@@ -7,20 +7,16 @@
     height: 100vh;
 
     .section {
+        margin-top: 1em;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        border: 5px solid red;
         align-items: center;
-        height: 80%;
+        height: 160em;
         width: 100%;
     }
 
-    .div-tabela {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
+
 
     input {
         height: 1.6em;
@@ -31,18 +27,18 @@
         width: 50%;
 
 
-        
-        th{
-        background-color: #0B4E6B;
-        align-items: center;
+
+        th {
+            background-color: #0B4E6B;
+            align-items: center;
         }
 
         td {
             background-color: #64BEE4;
         }
 
-        
-}
+
+    }
 
     .card {
         display: flex;
@@ -50,7 +46,7 @@
         width: 8em;
         height: 8em;
         padding: 1em;
-        
+
         background-color: #117FAE;
         color: white;
         border-radius: 0.7em;
