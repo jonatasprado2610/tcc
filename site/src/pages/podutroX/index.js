@@ -15,6 +15,19 @@ export default function Produtrox(){
     const[imagemPrincipal, setImagemPrincipal]=useState(0)
     const {id }= useParams();
 
+
+    function exibirImagem() {
+        
+            return 'https://cdn-icons-png.flaticon.com/512/1828/1828884.png'
+        
+    }
+    
+    function exibirImagem2() {
+        
+        return '/circulo.png'
+    
+}
+     
    async function carregarPagina(){
      const r = await  carregarProdutosPorId(id)
      
@@ -61,9 +74,9 @@ export default function Produtrox(){
         
         <main className='page-px'>
             
-             
+             <Cabecario/>
        
-
+           <section className='xsection'>
             <div className='container1'>
                <div className='subx'>
                         <div className='sub1'>
@@ -97,12 +110,12 @@ export default function Produtrox(){
                  <h1>{produto.info.nome}</h1>
                  </div>
 
-                 <div>
-                 <img  src='./assets/images/star1.png' alt=''/>
-                 <img  src='./assets/images/star1.png' alt=''/>
-                 <img  src='./assets/images/star1.png' alt=''/>
-                 <img  src='./assets/images/star1.png' alt=''/>
-                 <img  src='./assets/images/star1.png' alt=''/>
+                 <div className='s'>
+                 <img  src={exibirImagem()} alt=''/>
+                 <img  src={exibirImagem()} alt=''/>
+                 <img src={exibirImagem()} alt=''/>
+                 <img  src={exibirImagem()} alt=''/>
+                 <img src={exibirImagem()} alt=''/>
                  </div>
 
                  <div>
@@ -149,7 +162,7 @@ export default function Produtrox(){
 
                 <div className='sub6'>
                     <div>
-                     <img src="./assets/images/circulo.png" alt=""/>
+                     <img src={exibirImagem2()} alt=""/>
                     </div>
                     <div>
                         <p className='p2'>Devolução grátis.</p>
@@ -182,12 +195,13 @@ export default function Produtrox(){
                 <div className='sub7'>
                     <div className='sub8'>
                         <input type="text" placeholder='Digite aqui sua opniao sobre o produtro' />
-                        <div> <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
+                        <div className='s'> 
+                         <img  src='./assets/images/star1.png' alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
                         <button>Publicar</button>
                         
                         </div>
@@ -196,12 +210,15 @@ export default function Produtrox(){
                     </div>
                     <div className='sub9'>
                         <h3>joazin</h3>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
+                        <div className='s'>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/> 
+                        </div>
+                      
                         <p>Show de telefone. Imagem das fotos ótimas, bateria dura dois dias. Processador e armazenamento eficientes. Indico!</p>
                     </div>
 
@@ -209,30 +226,35 @@ export default function Produtrox(){
                 </div>
 
                 <div className='sub7'>  
-                <div className='sub8'>
+                <div className='sub9'>
                         <h3>joazin</h3>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
+                        <div className='s'>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/> 
+                        </div>
                         <p>Show de telefone. Imagem das fotos ótimas, bateria dura dois dias. Processador e armazenamento eficientes. Indico!</p>
                     </div>
                     <div className='sub9'>
                         <h3>joazin</h3>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
-                        <img  src='./assets/images/star1.png' alt=''/>
+                        <div className='s'>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/>
+                        <img  src={exibirImagem()} alt=''/> 
+                        </div>
                         <p>Show de telefone. Imagem das fotos ótimas, bateria dura dois dias. Processador e armazenamento eficientes. Indico!</p>
                     </div>
 
                 </div>
 
             </div>
+            </section>
 
             <div className='subx1'>
               

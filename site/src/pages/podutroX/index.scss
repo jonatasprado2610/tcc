@@ -29,9 +29,9 @@
     }
 
     .container1{
-        
-        width: 99%;
-        margin-top: 3em;
+      
+        width:70em;
+        margin-top: 5em;
         display: flex;
         flex-direction: row;
          justify-content: space-around;
@@ -75,10 +75,12 @@
             border-radius: 1px;
         }
     }
-
+    .xsection{
+        height: 120vh;
+    }
     .sub2{
         padding: 5px;
-        margin-left: 0.5em;
+        
     }
 
     .sub2 p{
@@ -122,7 +124,7 @@
     .sub6 p {
         font-family:"IstokWeb-Regular";
         line-height: 17px;
-        margin-left: 0.5em;
+       
     }
 
     .sub7{
@@ -135,7 +137,7 @@
     .sub8{
         border: 1px solid #747474;
         margin-top: 3em;
-        margin-left: 3em;
+       
         border-radius: 3px;
         padding: 5px;
         
@@ -145,7 +147,7 @@
 
     .sub8 button{
         cursor: pointer;
-        margin-left: 3em;
+      
         margin-top: 0.5em;
         padding: 10px 10px;
         
@@ -158,23 +160,23 @@
     }
 
     .sub8 h3{
-        margin-left: 0.5em;
+        
         font-family:"BebasNeue-Regular";
     }
     .sub9 h3{
-        margin-left: 0.5em;
+       
         font-family:"BebasNeue-Regular";
     }
     .sub8 p{
       
-        width: 25em;
+        
     
     }
     .sub9{
         border: 1px solid #747474;
       border-radius: 5px;
         margin-top: 3em;
-        margin-right: 3em;
+       
         padding: 5px;
        
     }
@@ -218,7 +220,7 @@
 
     }
     .subdes{
-        margin-top: 2em;
+        
         
         display: flex;
         flex-direction: column;
@@ -233,11 +235,20 @@
         background-color: #F8F8F8;
         border-radius: 5px;
     }
-
+.s{  
+     
+    img{
+       
+        width: 30px;
+        height: 30px;
+       
+        }
+     
+}
     .subx1{
       
         
-        margin-top: 6em;
+      
         
         
     }
@@ -273,7 +284,7 @@
         width: 100px;
         height: 100px;
         border-radius: 3px;
-        margin-left: 1em;
+     
         border: 1px solid #e00000; 
         }
         
