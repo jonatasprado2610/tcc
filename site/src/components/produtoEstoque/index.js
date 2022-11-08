@@ -83,7 +83,7 @@ useEffect(() => {
                         <td>{item.precopar}</td>
                         <td>{item.qtd}</td>
                         <td>{item.destaque ? 'sim':'nao'}</td>
-                        <td>{item.qtd_categoria}</td>
+                        <td>{item.qtd_categorias}</td>
                         <td>{item.marca}</td>
                         <span onClick={() => editar(item.id)}>  <img  className='imagens' src='/assets/images/alterarEstoque.png'/> </span> 
                         <span onClick={() => deletarProduto(item.id)}>  <img className='imagens' src='/assets/images/apagarEstoque.png'/> </span>
