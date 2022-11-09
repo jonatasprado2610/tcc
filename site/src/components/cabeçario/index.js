@@ -58,11 +58,7 @@ export default function Cabecario(props) {
 
                         <Link to="/perfil/usuario"> <img src='/assets/images/image 1066.png' alt='1' /> </Link>
 
-
-
-
                         <Link to="/carrinho"> <img src='/assets/images/image 1065.png' alt='1' /> </Link>
-
 
                         <img src='/assets/images/Star 14.png' alt='1' />
 
@@ -87,9 +83,6 @@ export default function Cabecario(props) {
                     </div>
                 </div>
             </div>
-
-
-
 
         </section>
     )
