@@ -1,9 +1,19 @@
-import { CriarConta, LoginUsuario, PerfilUsuario } from "../repository/usuarioRepository.js";
+import { CriarConta, LoginUsuario, PerfilUsuario, ProdutosUsuario } from "../repository/usuarioRepository.js";
 import { Router } from "express";
 import { validarCadastro } from "../services/validarCadastro.js";
 const server = Router();
 
-
+server.get('/usuario/perfil/produtos/:id', async (req, resp) => {
+    try {
+        const id = req.params.id;
+        const r = await ProdutosUsuario(id);
+        resp.send(r)
+    } catch (err) {
+         resp.status(401).send({
+             erro:err.message
+         });
+    }
+})
 
 server.post('/criarconta', async (req, resp) =>{
       try{
@@ -55,6 +65,5 @@ server.get('/usuario/perfil/:id' ,async(req,resp) => {
          });
     }
 });
-
 
 export default server;

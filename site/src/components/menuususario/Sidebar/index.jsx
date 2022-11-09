@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import storage from 'local-storage'
 import './index.scss'
 import { 
-  FaTimes, FaHistory, FaUserAlt, FaChartBar, FaTruck, FaBox
+  FaTimes, FaUserAlt, FaChartBar, FaTruck, FaBox
 } from 'react-icons/fa'
 
 import {
@@ -39,8 +39,8 @@ function sairClick(){
       <FaTimes onClick={closeSidebar} />  
       <Content className='vai'>
         <div >
-        <Link to="/perfiladmin/">  <SidebarItem Icon={FaUserAlt} Text="Perfil"  /> </Link>
-        <Link to="/pedidoClientes">  <SidebarItem Icon={FaTruck} Text="Pedidos Clientes" /> </Link>
+        <Link to="/perfil/usuario">  <SidebarItem Icon={FaUserAlt} Text="Perfil"  /> </Link>
+        <Link to="/perfiladmin">  <SidebarItem Icon={FaTruck} Text="Entregas" /> </Link>
         <Link to="/Cadastrar"> <SidebarItem Icon={BsBagFill} Text="Cadastrar Produtos" /> </Link>
         <Link to="/admin/cadastrarCupom">  <SidebarItem Icon={BsFillBookmarkFill} Text="Cupons" /> </Link>
         <Link to="/estoque">  <SidebarItem Icon={FaBox} Text="Estoque" /> </Link>

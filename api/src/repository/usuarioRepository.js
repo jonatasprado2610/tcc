@@ -51,3 +51,15 @@ export  async  function PerfilUsuario(id){
        const [linhas] = await con.query(comando, [id])
         return linhas;
 }
+
+export async function ProdutosUsuario(id) {
+  const comando = `
+
+  select count(*)  as produtos_comprados
+  from tb_pedido 
+  inner join tb_usuario on tb_pedido.ID_USUARIO = tb_pedido.ID_USUARIO
+  where tb_usuario.ID_USUARIO = ?;   ` 
+  
+  const [linhas] = await con.query(comando, [id])
+  return linhas;
+}

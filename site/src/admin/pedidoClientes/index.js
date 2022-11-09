@@ -1,4 +1,4 @@
-import CabecarioAdmin from '../../components/cabeçarioAdmin';
+    import CabecarioAdmin from '../../components/cabeçarioAdmin';
 import './index.scss';
 import PedidoSc from '../../components/pedido';
 import { ListarPs } from '../../api/pedido';

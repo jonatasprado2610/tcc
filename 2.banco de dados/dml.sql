@@ -35,6 +35,281 @@ NM_CATEGORIA
 )
 values(
 'Equipamentos');
+insert into tb_categoria(
+NM_CATEGORIA					
+)
+values(
+'Esportes');
+insert into tb_categoria(
+NM_CATEGORIA					
+)
+values(
+'Masculino');
+insert into tb_categoria(
+NM_CATEGORIA					
+)
+values(
+'Feminino');
+insert into tb_categoria(
+NM_CATEGORIA					
+)
+values(
+'Infantil');
+insert into tb_categoria(
+NM_CATEGORIA					
+)
+values(
+'Calçados');
+
+insert into tb_categoria(
+NM_CATEGORIA					
+)
+values(
+'Roupas');
+
+insert into tb_categoria(
+NM_CATEGORIA					
+)
+values(
+'Acessórios');
+
+insert into tb_cor(
+DS_COR
+)
+values(
+'Estampado');
+ -- CORES
+insert into tb_cor(
+DS_COR
+)
+values(
+'Preto');
+
+insert into tb_cor(
+DS_COR
+)
+values(
+'Branco');
+insert into tb_cor(
+DS_COR
+)
+values(
+'Azul');
+insert into tb_cor(
+DS_COR
+)
+values(
+'Amarelo');
+insert into tb_cor(
+DS_COR
+)
+values(
+'Laranja');
+insert into tb_cor(
+DS_COR
+)
+values(
+'Cinza');
+insert into tb_cor(
+DS_COR
+)
+values(
+'Vermelho');
+
+insert into tb_cor(
+DS_COR
+)
+values(
+'Verde');
+
+insert into tb_cor(
+DS_COR
+)
+values(
+'Marrom');
+insert into tb_cor(
+DS_COR
+)
+values(
+'Roxo');
+insert into tb_cor(
+DS_COR
+)
+values(
+'Rosa');
+insert into tb_cor(
+DS_COR
+)
+values(
+'Bege');
+-- TAMANHOS
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'PP');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'P');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'M');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'G');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'GG');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'XG');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'XGG');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'EG');
+
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'32');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'33');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'34');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'35');	
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'36');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'37');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'38');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'39');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'40');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'41');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'42');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'43');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'44');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'45');
+insert into tb_tamanho(
+DS_TAMANHO
+)
+values(
+'46');
+											
+insert into tb_marca(
+NM_MARCA
+)
+values(
+'Adidas');	
+insert into tb_marca(
+NM_MARCA
+)
+values(
+'Nike');
+insert into tb_marca(
+NM_MARCA
+)
+values(
+'Puma');
+insert into tb_marca(
+NM_MARCA
+)
+values(
+'Asics');
+insert into tb_marca(
+NM_MARCA
+)
+values(
+'Mizuno');
+insert into tb_marca(
+NM_MARCA
+)
+values(
+'Everlast');
+insert into tb_marca(
+NM_MARCA
+)
+values(
+'Umbro');			
+insert into tb_marca(
+NM_MARCA
+)
+values(
+'Under Armour');	
+insert into tb_marca(
+NM_MARCA
+)
+values(
+'Lacoste');		
+insert into tb_marca(
+NM_MARCA
+)
+values(
+'Fila');	
 
 
 insert into tb_produto_categoria(

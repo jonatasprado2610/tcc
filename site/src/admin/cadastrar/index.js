@@ -188,8 +188,8 @@ export default function Cadastrar() {
         if (r.imagens.length > 4) {
             setImagem5(r.imagens[4]);
         }
-        setPrecoDe(r.info.precoInicial.toString());
-        setPrecoPor(r.info.precoFinal.toString());
+        setPrecoDe(r.info.precoInicial);
+        setPrecoPor(r.info.precoFinal);
         setMaxParcelas(r.info.parcelas);
         setQtdItens(r.info.quantidade);
         setCategoriaDiaria(r.info.diaria);

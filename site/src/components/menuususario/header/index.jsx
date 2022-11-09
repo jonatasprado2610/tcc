@@ -3,7 +3,7 @@ import { Container } from './styles'
 import Sidebar from '../Sidebar'
 import { FaBars } from 'react-icons/fa'
 
-const  Sidebarusuario = () => {
+const  Header = () => {
   const [sidebar, setSidebar] = useState(false)
 
   const showSiderbar = () => setSidebar(!sidebar)
@@ -16,4 +16,4 @@ const  Sidebarusuario = () => {
   )
 }
 
-export default Sidebarusuario
+export default Header

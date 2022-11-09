@@ -96,8 +96,120 @@
             height: 70px;
             margin-right: 25px;
         }
+        @media (max-width:900px){
+            .imagem{
+                border-radius: 50%;
+                cursor:default;
+                width: 100px;
+                height: 100px;
         
+            }
+            .imagens{
+                width: 20px;
+                height: 20px;
+            }
+            
+            .card{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                border: 1px solid black;
+                width: 45vh;
+                background-color: white;
+                height: 7vh;
+            }
+            .infos{
+                font-size: 10px;
+                margin-right: 5px;
+        
+            }
+            .info{
+                font-size: 10px;
+                margin-right: 15px;
+                padding: 5px;
+            }
+            .inicial{
+                font-family:"BebasNeue-Regular";
+                font-size: 10px;
+            }
+            .inicialAdm{
+                font-family:"BebasNeue-Regular";
+                font-size: 15px;
+            }
+            .traco{
+                height: 20px;
+                border: 1px solid rgb(61, 61, 61);
+                margin-right: 15px;
+            }
+            .pra-baixo{
+                display: flex;
+                flex-direction: column;
+                gap:10px;
+                margin-left: 35px;
+                
+            }
+                .imagensProdutos{
+                    cursor:default;
+                    width: 35px;
+                    height: 35px;
+                    margin-right: 25px;
+        }
+        h1{
+            font-size:20px
+        }
         
     }
-
+    @media (max-width:600px){
+        .imagem{
+            width: 50px;
+            height: 50px;
+        }
+        .card{
+            display: flex;
+            flex-direction: column;
+            justify-content:space-around;
+            border: 1px solid black;
+            width: 25vh;
+            background-color: white;
+            height: 25vh;
+            width: 20vh;
+        }
+        .infos{
+            display: flex;
+            flex-direction: row;
+            font-size: 10px;
+            margin-right: 5px;
+    
+        }
+        .info{
+            font-size: 10px;
+            margin-right: 15px;
+            padding: 5px;
+        }
+        .traco{
+            visibility: hidden;
+            height: 20px;
+            border: 1px solid rgb(61, 61, 61);
+            margin-right: 15px;
+        }
+        .pra-baixo{
+            display: flex;
+            flex-direction: column;
+            gap:10px;
+            margin-left: 35px;
+            
+        }
+            .imagensProdutos{
+                cursor:default;
+                width: 35px;
+                height: 35px;
+                margin-right: 25px;
+    }
+    h1{
+        font-size:20px
+    }
+    
+}
+}
 
