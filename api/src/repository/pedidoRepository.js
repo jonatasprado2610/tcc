@@ -132,7 +132,7 @@ export async function alterarStatusx(id, pedido) {
 export async function listarpedidoIdx(id){
     const comando=
     `
-select tb_pedido.id_pedido    as    id,
+   select tb_pedido.id_pedido    as    id,
    nm_produto                 as    produto,
    nm_usuario                 as    Cliente,
    id_usuario_endereco        as    id_endereo,
@@ -145,13 +145,14 @@ select tb_pedido.id_pedido    as    id,
    inner join  tb_usuario     on tb_pedido.id_usuario= tb_usuario.id_usuario
    inner join  tb_pedido_item on tb_pedido.id_pedido= tb_pedido_item.id_pedido
    inner join  tb_produto     on tb_pedido_item.id_produto = tb_produto.id_produto
-   where tb_pedido.id_pedido= ?
+   where tb_usuario.id_usuario = ?
   
     `    
     const [registros] = await con.query(comando, [id]);
     return registros;
 
 }
+
 export async function listarpedidox(){
     const comando=
     `
@@ -175,4 +176,17 @@ select tb_pedido.id_pedido    as    id,
     return registros;
 }
 
+
+
+
+
+export async function mostrarStaus() {
+    const comando = `
+    select 
+    ds_status   status
+    from tb_pedido;
+    `
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
 

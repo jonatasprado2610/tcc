@@ -3,18 +3,28 @@
     border: 0;
     margin: 0;
     padding: 10px 10px;
-    border: 1px solid black;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
     border-radius: 5px;
-    height: 20em;
+    height: 30em;
+    
+    
 
     box-shadow: 10px 5px 5px rgb(204, 204, 204);
     box-sizing: 10px 5px 5px rgb(204, 204, 204);
 
     table {
+        
         align-items: center;
         width: 70em;
         border-collapse: collapse;
         margin-top: 50px;
+    }
+    .d1{
+        height: 60em;
+        margin-top: 4em;
+        border: 1px solid aqua;
     }
 
     button {

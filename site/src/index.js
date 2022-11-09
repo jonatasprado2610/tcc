@@ -15,7 +15,7 @@ import Carrinho from './pages/carrinho';
 import CardEntrega from './components/cardEntrega';
 import Ender from './pages/endereco2';
 import Carrinho2 from './components/carrinho2';
-
+import CardPedid from './components/cardPedid';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

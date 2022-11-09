@@ -21,3 +21,8 @@ export async function alterarPedido(id,status) {
    const r = await api.put('/pedido/status/' + id, {status});
    return r.data;
 }
+
+export async function listarSt() {
+    const r = await api.get('/status');
+    return r.data;
+}
