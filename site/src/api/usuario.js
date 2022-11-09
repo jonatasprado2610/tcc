@@ -29,7 +29,13 @@ export async  function loginU(email, senha){
 
 }
 
-export async  function PerfilADM (id){
+export async  function PerfilUsuario (id){
     const r = await api.get(`/usuario/perfil/${id}` );
+       return r.data;
+}
+
+
+export async  function PerfilUsuarioProdutos(id){
+    const r = await api.get(`/usuario/perfil/produtos/${id}` );
        return r.data;
 }

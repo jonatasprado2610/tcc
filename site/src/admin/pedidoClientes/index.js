@@ -4,7 +4,7 @@ import PedidoSc from '../../components/pedido';
 import { ListarPs } from '../../api/pedido';
 import { useEffect, useState } from 'react';
 
-export default function pedidoClientes() {
+export default function PedidoClientes() {
 
     const [pedido, setPedidos] = useState([]);
 
