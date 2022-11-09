@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import './index.scss'
 import { cadUsu} from '../../api/usuario'
+import {toast} from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 
 export default function CadastarUsuario(){
@@ -17,10 +19,9 @@ export default function CadastarUsuario(){
 
         try{
             const r = await cadUsu(nome,nascimento,rg,cpf,email,senha)
-            alert('foi');
-
+            toast.dark('Cadastro realizado com sucesso')
         }catch(err){
-                 alert(err.message);
+                 toast.error(err.message);
         }
 
     }
@@ -28,14 +29,20 @@ export default function CadastarUsuario(){
 
     return(
         <main className='page-cadrastause'>
-             
+             <div className='div-bot'>
+                <Link to="/"> 
+                    <button className='botaoVoltar'>Voltar</button>
+                </Link>
+             </div>
+
              <div className='container1'>
                  <div>
                      <img src="./assets/images/image 1067.png" alt=""/>
-                 </div>
+                 
                  <h1>Informações da  conta </h1>
                  
                  <div className='c1'>
+                     
                      <div>
                          <h3>Nome Completo:</h3>
                          <input type="text" placeholder='Digite seu nome' value={nome} onChange={e => setNome(e.target.value)} />
@@ -72,15 +79,15 @@ export default function CadastarUsuario(){
                  </div>
 
                     <div className="c2">
-                        <button onClick={criarClieck}>
-                         Criar conta
-                        </button>
+                            <button onClick={criarClieck}> 
+                            Criar conta
+                            </button>
                        
                     </div>
 
                     <p className="cx">Já tem uma conta? <a>Clique aqui </a>e faça login</p>
 
-
+                    </div>
              </div>
 
         </main>

@@ -69,7 +69,7 @@ export default function LoginUsuarios() {
                     </button>
                 </div>
 
-                <p>Não tem uma conta? <a>lique aqui</a>C e cadastre-se</p>
+                <p>Não tem uma conta? <a>Clique aqui</a> e cadastre-se</p>
 
                 <h1>Overland</h1>
             </div>

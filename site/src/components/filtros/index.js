@@ -6,14 +6,14 @@ export default function Filtros() {
      return (
           <main className='page-filtros'>
 
-               <h3>Marca</h3>
+               <h3>Marcas</h3>
                <div className='c1'>
                     <div className='c2'>
                          <div>
                               <input type="checkbox" id="scales" />
                          </div>
                          <div>
-                              <p>allyb</p>
+                              <p>Adidas</p>
 
                          </div>
                     </div>
@@ -23,7 +23,7 @@ export default function Filtros() {
                               <input type="checkbox" />
                          </div>
                          <div>
-                              <p>xxxxxx</p>
+                              <p>Puma</p>
 
                          </div>
                     </div>
@@ -33,7 +33,7 @@ export default function Filtros() {
                               <input type="checkbox" />
                          </div>
                          <div>
-                              <p>xxxxxx</p>
+                              <p>Nike</p>
 
                          </div>
                     </div>
@@ -42,7 +42,7 @@ export default function Filtros() {
                               <input type="checkbox" />
                          </div>
                          <div>
-                              <p>xxxxxx</p>
+                              <p>Asics</p>
 
                          </div>
                     </div>
@@ -51,7 +51,7 @@ export default function Filtros() {
                               <input type="checkbox" id="scales" />
                          </div>
                          <div>
-                              <p>xxxxxx</p>
+                              <p>Mizuno</p>
 
                          </div>
                     </div>
@@ -60,7 +60,7 @@ export default function Filtros() {
                               <input type="checkbox" id="scales" />
                          </div>
                          <div>
-                              <p>xxxxxx</p>
+                              <p>Everlast</p>
 
                          </div>
                     </div>
@@ -69,7 +69,7 @@ export default function Filtros() {
                               <input type="checkbox" id="scales" />
                          </div>
                          <div>
-                              <p>xxxxxx</p>
+                              <p>Under Armour</p>
 
                          </div>
                     </div>
@@ -78,7 +78,7 @@ export default function Filtros() {
                               <input type="checkbox" id="scales" />
                          </div>
                          <div>
-                              <p>xxxxxx</p>
+                              <p>Lacoste</p>
 
                          </div>
                     </div>
@@ -87,12 +87,10 @@ export default function Filtros() {
                               <input type="checkbox" id="scales" />
                          </div>
                          <div>
-                              <p>xxxxxx</p>
+                              <p>Fila</p>
 
                          </div>
                     </div>
-
-
 
 
                </div>
@@ -102,61 +100,13 @@ export default function Filtros() {
                <div className='c1'>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" id="scales" />
-                         </div>
-                         <div>
-                              <p>X</p>
+                              <ul>
+                                   <li>
+                                        <input type ='checkbox' placeholder='m'/>
+                                        <label> M</label>
+                                   </li>
 
-                         </div>
-                    </div>
-
-                    <div className='c2'>
-                         <div>
-                              <input type="checkbox" id="scales" />
-                         </div>
-                         <div>
-                              <p>X</p>
-
-                         </div>
-                    </div>
-
-                    <div className='c2'>
-                         <div>
-                              <input type="checkbox" id="scales" />
-                         </div>
-                         <div>
-                              <p>X</p>
-
-                         </div>
-                    </div>
-
-                    <div className='c2'>
-                         <div>
-                              <input type="checkbox" id="scales" />
-                         </div>
-                         <div>
-                              <p>X</p>
-
-                         </div>
-                    </div>
-
-                    <div className='c2'>
-                         <div>
-                              <input type="checkbox" id="scales" />
-                         </div>
-                         <div>
-                              <p>X</p>
-
-                         </div>
-                    </div>
-
-                    <div className='c2'>
-                         <div>
-                              <input type="checkbox" id="scales" />
-                         </div>
-                         <div>
-                              <p>X</p>
-
+                              </ul>
                          </div>
                     </div>
 

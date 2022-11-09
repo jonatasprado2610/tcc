@@ -19,10 +19,9 @@ import Ender from './pages/endereco2';
 import Pagamento from './pages/pagamento';
 import PagamentoCartao from './pages/pagamentoCartao';
 import PerfilUsuario from './pages/perfilUsuario';
-import Menusidebar from './components/menusidebar/header'
 import CadastrarCupom from './admin/cupom';
 import App from './pages/home2';
-import PedidoSc from './components/pedido';
+import Sidebarusuario from './components/menusidebar/header';
 export default function Rotas(){
     return(
         <BrowserRouter>
@@ -50,7 +49,7 @@ export default function Rotas(){
                 <Route path='/pagamento' element={<Pagamento/>}/>
                 <Route path='/pagamento/cartao' element={<PagamentoCartao/>}/>
                 <Route path='/perfil/usuario' element={<PerfilUsuario />} />
-                <Route path='/menusidebar' element={<Menusidebar />} />
+                <Route path='/sidebarusuario' element={<Sidebarusuario/>}/>
                 <Route path='/admin/cadastrarCupom' element={<CadastrarCupom />} />
                 
             </Routes>
