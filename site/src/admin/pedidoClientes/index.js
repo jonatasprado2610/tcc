@@ -1,10 +1,10 @@
-import CabecarioAdmin from '../../components/cabeçarioAdmin';
+    import CabecarioAdmin from '../../components/cabeçarioAdmin';
 import './index.scss';
 import PedidoSc from '../../components/pedido';
 import { ListarPs } from '../../api/pedido';
 import { useEffect, useState } from 'react';
 
-export default function pedidoClientes() {
+export default function PedidoClientes() {
 
     const [pedido, setPedidos] = useState([]);
 
