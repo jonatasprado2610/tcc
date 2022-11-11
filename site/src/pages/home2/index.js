@@ -13,7 +13,8 @@ import 'react-multi-carousel/lib/styles.css';
 import './index.scss'
 
 function App( ) {
-
+    const [produtos, setProdutos] = useState([]);
+    
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -32,7 +33,7 @@ function App( ) {
         }
     };
 
-    const [produtos, setProdutos] = useState([]);
+
 
     async function listar() {
 
@@ -75,12 +76,12 @@ function App( ) {
          <div className="cd">
          
             <div className="card">
-                <div><img src="./assets/images/imagemrelogio.png"  alt=""/></div>
+                <div><img src="/assets/images/imagemrelogio.png"  alt=""/></div>
                 <h2>Acessórios</h2>
             </div>
 
             <div className="card">
-                <div><img src="./assets/images/image40.png"  alt=""/></div>
+                <div><img src="/assets/images/image40.png"  alt=""/></div>
                 <h2>Tênis</h2>
             </div>
 
@@ -90,7 +91,7 @@ function App( ) {
             </div>
 
             <div className="card">
-                <div><img src="./assets/images/image 1448.png"  alt=""/></div>
+                <div><img src="/assets/images/image 1448.png"  alt=""/></div>
                 <h2>Blusas</h2>
             </div>
 

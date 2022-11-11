@@ -38,10 +38,10 @@ export default function Carrossel() {
         autoPlay={true}
         autoPlaySpeed={4000}
       >
-        <div><img src="./assets/images/image 46.png" alt='' /></div>
+        <div><img src="/assets/images/image 46.png" alt='' /></div>
 
-        <div><img className='aaa' src="./assets/images/Component 43.png" alt='' /></div>
-        <div><img src="./assets/images/Component 44.png" alt='' /></div>
+        <div><img className='aaa' src="/assets/images/Component 43.png" alt='' /></div>
+        <div><img src="/assets/images/Component 44.png" alt='' /></div>
      
       </Carousel>
      </section>

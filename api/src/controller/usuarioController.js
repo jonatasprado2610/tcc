@@ -1,4 +1,4 @@
-import { CriarConta, LoginUsuario, PerfilUsuario, ProdutosUsuario } from "../repository/usuarioRepository.js";
+import { CriarConta, LoginUsuario, PedidosEmAndamento, PerfilUsuario, ProdutosUsuario } from "../repository/usuarioRepository.js";
 import { Router } from "express";
 import { validarCadastro } from "../services/validarCadastro.js";
 const server = Router();
@@ -7,6 +7,17 @@ server.get('/usuario/perfil/produtos/:id', async (req, resp) => {
     try {
         const id = req.params.id;
         const r = await ProdutosUsuario(id);
+        resp.send(r)
+    } catch (err) {
+         resp.status(401).send({
+             erro:err.message
+         });
+    }
+})
+server.get('/usuario/perfil/pedido/:id', async (req, resp) => {
+    try {
+        const id = req.params.id;
+        const r = await PedidosEmAndamento(id);
         resp.send(r)
     } catch (err) {
          resp.status(401).send({
