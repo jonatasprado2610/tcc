@@ -29,13 +29,18 @@ export async  function loginU(email, senha){
 
 }
 
-export async  function PerfilUsuario (id){
+export async  function PerfilUsuarioApi(id){
     const r = await api.get(`/usuario/perfil/${id}` );
        return r.data;
 }
 
 
-export async  function PerfilUsuarioProdutos(id){
+export async  function PerfilUsuarioProdutosComprados(id){
     const r = await api.get(`/usuario/perfil/produtos/${id}` );
+       return r.data;
+}
+
+export async  function PerfilUsuarioPedidosAndamento(id){
+    const r = await api.get(`/usuario/perfil/pedido/${id}` );
        return r.data;
 }

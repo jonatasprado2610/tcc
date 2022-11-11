@@ -43,8 +43,8 @@ export  async  function LoginUsuario(email,senha){
 
 export  async  function PerfilUsuario(id){
   const comando = 
-      `select NM_USUARIO, 
-      ds_email 
+      `select NM_USUARIO   nome, 
+      ds_email             email
       from tb_usuario 
       where ID_USUARIO = ?;
        `
@@ -55,7 +55,7 @@ export  async  function PerfilUsuario(id){
 export async function ProdutosUsuario(id) {
   const comando = `
 
-  select count(*)  as produtos_comprados
+  select count(*)  comprados
   from tb_pedido 
   inner join tb_usuario on tb_pedido.ID_USUARIO = tb_pedido.ID_USUARIO
   where tb_usuario.ID_USUARIO = ?;   ` 
@@ -63,3 +63,14 @@ export async function ProdutosUsuario(id) {
   const [linhas] = await con.query(comando, [id])
   return linhas;
 }
+
+export async function PedidosEmAndamento(id) {
+  const comando = `
+  select count(*) pedidoEmAndamento
+  from tb_pedido 
+  where ds_status != 'finalizado';
+ ` 
+  
+    const [linhas] = await con.query(comando, [id])
+    return linhas;
+  }
