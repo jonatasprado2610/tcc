@@ -292,8 +292,8 @@ export async function listarProdutosInicio() {
             NM_PRODUTO         ,            
             VL_PRECO_DE      ,              
             VL_PRECO_POR       ,  
-            BL_CATEGORIA_DIARIA ,          
-            QTD_ITENS                   
+            BL_CATEGORIA_DIARIA  ,          
+            QTD_ITENS                  
         
     `
     const [registros] = await con.query(comando);
