@@ -4,10 +4,10 @@ import { Listar} from '../../api/cadastrarEndereco';
 import { useEffect, useState } from 'react';
 import storage from 'local-storage'
 import { carregarProdutosPorId } from '../../api/produtoApi';
-;
+import Voltar from '../../components/voltar';
 
 
-export default function MeusPedidos() {
+export default function MeusPedidos(props) {
     const [enderecos, setEnderecos] = useState([]);
     
     
@@ -48,13 +48,19 @@ export default function MeusPedidos() {
             /*carregarItens();*/
     }, [])
 
+    
 
     return(
         <main className='cont-detalhes'>
             <section className='section'>
+
+                <Voltar pag={'/'}></Voltar>
+
+
                 <div>
                     <h1>Detalhes do Pedido</h1>
                 </div>
+
                 <div className='div-numPedido'> 
                     Número do pedido: 123456
 

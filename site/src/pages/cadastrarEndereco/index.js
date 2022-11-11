@@ -22,10 +22,6 @@ export default function Endereco () {
     const navigate = useNavigate();
     
 
-    /*  PROBLEMA PODE TA AQUI   */
-    /*setIdusuario = storage('usuario-logado');*/
-
-
    
 
     async function salvarEndereco() {
