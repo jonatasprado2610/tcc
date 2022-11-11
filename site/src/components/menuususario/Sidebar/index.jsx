@@ -4,11 +4,15 @@ import { useNavigate } from 'react-router-dom'
 import storage from 'local-storage'
 import './index.scss'
 import { 
-  FaTimes, FaUserAlt, FaChartBar, FaTruck, FaBox
+  FaTimes, FaUserAlt, FaHistory, FaTruck
 } from 'react-icons/fa'
 
+import{
+  AiOutlineShoppingCart
+} from 'react-icons/ai'
+
 import {
-  BsBagFill, BsFillBookmarkFill
+ BsFillBookmarkFill
 } from 'react-icons/bs'
 
 import {
@@ -40,12 +44,8 @@ function sairClick(){
       <Content className='vai'>
         <div >
         <Link to="/perfil/usuario">  <SidebarItem Icon={FaUserAlt} Text="Perfil"  /> </Link>
-        <Link to="/perfiladmin">  <SidebarItem Icon={FaTruck} Text="Entregas" /> </Link>
-        <Link to="/Cadastrar"> <SidebarItem Icon={BsBagFill} Text="Cadastrar Produtos" /> </Link>
-        <Link to="/admin/cadastrarCupom">  <SidebarItem Icon={BsFillBookmarkFill} Text="Cupons" /> </Link>
-        <Link to="/estoque">  <SidebarItem Icon={FaBox} Text="Estoque" /> </Link>
-        <Link to="/perfiladmin">  <SidebarItem Icon={FaChartBar} Text="Gráficos" /> </Link>
-        <Link to="/perfiladmin">  <SidebarItem Icon={MdFeedback} Text="Avaliações" /> </Link>  
+        <Link to="/meusPedidos"> <SidebarItem Icon={FaHistory} Text="Meus pedidos" /> </Link>
+        <Link to="/carrinho">  <SidebarItem Icon={AiOutlineShoppingCart} Text="Carrinho" /> </Link>  
         </div>
        <div className='' onClick={sairClick} > <SidebarItem Icon={ImExit} Text="Sair" /> </div> 
       </Content>
