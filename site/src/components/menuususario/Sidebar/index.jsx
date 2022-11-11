@@ -4,20 +4,12 @@ import { useNavigate } from 'react-router-dom'
 import storage from 'local-storage'
 import './index.scss'
 import { 
-  FaTimes, FaUserAlt, FaHistory, FaTruck
+  FaTimes, FaUserAlt, FaHistory
 } from 'react-icons/fa'
 
 import{
   AiOutlineShoppingCart
 } from 'react-icons/ai'
-
-import {
- BsFillBookmarkFill
-} from 'react-icons/bs'
-
-import {
-  MdFeedback
-} from 'react-icons/md'
 
 import{
   ImExit
@@ -54,26 +46,3 @@ function sairClick(){
 }
 
 export default Sidebar
-
-/*<Route path='/' element={<Home/>} />
-<Route path='/loginadm' element={<Login/>} />
-<Route path='/loginusu' element={<LoginUsuarios/>} />
-<Route path='/cadastrar' element={<Cadastrar />} />
-<Route path='/cadastrar/:id' element={<Cadastrar />} />
-<Route path='/perfiladmin' element={<PerfilADMIN/>} />
-<Route path='/endereco' element={<Endereco/>} />
-<Route path='/cadastrarUsuario' element={<CadastarUsuario/>} />
-<Route path='/produtoIndividual' element={<Produtrox/>}/>
-<Route path='/produto/:id/produtoIndividual' element={<Produtrox/>}/>
-<Route path='/carrinho' element={<Carrinho/>}/>
-<Route path='/estoque' element={<Estoque/>}/>
-<Route path='/produtoy' element={<Produtoy/>}/>
-<Route path='/entrega' element={<Entrega/>}/>
-<Route path='/meusPedidos' element={<MeusPedidos/>}/>
-<Route path='/detalhesPedido' element={<DetalhesPedido/>}/>
-<Route path='/pedidoClientes' element={<PedidoClientes/>}/>
-<Route path='/ende' element={<Ender/>}/>
-<Route path='/pagamento' element={<Pagamento/>}/>
-<Route path='/pagamento/cartao' element={<PagamentoCartao/>}/>
-<Route path='/perfil/usuario' element={<PerfilUsuario />} />
-<Route path='/menusidebar' element={<Menusidebar />} /> */

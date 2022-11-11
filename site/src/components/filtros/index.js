@@ -1,7 +1,18 @@
 import './index.scss'
+import { listarProdutosporMarca } from '../../api/produtoApi'
+import { listarProdutosporTamanho } from '../../api/produtoApi'
+import { listarProdutosporGenero } from '../../api/produtoApi'
+import { listarProdutosporcategoria } from '../../api/produtoApi'
+import { useState } from 'react'
+
 
 export default function Filtros() {
    
+     const [filtroMarca, setFiltoMarca] = useState();
+     const [filtroTamaho, setFiltoTamanho] = useState();
+     const [filtroGenero, setFiltoGenero] = useState();
+     const [filtroCategoria, setFiltoCategoria] = useState();
+
 
      return (
           <main className='page-filtros'>
@@ -10,10 +21,20 @@ export default function Filtros() {
                <div className='c1'>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" id="scales" />
+                              <input type="checkbox"/>
                          </div>
                          <div>
                               <p>Adidas</p>
+
+                         </div>
+                    </div>
+
+                    <div className='c2'>
+                         <div>
+                              <input type="checkbox" />
+                         </div>
+                         <div>
+                              <p>Umbro</p>
 
                          </div>
                     </div>
@@ -48,7 +69,7 @@ export default function Filtros() {
                     </div>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" id="scales" />
+                              <input type="checkbox" />
                          </div>
                          <div>
                               <p>Mizuno</p>
@@ -57,7 +78,7 @@ export default function Filtros() {
                     </div>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" id="scales" />
+                              <input type="checkbox" />
                          </div>
                          <div>
                               <p>Everlast</p>
@@ -66,7 +87,7 @@ export default function Filtros() {
                     </div>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" id="scales" />
+                              <input type="checkbox"/>
                          </div>
                          <div>
                               <p>Under Armour</p>
@@ -75,7 +96,7 @@ export default function Filtros() {
                     </div>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" id="scales" />
+                              <input type="checkbox" />
                          </div>
                          <div>
                               <p>Lacoste</p>
@@ -84,7 +105,7 @@ export default function Filtros() {
                     </div>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" id="scales" />
+                              <input type="checkbox"  />
                          </div>
                          <div>
                               <p>Fila</p>
@@ -99,15 +120,13 @@ export default function Filtros() {
                <h3>Tamanho</h3>
                <div className='c1'>
                     <div className='c2'>
-                         <div>
-                              <ul>
-                                   <li>
-                                        <input type ='checkbox' placeholder='m'/>
-                                        <label> M</label>
-                                   </li>
+                         <ul>
+                              <li>
+                                    <input type ='checkbox' />
+                                        
+                               </li>
 
-                              </ul>
-                         </div>
+                         </ul>
                     </div>
 
                </div>
@@ -119,7 +138,7 @@ export default function Filtros() {
 
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" id="scales" />
+                              <input type="checkbox" />
                          </div>
                          <div>
                               <p>Masculino</p>
