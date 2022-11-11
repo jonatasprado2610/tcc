@@ -26,3 +26,9 @@ export async function listarSt() {
     const r = await api.get('/status');
     return r.data;
 }
+
+
+export async function carregarPedidoPorId(id) {
+    const r = await api.get('/produto/' + id );
+    return r.data;
+}

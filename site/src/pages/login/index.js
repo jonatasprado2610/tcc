@@ -29,6 +29,7 @@ export default function LoginUsuarios() {
             setTimeout(() => {
                 navigate('/')
             }, 1500)
+            console.log(r)
 
 
         } catch (err) {
