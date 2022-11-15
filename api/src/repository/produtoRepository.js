@@ -300,6 +300,31 @@ export async function listarProdutosInicio() {
     return registros
 }
 
+export async function listarProdutosInicioc() {
+    const comando = `
+    select tb_produto.id_produto                id,
+           NM_PRODUTO                           nome,
+           VL_PRECO_DE                          preco,
+           VL_PRECO_POR                         precopar,
+           BL_CATEGORIA_DIARIA                  ctg_diara,
+           QTD_ITENS                            qtd,
+           min(ds_imagem)                          imagem
+           from tb_produto  
+            left join tb_produto_imagem on tb_produto_imagem.id_produto = tb_produto.id_produto
+            where bl_categoria_diaria = true
+            group by
+            tb_produto.id_produto  , 
+            NM_PRODUTO         ,            
+            VL_PRECO_DE      ,              
+            VL_PRECO_POR       ,  
+            BL_CATEGORIA_DIARIA  ,          
+            QTD_ITENS                 
+        
+    `
+    const [registrosx] = await con.query(comando);
+    return registrosx
+}
+
 
 export async function ProdutosCadastrados() {
     const comando = `

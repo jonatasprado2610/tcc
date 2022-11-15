@@ -4,7 +4,7 @@ import Cabecario from '../../components/cabeçario'
 import Rodape from '../../components/Rodape'
 import CardP from '../../components/cardProduto'
 import { useEffect, useState } from 'react'
-import { listarProdutosIncioxx } from '../../api/produtoApi'
+import { listarProdutosIncioxxc} from '../../api/produtoApi'
 import Storage from 'local-storage'
 export default function  Produtoy() {
 
@@ -12,7 +12,7 @@ export default function  Produtoy() {
       const[produto,setProduto]=useState([]);
 
       async function listar(){
-        const r  = await listarProdutosIncioxx();
+        const r  = await listarProdutosIncioxxc();
         setProduto(r)
       }
 

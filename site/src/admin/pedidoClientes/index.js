@@ -30,7 +30,7 @@ export default function PedidoClientes() {
             <section className='section'>
                 {pedido.map(item =>
 
-                    <PedidoSc pedidoId={item.id} item={item.produtos} />
+                    <PedidoSc className='PedidoSc' pedidoId={item.id} item={item.produtos} />
 
                 )}
             </section>

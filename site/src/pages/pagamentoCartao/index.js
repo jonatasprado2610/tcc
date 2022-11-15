@@ -34,6 +34,28 @@ export default function PagamentoCartao() {
     async function carregarItenx() {
 
         let carrinho = Storage('carrinho');
+        let comprax = Storage('compra');
+        
+
+
+        if (comprax) {
+
+            let tempx = [];
+
+            for (let produto of comprax) {
+                let p = await carregarProdutosPorId(produto.id);
+
+                tempx.push({
+                    produto: p,
+                    qtd: produto.qtd
+                })
+            }
+            console.log(tempx);
+            setItens(tempx);
+        }
+
+        
+
         if (carrinho) {
 
             let temp = [];

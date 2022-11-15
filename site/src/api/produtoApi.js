@@ -14,6 +14,11 @@ export async  function listarProdutosIncioxx(){
        return r.data;
 
 }
+export async  function listarProdutosIncioxxc(){
+    const r = await api.get('/produto/di'); 
+       return r.data;
+
+}
 
 
 export async function carregarProdutosPorId(id) {

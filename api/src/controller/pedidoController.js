@@ -97,6 +97,7 @@ server.get('/pedido/:id', async (req, resp) => {
         const  r=  await listarpedidoIdx(id);
 
         const pedidos = [];
+        
 
         for (let item of r) {
             if (pedidos.find(x => x.id == item.id))

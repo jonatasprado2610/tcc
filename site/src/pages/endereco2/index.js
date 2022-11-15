@@ -42,17 +42,11 @@ export default function Ender() {
     return (
 
         <main className='page-ender'>
-
+                   <h1>Selecione um local de entrega</h1>    
 
             <section>
-                <div className='cx1'>
-                    <div>
-                        <h1>Entrega</h1>
-                    </div>
-                    <div>
-                        <img src='./assets/images/carro.png' />
-                    </div>
-                </div>
+             
+                
 
                 <div className='cx2'>
                     <div className='csx2'>
@@ -83,7 +77,18 @@ export default function Ender() {
 
 
                 </div>
-
+                
+               
+                     <div className='cx1'>
+                    <div>
+                        <h1>Entrega 100% segurança</h1>
+                    </div>
+                    <div>
+                        <img src='./assets/images/carro.png' />
+                    </div>
+                </div>
+                
+               
 
 
             </section>
