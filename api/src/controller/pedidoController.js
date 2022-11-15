@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { alterarStatusx, alterarStatus, inserirPagamento,  inserirPedido, inserirPedidoItem, listarpedidoIdx, listarpedidox, mostrarStaus } from "../repository/pedidoRepository.js";
+import { alterarStatusx, alterarStatus, inserirPagamento,  inserirPedido, inserirPedidoItem, listarpedidoIdx, listarpedidox, mostrarStaus, HistoricoCompras } from "../repository/pedidoRepository.js";
 import { procurarProdutoPorId} from "../repository/produtoRepository.js";
 import { acharCupom,  criarNovoPedido, criarNotaFiscal } from "../services/novoProduto.js"
 const server = Router();
@@ -124,6 +124,19 @@ server.get('/pedido/:id', async (req, resp) => {
 server.get('/status', async (req, resp) => {
     try {
         const linhas = await mostrarStaus();
+        resp.send(linhas);
+    }
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+
+server.get('/historico', async (req, resp) => {
+    try {
+        const linhas = await HistoricoCompras();
         resp.send(linhas);
     }
     catch (err) {

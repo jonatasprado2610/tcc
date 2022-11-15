@@ -190,3 +190,12 @@ export async function mostrarStaus() {
     return linhas;
 }
 
+
+
+export async function HistoricoCompras() {
+    const comando = `
+    select * from tb_pedido where DS_STATUS = 'finalizado';
+    `
+    const [linhas] = await con.query(comando);
+    return linhas;
+}

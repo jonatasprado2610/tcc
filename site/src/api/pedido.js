@@ -32,3 +32,8 @@ export async function carregarPedidoPorId(id) {
     const r = await api.get('/produto/' + id );
     return r.data;
 }
+
+export async  function HistoricoComprass (){
+    const r = await api.get('/historico' );
+       return r.data;
+}

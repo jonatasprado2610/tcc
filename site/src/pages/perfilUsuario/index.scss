@@ -4,8 +4,10 @@
     .lado{
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
         padding: 25px
+    }
+    .baixoImagem{
+        margin-bottom: 3em;
     }
     .sai{
         visibility: hidden;
@@ -14,9 +16,11 @@
         display: flex;
         flex-direction: column;
     }
-    .MENUZINHO{
-        width: 400px;
-        height: 90vh;
-        background-color: rgb(192, 192, 192);
+    h3{
+        margin-top: 15px;
+        font-size: 25px;
+    }
+    p{
+        font-size: 20px;
     }
 }

@@ -1,17 +1,20 @@
 .xpage-cabecario{
-    
-   
+    position:relative;
     background-color: #0B4E6B;
     margin: 0;
     border: 0;
     width: 100%;
-    height: 5em;
+    height: 6em;
 
 .cxcxx{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     .xx1{
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+        align-items: center;
        }
        p{
         font-size: 20px;
@@ -23,12 +26,12 @@
         cursor: pointer;
        }
        .xx2{
-       
-        margin-top: 0.6em;
+        margin-top: 1.6em;
         height: 1em;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+        align-items: center;
         
        
        }
@@ -44,7 +47,7 @@
         }
         
         .xsub1 img{
-            
+            flex-direction: row;
             width: 80px;
             height: 80px;
         }
@@ -52,6 +55,7 @@
             display: flex;
             flex-direction: row;
             align-items:center ;
+            justify-content: center;
         }
         .xsub2 img{
           
@@ -59,11 +63,18 @@
             height: 25px;
     
         }
+        .barra{
+            margin-top: 5px;
+            height: 20px;
+            border: 1px solid rgb(61, 61, 61);
+        }
     
         .xsubx{
             margin-top: 1em;
             display: flex;
             flex-direction: row;
+            align-items: center;
+            justify-content: center;
             
         }
         .xsubx img{

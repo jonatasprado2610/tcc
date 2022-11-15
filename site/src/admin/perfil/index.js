@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { removerProdutos } from '../../api/admin/produto';
 import { toast } from 'react-toastify';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import CabecarioAdmin from '../../components/cabeçarioAdmin';
 import { listarProdutosCadastrados } from "../../api/produtoApi";
 import { API_URL } from '../../api/config'

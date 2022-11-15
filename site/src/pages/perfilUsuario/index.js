@@ -1,30 +1,40 @@
 import Cabecario from "../../components/cabeçario";
 import './index.scss'
 import { useState, useEffect } from "react";
-import { Await, useNavigate } from "react-router-dom";
-import ProdutoEmCaixa from "../../components/produtoEmCaixa";
-import { PerfilUsuarioApi, PerfilUsuarioPedidosAndamento, PerfilUsuarioProdutos, PerfilUsuarioProdutosComprados } from "../../api/usuario";
+import { useNavigate } from "react-router-dom";
+import 'react-multi-carousel/lib/styles.css';
+import { PerfilUsuarioApi, PerfilUsuarioPedidosAndamento, PerfilUsuarioProdutosComprados } from "../../api/usuario";
 import storage from 'local-storage';
+import Rodape from "../../components/Rodape";
+
 export default function PerfilUsuario() {
+
 
     const [usuario, setUsuario] = useState('-');
     const [infoPerfil, setInfoPerfil] = useState([]);
     const [comprados, setComprados] = useState([]);
     const [andamento, setAndamento] = useState([]);
-    const [carrinho, setCarrinho] = useState([]);
+    const [carrinho, setCarrinho] = useState([0]);
     const navigate = useNavigate();
+    const [produtos, setProdutos] = useState([]);
 
     async function carregarInfoUsuario() {
         const id = storage('cliente-logado').id;
         const r = await PerfilUsuarioApi(id);
         setInfoPerfil(r);
     }
-    async function carregarProdutosComprados(){
+    async function carregarInfoUsuario() {
+        const id = storage('cliente-logado').id;
+        const r = await PerfilUsuarioApi(id);
+        setInfoPerfil(r);
+    }
+
+    async function carregarProdutosComprados() {
         const id = storage('cliente-logado').id;
         const r = await PerfilUsuarioProdutosComprados(id);
         setComprados(r)
     }
-    async function carregarPedidosAndamento(){
+    async function carregarPedidosAndamento() {
         const id = storage('cliente-logado').id;
         const r = await PerfilUsuarioPedidosAndamento(id);
         setAndamento(r)
@@ -36,7 +46,6 @@ export default function PerfilUsuario() {
         setCarrinho(a)
     }
 
-
     useEffect(() => {
         carregarInfoUsuario();
         carregarProdutosComprados();
@@ -45,13 +54,14 @@ export default function PerfilUsuario() {
     }, [])
 
     useEffect(() => {
-        if(!storage('cliente-logado')){
+        if (!storage('cliente-logado')) {
             navigate('/loginusu')
-        }else{
+        } else {
             const usuarioLogado = storage('cliente-logado').id;
             setUsuario(usuarioLogado.login);
-        } }, [])
-        
+        }
+    }, [])
+
     return (
         <div className="main-container">
 
@@ -59,59 +69,60 @@ export default function PerfilUsuario() {
             <div className="lado">
 
                 <div className="perfil">
-                    <div>
-                        <h1> Perfil</h1>
-                    </div>
-                    <div> 
-                        {infoPerfil.map(item => 
-                            <div>
-                                <h1> Usuario</h1>
-                                <p> {item.nome} </p>
-                                <h1> Email</h1>
-                                <p> {item.email} </p>
+                    {infoPerfil.map(item =>
+                        <div>
+                            <h3> Perfil "{item.nome}"</h3>
                         </div>
+                    )}
+                    <div>
+                        <img className="baixoImagem" src="/assets/images/image 281.png" />
+                    </div>
+                    <div>
+                        {infoPerfil.map(item =>
+                            <div>
+                                <h3> Usuario</h3>
+                                <p> {item.nome} </p>
+                                <h3> Email</h3>
+                                <p> {item.email} </p>
+                            </div>
                         )}
                     </div>
                     <div className="campos">
                         {comprados.map(item =>
-                        <div> 
-                            <h3> Produtos Comprados </h3>
-                            <h4> {item.comprados} </h4>
-                        </div> 
-                        )} 
+                            <div>
+                                <h3> Produtos Comprados </h3>
+                                <p> {item.comprados} </p>
+                            </div>
+                        )}
 
                     </div>
                     <div className="campos">
-                         {andamento.map( item =>
-                        <div>
-                        <h3>
-                            Pedidos em andamento
-                        </h3>
-                        <h4>
-                            {item.pedidoEmAndamento}
-                        </h4>
-                        </div>
+                        {andamento.map(item =>
+                            <div>
+                                <h3>
+                                    Pedidos em andamento
+                                </h3>
+                                <p>
+                                    {item.pedidoEmAndamento}
+                                </p>
+                            </div>
                         )}
                     </div>
                     <div className="campos">
-                        
+
                         <h3>
                             Produtos no carrinho
                         </h3>
-                        <h4>
+                        <p>
                             {carrinho}
-                        </h4>
+                        </p>
                     </div>
 
-                        
-                </div>
-                <div className="Historico">
-                    <ProdutoEmCaixa/>
-                </div>
 
-
+                </div>
 
             </div>
+            <Rodape/>
         </div>
     )
 }

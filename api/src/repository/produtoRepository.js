@@ -293,12 +293,13 @@ export async function listarProdutosInicio() {
             VL_PRECO_DE      ,              
             VL_PRECO_POR       ,  
             BL_CATEGORIA_DIARIA  ,          
-            QTD_ITENS                  
+            QTD_ITENS   ;          
         
     `
     const [registros] = await con.query(comando);
     return registros
 }
+
 
 export async function ProdutosCadastrados() {
     const comando = `

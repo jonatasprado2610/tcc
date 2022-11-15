@@ -4,6 +4,7 @@ import './index.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
 import { useEffect, useState } from 'react';
+import Menuusario from '../menuususario/header'
 
 export default function Cabecario(props) {
     /* 
@@ -41,7 +42,6 @@ export default function Cabecario(props) {
             <div className='cxcxx'>
                 <div className='xx1'>
 
-
                     <div className='xsub1'>
                         <Link to="/"> <img src="/assets/images/image 1067.png" /> </Link>
                         <h1> Overland</h1>
@@ -59,9 +59,7 @@ export default function Cabecario(props) {
                         <Link to="/perfil/usuario"> <img src='/assets/images/image 1066.png' alt='1' /> </Link>
 
                         <Link to="/carrinho"> <img src='/assets/images/image 1065.png' alt='1' /> </Link>
-
-                        <img src='/assets/images/Star 14.png' alt='1' />
-
+                        <Menuusario />
 
                     </div>
                 </div>
@@ -70,13 +68,21 @@ export default function Cabecario(props) {
 
                     <div className='xx2'>
                         <p>ESPORTES</p>
+                        <hr className='barra'/>
                         <p>MASCULINO</p>
+                        <hr className='barra'/>
                         <p>FEMININO</p>
+                        <hr className='barra'/>
                         <p>INFANTIL</p>
+                        <hr className='barra'/>
                         <p>CALÇADOS</p>
+                        <hr className='barra'/>
                         <p>ROUPAS</p>
+                        <hr className='barra'/>
                         <p>ACESSÓRIOS</p>
+                        <hr className='barra'/>
                         <p>EQUIPAMENTOS</p>
+                        <hr className='barra'/>
                         <p>MARCAS</p>
 
 

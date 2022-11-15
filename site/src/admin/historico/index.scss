@@ -1,0 +1,53 @@
+.page-pedc {
+
+    border: 0;
+    margin: 0;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    height: 30em;
+    
+    
+
+    box-shadow: 10px 5px 5px rgb(204, 204, 204);
+    box-sizing: 10px 5px 5px rgb(204, 204, 204);
+
+    table {
+        
+        align-items: center;
+        border-collapse: collapse;
+        margin-top: 50px;
+    }
+    .d1{
+        height: 60em;
+        margin-top: 4em;
+        border: 1px solid aqua;
+    }
+
+
+    th {
+        border: 1px solid black;
+        font-family: sans-serif;
+        text-align: left;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 14px;
+        text-shadow: 0px 1px 4px rgba(217, 217, 217, 0.5);
+    }
+
+    thead {
+        background-color: #0B4E6B;
+    }
+
+    td {
+        font-family: 'BebasNeue-Regular';
+        border: 1px solid black;
+        padding: 5px 30px;
+        font-weight: 500;
+    }
+
+
+
+}

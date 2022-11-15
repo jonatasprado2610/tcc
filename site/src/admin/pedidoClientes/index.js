@@ -37,17 +37,6 @@ export default function PedidoClientes() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
         </main>
     )
 }

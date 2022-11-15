@@ -21,6 +21,7 @@ import PagamentoCartao from './pages/pagamentoCartao';
 import PerfilUsuario from './pages/perfilUsuario';
 import CadastrarCupom from './admin/cupom';
 import App from './pages/home2';
+import HistoricoCompras from './admin/historico';
 export default function Rotas(){
     return(
         <BrowserRouter>
@@ -49,6 +50,8 @@ export default function Rotas(){
                 <Route path='/pagamento/cartao' element={<PagamentoCartao/>}/>
                 <Route path='/perfil/usuario' element={<PerfilUsuario />} />
                 <Route path='/admin/cadastrarCupom' element={<CadastrarCupom />} />
+                <Route path='/admin/Historico' element={<HistoricoCompras />} />
+                
                 
             </Routes>
         </BrowserRouter>
