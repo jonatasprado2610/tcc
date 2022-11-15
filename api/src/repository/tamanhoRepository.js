@@ -23,3 +23,19 @@ export async function buscarTamanhoPorId(id) {
     const [linhas] = await con.query(comando, [id]);
     return linhas[0];
 }
+
+export async function buscarTamanhoPorIdx(id) {
+    const comando = `
+    select 
+    ds_tamanho as tamanho
+    from tb_produto
+    inner join tb_produto_tamanho
+    on tb_produto_tamanho.id_produto = tb_produto.id_produto
+    inner join tb_tamanho
+    on tb_tamanho.id_tamanho = tb_produto_tamanho.id_tamanho
+    where tb_produto_tamanho.id_produto like ?;
+      `
+
+    const [linhas] = await con.query(comando, [id]);
+    return [linhas];
+  }

@@ -2,18 +2,19 @@ import './index.scss'
 import Storage from 'local-storage'
 import Cabecario from '../../components/cabeçario';
 import Rodape from '../../components/Rodape'
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { carregarProdutosPorId } from '../../api/produtoApi';
 import { API_URL } from '../../api/config';
 import { toast } from 'react-toastify';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function Produtrox(){
 
     const[produto,setProduto]= useState({categorias:[],cores:[],imagens:[],info:{},marcas:[],tamanhos:[]    })
     const[imagemPrincipal, setImagemPrincipal]=useState(0)
     const {id }= useParams();
+    const navigate = useNavigate()
 
 
     function exibirImagem() {
@@ -51,6 +52,27 @@ export default function Produtrox(){
    function exibirImagens(imagem){
     return API_URL + '/' + imagem;
    }
+   
+  
+   function comprarDireta(){
+
+    let comprax= []
+    if  (Storage('compra')){
+        comprax= Storage('compra')
+    }
+    if(!comprax.find(item => item.id === id)){
+         comprax.push({
+             id: id,
+             qtd: 1 ,
+         })
+         Storage('compra', comprax);
+        
+    }
+    navigate('/ende')
+    toast.dark('Produto escolhido')
+    
+   }
+
    function adicionarAoCarrinho(){
 
     let carrinho= []
@@ -138,12 +160,7 @@ export default function Produtrox(){
                        <h4>Tamanho</h4>
                     <select>
                     <option selected disabled hidden>Selecione</option>
-                        <option>22</option>
-                        <option>22</option>
-                        <option>22</option>
-                        <option>22</option>
-                        <option>22</option>
-                        <option>22</option>    
+                       
                     </select> 
                     </div>
                     
@@ -156,7 +173,7 @@ export default function Produtrox(){
                  </div>
 
                  <div className='sub5'>
-                    <button className='bt2'>Comprar agora </button><br></br>
+                    <button onClick={comprarDireta} className='bt2'>Comprar agora </button><br></br>
                     <button   onClick={adicionarAoCarrinho}  className='bt3'>Adicionar no carrinho</button>
                  </div>
 

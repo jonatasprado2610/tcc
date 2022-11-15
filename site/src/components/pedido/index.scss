@@ -2,13 +2,15 @@
 
     border: 0;
     margin: 0;
-    padding: 10px 10px;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-evenly;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     border-radius: 5px;
-    height: 30em;
-    
+    height: 15em;
+    border: 1px solid black;
+    margin-top: 3em;
+    margin-bottom: 5em;
     
 
     box-shadow: 10px 5px 5px rgb(204, 204, 204);
@@ -19,12 +21,12 @@
         align-items: center;
         width: 70em;
         border-collapse: collapse;
-        margin-top: 50px;
+        
     }
     .d1{
         height: 60em;
         margin-top: 4em;
-        border: 1px solid aqua;
+       
     }
 
     button {

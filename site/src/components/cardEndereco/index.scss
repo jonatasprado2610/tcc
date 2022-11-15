@@ -1,12 +1,17 @@
-.cxx{
+
+
+   
+
+   .cxx{
+
+    margin-left: 3em;
+    margin-right: 3em;
     cursor: pointer;
-    img{
-        
-        border: 1px solid red;
-    }
-    border: 1px solid red;
+   
+  
     border-radius: 10px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     
     width: 15em;
@@ -22,4 +27,5 @@
         font-family:"BebasNeue-Regular";
     }
 
-   }
+   } 
+

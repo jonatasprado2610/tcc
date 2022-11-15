@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { listarProdutosInicio, procurarCategoriasPorId, procurarCorPorId, procurarImagemPorId, procurarMarcaPorId, procurarProdutoPorId, procurarTamanhoPorId, ProdutosCadastrados, listarProdutosporMarca, listarProdutosporTamanho, listarProdutosporGenero, listarProdutosporCategoria } from "../repository/produtoRepository.js";
+import { listarProdutosInicio, procurarCategoriasPorId, procurarCorPorId, procurarImagemPorId, procurarMarcaPorId, procurarProdutoPorId, procurarTamanhoPorId, ProdutosCadastrados, listarProdutosporMarca, listarProdutosporTamanho, listarProdutosporGenero, listarProdutosporCategoria, listarProdutosInicioc } from "../repository/produtoRepository.js";
 const server = Router();
 
 server.get('/produto', async (req, resp) =>{
@@ -16,6 +16,22 @@ server.get('/produto', async (req, resp) =>{
          });
     }
 });
+
+server.get('/produto/di', async (req, resp) =>{
+    try{
+        const resposta = await listarProdutosInicioc();
+        if(!resposta){
+            throw new Error('CREDENCIAIS INVALIDADAS')
+        }
+        resp.send(resposta)
+        
+    } catch(err){
+         resp.status(401).send({
+             erro:err.message
+         });
+    }
+});
+
 
 server.get('/api/produto/:id', async (req, resp) => {
     try {

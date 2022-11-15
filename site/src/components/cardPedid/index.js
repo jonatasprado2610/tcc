@@ -5,14 +5,13 @@ import { carregarPedidoPorId } from '../../api/pedido';
 
 
 export default function CardPedid(props) {
-    let cliente = Storage('cliente-logado');
-    const id = props.item.id;
+   
 
 
 
 
     useEffect(() => {
-        carregarPedidoPorId(id)
+        carregarPedidoPorId()
     }, [])
 
     return (
