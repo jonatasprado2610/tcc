@@ -113,7 +113,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
-            
             font-family: 'Sen-Regular';
             color: #ffffff;
         }
@@ -122,24 +121,7 @@
 
         // sccs do componente Voltar
 
-        .div-botao {
-            display: flex;
-            flex-direction: row;
-            justify-content: start;
-            width: 100%;
-            height: 7%;
-        }
+        
 
-        .btvoltar {
-            border-radius: 1.7em; 
-            width: 8%;
-            height: 65%;
-            margin-top: 1em;
-            margin-left: 1.2em;
-            border-radius: 1.57m;
-            background-color: #18759C;
-            color: #ffffff;
-            font-family: 'BebasNeue-Regular';
-            font-size: 1.3em;
-        }
+      
 }

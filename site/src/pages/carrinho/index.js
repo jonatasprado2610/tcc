@@ -7,8 +7,9 @@ import Storage from 'local-storage'
 import { carregarProdutosPorId } from '../../api/produtoApi'
 
 import Carrinho2 from '../../components/carrinho2'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Cabecario from '../../components/cabeçario'
+import Voltar from '../../components/voltar'
 
 export default function Carrinho() {
     const[itens,setItens]=useState([])
@@ -71,12 +72,13 @@ export default function Carrinho() {
 
     return (
         <section className='page-carrinho'>
-           
-                <Cabecario/>
+        
+            <Cabecario/>
 
             <div className='x1x'>
+               
                 <h1 className='h1'>Carrinho</h1>
-
+                <Link to='/produtoy'> <p>Voltar as compras</p> </Link>
                 <div className='c1' >
 
                     <div className='cx2'>

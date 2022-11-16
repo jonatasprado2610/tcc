@@ -7,7 +7,7 @@ import { carregarProdutosPorId } from '../../api/produtoApi';
 import Voltar from '../../components/voltar';
 
 
-export default function MeusPedidos(props) {
+export default function DetalhesPedidos(props) {
     const [enderecos, setEnderecos] = useState([]);
     
     

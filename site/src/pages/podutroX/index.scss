@@ -30,12 +30,11 @@
 
     .container1{
       
-        width:70em;
+        width: 100%;
         margin-top: 5em;
         display: flex;
         flex-direction: row;
          justify-content: space-around;
-        
     }
     .p3{
         font-family:"BebasNeue-Regular";
@@ -44,7 +43,7 @@
         
         
     }
-    h1{
+    h2{
       
         width: 409px;
         font-family:"BebasNeue-Regular";
@@ -52,26 +51,29 @@
     
     .container2{
         width: 99%;
-        border-radius: 20px;
-        padding: 5px;
+        border-radius: 18px;
+        padding: 10px;
         width: 22em;
-        border: 0.5px solid #4A4A4A;
+        border: 2.2px solid #b8b8b8;
         
     }
     .container3{
-        width: 99%;
-       margin-top: 2em;
-       margin-bottom: 1em;
         display: flex;
-      
-        height: 20em;
-        
         flex-direction: column;
-
+        justify-content: center;
+        width: 65%;
+        padding-left: 2em;
+        padding-top: 3em;
+      
+        
       
     }
     .xsection{
-        height: 120vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      
+        width: 100%;
     }
     .sub2{
         padding: 5px;
@@ -123,18 +125,16 @@
     }
 
     .sub7{
-       
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
     .sub8{
-        border: 1px solid #747474;
+        border: 2.2px solid #c3c3c3;
         margin-top: 3em;
-       
-        border-radius: 3px;
-        padding: 5px;
+        border-radius: 6px;
+        padding: 8px;
         
     }
    
@@ -168,16 +168,15 @@
     
     }
     .sub9{
-        border: 1px solid #747474;
-      border-radius: 5px;
+        border: 2.2px solid #c3c3c3;
+        border-radius: 6px;
         margin-top: 3em;
-       
-        padding: 5px;
+        padding: 12px;
        
     }
     .sub9 p{
       
-        width: 25em;
+        width: 23em;
     }
     .p2{
         color: #0151CA;
@@ -242,7 +241,7 @@
 }
     .subx1{
       
-        margin-top: 15em;
+        margin-top: 8em;
       
         
         
@@ -278,9 +277,9 @@
         padding: 5px;
         width: 100px;
         height: 100px;
-        border-radius: 3px;
+        border-radius: 6px;
      
-        border: 1px solid #e00000; 
+        border: 2px solid #c3c3c3; 
         }
         
     }

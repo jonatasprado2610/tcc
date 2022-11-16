@@ -95,12 +95,10 @@ export default function Produtrox(){
     return(
         
         <main className='page-px'>
-            <div>
-                
-            </div>
+            <Cabecario></Cabecario>
              
        
-           <section className='xsection'>
+        <section className='xsection'>
             <div className='container1'>
                <div className='subx'>
                         <div className='sub1'>
@@ -213,7 +211,7 @@ export default function Produtrox(){
 
                 <div className='sub7'>
                     <div className='sub8'>
-                        <input type="text" placeholder='Digite aqui sua opniao sobre o produtro' />
+                        <input type="text" placeholder='Digite aqui sua opinião sobre o produto' />
                         <div className='s'> 
                          <img  src='./assets/images/star1.png' alt=''/>
                         <img  src={exibirImagem()} alt=''/>
@@ -245,7 +243,7 @@ export default function Produtrox(){
                 </div>
 
                 <div className='sub7'>  
-                <div className='sub9'>
+                    <div className='sub9'>
                         <h3>joazin</h3>
                         <div className='s'>
                         <img  src={exibirImagem()} alt=''/>
@@ -273,7 +271,7 @@ export default function Produtrox(){
                 </div>
 
             </div>
-            </section>
+        </section>
 
             <div className='subx1'>
               

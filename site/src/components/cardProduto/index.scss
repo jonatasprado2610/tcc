@@ -9,13 +9,13 @@
     .card{
         width: 200px;
         height: 320px;
-   
-     border: 1px solid red;
         margin-left: 3em;
         transition:  .3s;
          margin-top: 2.5em;
+         padding: 0.5em;
+         border-radius: 0.5em;
          .imgx{
-        border: 1px solid red;
+        border-bottom: 2px solid rgb(221, 221, 221);
             height: 180px;
             width: 200px;
         }
