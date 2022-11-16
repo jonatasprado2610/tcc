@@ -1,40 +1,38 @@
 import './index.scss';
 import CardPedid from '../../components/cardPedid';
 import { useEffect, useState } from 'react';
-import Storage from 'local-storage'
-import { carregarPedidoPorId } from '../../api/pedido';
-
+import storage from 'local-storage'
+import { carregarPedidoPorId,ListarPs, listarSt,  } from '../../api/pedido';
+import Cabecario from '../../components/cabeçario';
 
 export default function MeusPedidos() {
 
     const [pedido, setPedidos] = useState([]);
-    const [id, setId] = useState(0);
-
-    const cliente = Storage('cliente-logado').id;
-
+    const id = storage('cliente-logado').id;
+    console.log(id)
 
 
+
+   
     async function Listarx() {
-        
-            const r = await carregarPedidoPorId(setId(r.id));
-            console.log(r)
-            setPedidos(r)
-        
-
+        const r = await carregarPedidoPorId(id);
+        console.log(r);
+        setPedidos(r)
     }
 
-
     useEffect(() => {
-        Listarx()
+        Listarx();
     }, [])
+
 
 
     return (
         <main >
-            <section>
+            <Cabecario/>
+            <section className='c1'>
                 <div>
 
-                    <h1>Meus Pedidosx</h1>
+                    <h1>Meus Pedidos</h1>
                 </div>
 
                 <div>

@@ -1,23 +1,20 @@
 .page-pedc {
 
-    border: 0;
-    margin: 0;
-    padding: 15px 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    border-radius: 5px;
-    height: 15em;
-    border: 1px solid black;
-    margin-top: 3em;
-    margin-bottom: 5em;
+    
     
 
-    box-shadow: 10px 5px 5px rgb(204, 204, 204);
-    box-sizing: 10px 5px 5px rgb(204, 204, 204);
+  
+    .teste{
+      
+        margin-top:    1em;
+        margin-left:   1em;
+        margin-right:  2em;
+        margin-bottom: 1em; 
+    }
+
+    
 
     table {
-        
         align-items: center;
         width: 70em;
         border-collapse: collapse;
@@ -137,5 +134,6 @@
     tr:hover td:nth-last-child(1) img {
         visibility: visible;
     }
+    
 
 }

@@ -1,4 +1,4 @@
-    import CabecarioAdmin from '../../components/cabeçarioAdmin';
+import CabecarioAdmin from '../../components/cabeçarioAdmin';
 import './index.scss';
 import PedidoSc from '../../components/pedido';
 import { ListarPs } from '../../api/pedido';
@@ -30,7 +30,11 @@ export default function PedidoClientes() {
             <section className='section'>
                 {pedido.map(item =>
 
-                    <PedidoSc className='PedidoSc' pedidoId={item.id} item={item.produtos} />
+                    <div>
+                        <PedidoSc className='PedidoSc' pedidoId={item.id} item={item.produtos} />
+                    </div>
+
+
 
                 )}
             </section>

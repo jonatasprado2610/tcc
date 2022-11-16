@@ -95,8 +95,10 @@ export default function Produtrox(){
     return(
         
         <main className='page-px'>
-            
-             <Cabecario/>
+            <div>
+                
+            </div>
+             
        
            <section className='xsection'>
             <div className='container1'>
@@ -275,8 +277,7 @@ export default function Produtrox(){
 
             <div className='subx1'>
               
-                     <Rodape/>
-                
+                     <Rodape/>  
             </div>
 
   

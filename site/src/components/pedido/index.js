@@ -8,18 +8,18 @@ import { useEffect } from 'react';
 export default function PedidoSc(props) {
     const[status, setStatus]= useState();
 
-   async function alterarPedidox() {
-    try{
-        const pedidoId = props.pedidoId;
+        async function alterarPedidox() {
+            try{
+                const pedidoId = props.pedidoId;
 
-        const r =await alterarPedido(pedidoId, status)
-        const a =  listarSt()
-        console.log(a)
-        
-        toast('Status alterado com sucesso')
-    }catch (err) {
-        toast(err.response.data.erro)
-    }
+                const r = await alterarPedido(pedidoId, status)
+                const a =  listarSt()
+                console.log(a)
+                
+                toast('Status alterado com sucesso')
+            }catch (err) {
+                toast(err.response.data.erro)
+            }
 
        
         
@@ -31,7 +31,7 @@ export default function PedidoSc(props) {
 
     return (
         <section className='page-pedc'>
-            <div c>
+            <div  className='teste'>
             <table>
                 <thead>
                     <tr>

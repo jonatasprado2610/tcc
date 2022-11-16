@@ -29,7 +29,12 @@ export async function listarSt() {
 
 
 export async function carregarPedidoPorId(id) {
-    const r = await api.get('/produto/' + id );
+    const r = await api.get('/pedido/' + id );
+    return r.data;
+}
+
+export async function carregarProdutosPorIdsz(id) {
+    const r = await api.get('/admin/produto/' + id );
     return r.data;
 }
 

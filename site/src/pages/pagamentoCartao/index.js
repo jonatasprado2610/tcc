@@ -38,7 +38,7 @@ export default function PagamentoCartao() {
         
 
 
-        if (comprax) {
+        if (carrinho=[]) {
 
             let tempx = [];
 
@@ -50,7 +50,7 @@ export default function PagamentoCartao() {
                     qtd: produto.qtd
                 })
             }
-            console.log(tempx);
+            
             setItens(tempx);
         }
 
@@ -74,13 +74,12 @@ export default function PagamentoCartao() {
 
     }
 
-    function calcularTotal() {
-        let total = 0
-
+    function calcularValorTotal() {
+        let total = 0;
         for (let item of itens) {
-            total = item.qtd * item.produto.info.valor
+            total = total + item.produto.info.valor * item.qtd;
         }
-        return total
+        return total;
     }
 
     function exibirImagem(item) {
@@ -95,6 +94,7 @@ export default function PagamentoCartao() {
         try {
             let ende = Storage('endereco');
             let produtos = Storage('carrinho');
+            let produtosx = Storage('compra');
             let id = Storage('cliente-logado').id;
 
             let pedido =
@@ -111,7 +111,7 @@ export default function PagamentoCartao() {
                     formaPagamento: tipo,
                     parcelas: parcela
                 },
-                produtos: produtos
+                produtos: produtosx
 
             }
 
@@ -216,18 +216,18 @@ export default function PagamentoCartao() {
 
 
                     <div className='x3'>
-                        <input />
+                       
 
-                        <h3>Total:{calcularTotal()}</h3>
+                       
                         <button onClick={salvarPedido} >Finalizar Compra</button>
                     </div>
 
 
                 </div>
                 
-                <div>
+           {/*      <div>
                     
-                <div className='itens'>
+               /* <div className='itens'>
                 <h1>Resumo do pedido</h1>
                 <table>
                     <thead>
@@ -240,14 +240,15 @@ export default function PagamentoCartao() {
                     </thead>
                     <tbody>
 
-                        {itens.map(item =>
+                      
+                    {itens.map(item =>
                             <tr>
                                 <td>
                                     <div className='celula-item'>
-                                        <img  />
+                                        <img src={exibirImagem(item)} />
                                         <div>
                                             <h3> {item.produto.info.nome} </h3>
-
+                                            <h4> {item.produto.info.nomeDepartamento} </h4>
                                         </div>
                                     </div>
                                 </td>
@@ -255,14 +256,12 @@ export default function PagamentoCartao() {
                                     {item.qtd}
                                 </td>
                                 <td>
-                                    R$: {item.produto.info.valor}
-
+                                    R$ {item.produto.info.preco}
                                 </td>
                                 <td>
-                                    R$:  {item.qtd * item.produto.info.valor}
+                                    R$ {item.qtd * item.produto.info.preco}
                                 </td>
                             </tr>
-
                         )}
 
 
@@ -271,8 +270,7 @@ export default function PagamentoCartao() {
             </div>
 
 
-                </div>
-
+                </div> */}
             </section>
 
 

@@ -153,6 +153,30 @@ export async function listarpedidoIdx(id){
 
 }
 
+export async function listarpedidoIdxx(id){
+    const comando=
+    `
+    select tb_pedido.id_pedido    as    id,
+    nm_produto                 as    produto,
+    nm_usuario                 as    Cliente,
+    id_usuario_endereco        as    id_endereo,
+    ds_status                  as    statuxs,
+    dt_pedido                  as    dataPedido,
+    tp_pagamento               as    tipoPagamento,
+    tb_pedido_item.qtd_itens   as qtd,
+    tb_pedido_item. vl_produto as valor              
+    from tb_pedido
+    inner join  tb_usuario     on tb_pedido.id_usuario= tb_usuario.id_usuario
+    inner join  tb_pedido_item on tb_pedido.id_pedido= tb_pedido_item.id_pedido
+    inner join  tb_produto     on tb_pedido_item.id_produto = tb_produto.id_produto
+    where tb_usuario.id_usuario = ? and ds_status= 'entrega confirmada';
+  
+    `    
+    const [registros] = await con.query(comando, [id]);
+    return registros;
+
+}
+
 export async function listarpedidox(){
     const comando=
     `
@@ -176,6 +200,32 @@ select tb_pedido.id_pedido    as    id,
     return registros;
 }
 
+export async function listarpedidoxs(){
+    const comando=
+    `
+    select tb_pedido.id_pedido    as    id,
+    nm_produto                 as    produto,
+    nm_usuario                 as    Cliente,
+    id_usuario_endereco        as    id_endereo,
+    ds_status                  as    statuxs,
+    dt_pedido                  as    dataPedido,
+    tp_pagamento               as    tipoPagamento,
+    tb_pedido_item.qtd_itens   as qtd,
+    tb_pedido_item. vl_produto as valor              
+    from tb_pedido
+    inner join  tb_usuario     on tb_pedido.id_usuario= tb_usuario.id_usuario
+    inner join  tb_pedido_item on tb_pedido.id_pedido= tb_pedido_item.id_pedido
+    inner join  tb_produto     on tb_pedido_item.id_produto = tb_produto.id_produto
+    where ds_status= 'entrega confirmada';
+   
+
+    `
+    const [registros] = await con.query(comando);
+    return registros;
+}
+
+
+
 
 
 
@@ -192,9 +242,22 @@ export async function mostrarStaus() {
 
 
 
-export async function HistoricoCompras() {
+export async function HistoricoComprasx() {
     const comando = `
-    select * from tb_pedido where DS_STATUS = 'finalizado';
+    select tb_pedido.id_pedido    as    id,
+    nm_produto                 as    produto,
+    nm_usuario                 as    Cliente,
+    id_usuario_endereco        as    id_endereo,
+    ds_status                  as    statuxs,
+    dt_pedido                  as    dataPedido,
+    tp_pagamento               as    tipoPagamento,
+    tb_pedido_item.qtd_itens   as qtd,
+    tb_pedido_item. vl_produto as valor              
+    from tb_pedido
+    inner join  tb_usuario     on tb_pedido.id_usuario= tb_usuario.id_usuario
+    inner join  tb_pedido_item on tb_pedido.id_pedido= tb_pedido_item.id_pedido
+    inner join  tb_produto     on tb_pedido_item.id_produto = tb_produto.id_produto
+    where ds_status= 'entrega confirmada'; 
     `
     const [linhas] = await con.query(comando);
     return linhas;

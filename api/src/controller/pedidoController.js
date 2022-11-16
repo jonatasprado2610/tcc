@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { alterarStatusx, alterarStatus, inserirPagamento,  inserirPedido, inserirPedidoItem, listarpedidoIdx, listarpedidox, mostrarStaus, HistoricoCompras } from "../repository/pedidoRepository.js";
+import { alterarStatusx, alterarStatus, inserirPagamento,  inserirPedido, inserirPedidoItem, listarpedidoIdx, listarpedidox, mostrarStaus,  HistoricoComprasx } from "../repository/pedidoRepository.js";
 import { procurarProdutoPorId} from "../repository/produtoRepository.js";
 import { acharCupom,  criarNovoPedido, criarNotaFiscal } from "../services/novoProduto.js"
 const server = Router();
@@ -110,9 +110,7 @@ server.get('/pedido/:id', async (req, resp) => {
 
         resp.send(pedidos);
 
-    
 
-        
 
     }
     catch (err) {
@@ -137,10 +135,20 @@ server.get('/status', async (req, resp) => {
 
 server.get('/historico', async (req, resp) => {
     try {
-        const linhas = await HistoricoCompras();
-        resp.send(linhas);
-    }
-    catch (err) {
+        
+        const r = await HistoricoComprasx ();
+        
+        const pedidos = [];
+        for (let item of r) {
+            if (pedidos.find(x => x.id == item.id))
+                pedidos[pedidos.length-1].produtos.push(item);
+            else 
+                pedidos.push({id: item.id, produtos: [item]})
+        }
+
+
+        resp.send(pedidos);
+    } catch (err) {
         resp.status(400).send({
             erro: err.message
         })

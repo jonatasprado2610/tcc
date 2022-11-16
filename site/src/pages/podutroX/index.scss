@@ -60,20 +60,15 @@
     }
     .container3{
         width: 99%;
-        margin-top: 1em;
+       margin-top: 2em;
+       margin-bottom: 1em;
         display: flex;
       
         height: 20em;
         
         flex-direction: column;
 
-        input{
-            width: 25em;
-            outline: none;
-            padding: 5px 5px;
-            border: 1px solid #747474;
-            border-radius: 1px;
-        }
+      
     }
     .xsection{
         height: 120vh;
@@ -247,7 +242,7 @@
 }
     .subx1{
       
-        
+        margin-top: 15em;
       
         
         

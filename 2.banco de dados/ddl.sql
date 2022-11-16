@@ -110,7 +110,7 @@ create table tb_cupom (
     cod_cupom			varchar(200),
     vl_cupom			decimal(15,2),
     qtd_restante		int
-)
+);
 
 create table tb_pedido (
 	id_pedido			int primary key auto_increment,
