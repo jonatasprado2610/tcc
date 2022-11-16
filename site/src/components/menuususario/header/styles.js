@@ -7,7 +7,6 @@ export const Container = styled.div`
     color: white;
     width: 30px;
     height: 30px;
-    margin-left: 32px;
     cursor: pointer;
   }`;
 

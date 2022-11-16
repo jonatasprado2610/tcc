@@ -1,102 +1,157 @@
-.xpage-cabecario{
-    position:relative;
-    background-color: #0B4E6B;
+.xpage-cabecario {
+    position: relative;
     margin: 0;
     border: 0;
-    width: 100%;
-    height: 6em;
+    .cxcxx {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
 
-.cxcxx{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    .xx1{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-       }
-       p{
-        font-size: 20px;
-        font-family: "BebasNeue-Regular";
-         
-       
-       }
-       p:hover{
-        cursor: pointer;
-       }
-       .xx2{
-        margin-top: 1.6em;
-        height: 1em;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        
-       
-       }
-        h1{
-            margin-top: 23px;
-             font-family: "BebasNeue-Regular";
+        .xx1 {
+            background-color: #0B4E6B;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+        }
+
+        p {
+            font-size: 20px;
+            font-family: "BebasNeue-Regular";
+        }
+
+        p:hover {
+            cursor: pointer;
+        }
+
+        .xx2 {
+            margin-top: 15px;
+            height: 1em;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: "BebasNeue-Regular";
             font-size: 25px;
             color: white;
         }
-        .xsub1{
+
+        .xsub1 {
             display: flex;
             flex-direction: row;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
         }
-        
-        .xsub1 img{
+
+        .xsub1 img {
             flex-direction: row;
             width: 80px;
             height: 80px;
         }
-        .xsub2{
-            display: flex;
-            flex-direction: row;
-            align-items:center ;
-            justify-content: center;
-        }
-        .xsub2 img{
-          
-            width: 25px;
-            height: 25px;
-    
-        }
-        .barra{
-            margin-top: 5px;
-            height: 20px;
-            border: 1px solid rgb(61, 61, 61);
-        }
-    
-        .xsubx{
-            margin-top: 1em;
+
+        .xsub2 {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            
         }
-        .xsubx img{
-          
-            margin-left: 20px;
+
+        .xsub2 img {
+
+            width: 25px;
+            height: 25px;
+
+        }
+
+        .barra {
+            margin-top: 5px;
+            height: 20px;
+            border: 1px solid rgb(61, 61, 61);
+        }
+
+        .xsubx {
+            width: 150px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .xsubx img {
             width: 35px;
             height: 35px;
         }
-        input{
+
+        input {
             outline: 0;
-           border-radius: 5px;
-           border: none;
-          
+            border-radius: 5px;
+            border: none;
+
             height: 2em;
             width: 800px;
             box-shadow: none;
-    
-        }
-        img{
-            cursor: pointer;
-        }  
-}
 
-     
+        }
+
+        img {
+            cursor: pointer;
+        }
+        @media (max-width:1199px){
+            input {
+                width: 400px;
+            }
+        }
+
+        @media (max-width:800px){
+            input {
+                width: 300px;
+            }
+            .xsub1 img {
+                width: 50px;
+                height: 50px;
+            }
+            
+        h1 {
+            font-size: 25px;
+        }
+        .xx1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+        }
+        @media (max-width:600px){
+            input {
+                width: 150px;
+                height: 1em;
+            }
+            .xx1{
+                height: 4em;
+            }
+
+            .xsub1 img {
+                width: 30px;
+                height: 30px;
+            }
+            .xsubx img {
+                width: 30px;
+                height: 30px;
+            }
+            
+        h1 {
+            font-size: 15px;
+        }
+
+        }
+        }
+    }
+    
+
 }

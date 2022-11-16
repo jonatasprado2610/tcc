@@ -4,7 +4,8 @@
     .lado{
         display: flex;
         flex-direction: row;
-        padding: 25px
+        padding: 25px;
+        justify-content: space-around;
     }
     .baixoImagem{
         margin-bottom: 3em;
@@ -22,5 +23,48 @@
     }
     p{
         font-size: 20px;
+    }
+
+    .texto{
+        margin-top: 1.5em;
+        width: 500px;
+        text-align:justify;
+    }
+    @media (max-width:1150px){
+        .baixoImagem{
+            margin-bottom: 1.5em;
+            width: 300px;
+        }
+        .lado{
+            display: flex;
+            flex-direction: row;
+            padding: 15px;
+            justify-content: space-around;
+        }
+
+        h3{
+            margin-top: 10px;
+            font-size: 15px;
+        }
+        p{
+            font-size: 15px;
+        }
+
+        .texto{
+            margin-top: 1.5em;
+            width: 300px;
+            text-align:justify;
+        }
+    
+    }
+    @media (max-width:700px){
+        .lado{
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+    
     }
 }
