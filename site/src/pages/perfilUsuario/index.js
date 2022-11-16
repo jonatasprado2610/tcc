@@ -120,9 +120,17 @@ export default function PerfilUsuario() {
 
 
                 </div>
+                <div>
+                    <h3> Sobre os seus dados </h3>
+                    <p className="texto"> Seus dados são tratados para as finalidades descritas neste documento. Nesse sentido, nós nunca comercializamos ou compartilhamos seus dados pessoais com fins lucrativos ou econômicos.
+                        Ressalta-se que podemos compartilhar seus dados pessoais com empresas que prestam serviços para nós, conforme determinado com base na logística e organização interna da empresa. Tomaremos as medidas disponíveis no mercado e ao nosso alcance para que sejam observadas todas as normas de segurança da informação e para que o tratamento seja realizado com observância estrita das finalidades aqui descritas.
+                        Na Overland, seus dados serão acessados apenas por profissionais devidamente autorizados, respeitando sempre os princípios da finalidade, adequação e necessidade para a realização dos nossos serviços.
+                        Nós te avisaremos caso ocorra qualquer incidente de segurança ou de privacidade envolvendo o tratamento de seus dados pessoais, bem como quais medidas foram adotadas para conter o incidente e como este evento pode impactar você diretamente.
+                        Seus dados pessoais serão armazenados pelo período de tempo necessário para o cumprimento das finalidades do tratamento em questão. O portal do titular sempre está disponível para que você solucione dúvidas em relação ao tratamento de seus dados pessoais, a justificativa de armazenamento, finalidade do tratamento e o tempo que podemos reter seus dados. </p>
+                </div>
 
             </div>
-            <Rodape/>
+            <Rodape />
         </div>
     )
 }

@@ -43,7 +43,7 @@ export default function Cabecario(props) {
                 <div className='xx1'>
 
                     <div className='xsub1'>
-                        <Link to="/"> <img src="/assets/images/image 1067.png" /> </Link>
+                        <Link to="/"> <img className='imagi' src="/assets/images/image 1067.png" /> </Link>
                         <h1> Overland</h1>
 
                     </div>
@@ -55,12 +55,15 @@ export default function Cabecario(props) {
                     </div>
 
                     <div className='xsubx'>
-
+                        <div className='imagenzinhas'> 
                         <Link to="/perfil/usuario"> <img src='/assets/images/image 1066.png' alt='1' /> </Link>
-
+                        </div>
+                        <div className='imagenzinhas'>
                         <Link to="/carrinho"> <img src='/assets/images/image 1065.png' alt='1' /> </Link>
+                        </div>
+                        <div className='imagenzinhas'>
                         <Menuusario />
-
+                        </div>
                     </div>
                 </div>
                 <div className={props.esconder}>

@@ -54,8 +54,8 @@ function App( ) {
     return (
         <div className="page-home">
 
-            <Cabecario />
-            <Carrossel />
+            <Cabecario/>
+            <Carrossel/>
 
            <h1 className="hx">Produtos  em Destaque</h1>
             < div className="x1xc">
