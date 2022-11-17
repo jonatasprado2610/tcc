@@ -1,19 +1,12 @@
 import './index.scss'
-import { listarProdutosporMarca } from '../../api/produtoApi'
-import { listarProdutosporTamanho } from '../../api/produtoApi'
-import { listarProdutosporGenero } from '../../api/produtoApi'
-import { listarProdutosporcategoria } from '../../api/produtoApi'
-import { useState } from 'react'
-
+import { useState, useEffect } from 'react'
 
 export default function Filtros() {
    
-     const [filtroMarca, setFiltoMarca] = useState();
-     const [filtroTamaho, setFiltoTamanho] = useState();
-     const [filtroGenero, setFiltoGenero] = useState();
-     const [filtroCategoria, setFiltoCategoria] = useState();
+     const [Marca, setMarca] = useState();
+     const [Resposta, setResposta] = useState();
 
-
+    
      return (
           <main className='page-filtros'>
 
@@ -21,17 +14,13 @@ export default function Filtros() {
                <div className='c1'>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox"/>
-                         </div>
-                         <div>
-                              <p>Adidas</p>
-
+                              <p onClick={filtrarMarca}>Adidas</p>
                          </div>
                     </div>
 
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" />
+                              <input type="checkbox" value={Marca} onChange={e => setMarca(e.target.value)}/>
                          </div>
                          <div>
                               <p>Umbro</p>
@@ -41,7 +30,7 @@ export default function Filtros() {
 
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" />
+                         <input type="checkbox" value={Marca} onChange={e => setMarca(e.target.value)}/>
                          </div>
                          <div>
                               <p>Puma</p>
@@ -51,7 +40,7 @@ export default function Filtros() {
 
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" />
+                         <input type="checkbox" value={Marca} onChange={e => setMarca(e.target.value)}/>
                          </div>
                          <div>
                               <p>Nike</p>
@@ -60,7 +49,7 @@ export default function Filtros() {
                     </div>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" />
+                         <input type="checkbox" value={Marca} onChange={e => setMarca(e.target.value)}/>
                          </div>
                          <div>
                               <p>Asics</p>
@@ -69,7 +58,7 @@ export default function Filtros() {
                     </div>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" />
+                         <input type="checkbox" value={Marca} onChange={e => setMarca(e.target.value)}/>
                          </div>
                          <div>
                               <p>Mizuno</p>
@@ -78,7 +67,7 @@ export default function Filtros() {
                     </div>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" />
+                         <input type="checkbox" value={Marca} onChange={e => setMarca(e.target.value)}/>
                          </div>
                          <div>
                               <p>Everlast</p>
@@ -87,7 +76,7 @@ export default function Filtros() {
                     </div>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox"/>
+                         <input type="checkbox" value={Marca} onChange={e => setMarca(e.target.value)}/>
                          </div>
                          <div>
                               <p>Under Armour</p>
@@ -96,7 +85,7 @@ export default function Filtros() {
                     </div>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox" />
+                         <input type="checkbox" value={Marca} onChange={e => setMarca(e.target.value)}/>
                          </div>
                          <div>
                               <p>Lacoste</p>
@@ -105,7 +94,7 @@ export default function Filtros() {
                     </div>
                     <div className='c2'>
                          <div>
-                              <input type="checkbox"  />
+                         <input type="checkbox" value={Marca} onChange={e => setMarca(e.target.value)}/>
                          </div>
                          <div>
                               <p>Fila</p>
@@ -131,7 +120,7 @@ export default function Filtros() {
 
                </div>
 
-               <h3>Gênero</h3>
+               <h3>Genero</h3>
 
                <div className="c3">
 

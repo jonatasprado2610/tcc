@@ -5,37 +5,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
 import { useEffect, useState } from 'react';
 import Menuusario from '../menuususario/header'
+import { filtroporNome } from '../../api/produtoApi';
 
 export default function Cabecario(props) {
-    /* 
-        const [filtro, setFiltro]= useState('');
-        const [produtos, setProdutos ] = useState([]);
-    
-        async function Filtrar(){
-            const resp= await buscarProPorNome(filtro);
-           setProdutos(resp)
-        }
-    
-        async function carregarProdutos(){
-            const r = await buscarProdutos();
-            setProdutos(r);
-            }
-        const navigate = useNavigate();
-    
-       useEffect(() =>{
-            if(storage('asuario-logado')){
-                    navigate('/perfil/usuario')
-            }
+
+    const [Produtos, setProdutos] = useState([]);
+    const [Nome, setNome] = useState('');
+    const navigate= useNavigate();
+
+    async function filtrarNome() {
+        const resp = await filtroporNome(Nome);
+        setProdutos(resp);
+
      
-        }, [])
-        useEffect(() =>{
-            if(!storage('asuario-logado')){
-                    navigate('/loginusu')
-            }
-     
-        }, [])
-     
-     */
+    }
+
+    console.log(Produtos)
     return (
 
         <section className='xpage-cabecario'>
@@ -49,8 +34,8 @@ export default function Cabecario(props) {
                     </div>
 
                     <div className='xsub2'>
-
-                        <input type="text" placeholder="O que você procura? ;-;" />
+                            <input type="text" className='search-txt' placeholder='O que você procura? ;-;' value={Nome} onChange={e => setNome(e.target.value)} />
+                            <Link to = '/produtoy' onClick={filtrarNome}> <img src='/assets/images/lupa2.png' /> </Link>
 
                     </div>
 

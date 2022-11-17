@@ -1,15 +1,17 @@
 import './index.scss'
-import Filtros from '../../components/filtros'
-import Cabecario from '../../components/cabeçario'
+import Cabecario from '../../components/cabeçario';
 import Rodape from '../../components/Rodape'
 import CardP from '../../components/cardProduto'
 import { useEffect, useState } from 'react'
 import { listarProdutosIncioxxc} from '../../api/produtoApi'
-import Storage from 'local-storage'
-export default function  Produtoy() {
 
-  
-      const[produto,setProduto]=useState([]);
+
+
+
+export default function  Produtoy() {
+    
+    
+    const[produto,setProduto]=useState([]);
 
       async function listar(){
         const r  = await listarProdutosIncioxxc();
@@ -27,11 +29,10 @@ export default function  Produtoy() {
             <Cabecario />
 
             <div className='sx1'>
-                <Filtros />
 
 
                 <div className='sx2'>
-                    <h1>Resultados para ? </h1>
+                    <h1>Resultados para </h1>
 
 
                     <div className='sxD'>
