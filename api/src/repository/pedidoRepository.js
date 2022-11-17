@@ -247,7 +247,7 @@ export async function HistoricoComprasx() {
     select tb_pedido.id_pedido    as    id,
     nm_produto                 as    produto,
     nm_usuario                 as    Cliente,
-    id_usuario_endereco        as    id_endereo,
+    tb_usuario_endereco.ds_cep					   as CEP,
     ds_status                  as    statuxs,
     dt_pedido                  as    dataPedido,
     tp_pagamento               as    tipoPagamento,
@@ -257,6 +257,7 @@ export async function HistoricoComprasx() {
     inner join  tb_usuario     on tb_pedido.id_usuario= tb_usuario.id_usuario
     inner join  tb_pedido_item on tb_pedido.id_pedido= tb_pedido_item.id_pedido
     inner join  tb_produto     on tb_pedido_item.id_produto = tb_produto.id_produto
+    inner join tb_usuario_endereco  on   tb_pedido.id_usuario_endereco = tb_usuario_endereco.id_usuario_endereco 
     where ds_status= 'entrega confirmada'; 
     `
     const [linhas] = await con.query(comando);

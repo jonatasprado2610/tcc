@@ -5,12 +5,24 @@
     
     overflow-x: hidden;
    
-
+    .sai{
+        visibility: hidden;
+    }
     .img1{
           
           justify-content: center;
           height: 200px;
           width: 400px;
+    }
+    .x{
+        outline: none;
+        width: 300px;
+        border-bottom: 3px solid #0B4E6B;
+    }
+    .x2{
+        outline: none;
+        width: 50px;
+        border-bottom: 3px solid #0B4E6B;
     }
 
     .sux{
@@ -40,6 +52,7 @@
         font-family:"BebasNeue-Regular";
         font-size: 40px;
         text-align: center;
+        margin-right: 3em;
         
         
     }
@@ -58,16 +71,26 @@
         
     }
     .container3{
+        
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        width: 65%;
+        justify-content: space-around;
+        
+        width: 100%;
         padding-left: 2em;
         padding-top: 3em;
       
         
       
     }
+    .sx{
+       
+        width: 800px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
     .xsection{
         display: flex;
         flex-direction: column;
@@ -135,7 +158,8 @@
         margin-top: 3em;
         border-radius: 6px;
         padding: 8px;
-        
+        margin-left: 3em;
+        height: 100px;
     }
    
 
@@ -149,6 +173,7 @@
         color: white;
         background-color: #0B4E6B;
         border-radius: 10px;
+       
     }
     .sub8 button:hover{
         background-color: #0b658b;
@@ -168,7 +193,19 @@
         border-radius: 6px;
         margin-top: 3em;
         padding: 12px;
-       
+        width: max-content;
+        
+        margin-left: 2em;
+    }
+
+    .sub39{
+        border: 2.2px solid #c3c3c3;
+        border-radius: 6px;
+        margin-top: 3em;
+        padding: 12px;
+        width: max-content;
+        
+        margin-left: 2em;
     }
     .sub9 p{
       
@@ -224,6 +261,41 @@
         padding: 5px;
         background-color: #F8F8F8;
         border-radius: 5px;
+    }
+
+    .cont-avaliacao-star{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        margin: 0px;
+        padding: 0px;
+
+        width: 7em;
+        height:2.4em;
+        .star-icon{
+            list-style-type: none;
+            cursor: pointer;
+            color: #4a36ff;
+
+            font-size: 30px;
+            margin: 0px;
+        }
+        .star-icon::before{
+            
+            content:"\2605";
+        }
+        .star-icon.ativo ~ .star-icon::before{
+            content: "\2606";
+        }
+
+        .cont-avaliacao-star:hover .star-icon::before{
+            content: "\2605";
+        }
+        .star-icon:hover ~ .star-icon::before{
+            content: "\2606";
+        }
     }
 .s{  
      

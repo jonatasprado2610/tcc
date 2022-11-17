@@ -3,6 +3,7 @@ import His from "../../components/historico";
 import { HistoricoComprass } from "../../api/pedido";
 import CabecarioAdmin from '../../components/cabeçarioAdmin';
 import { useEffect, useState } from 'react';
+import "./index.scss"
 export default function HistoricoCompras() {
 
     const [pedido, setPedidos] = useState([]);
@@ -19,9 +20,9 @@ export default function HistoricoCompras() {
     return (
         <main className='pa'>
 
-            <CabecarioAdmin />
+            <CabecarioAdmin className="ba"/>
 
-            <div> <h1>Historico de Compras</h1> </div>
+            <div className="MA"> <h1>Historico de Compras</h1> </div>
 
 
 

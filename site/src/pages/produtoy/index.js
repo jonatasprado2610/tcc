@@ -26,7 +26,7 @@ export default function  Produtoy() {
     return (
         <main className='page-pr'       
         >
-            <Cabecario />
+            <Cabecario esconder='sai' />
 
             <div className='sx1'>
 

@@ -354,3 +354,121 @@ export async function ProdutosCadastrados() {
     const [registros] = await con.query(comando);
     return registros
 };
+
+export async function listarProdutosporMarca(marca) {
+    const comando = `
+    select  tb_produto.ID_PRODUTO    id,   
+    NM_PRODUTO                       nome,
+    DS_IMAGEM                        imagem,
+    VL_PRECO_POR                     precopar,
+    NM_MARCA                         marca
+    from tb_produto
+    inner join tb_produto_imagem on tb_produto_imagem.ID_PRODUTO = tb_produto.ID_PRODUTO
+    inner join tb_produto_marca on tb_produto_marca.ID_PRODUTO = tb_produto_marca.ID_PRODUTO
+    inner join tb_marca on tb_marca.ID_MARCA = tb_produto_marca.ID_MARCA
+    where nm_marca = ?;
+     `
+    const [registros] = await con.query(comando, marca)
+    return registros
+};
+
+export async function listarProdutosporTamanho(tamanho) {
+    const comando = `    
+    select  tb_produto.ID_PRODUTO    id,   
+    NM_PRODUTO                       nome,
+    DS_IMAGEM                        imagem,
+    VL_PRECO_POR                     precopar,
+    DS_TAMANHO                       tamanho
+    from tb_produto
+    inner join tb_produto_imagem on tb_produto_imagem.ID_PRODUTO = tb_produto.ID_PRODUTO
+    inner join tb_produto_tamanho on tb_produto_tamanho.ID_PRODUTO = tb_produto_tamanho.ID_PRODUTO
+    inner join tb_tamanho on tb_tamanho.ID_TAMANHO = tb_produto_TAMANHO.ID_TAMANHO
+    where ds_tamanho = ?;
+     `
+    const [registros] = await con.query(comando, tamanho)
+    return registros
+};
+
+export async function listarProdutosporGenero(genero) {
+    const comando = `
+    select  tb_produto.ID_PRODUTO    id,   
+    NM_PRODUTO                       nome,
+    DS_IMAGEM                        imagem,
+    VL_PRECO_POR                     precopar,
+    NM_CATEGORIA                     gênero
+    from tb_produto
+    inner join tb_produto_imagem on tb_produto_imagem.ID_PRODUTO = tb_produto.ID_PRODUTO
+    inner join tb_produto_categoria on tb_produto_categoria.ID_PRODUTO = tb_produto_categoria.ID_PRODUTO
+    inner join tb_categoria on tb_categoria.ID_CATEGORIA = tb_produto_categoria.ID_CATEGORIA
+    where nm_categoria = ?;
+    `
+    const [registros] = await con.query(comando, genero)
+    return registros
+};
+
+export async function listarProdutosporCategoria(categoria) {
+    const comando = `
+    select  tb_produto.ID_PRODUTO    id,   
+    NM_PRODUTO                       nome,
+    DS_IMAGEM                        imagem,
+    VL_PRECO_POR                     precopar,
+    NM_CATEGORIA                     categoria
+    from tb_produto
+    inner join tb_produto_imagem on tb_produto_imagem.ID_PRODUTO = tb_produto.ID_PRODUTO
+    inner join tb_produto_categoria on tb_produto_categoria.ID_PRODUTO = tb_produto_categoria.ID_PRODUTO
+    inner join tb_categoria on tb_categoria.ID_CATEGORIA = tb_produto_categoria.ID_CATEGORIA
+    where nm_categoria = ?;
+    `
+    const [registros] = await con.query(comando, categoria)
+    return registros
+};
+
+
+
+export async function Avaliacao(idUsuario,idProduto,AvaliacaoX,dsAva){
+    const comando =
+
+    `
+    insert into tb_produto_avaliacao(id_usuario,id_produto,VL_AVALIACAO	, DS_AVALIACAO_PRODUTO)
+    values (?,?,?,?);
+    `
+    const [resp] = await con.query ( comando, [idUsuario,idProduto,AvaliacaoX,dsAva])
+    return resp
+}
+
+
+export async function ExibirAva() {
+    const comando = `
+    select 
+    ID_PRODUTO_AVALIACAO   id,
+    id_usuario             idUsuario,
+    id_produto            idProduto,
+    VL_AVALIACAO          Avaliacao,
+    DS_AVALIACAO_PRODUTO         DsAvalicao
+    
+    from tb_produto_avaliacao;
+    `
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
+
+
+export async function buscarAvaPord(id) {
+    const comando = 
+  
+      `select 
+      
+       ID_PRODUTO_AVALIACAO    idv,
+       id_usuario              idUsuario,
+       id_produto              idProduto,
+       VL_AVALIACAO            Avaliacao,
+       DS_AVALIACAO_PRODUTO    DsAvalicao
+       
+       from tb_produto_avaliacao where id_produto = ?
+       
+         `
+    
+
+    const [linhas] = await con.query(comando, [id]);
+    return linhas;
+}

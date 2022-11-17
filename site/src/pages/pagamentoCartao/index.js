@@ -135,6 +135,7 @@ export default function PagamentoCartao() {
 
     return (
         <main className='page-cartao'>
+            <Cabecario esconder="sai"/>
 
             <section className='section'>
                 <div className='x1'>
