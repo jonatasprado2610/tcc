@@ -2,9 +2,10 @@
 
 import './index.scss';
 import { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { loginU } from '../../api/usuario';
 import Storage from 'local-storage';
+import Voltar from '../../components/voltar'
 
 import { toast } from 'react-toastify';
 
@@ -46,7 +47,8 @@ export default function LoginUsuarios() {
 
     return (
         <main className='page-loginusu'>
-
+            <div className='divbt'> <Voltar pag='/'></Voltar></div>
+           
             <div className='container1'>
                 <div>
                     <img src="./assets/images/image 1067.png" alt="" />
@@ -65,12 +67,12 @@ export default function LoginUsuarios() {
                 </div>
 
                 <div className="cx">
-                    <button onClick={entrarClick}  >
+                    <button className='button-entrar' onClick={entrarClick}  >
                         Entrar
                     </button>
                 </div>
 
-                <p>Não tem uma conta? <a>Clique aqui</a> e cadastre-se</p>
+                <p>Não tem uma conta? <Link to='/cadastrarusuario'>Clique aqui</Link> e cadastre-se</p>
 
                 <h1>Overland</h1>
             </div>
