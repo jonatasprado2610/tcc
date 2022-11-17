@@ -11,6 +11,9 @@ QTD_ITENS						int,
 BL_CATEGORIA_DIARIA				bool,
 DS_DESCRICAO					varchar(1000)
 );
+
+
+
 create table tb_categoria(
 ID_CATEGORIA					int primary key auto_increment,
 NM_CATEGORIA					varchar(100)

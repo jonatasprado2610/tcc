@@ -77,4 +77,6 @@ server.get('/usuario/perfil/:id' ,async(req,resp) => {
     }
 });
 
+
+
 export default server;

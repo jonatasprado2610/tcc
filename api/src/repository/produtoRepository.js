@@ -422,3 +422,53 @@ export async function listarProdutosporCategoria(categoria) {
     const [registros] = await con.query(comando, categoria)
     return registros
 };
+
+
+
+export async function Avaliacao(idUsuario,idProduto,AvaliacaoX,dsAva){
+    const comando =
+
+    `
+    insert into tb_produto_avaliacao(id_usuario,id_produto,VL_AVALIACAO	, DS_AVALIACAO_PRODUTO)
+    values (?,?,?,?);
+    `
+    const [resp] = await con.query ( comando, [idUsuario,idProduto,AvaliacaoX,dsAva])
+    return resp
+}
+
+
+export async function ExibirAva() {
+    const comando = `
+    select 
+    ID_PRODUTO_AVALIACAO   id,
+    id_usuario             idUsuario,
+    id_produto            idProduto,
+    VL_AVALIACAO          Avaliacao,
+    DS_AVALIACAO_PRODUTO         DsAvalicao
+    
+    from tb_produto_avaliacao;
+    `
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
+
+
+export async function buscarAvaPord(id) {
+    const comando = 
+  
+      `select 
+      
+       ID_PRODUTO_AVALIACAO    idv,
+       id_usuario              idUsuario,
+       id_produto              idProduto,
+       VL_AVALIACAO            Avaliacao,
+       DS_AVALIACAO_PRODUTO    DsAvalicao
+       
+       from tb_produto_avaliacao where id_produto = ?
+       
+         `
+    
+
+    const [linhas] = await con.query(comando, [id]);
+    return linhas;
+}
