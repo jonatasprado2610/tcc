@@ -1,7 +1,9 @@
 .page-ender {
-    margin: 0;
-    padding: 0;
-
+    margin: 0px;
+    padding: 0px;
+    .sai{
+        visibility: hidden;
+    }
     h1 {
         margin-top: 1em;
         font-family: "BebasNeue-Regular";
@@ -14,45 +16,45 @@
 
             font-family: "BebasNeue-Regular";
         }
+        display: flex;
+        flex-wrap: wrap;
 
-        height: 35em;
         width: 100%;
+    }
+    .center{
+        padding: 15px;
+        justify-content: center;
+        text-align: center;
     }
 
     .cx1 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        flex-direction: row;
+
         h1{
             font-size: 40px;
         }
 
-        margin-top: 5em;
- 
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        margin-left: 36em;
             div{
                 align-items: center;
             }
         img { 
             margin-top: 3em;
-            margin-left: 1em;
-            width: 100px;
             height: 50px;
         }
     }
 
     .cx2 {
-        margin-top: 1em;
-        margin-left: 1.5em;
+        flex-wrap: wrap;
         padding: 10px 10px;
-
-        border-radius: 5px;
-        border: 1px solid black;
         display: flex;
         justify-content: center;
         justify-content: space-around;
         text-align: center;
-        width: 90em;
+        width: 90%;
         flex-direction: row;
 
     }
@@ -70,7 +72,7 @@
         border-radius: 10px;
         display: flex;
         flex-direction: column;
-        padding: 5px;
+        padding: 15px;
         justify-content: space-around;
         text-align: center;
         border: 1px solid rgb(167, 167, 167);
@@ -91,17 +93,24 @@
     .cs {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
 
     }
 
     .cxx {
+        align-items: center;
+        text-align: center;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
         padding: 5px;
-        width: 15em;
+        height: 15em;
         text-align: center;
         border: 1px solid rgb(167, 167, 167);
+        margin: 20px;
 
         h3 {
             margin-top: 2.5em;

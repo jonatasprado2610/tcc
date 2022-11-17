@@ -40,16 +40,16 @@ export default function Endereco () {
    
     return (
         <main className="page-endereco">
-            <Cabecario></Cabecario>
+            <Cabecario esconder="sai"/>
 
           
-            
+            <h1> Cadastre seu novo endereço</h1> 
         <div className="c1">
             
           <div>
                 <div className="c2">
                     <div>
-                        <h3>referencia</h3>
+                        <h3>referência</h3>
                         <input type='text'  value={referencia} onChange={e => setReferencia(e.target.value)} />
                     </div>
 
@@ -66,7 +66,7 @@ export default function Endereco () {
                     </div>
 
                     <div>
-                        <h3>logradouro</h3>
+                        <h3>logradouro ( casa ou apartamento ) </h3>
                         <input type='text'   value={logradouro} onChange={e => setLogradouro(e.target.value)}  />
                     </div>
                 </div>
@@ -90,7 +90,7 @@ export default function Endereco () {
                     </div>
 
                     <div>
-                        <h3>numero</h3>
+                        <h3>número</h3>
                         <input type='text'   value={numero} onChange={e => setNumero(e.target.value)}  />
                     </div>
                 </div>

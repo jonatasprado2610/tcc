@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { API_URL } from '../../api/config';
 import './index.scss'
 import Storage from 'local-storage'
+import Cabecario from '../cabeçario';
 
 export default function Carrinho2({item: {produto:{info, categorias, imagens}, qtd},removerItem,}) {
     

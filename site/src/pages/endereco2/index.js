@@ -42,9 +42,10 @@ export default function Ender() {
     return (
 
         <main className='page-ender'>
+            <Cabecario esconder='sai'/>
                    <h1>Selecione um local de entrega</h1>    
 
-            <section>
+            <section className='center'>
              
                 
 
@@ -70,16 +71,13 @@ export default function Ender() {
                         {enderecos.map(item =>
                             <CrdEndereco item={item} />
                         )}
-
-
-
                     </div>
 
 
                 </div>
                 
                
-                     <div className='cx1'>
+                <div className='cx1'>
                     <div>
                         <h1>Entrega 100% segurança</h1>
                     </div>

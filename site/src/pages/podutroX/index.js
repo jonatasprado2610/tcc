@@ -136,12 +136,12 @@ export default function Produtrox() {
     return (
 
         <main className='page-px'>
-            <Cabecario></Cabecario>
-
-
-            <section className='xsection'>
-                <div className='container1'>
-                    <div className='subx'>
+            <Cabecario esconder='sai'/>
+             
+       
+        <section className='xsection'>
+            <div className='container1'>
+               <div className='subx'>
                         <div className='sub1'>
                             <img className='img1' src={exibirImagemPrincipal()} alt='' />
                         </div>

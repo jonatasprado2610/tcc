@@ -12,6 +12,7 @@
         .xx1 {
             background-color: #0B4E6B;
             display: flex;
+            width: 100vw;
             flex-direction: row;
             justify-content: space-around;
             align-items: center;
@@ -129,6 +130,13 @@
             text-align: center;
         }
         @media (max-width:600px){
+            
+        .xsubx {
+            width: 150px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
             input {
                 width: 150px;
                 height: 1em;

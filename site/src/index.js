@@ -24,4 +24,3 @@ root.render(
         <Rotas/>
   </React.StrictMode>
 );
-
