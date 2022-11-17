@@ -95,7 +95,7 @@ export default function Produtrox(){
     return(
         
         <main className='page-px'>
-            <Cabecario></Cabecario>
+            <Cabecario esconder='sai'/>
              
        
         <section className='xsection'>

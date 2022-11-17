@@ -73,7 +73,7 @@ export default function Carrinho() {
     return (
         <section className='page-carrinho'>
         
-            <Cabecario/>
+            <Cabecario esconder='sai'/>
 
             <div className='x1x'>
                

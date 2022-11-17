@@ -46,9 +46,9 @@ useEffect(() => {
     return(
         <main className='tudo'>
                 <CabecarioAdmin/>
-                 <h1>ESTOQUE</h1>
+                <h1>ESTOQUE DE PRODUTOS</h1>
             <div className='s1xx'>
-             
+
                 <div>
                     <input type="text" placeholder='BUSCAR EM ESTOQUE' value={filtro} onChange={e => setFiltro(e.target.value)} />
                 </div>

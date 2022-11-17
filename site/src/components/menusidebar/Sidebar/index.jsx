@@ -45,8 +45,6 @@ function sairClick(){
         <Link to="/admin/cadastrarCupom">  <SidebarItem Icon={BsFillBookmarkFill} Text="Cupons" /> </Link>
         <Link to="/estoque">  <SidebarItem Icon={FaBox} Text="Estoque" /> </Link>
         <Link to="/admin/Historico" > <SidebarItem Icon={FaHistory} Text="Históricos" />  </Link>
-        <Link to="/perfiladmin">  <SidebarItem Icon={FaChartBar} Text="Gráficos" /> </Link>
-        <Link to="/perfiladmin">  <SidebarItem Icon={MdFeedback} Text="Avaliações" /> </Link>  
         </div>
        <div className='' onClick={sairClick} > <SidebarItem Icon={ImExit} Text="Sair" /> </div> 
       </Content>

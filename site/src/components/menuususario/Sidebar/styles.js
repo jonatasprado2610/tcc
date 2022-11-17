@@ -10,12 +10,9 @@ export const Container = styled.div`
   left: ${props => props.sidebar ? '0' : '-100%'};
   animation: showSidebar .4s;
   > svg {
-    position: fixed;
     color: white;
     width: 30px;
     height: 30px;
-    margin-top: 32px;
-    margin-left: 32px;
     cursor: pointer;
   }
   @keyframes showSidebar {
