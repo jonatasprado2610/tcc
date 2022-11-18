@@ -2,25 +2,21 @@
 import './index.scss';
 
 import { Link, useNavigate } from 'react-router-dom';
-import storage from 'local-storage';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Menuusario from '../menuususario/header'
 import { filtroporNome } from '../../api/produtoApi';
 
 export default function Cabecario(props) {
 
-    const [Produtos, setProdutos] = useState([]);
+    //const [Produtos, setProdutos] = useState([]);
     const [Nome, setNome] = useState('');
     const navigate= useNavigate();
 
     async function filtrarNome() {
         const resp = await filtroporNome(Nome);
-        setProdutos(resp);
-
-     
+        props.filtrarPorNome(resp);
     }
 
-    console.log(Produtos)
     return (
 
         <section className='xpage-cabecario'>

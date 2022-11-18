@@ -31,6 +31,7 @@ export default function Carrossel() {
     
      <section className='xxpage-c1'>
         <Carousel
+         showDots={false}
         swipeable={false}
         draggable={false}
         infinite={true}

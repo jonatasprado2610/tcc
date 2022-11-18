@@ -44,8 +44,6 @@ export default function Cadastrar() {
     const { id } = useParams(); 
     async function salvar() {
         try {
-            const prevoProduto = Number(precoDe.replace(',', '.'));
-            
             if(!id){
             const r = await salvarProduto( nome, precoDe, precoPor, maxParcelas, qtdItens, categoriaDiaria, descricao,
                  marcasSelecionadas, tamanhosSelecionados, coresSelecionadas, catSelecionadas );

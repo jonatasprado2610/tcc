@@ -18,6 +18,10 @@ export default function  Produtoy() {
         setProduto(r)
       }
 
+      function filtrarPorNome(produtos) {
+        setProduto(produtos);
+      }
+
 
       useEffect(()=>{
            listar();
@@ -26,7 +30,7 @@ export default function  Produtoy() {
     return (
         <main className='page-pr'       
         >
-            <Cabecario esconder='sai' />
+            <Cabecario esconder='sai' filtrarPorNome={filtrarPorNome} />
 
             <div className='sx1'>
 

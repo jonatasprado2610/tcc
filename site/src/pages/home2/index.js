@@ -14,7 +14,7 @@ import './index.scss'
 
 function App( ) {
     const [produtos, setProdutos] = useState([]);
-    
+    const[produto,setProduto]=useState([]);
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -33,6 +33,9 @@ function App( ) {
         }
     };
 
+    function filtrarPorNome(produtos) {
+        setProduto(produtos);
+      }
 
 
     async function listar() {
@@ -54,8 +57,8 @@ function App( ) {
     return (
         <div className="page-home">
 
-            <Cabecario/>
-            <Carrossel/>
+            <Cabecario  filtrarPorNome={filtrarPorNome}/>
+            <Carrossel />
 
            <h1 className="hx">Produtos  em Destaque</h1>
             < div className="x1xc">

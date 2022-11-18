@@ -37,23 +37,6 @@ export async function filtroporNome(nome) {
     return r.data;
 }
 
-export async function listarProdutosporTamanho(tamanho) {
-    const r = await api.get('/produtos/tamanho/' + tamanho );
-    return r.data;
-}
-
-export async function listarProdutosporGenero(genero) {
-    const r = await api.get('/produtos/gender/' + genero );
-    return r.data;
-}
-
-export async function listarProdutosporcategoria(categoria) {
-    const r = await api.get('/produtos/categoria/' + categoria );
-    return r.data;
-}
-
-
-
 export async function Avaliar(idUsuario,idProduto,AvaliacaoX,dsAva){
     const r = await api.post('/avaliacao', {idUsuario,idProduto,AvaliacaoX,dsAva})
 }
